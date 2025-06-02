@@ -1,0 +1,410 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Admin - Manage Consultant Skills{% endblock %}
+{% block extra_css %}
+    <style>
+        /* Animation for modals */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal-animate {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+        
+        /* Custom scrollbar for skill list */
+        .skills-container {
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e0 #f1f1f1;
+        }
+        
+        .skills-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .skills-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .skills-container::-webkit-scrollbar-thumb {
+            background-color: #cbd5e0;
+            border-radius: 10px;
+        }
+        
+        /* Transition for skill items */
+        .skill-item {
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateX(5px);
+        }
+
+        /* Fix modal vertical alignment */
+        #addSkillModal > div,
+        #editSkillModal > div {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            min-height: 100vh !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            text-align: center !important;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <!-- Header Section -->
+            <div class="px-6 py-5 border-b border-gray-200 flex justify-between items-center">
+                <h2 class="text-2xl font-semibold text-gray-800 flex items-center">
+                    <i class="fas fa-cog mr-3 text-blue-500"></i>
+                    Skill Master
+                </h2>
+                <button 
+                    onclick="openAddSkillModal()"
+                    class="flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+                >
+                    <i class="fas fa-plus mr-2"></i>
+                    Add Skill
+                </button>
+            </div>
+            
+            <!-- Skills List Section -->
+            <div class="p-6">
+                <h3 class="text-lg font-medium text-gray-800 mb-4">Current Skills</h3>
+                
+                <div class="skills-container max-h-96 overflow-y-auto pr-2">
+                    <div id="skillsList" class="space-y-3">
+                        <!-- Skills will be dynamically added here -->
+                    </div>
+                    
+                    <!-- Empty state -->
+                    <div id="emptyState" class="text-center py-10">
+                        <i class="fas fa-clipboard-list text-4xl text-gray-300 mb-3"></i>
+                        <p class="text-gray-500">No skills added yet. Click "Add Skill" to get started.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Add Skill Modal -->
+    <div id="addSkillModal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <!-- Background overlay -->
+            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+            
+            <!-- Modal content -->
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full modal-animate">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">
+                            Add New Skill
+                        </h3>
+                        <button onclick="closeModal('addSkillModal')" class="text-gray-400 hover:text-gray-500">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <div class="mb-6">
+                            <label for="skillName" class="block text-sm font-medium text-gray-700 mb-1">
+                                Skill Name <span class="text-red-500">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="skillName"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Enter skill name (e.g. JavaScript, Project Management)"
+                                autofocus
+                            >
+                            <p id="skillError" class="mt-1 text-sm text-red-600 hidden">Skill name is required</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button 
+                        type="button" 
+                        onclick="addSkill()"
+                        class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+                    >
+                        Add Skill
+                    </button>
+                    <button 
+                        type="button" 
+                        onclick="closeModal('addSkillModal')"
+                        class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                    >
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Edit Skill Modal -->
+    <div id="editSkillModal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <!-- Background overlay -->
+            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+            
+            <!-- Modal content -->
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full modal-animate">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">
+                            Edit Skill
+                        </h3>
+                        <button onclick="closeModal('editSkillModal')" class="text-gray-400 hover:text-gray-500">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <div class="mb-6">
+                            <label for="editSkillName" class="block text-sm font-medium text-gray-700 mb-1">
+                                Skill Name <span class="text-red-500">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="editSkillName"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Enter skill name"
+                            >
+                            <p id="editSkillError" class="mt-1 text-sm text-red-600 hidden">Skill name is required</p>
+                        </div>
+                        <input type="hidden" id="editSkillId">
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button 
+                        type="button" 
+                        onclick="updateSkill()"
+                        class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+                    >
+                        Save Changes
+                    </button>
+                    <button 
+                        type="button" 
+                        onclick="closeModal('editSkillModal')"
+                        class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                    >
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block extra_js %}
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        let skills = [];
+        let editingSkillId = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchSkills();
+        });
+
+        function fetchSkills() {
+            fetch('/auth/skills/')
+                .then(response => response.json())
+                .then(data => {
+                    skills = data;
+                    renderSkills();
+                })
+                .catch(error => {
+                    console.error('Error fetching skills:', error);
+                });
+        }
+
+        function openAddSkillModal() {
+            document.getElementById('skillName').value = '';
+            document.getElementById('skillError').classList.add('hidden');
+            document.getElementById('addSkillModal').classList.remove('hidden');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+
+        function addSkill() {
+            const skillName = document.getElementById('skillName').value.trim();
+            const errorElement = document.getElementById('skillError');
+
+            if (!skillName) {
+                errorElement.classList.remove('hidden');
+                return;
+            }
+
+            fetch('/auth/skills/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+                body: JSON.stringify({ name: skillName })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    console.error('Failed to add skill, status:', response.status);
+                    return response.json().then(errData => {
+                        console.error('Error details:', errData);
+                        alert('Failed to add skill: ' + (errData.detail || 'Unknown error'));
+                        throw new Error('Failed to add skill');
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                skills.push(data);
+                renderSkills();
+                closeModal('addSkillModal');
+            })
+            .catch(error => {
+                console.error('Error adding skill:', error);
+            });
+        }
+
+        function openEditModal(skillId) {
+            const skill = skills.find(s => s.id === skillId);
+            if (!skill) return;
+
+            editingSkillId = skillId;
+            document.getElementById('editSkillName').value = skill.name;
+            document.getElementById('editSkillId').value = skillId;
+            document.getElementById('editSkillError').classList.add('hidden');
+
+            document.getElementById('editSkillModal').classList.remove('hidden');
+        }
+
+        function updateSkill() {
+            const newName = document.getElementById('editSkillName').value.trim();
+            const errorElement = document.getElementById('editSkillError');
+
+            if (!newName) {
+                errorElement.classList.remove('hidden');
+                return;
+            }
+
+            fetch(`/auth/skills/${editingSkillId}/`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+                body: JSON.stringify({ name: newName })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to update skill');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const index = skills.findIndex(s => s.id === editingSkillId);
+                if (index !== -1) {
+                    skills[index] = data;
+                    renderSkills();
+                    closeModal('editSkillModal');
+                }
+            })
+            .catch(error => {
+                console.error('Error updating skill:', error);
+            });
+        }
+
+        function deleteSkill(skillId) {
+            if (!confirm('Are you sure you want to delete this skill? This action cannot be undone.')) {
+                return;
+            }
+
+            fetch(`/auth/skills/${skillId}/`, {
+                method: 'DELETE',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken')
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to delete skill');
+                }
+                skills = skills.filter(s => s.id !== skillId);
+                renderSkills();
+            })
+            .catch(error => {
+                console.error('Error deleting skill:', error);
+            });
+        }
+
+        function renderSkills() {
+            const skillsList = document.getElementById('skillsList');
+            const emptyState = document.getElementById('emptyState');
+
+            skillsList.innerHTML = '';
+
+            if (skills.length === 0) {
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+
+            skills.forEach(skill => {
+                const skillElement = document.createElement('div');
+                skillElement.className = 'skill-item group flex justify-between items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100';
+
+                skillElement.innerHTML = `
+                    <div class="flex items-center">
+                        <i class="fas fa-tag mr-3 text-blue-400"></i>
+                        <span class="font-medium text-gray-800">${skill.name}</span>
+                    </div>
+                    <div class="flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <button onclick="openEditModal(${skill.id})" class="p-1 text-blue-500 hover:text-blue-700">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button onclick="deleteSkill(${skill.id})" class="p-1 text-red-500 hover:text-red-700">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+
+                skillsList.appendChild(skillElement);
+            });
+        }
+
+        // Helper function to get CSRF token cookie
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+    </script>
+{% endblock %}

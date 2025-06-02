@@ -1,0 +1,94 @@
+<style>
+    .sidebar {
+        transition: all 0.3s ease;
+    }
+    .sidebar.collapsed {
+        width: 70px;
+    }
+    .sidebar.collapsed .sidebar-text {
+        display: none;
+    }
+    .sidebar.collapsed .logo-text {
+        display: none;
+    }
+    .sidebar.collapsed .menu-item {
+        justify-content: center;
+    }
+    .active-menu {
+        background-color: #3b82f6;
+        color: white;
+    }
+    .active-menu:hover {
+        background-color: #3b82f6 !important;
+    }
+</style>
+
+<div id="sidebar" class="sidebar bg-gray-800 text-white w-64 flex flex-col">
+    <div class="p-4 flex items-center border-b border-gray-700">
+        <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">
+            <i class="fas fa-cog text-xl"></i>
+        </div>
+        <span class="logo-text ml-3 text-xl font-semibold">AdminPro</span>
+    </div>
+    
+    <div class="flex-1 overflow-y-auto">
+        <nav class="mt-6">
+            <div class="px-4">
+                <div class="text-gray-400 uppercase text-xs font-semibold tracking-wider sidebar-text">Main</div>
+            </div>
+            
+            <a href="{% url 'admin_dashboard' %}" class="menu-item flex items-center px-4 py-3 mt-2 rounded-lg mx-2 {% if current_page == 'Dashboard' %}active-menu{% else %}hover:bg-gray-700{% endif %}">
+                <i class="fas fa-tachometer-alt"></i>
+                <span class="sidebar-text ml-3">Dashboard</span>
+            </a>
+            
+            <div class="px-4 mt-6">
+                <div class="text-gray-400 uppercase text-xs font-semibold tracking-wider sidebar-text">Consultation</div>
+            </div>
+            
+            <a href="{% url 'add_consultant' %}" class="menu-item flex items-center px-4 py-3 mt-2 rounded-lg mx-2 {% if current_page == 'Add Consultant' %}active-menu{% else %}hover:bg-gray-700{% endif %}">
+                <i class="fas fa-user-plus"></i>
+                <span class="sidebar-text ml-3">Add Consultant</span>
+            </a>
+            
+            <a href="{% url 'admin_skills' %}" class="menu-item flex items-center px-4 py-3 mt-2 rounded-lg mx-2 {% if current_page == 'Skill Master' %}active-menu{% else %}hover:bg-gray-700{% endif %}">
+                <i class="fas fa-tools"></i>
+                <span class="sidebar-text ml-3">Skill Master</span>
+            </a>
+            
+            <a href="{% url 'consultation_list' %}" class="menu-item flex items-center px-4 py-3 mt-2 rounded-lg mx-2 {% if current_page == 'Consultation List' %}active-menu{% else %}hover:bg-gray-700{% endif %}">
+                <i class="fas fa-list"></i>
+                <span class="sidebar-text ml-3">Consultation List</span>
+            </a>
+            
+            <a href="{% url 'admin_invoices' %}" class="menu-item flex items-center px-4 py-3 mt-2 rounded-lg mx-2 {% if current_page == 'Invoice Management' %}active-menu{% else %}hover:bg-gray-700{% endif %}">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <span class="sidebar-text ml-3">Invoice Management</span>
+            </a>
+        </nav>
+    </div>
+    
+    <div class="p-4 border-t border-gray-700">
+        <button id="toggleSidebar" class="text-gray-400 hover:text-white">
+            <i class="fas fa-chevron-left"></i>
+            <span class="sidebar-text ml-2">Collapse</span>
+        </button>
+    </div>
+</div>
+
+<script>
+    // Toggle sidebar
+    const toggleSidebar = document.getElementById('toggleSidebar');
+    const sidebar = document.getElementById('sidebar');
+    
+    if (toggleSidebar && sidebar) {
+        toggleSidebar.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            if (sidebar.classList.contains('collapsed')) {
+                toggleSidebar.innerHTML = '<i class="fas fa-chevron-right"></i><span class="sidebar-text ml-2">Expand</span>';
+            } else {
+                toggleSidebar.innerHTML = '<i class="fas fa-chevron-left"></i><span class="sidebar-text ml-2">Collapse</span>';
+            }
+        });
+    }
+</script>

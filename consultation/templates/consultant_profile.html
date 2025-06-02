@@ -1,0 +1,78 @@
+{% extends 'consultant_base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Consultant Profile</h2>
+    <div class="card">
+        <div class="card-body">
+            {% if profile %}
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Name:</label>
+                    <div class="col-sm-9">
+                        <input type="text" readonly class="form-control-plaintext" value="{{ profile.user.get_full_name }}">
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Email:</label>
+                    <div class="col-sm-9">
+                        <input type="text" readonly class="form-control-plaintext" value="{{ profile.user.email }}">
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Mobile:</label>
+                    <div class="col-sm-9">
+                        <input type="text" readonly class="form-control-plaintext" value="{{ profile.mobile }}">
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Skills:</label>
+                    <div class="col-sm-9">
+                        <input type="text" readonly class="form-control-plaintext" value="{{ profile.skills }}">
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Bank Details:</label>
+                    <div class="col-sm-9">
+                        <input type="text" readonly class="form-control-plaintext" value="{{ profile.bank_details }}">
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Cost/Hour:</label>
+                    <div class="col-sm-9">
+                        <input type="text" readonly class="form-control-plaintext" value="{{ profile.cost_per_hour }}">
+                    </div>
+                </div>
+                
+                {% if profile.agreement_document %}
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Agreement:</label>
+                    <div class="col-sm-9">
+                        <a href="{{ profile.agreement_document.url }}" class="btn btn-outline-primary" target="_blank">View Document</a>
+                    </div>
+                </div>
+                {% endif %}
+            {% else %}
+                <p>No consultant profile found.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extra_css %}
+.form-control-plaintext {
+    padding: 0.375rem 0;
+    margin-bottom: 0;
+    background-color: transparent;
+    border: solid transparent;
+    border-width: 1px 0;
+}
+
+.card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+{% endblock %}

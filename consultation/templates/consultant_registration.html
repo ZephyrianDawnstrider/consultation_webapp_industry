@@ -1,0 +1,353 @@
+{% extends "consultant_base.html" %}
+{% load static %}
+
+{% block title %}Consultant Registration{% endblock %}
+{% block extra_css %}
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 700px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+        .form-section {
+            margin-bottom: 25px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            background-color: #fdfdfd;
+        }
+        .form-section h3 {
+            margin-top: 0;
+            color: #555;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[readonly] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        input[readonly] {
+            background-color: #e9ecef;
+            cursor: not-allowed;
+        }
+        .agreement-link {
+            display: block;
+            margin-top: 5px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .agreement-link:hover {
+            text-decoration: underline;
+        }
+        .skills-checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .skills-checkbox-group div {
+            display: flex;
+            align-items: center;
+            background-color: #f0f8ff;
+            padding: 8px 12px;
+            border-radius: 5px;
+            border: 1px solid #b0d8f0;
+        }
+        .skills-checkbox-group input[type="checkbox"] {
+            margin-right: 8px;
+            transform: scale(1.2); /* Make checkboxes slightly larger */
+        }
+
+        button[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        button[type="submit"]:hover {
+            background-color: #218838;
+        }
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            display: none; /* Hidden by default */
+        }
+        .message.success { background-color: #d4edda; color: #155724; border-color: #c3e6cb; }
+        .message.error { background-color: #f8d7da; color: #721c24; border-color: #f5c6cb; }
+    </style>
+{% endblock %}
+{% block content %}
+<h1>Consultant Registration</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div>
+        <label for="id_name">Name:</label>
+        <input type="text" id="id_name" name="name" value="{{ form.name.value|default_if_none:'' }}" readonly>
+    </div>
+    <div>
+        <label for="id_mobile">Mobile:</label>
+        <input type="text" id="id_mobile" name="mobile" value="{{ form.mobile.value|default_if_none:'' }}" readonly>
+    </div>
+    <div>
+        <label for="id_email">Email:</label>
+        <input type="email" id="id_email" name="email" value="{{ form.email.value|default_if_none:'' }}" readonly>
+    </div>
+    <div>
+        <label for="id_agreement">Agreement (PDF):</label>
+        <input type="file" id="id_agreement" name="agreement" accept="application/pdf" required>
+    </div>
+    <div>
+        <label for="id_bank_account_name">Bank Account Name:</label>
+        <input type="text" id="id_bank_account_name" name="bank_account_name" value="{{ form.bank_account_name.value|default_if_none:'' }}" required>
+    </div>
+    <div>
+        <label for="id_bank_account_number">Bank Account Number:</label>
+        <input type="text" id="id_bank_account_number" name="bank_account_number" value="{{ form.bank_account_number.value|default_if_none:'' }}" required>
+    </div>
+    <div>
+        <label for="id_bank_ifsc">Bank IFSC:</label>
+        <input type="text" id="id_bank_ifsc" name="bank_ifsc" value="{{ form.bank_ifsc.value|default_if_none:'' }}" required>
+    </div>
+    <div>
+        <label for="id_bank_branch_name">Bank Branch Name:</label>
+        <input type="text" id="id_bank_branch_name" name="bank_branch_name" value="{{ form.bank_branch_name.value|default_if_none:'' }}" required>
+    </div>
+    <div>
+        <label for="id_bank_name">Bank Name:</label>
+        <input type="text" id="id_bank_name" name="bank_name" value="{{ form.bank_name.value|default_if_none:'' }}" required>
+    </div>
+    <div>
+        <label for="id_cost_per_hour">Cost Per Hour:</label>
+        <input type="number" step="0.01" id="id_cost_per_hour" name="cost_per_hour" value="{{ form.cost_per_hour.value|default_if_none:'' }}" required>
+    </div>
+    <div>
+        <label>Skills:</label>
+        {% for skill in form.skills.field.queryset %}
+            <div>
+                <input type="checkbox" id="skill_{{ skill.id }}" name="skills" value="{{ skill.id }}"
+                {% if skill in form.skills.value %}checked{% endif %}>
+                <label for="skill_{{ skill.id }}">{{ skill.name }}</label>
+            </div>
+        {% endfor %}
+    </div>
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}
+{% block extra_js %}
+
+    <script>
+        const messageArea = document.getElementById('messageArea');
+        const registrationForm = document.getElementById('registrationForm');
+        const nameInput = document.getElementById('name');
+        const mobileInput = document.getElementById('mobile');
+        const emailInput = document.getElementById('email');
+        const agreementLink = document.getElementById('agreementLink');
+        const noAgreementMsg = document.getElementById('noAgreementMsg');
+        const skillsCheckboxesDiv = document.getElementById('skillsCheckboxes');
+
+        // Admin-defined list of skills (in a real app, this would come from a backend API)
+        const adminDefinedSkills = [
+            'Project Management',
+            'Cloud Computing (AWS)',
+            'Cybersecurity',
+            'Data Analysis',
+            'Financial Modeling',
+            'Marketing Strategy',
+            'Software Development (Backend)',
+            'Software Development (Frontend)',
+            'UI/UX Design',
+            'Business Process Optimization',
+            'Human Resources',
+            'Legal Advisory'
+        ];
+
+        // --- Utility Functions ---
+        function showMessage(text, type) {
+            messageArea.textContent = text;
+            messageArea.className = `message ${type}`;
+            messageArea.style.display = 'block';
+            setTimeout(() => {
+                messageArea.style.display = 'none';
+            }, 5000); // Hide after 5 seconds
+        }
+
+        function getUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            const data = {};
+            for (const [key, value] of params.entries()) {
+                data[key] = value;
+            }
+            return data;
+        }
+
+        function prefillForm() {
+            const params = getUrlParams();
+
+            // Prefill read-only fields
+            nameInput.value = params.name || '';
+            mobileInput.value = params.mobile || '';
+            emailInput.value = params.email || '';
+
+            if (params.agreement_url) {
+                agreementLink.href = params.agreement_url;
+                agreementLink.style.display = 'block';
+                noAgreementMsg.style.display = 'none';
+            } else {
+                agreementLink.style.display = 'none';
+                noAgreementMsg.style.display = 'inline';
+            }
+
+            // You might want to disable the form or show a message if essential pre-fill data is missing
+            if (!params.name || !params.email || !params.mobile) {
+                showMessage('Essential registration details are missing from the link. Please contact support.', 'error');
+                registrationForm.querySelector('button[type="submit"]').disabled = true;
+            }
+        }
+
+        function populateSkillsCheckboxes() {
+            skillsCheckboxesDiv.innerHTML = ''; // Clear existing
+            adminDefinedSkills.forEach((skill, index) => {
+                const div = document.createElement('div');
+                const input = document.createElement('input');
+                input.type = 'checkbox';
+                input.id = `skill-${index}`;
+                input.name = 'skills';
+                input.value = skill;
+
+                const label = document.createElement('label');
+                label.htmlFor = `skill-${index}`;
+                label.textContent = skill;
+
+                div.appendChild(input);
+                div.appendChild(label);
+                skillsCheckboxesDiv.appendChild(div);
+            });
+        }
+
+        // --- Event Listeners ---
+        registrationForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const formData = {
+                // Read-only (fetched from URL, sent back for confirmation/linking)
+                name: nameInput.value,
+                mobile: mobileInput.value,
+                email: emailInput.value,
+                agreement_url: agreementLink.href !== window.location.href + '#' ? agreementLink.href : null, // Check if it's actual link or default '#'
+
+                // Editable fields
+                bankDetails: {
+                    bankName: document.getElementById('bankName').value.trim(),
+                    accountNumber: document.getElementById('accountNumber').value.trim(),
+                    ifscCode: document.getElementById('ifscCode').value.trim()
+                },
+                costPerHour: parseFloat(document.getElementById('costPerHour').value),
+                skills: []
+            };
+
+            // Collect selected skills
+            document.querySelectorAll('input[name="skills"]:checked').forEach(checkbox => {
+                formData.skills.push(checkbox.value);
+            });
+
+            // Basic validation
+            if (!formData.bankDetails.bankName || !formData.bankDetails.accountNumber || !formData.bankDetails.ifscCode || isNaN(formData.costPerHour) || formData.costPerHour <= 0) {
+                showMessage('Please fill in all required bank and professional details correctly.', 'error');
+                return;
+            }
+
+            if (formData.skills.length === 0) {
+                 showMessage('Please select at least one skill.', 'error');
+                 return;
+            }
+
+            // In a real application, you would send `formData` to your backend using `fetch` API.
+            // Example:
+            /*
+            fetch('/api/register-consultant', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showMessage('Registration completed successfully! Thank you.', 'success');
+                    registrationForm.reset(); // Clear editable fields
+                    // Optionally redirect or show success message
+                } else {
+                    showMessage('Registration failed: ' + (data.message || 'Server error.'), 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error during registration:', error);
+                showMessage('An error occurred during registration. Please try again later.', 'error');
+            });
+            */
+
+            // For this demo, just log the data and show success message
+            console.log('Form Data Submitted:', formData);
+            showMessage('Registration data captured. (In a real app, this would be sent to the server).', 'success');
+            // Optionally, you might want to disable the form or redirect after successful submission
+            // registrationForm.reset();
+            // document.getElementById('bankName').value = ''; // Reset manually if needed
+            // document.getElementById('accountNumber').value = '';
+            // document.getElementById('ifscCode').value = '';
+            // document.getElementById('costPerHour').value = '';
+            // document.querySelectorAll('input[name="skills"]:checked').forEach(checkbox => checkbox.checked = false);
+        });
+
+        // --- Initial Load ---
+        document.addEventListener('DOMContentLoaded', () => {
+            prefillForm();
+            populateSkillsCheckboxes();
+        });
+    </script>
+{% endblock %}
