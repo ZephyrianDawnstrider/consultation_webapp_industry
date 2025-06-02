@@ -1,0 +1,24 @@
+from django.urls import path, include
+from . import views
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register(r'skills', views.SkillViewSet, basename='skill')
+
+urlpatterns = [
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
+    path('reset_password/<int:consultant_id>/', views.reset_consultant_password, name='reset_consultant_password'),
+    path('register/<int:user_id>/', views.consultant_registration, name='consultant_registration'),
+    path('admin_dashboard/', views.admin_dashboard, name='admin_dashboard'),
+    path('admin_skills/', views.admin_skills, name='admin_skills'),
+    path('admin_invoices/', views.admin_invoices, name='admin_invoices'),
+    path('add_consultant/', views.add_consultant, name='add_consultant'),
+    path('consultation_list/', views.consultation_list, name='consultation_list'),
+    path('consultant_management/', views.consultant_management, name='consultant_management'),
+    path('consultant_profile/<int:consultant_id>/', views.consultant_profile, name='consultant_profile'),
+    path('change_consultant_status/<int:consultant_id>/', views.change_consultant_status, name='change_consultant_status'),
+    path('delete_consultant/<int:consultant_id>/', views.delete_consultant, name='delete_consultant'),
+    path('api/consultant_autofill/', views.consultant_autofill, name='consultant_autofill'),
+    path('', include(router.urls)),
+]

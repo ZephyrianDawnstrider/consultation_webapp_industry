@@ -1,0 +1,422 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Admin - Invoice Management{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Invoice Management Dashboard</h2>
+
+    <div id="messageArea" class="message"></div>
+
+    <div class="top-controls">
+        <div class="search-filters">
+            <label for="searchConsultantId">Consultant ID:</label>
+            <input type="text" id="searchConsultantId" placeholder="e.g., 101">
+
+            <label for="searchConsultantName">Name:</label>
+            <input type="text" id="searchConsultantName" placeholder="e.g., Alice">
+
+            <label for="searchMonth">Month:</label>
+            <input type="month" id="searchMonth">
+
+            <button id="searchInvoicesBtn">Search Invoices</button>
+        </div>
+        <button id="addNewInvoiceBtn" class="add-invoice-btn">Add New Invoice</button>
+    </div>
+
+    <h3>All Invoices</h3>
+    <table id="invoicesTable">
+        <thead>
+            <tr>
+                <th>Invoice ID</th>
+                <th>Consultant ID</th>
+                <th>Name</th>
+                <th>Month</th>
+                <th>Invoice File</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            </tbody>
+    </table>
+</div>
+
+<div id="changeStatusModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close-btn">&times;</span>
+            <h3>Change Invoice Status</h3>
+        </div>
+        <div class="modal-body">
+            <p>Changing status for Invoice ID: <strong id="invoiceIdStatus"></strong> for consultant <strong id="consultantNameStatus"></strong>.</p>
+            <input type="hidden" id="statusInvoiceId">
+            <div class="form-group">
+                <label for="newStatus">Select new status:</label>
+                <select id="newStatus" class="status-dropdown">
+                    <option value="awaiting review">Awaiting Review</option>
+                    <option value="pending">Pending</option>
+                    <option value="approved">Approved</option>
+                    <option value="rejected">Rejected</option>
+                </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="cancel-btn" data-modal-close="changeStatusModal">Cancel</button>
+            <button type="button" class="confirm-btn" id="confirmChangeStatusBtn">Confirm Change</button>
+        </div>
+    </div>
+</div>
+
+<div id="addEditInvoiceModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close-btn">&times;</span>
+            <h3 id="addEditModalTitle">Add New Invoice</h3>
+        </div>
+        <div class="modal-body">
+            <form id="invoiceForm">
+                <input type="hidden" id="invoiceFormId">
+                <div class="form-group">
+                    <label for="formConsultantId">Consultant ID:</label>
+                    <input type="text" id="formConsultantId" required>
+                </div>
+                <div class="form-group">
+                    <label for="formConsultantName">Consultant Name:</label>
+                    <input type="text" id="formConsultantName" required>
+                </div>
+                <div class="form-group">
+                    <label for="formInvoiceMonth">Month:</label>
+                    <input type="month" id="formInvoiceMonth" required>
+                </div>
+                <div class="form-group">
+                    <label for="formInvoiceFile">Invoice File (PDF):</label>
+                    <input type="file" id="formInvoiceFile" accept=".pdf">
+                    <small>Current file: <a id="currentInvoiceFileLink" href="#" target="_blank" style="display: none;">View File</a></small>
+                </div>
+                <div class="form-group">
+                    <label for="formInvoiceStatus">Status:</label>
+                    <select id="formInvoiceStatus">
+                        <option value="awaiting review">Awaiting Review</option>
+                        <option value="pending">Pending</option>
+                        <option value="approved">Approved</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="cancel-btn" data-modal-close="addEditInvoiceModal">Cancel</button>
+            <button type="button" class="confirm-btn" id="saveInvoiceBtn">Save Invoice</button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0px;
+        display: flex;
+        justify-content: center;
+    }
+    .container {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 1200px;
+    }
+    h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 25px;
+    }
+
+    /* Message Area */
+    .message {
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+        font-weight: bold;
+        display: none;
+    }
+    .message.success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+    .message.error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+    .message.info { background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+
+    /* Search & Add Section */
+    .top-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
+    .search-filters {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .search-filters label {
+        white-space: nowrap;
+    }
+    .search-filters input,
+    .search-filters select {
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+        min-width: 120px;
+    }
+    .search-filters button {
+        background-color: #007bff;
+        color: white;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+    .search-filters button:hover {
+        background-color: #0056b3;
+    }
+    .add-invoice-btn {
+        background-color: #28a745;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1em;
+    }
+    .add-invoice-btn:hover {
+        background-color: #218838;
+    }
+
+    /* Invoice List Table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    table, th, td {
+        border: 1px solid #ddd;
+    }
+    th, td {
+        padding: 12px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+        color: #333;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .actions button {
+        padding: 8px 12px;
+        margin-right: 5px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.85em;
+        white-space: nowrap;
+    }
+    .actions .view-btn { background-color: #17a2b8; color: white; }
+    .actions .view-btn:hover { background-color: #138496; }
+    .actions .status-btn { background-color: #007bff; color: white; }
+    .actions .status-btn:hover { background-color: #0056b3; }
+    .actions .edit-btn { background-color: #ffc107; color: #333; }
+    .actions .edit-btn:hover { background-color: #e0a800; }
+
+    .invoice-link {
+        color: #007bff;
+        text-decoration: none;
+    }
+    .invoice-link:hover {
+        text-decoration: underline;
+    }
+
+    /* Status Badges */
+    .status-badge {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 0.8em;
+        text-transform: capitalize;
+    }
+    .status-approved { background-color: #d4edda; color: #155724; }
+    .status-pending { background-color: #cfe2ff; color: #052c65; } /* light blue */
+    .status-rejected { background-color: #f8d7da; color: #721c24; }
+    .status-awaiting-review { background-color: #fff3cd; color: #856404; }
+
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 100;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+        align-items: center;
+        justify-content: center;
+    }
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        border-radius: 8px;
+        width: 90%;
+        max-width: 600px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        animation-name: animatetop;
+        animation-duration: 0.4s
+    }
+    .modal-header { padding: 10px 0; border-bottom: 1px solid #eee; margin-bottom: 15px; }
+    .modal-header h3 { margin: 0; color: #333; }
+    .close-btn {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .close-btn:hover, .close-btn:focus { color: black; text-decoration: none; }
+    .modal-body { margin-bottom: 20px; }
+    .modal-footer { text-align: right; }
+    .modal-footer button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1em;
+        margin-left: 10px;
+    }
+    .modal-footer .confirm-btn { background-color: #28a745; color: white; }
+    .modal-footer .confirm-btn:hover { background-color: #218838; }
+    .modal-footer .cancel-btn { background-color: #6c757d; color: white; }
+    .modal-footer .cancel-btn:hover { background-color: #5a6268; }
+
+    /* Form elements inside modal */
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #555; }
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="file"],
+    .form-group select {
+        width: calc(100% - 22px);
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+    .form-group input[type="file"] { padding: 5px; } /* Adjust padding for file input */
+
+    /* Add animation for modal */
+    @-webkit-keyframes animatetop { from {top: -300px; opacity: 0} to {top: 0; opacity: 1} }
+    @keyframes animatetop { from {top: -300px; opacity: 0} to {top: 0; opacity: 1} }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const addNewInvoiceBtn = document.getElementById('addNewInvoiceBtn');
+        const addEditInvoiceModal = document.getElementById('addEditInvoiceModal');
+        const invoiceForm = document.getElementById('invoiceForm');
+        const addEditModalTitle = document.getElementById('addEditModalTitle');
+
+        // Function to open modal
+        function openModal(modal) {
+            modal.style.display = 'flex';
+        }
+
+        // Function to close modal
+        function closeModal(modal) {
+            modal.style.display = 'none';
+        }
+
+        // Close modal when clicking on close button or cancel button
+        document.querySelectorAll('.close-btn, .cancel-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const modal = this.closest('.modal');
+                closeModal(modal);
+            });
+        });
+
+        // Add New Invoice button click handler
+        addNewInvoiceBtn.addEventListener('click', function() {
+            // Reset form fields
+            invoiceForm.reset();
+            document.getElementById('invoiceFormId').value = '';
+            document.getElementById('currentInvoiceFileLink').style.display = 'none';
+            addEditModalTitle.textContent = 'Add New Invoice';
+
+            // Open the modal
+            openModal(addEditInvoiceModal);
+        });
+
+        // Helper function to fetch consultant data by ID or name
+        function fetchConsultantData(params, callback) {
+            const url = new URL('/api/consultant_autofill/', window.location.origin);
+            Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.results && data.results.length > 0) {
+                        callback(data.results[0]);
+                    } else {
+                        callback(null);
+                    }
+                })
+                .catch(() => callback(null));
+        }
+
+        // Event listener for consultant ID input
+        const formConsultantId = document.getElementById('formConsultantId');
+        formConsultantId.addEventListener('input', function() {
+            const id = this.value.trim();
+            if (id.length > 0) {
+                fetchConsultantData({ id: id }, function(result) {
+                    if (result) {
+                        document.getElementById('formConsultantName').value = result.name;
+                    } else {
+                        document.getElementById('formConsultantName').value = '';
+                    }
+                });
+            } else {
+                document.getElementById('formConsultantName').value = '';
+            }
+        });
+
+        // Event listener for consultant name input
+        const formConsultantName = document.getElementById('formConsultantName');
+        formConsultantName.addEventListener('input', function() {
+            const name = this.value.trim();
+            if (name.length > 0) {
+                fetchConsultantData({ name: name }, function(result) {
+                    if (result) {
+                        document.getElementById('formConsultantId').value = result.id;
+                    } else {
+                        document.getElementById('formConsultantId').value = '';
+                    }
+                });
+            } else {
+                document.getElementById('formConsultantId').value = '';
+            }
+        });
+    });
+</script>
+{% endblock %}

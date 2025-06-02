@@ -1,0 +1,46 @@
+{% extends 'consultant_base.html' %}
+{% load static %}
+
+{% block title %}Registration Successful{% endblock %}
+{% block extra_css %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .message-box {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        .message-box h2 {
+            margin-top: 0;
+        }
+        .message-box a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #155724;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+</head>
+<body>
+    <div class="message-box">
+        <h2>Registration Successful</h2>
+        <p>Thank you for completing your registration. Your profile is under review.</p>
+        <a href="/auth/login/">Go to Login</a>
+    </div>
+{% endblock %}

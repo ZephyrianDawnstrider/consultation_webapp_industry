@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultation Booking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .success-message {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-2xl w-full">
+        <!-- Form Container -->
+        <div id="bookingForm" class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+            <!-- Header -->
+            <div class="bg-blue-600 py-6 px-8 text-white">
+                <h1 class="text-2xl font-bold">Book Your Consultation</h1>
+                <p class="text-blue-100 mt-1">Schedule a session with our experts</p>
+            </div>
+            
+            <!-- Form -->
+            <form id="consultationForm" class="p-8">
+                <div class="space-y-6">
+                    <!-- Name Field -->
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-user text-gray-400"></i>
+                            </div>
+                            <input type="text" id="name" name="name" required
+                                class="pl-10 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                                placeholder="John Doe">
+                        </div>
+                    </div>
+                    
+                    <!-- Email Field -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-envelope text-gray-400"></i>
+                            </div>
+                            <input type="email" id="email" name="email" required
+                                class="pl-10 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                                placeholder="john@example.com">
+                        </div>
+                    </div>
+                    
+                    <!-- Phone Field -->
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-phone text-gray-400"></i>
+                            </div>
+                            <input type="tel" id="phone" name="phone" required
+                                class="pl-10 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                                placeholder="(123) 456-7890">
+                        </div>
+                    </div>
+                    
+                    <!-- Consultation Field Dropdown -->
+                    <div>
+                        <label for="consultationField" class="block text-sm font-medium text-gray-700 mb-1">Consultation Field</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-briefcase text-gray-400"></i>
+                            </div>
+                            <select id="consultationField" name="consultationField" required
+                                class="pl-10 appearance-none w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition bg-white">
+                                <option value="" disabled selected>Select a field</option>
+                                <option value="Business Strategy">Business Strategy</option>
+                                <option value="Financial Planning">Financial Planning</option>
+                                <option value="Legal Advice">Legal Advice</option>
+                                <option value="Career Counseling">Career Counseling</option>
+                                <option value="Health & Wellness">Health & Wellness</option>
+                                <option value="Technology">Technology</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                <i class="fas fa-chevron-down text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <div class="pt-2">
+                        <button type="submit"
+                            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition duration-300 transform hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                            Book Consultation
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Success Message (Hidden by default) -->
+        <div id="successMessage" class="hidden success-message text-white rounded-xl shadow-lg p-8 fade-in">
+            <div class="text-center">
+                <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-white bg-opacity-20 mb-4">
+                    <i class="fas fa-check text-xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold mb-2">Booking Confirmed!</h2>
+                <p class="mb-6">Thank you for booking your consultation. We've sent a confirmation to your email.</p>
+                <button id="newBookingBtn"
+                    class="bg-white text-blue-600 hover:bg-gray-100 font-medium py-2 px-6 rounded-lg transition">
+                    Book Another Session
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('consultationForm');
+            const bookingForm = document.getElementById('bookingForm');
+            const successMessage = document.getElementById('successMessage');
+            const newBookingBtn = document.getElementById('newBookingBtn');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    consultationField: document.getElementById('consultationField').value
+                };
+                
+                // In a real application, you would send this data to your server
+                console.log('Form submitted:', formData);
+                
+                // Here you would typically make an API call to send the email
+                // For this example, we'll just simulate it
+                setTimeout(() => {
+                    // Hide form and show success message
+                    bookingForm.classList.add('hidden');
+                    successMessage.classList.remove('hidden');
+                    successMessage.classList.add('fade-in');
+                    
+                    // Reset form
+                    form.reset();
+                }, 800);
+            });
+            
+            newBookingBtn.addEventListener('click', function() {
+                successMessage.classList.add('hidden');
+                bookingForm.classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+{% extends 'consultant_base.html'%}
+{% load static %}
+{% block title %}Consultant Dashboard{% endblock %}
+{% block extra_css %}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <style>
+        .sidebar {
+            transition: all 0.3s ease;
+            width: 220px;
+            padding: 1rem;
+        }
+        .sidebar.collapsed {
+            width: 70px;
+            padding: 0.5rem;
+        }
+        .sidebar.collapsed .sidebar-text {
+            display: none;
+        }
+        .sidebar.collapsed .menu-item {
+            justify-content: center;
+        }
+        .main-content {
+            transition: all 0.3s ease;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        .main-content.expanded {
+            margin-left: 70px;
+        }
+        .card-hover {
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        #calendar {
+            height: 350px;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        button {
+            padding: 0.25rem 0.75rem;
+            font-size: 0.875rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #4f46e5;
+            color: white;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+</head>
+<body class="bg-gray-100">
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- Main Content -->
+        <div class="main-content flex-1 flex flex-col overflow-hidden">
+            <!-- Top Navbar -->
+
+            <!-- Main Content Area -->
+            <main class="flex-1 overflow-y-auto p-6 bg-gray-50">
+                <!-- Summary Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-white rounded-lg shadow-lg p-5 transition-all duration-300 card-hover">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm font-medium">Total Consultations</p>
+                                <h3 class="text-xl font-semibold text-gray-900 mt-1">24</h3>
+                                <p class="text-green-500 text-xs mt-1">+5 from last month</p>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center">
+                                <i class="fas fa-calendar-check text-indigo-600 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-5 transition-all duration-300 card-hover">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm font-medium">Upcoming Consultations</p>
+                                <h3 class="text-xl font-semibold text-gray-900 mt-1">5</h3>
+                                <p class="text-blue-500 text-xs mt-1">Next 7 days</p>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
+                                <i class="fas fa-clock text-blue-600 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-5 transition-all duration-300 card-hover">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm font-medium">Timesheet Status</p>
+                                <h3 class="text-xl font-semibold text-gray-900 mt-1">Uploaded</h3>
+                                <p class="text-yellow-500 text-xs mt-1">Due in 3 days</p>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center">
+                                <i class="fas fa-file-alt text-yellow-600 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-5 transition-all duration-300 card-hover">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm font-medium">Invoice Status</p>
+                                <h3 class="text-xl font-semibold text-gray-900 mt-1">Pending</h3>
+                                <p class="text-purple-500 text-xs mt-1">Submitted 2 days ago</p>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
+                                <i class="fas fa-file-invoice-dollar text-purple-600 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calendar Section -->
+                <div class="bg-white rounded-lg shadow-lg p-5 mb-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-lg font-semibold text-gray-900">Consultation Calendar</h2>
+                        <div class="flex space-x-2">
+                            <button class="px-3 py-1 bg-indigo-600 text-white rounded-md text-sm hover:bg-indigo-700">
+                                <i class="fas fa-plus mr-1"></i> Add Event
+                            </button>
+                        </div>
+                    </div>
+                    <div id="calendar"></div>
+                </div>
+
+                <!-- Invoice History Table -->
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xl font-semibold text-gray-800">Invoice History</h2>
+                        <button class="px-3 py-1 bg-indigo-600 text-white rounded-md text-sm hover:bg-indigo-700">
+                            <i class="fas fa-file-upload mr-1"></i> Upload New
+                        </button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Month</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Upload Date</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm font-medium text-gray-900">June 2023</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-500">June 30, 2023</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Approved</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-indigo-600 hover:text-indigo-900">
+                                        <a href="#"><i class="fas fa-eye mr-1"></i> View</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm font-medium text-gray-900">May 2023</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-500">May 31, 2023</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Approved</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-indigo-600 hover:text-indigo-900">
+                                        <a href="#"><i class="fas fa-eye mr-1"></i> View</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm font-medium text-gray-900">April 2023</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-500">April 30, 2023</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Pending</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-indigo-600 hover:text-indigo-900">
+                                        <a href="#"><i class="fas fa-eye mr-1"></i> View</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm font-medium text-gray-900">March 2023</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-500">March 31, 2023</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Rejected</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-indigo-600 hover:text-indigo-900">
+                                        <a href="#"><i class="fas fa-eye mr-1"></i> View</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="text-sm text-gray-500">Showing 1 to 4 of 4 entries</div>
+                        <div class="flex space-x-2">
+                            <button class="px-3 py-1 bg-gray-200 text-gray-700 rounded-md text-sm hover:bg-gray-300 disabled:opacity-50" disabled>Previous</button>
+                            <button class="px-3 py-1 bg-indigo-600 text-white rounded-md text-sm hover:bg-indigo-700">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+    <script>
+        // Toggle sidebar
+        document.getElementById('toggleSidebar').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('collapsed');
+            document.querySelector('.main-content').classList.toggle('expanded');
+        });
+
+        // Toggle profile dropdown
+        document.getElementById('profileDropdown').addEventListener('click', function() {
+            document.getElementById('dropdownMenu').classList.toggle('hidden');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('#profileDropdown')) {
+                document.getElementById('dropdownMenu').classList.add('hidden');
+            }
+        });
+
+        // Initialize calendar
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                events: [
+                    {
+                        title: 'Client Meeting - ABC Corp',
+                        start: new Date(new Date().setHours(10, 0, 0, 0)),
+                        end: new Date(new Date().setHours(11, 30, 0, 0)),
+                        backgroundColor: '#4f46e5',
+                        borderColor: '#4f46e5'
+                    },
+                    {
+                        title: 'Project Review - XYZ Ltd',
+                        start: new Date(new Date().setDate(new Date().getDate() + 2)),
+                        end: new Date(new Date().setDate(new Date().getDate() + 2)),
+                        backgroundColor: '#10b981',
+                        borderColor: '#10b981'
+                    },
+                    {
+                        title: 'Consultation - DEF Inc',
+                        start: new Date(new Date().setDate(new Date().getDate() + 5)),
+                        end: new Date(new Date().setDate(new Date().getDate() + 5)),
+                        backgroundColor: '#f59e0b',
+                        borderColor: '#f59e0b'
+                    }
+                ]
+            });
+            calendar.render();
+        });
+    </script>
+{% endblock %}

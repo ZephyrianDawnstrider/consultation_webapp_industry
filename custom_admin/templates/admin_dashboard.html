@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="main-content flex-1 overflow-y-auto p-6 bg-gray-50">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Total Consultants Widget -->
+        <div class="bg-white rounded-lg shadow p-6">
+            <div class="flex items-center">
+                <div class="p-3 rounded-full bg-blue-100 text-blue-600">
+                    <i class="fas fa-users text-2xl"></i>
+                </div>
+                <div class="ml-4">
+                    <h3 class="text-gray-500 font-medium">Total Consultants</h3>
+                    <p class="text-3xl font-bold text-gray-800">{{ total_consultants }}</p>
+                </div>
+            </div>
+            <div class="mt-4">
+                <div class="flex items-center justify-between text-sm">
+                    <span class="text-green-500 font-medium">+12%</span>
+                    <span class="text-gray-500">vs last month</span>
+                </div>
+                <div class="mt-1 w-full bg-gray-200 rounded-full h-2">
+                    <div class="bg-blue-500 h-2 rounded-full" style="width: 70%"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pending Invoices Widget -->
+        <div class="bg-white rounded-lg shadow p-6">
+            <div class="flex items-center">
+                <div class="p-3 rounded-full bg-yellow-100 text-yellow-600">
+                    <i class="fas fa-file-invoice-dollar text-2xl"></i>
+                </div>
+                <div class="ml-4">
+                    <h3 class="text-gray-500 font-medium">Pending Invoices</h3>
+                    <p class="text-3xl font-bold text-gray-800">{{ pending_invoices }}</p>
+                </div>
+            </div>
+            <div class="mt-4">
+                <div class="flex items-center justify-between text-sm">
+                    <span class="text-red-500 font-medium">+5%</span>
+                    <span class="text-gray-500">vs last month</span>
+                </div>
+                <div class="mt-1 w-full bg-gray-200 rounded-full h-2">
+                    <div class="bg-yellow-500 h-2 rounded-full" style="width: 45%"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Approved Sessions Widget -->
+        <div class="bg-white rounded-lg shadow p-6">
+            <div class="flex items-center">
+                <div class="p-3 rounded-full bg-green-100 text-green-600">
+                    <i class="fas fa-check-circle text-2xl"></i>
+                </div>
+                <div class="ml-4">
+                    <h3 class="text-gray-500 font-medium">Approved Sessions</h3>
+                    <p class="text-3xl font-bold text-gray-800">{{ approved_sessions }}</p>
+                </div>
+            </div>
+            <div class="mt-4">
+                <div class="flex items-center justify-between text-sm">
+                    <span class="text-green-500 font-medium">+18%</span>
+                    <span class="text-gray-500">vs last month</span>
+                </div>
+                <div class="mt-1 w-full bg-gray-200 rounded-full h-2">
+                    <div class="bg-green-500 h-2 rounded-full" style="width: 65%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Recent Activity Section -->
+    <div class="mt-8 bg-white rounded-lg shadow overflow-hidden">
+        <div class="px-6 py-4 border-b border-gray-200">
+            <h2 class="text-lg font-semibold text-gray-800">Recent Activity</h2>
+        </div>
+        <div class="divide-y divide-gray-200">
+            <div class="px-6 py-4 flex items-center">
+                <div class="flex-shrink-0">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-500">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                </div>
+                <div class="ml-4">
+                    <p class="text-sm font-medium text-gray-900">New consultant added</p>
+                    <p class="text-sm text-gray-500">John Doe joined as a Senior Developer</p>
+                </div>
+                <div class="ml-auto text-sm text-gray-500">2 hours ago</div>
+            </div>
+            <div class="px-6 py-4 flex items-center">
+                <div class="flex-shrink-0">
+                    <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-500">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </div>
+                <div class="ml-4">
+                    <p class="text-sm font-medium text-gray-900">Session approved</p>
+                    <p class="text-sm text-gray-500">Consultation #CT-2023-056 approved</p>
+                </div>
+                <div class="ml-auto text-sm text-gray-500">5 hours ago</div>
+            </div>
+            <div class="px-6 py-4 flex items-center">
+                <div class="flex-shrink-0">
+                    <div class="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-500">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-900">Invoice generated</p>
+                        <p class="text-sm text-gray-500">Invoice #INV-2023-102 for $1,250.00</p>
+                    </div>
+                    <div class="ml-auto text-sm text-gray-500">1 day ago</div>
+                </div>
+            </div>
+        </div>
+        <div class="px-6 py-3 bg-gray-50 text-right">
+            <a href="#" class="text-sm font-medium text-blue-600 hover:text-blue-500">View all</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Toggle sidebar
+    const toggleSidebar = document.getElementById('toggleSidebar');
+    const sidebar = document.getElementById('sidebar');
+    const mainContent = document.querySelector('.main-content');
+    
+    toggleSidebar.addEventListener('click', () => {
+        sidebar.classList.toggle('collapsed');
+        if (sidebar.classList.contains('collapsed')) {
+            toggleSidebar.innerHTML = '<i class="fas fa-chevron-right"></i><span class="sidebar-text ml-2">Expand</span>';
+        } else {
+            toggleSidebar.innerHTML = '<i class="fas fa-chevron-left"></i><span class="sidebar-text ml-2">Collapse</span>';
+        }
+    });
+    
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    mobileMenuButton.addEventListener('click', () => {
+        sidebar.classList.toggle('hidden');
+    });
+    
+    // Profile dropdown toggle
+    const profileDropdownButton = document.getElementById('profileDropdownButton');
+    const profileDropdown = document.getElementById('profileDropdown');
+    
+    profileDropdownButton.addEventListener('click', () => {
+        profileDropdown.classList.toggle('hidden');
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!profileDropdownButton.contains(event.target) && !profileDropdown.contains(event.target)) {
+            profileDropdown.classList.add('hidden');
+        }
+    });
+    
+    // Menu item active state
+    const menuItems = document.querySelectorAll('.menu-item');
+    menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+            menuItems.forEach(i => i.classList.remove('active-menu'));
+            menuItems.forEach(i => i.classList.add('hover:bg-gray-700'));
+            item.classList.add('active-menu');
+            item.classList.remove('hover:bg-gray-700');
+        });
+    });
+</script>
+{% endblock %}
