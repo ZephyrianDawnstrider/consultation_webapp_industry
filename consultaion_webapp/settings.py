@@ -134,6 +134,10 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
+# Media files (uploads)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 # Email backend configuration for SMTP
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -143,6 +147,9 @@ EMAIL_HOST_USER = 'chaturvedi1ayush@gmail.com'
 EMAIL_HOST_PASSWORD = 'REDACTED'
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# Set login URL for @login_required decorator redirects
+LOGIN_URL = '/auth/login/'
 
 import os
 import logging

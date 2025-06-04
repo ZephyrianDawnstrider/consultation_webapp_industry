@@ -1,61 +1,111 @@
 {% extends 'consultant_base.html' %}
 
+{% load static %}
+
 {% block content %}
 <div class="container mt-4">
     <h2>Consultant Profile</h2>
     <div class="card">
         <div class="card-body">
-            {% if profile %}
+            {% if form %}
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
                 <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Name:</label>
+                    <label class="col-sm-3 col-form-label" for="{{ form.name.id_for_label }}">Full Name:</label>
                     <div class="col-sm-9">
-                        <input type="text" readonly class="form-control-plaintext" value="{{ profile.user.get_full_name }}">
+                        {{ form.name.errors }}
+                        {{ form.name }}
                     </div>
                 </div>
-                
                 <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Email:</label>
+                    <label class="col-sm-3 col-form-label" for="{{ form.mobile.id_for_label }}">Mobile Number:</label>
                     <div class="col-sm-9">
-                        <input type="text" readonly class="form-control-plaintext" value="{{ profile.user.email }}">
+                        {{ form.mobile.errors }}
+                        {{ form.mobile }}
                     </div>
                 </div>
-                
-                <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Mobile:</label>
-                    <div class="col-sm-9">
-                        <input type="text" readonly class="form-control-plaintext" value="{{ profile.mobile }}">
-                    </div>
-                </div>
-                
                 <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Skills:</label>
                     <div class="col-sm-9">
-                        <input type="text" readonly class="form-control-plaintext" value="{{ profile.skills }}">
+                        {{ form.skills.errors }}
+                        <div class="row">
+                            {% for checkbox in form.skills %}
+                                <div class="col-3">
+                                    <div class="form-check">
+                                        {{ checkbox.tag }}
+                                        <label class="form-check-label" for="{{ checkbox.id_for_label }}">
+                                            {{ checkbox.choice_label }}
+                                        </label>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
-                
                 <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Bank Details:</label>
+                    <label class="col-sm-3 col-form-label" for="{{ form.bank_account_name.id_for_label }}">Bank Account Name:</label>
                     <div class="col-sm-9">
-                        <input type="text" readonly class="form-control-plaintext" value="{{ profile.bank_details }}">
+                        {{ form.bank_account_name.errors }}
+                        {{ form.bank_account_name }}
                     </div>
                 </div>
-                
                 <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Cost/Hour:</label>
+                    <label class="col-sm-3 col-form-label" for="{{ form.bank_account_number.id_for_label }}">Bank Account Number:</label>
                     <div class="col-sm-9">
-                        <input type="text" readonly class="form-control-plaintext" value="{{ profile.cost_per_hour }}">
+                        {{ form.bank_account_number.errors }}
+                        {{ form.bank_account_number }}
                     </div>
                 </div>
-                
-                {% if profile.agreement_document %}
                 <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Agreement:</label>
+                    <label class="col-sm-3 col-form-label" for="{{ form.bank_ifsc.id_for_label }}">Bank IFSC:</label>
                     <div class="col-sm-9">
-                        <a href="{{ profile.agreement_document.url }}" class="btn btn-outline-primary" target="_blank">View Document</a>
+                        {{ form.bank_ifsc.errors }}
+                        {{ form.bank_ifsc }}
                     </div>
                 </div>
-                {% endif %}
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label" for="{{ form.bank_branch_name.id_for_label }}">Bank Branch Name:</label>
+                    <div class="col-sm-9">
+                        {{ form.bank_branch_name.errors }}
+                        {{ form.bank_branch_name }}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label" for="{{ form.bank_name.id_for_label }}">Bank Name:</label>
+                    <div class="col-sm-9">
+                        {{ form.bank_name.errors }}
+                        {{ form.bank_name }}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label" for="{{ form.cost_per_hour.id_for_label }}">Cost per Hour:</label>
+                    <div class="col-sm-9">
+                        {{ form.cost_per_hour.errors }}
+                        {{ form.cost_per_hour }}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Status:</label>
+                    <div class="col-sm-9">
+                        <p class="form-control-plaintext">{{ form.instance.get_status_display }}</p>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Agreement Document:</label>
+                    <div class="col-sm-9 d-flex align-items-center">
+                        {{ form.agreement_document.errors }}
+                        <input type="file" name="agreement_document" accept="application/pdf" class="form-control-file" />
+                        {% if form.instance.agreement_document %}
+                            <a href="{{ form.instance.agreement_document.url }}" target="_blank" class="ml-3">
+                                View Document
+                            </a>
+                            <button type="button" class="btn btn-danger btn-sm ml-3" id="scrap-agreement-btn">Remove</button>
+                        {% endif %}
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
+            </form>
             {% else %}
                 <p>No consultant profile found.</p>
             {% endif %}

@@ -162,7 +162,7 @@
             <button id="addConsultantBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center transition-colors">
                 <i class="fas fa-user-plus mr-2"></i>
                 Add Consultant
-                <span id="addConsultantUrl" class="hidden">{% url 'add_consultant' %}</span>
+                <span id="addConsultantUrl" class="hidden">{% url 'custom_admin:add_consultant' %}</span>
             </button>
         </div>
     </div>
@@ -233,13 +233,13 @@
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <div class="flex justify-end space-x-2">
-                                <a href="{% url 'consultant_profile' consultant.id %}" class="text-blue-600 hover:text-blue-900" title="View Profile">
+                                <a href=" {% url 'custom_admin:consultant_profile' consultant.id %} " class="text-blue-600 hover:text-blue-900" title="View Profile">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                <a href="{% url 'change_consultant_status' consultant.id %}" class="text-yellow-600 hover:text-yellow-900" title="Change Status">
+                                <a href=" {% url 'custom_admin:change_consultant_status' consultant.id %}" class="text-yellow-600 hover:text-yellow-900" title="Change Status">
                                     <i class="fas fa-exchange-alt"></i>
                                 </a>
-                                <form id="deleteForm-{{ consultant.id }}" action="{% url 'delete_consultant' consultant.id %}" method="post" style="display:none;">
+                                <form id="deleteForm-{{ consultant.id }}" action="{% url 'custom_admin:delete_consultant' consultant.id %}" method="post" style="display:none;">
                                     {% csrf_token %}
                                 </form>
                                 <a href="#" onclick="event.preventDefault(); if(confirm('Are you sure you want to delete this consultant?')) { document.getElementById('deleteForm-{{ consultant.id }}').submit(); }" class="text-red-600 hover:text-red-900" title="Delete Consultant">

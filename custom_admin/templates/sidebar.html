@@ -37,7 +37,7 @@
                 <div class="text-gray-400 uppercase text-xs font-semibold tracking-wider sidebar-text">Main</div>
             </div>
             
-            <a href="{% url 'admin_dashboard' %}" class="menu-item flex items-center px-4 py-3 mt-2 rounded-lg mx-2 {% if current_page == 'Dashboard' %}active-menu{% else %}hover:bg-gray-700{% endif %}">
+            <a href="{% url 'custom_admin:admin_dashboard' %}" class="menu-item flex items-center px-4 py-3 mt-2 rounded-lg mx-2 {% if current_page == 'Dashboard' %}active-menu{% else %}hover:bg-gray-700{% endif %}">
                 <i class="fas fa-tachometer-alt"></i>
                 <span class="sidebar-text ml-3">Dashboard</span>
             </a>
@@ -46,22 +46,22 @@
                 <div class="text-gray-400 uppercase text-xs font-semibold tracking-wider sidebar-text">Consultation</div>
             </div>
             
-            <a href="{% url 'add_consultant' %}" class="menu-item flex items-center px-4 py-3 mt-2 rounded-lg mx-2 {% if current_page == 'Add Consultant' %}active-menu{% else %}hover:bg-gray-700{% endif %}">
+            <a href="{% url 'custom_admin:add_consultant' %}" class="menu-item flex items-center px-4 py-3 mt-2 rounded-lg mx-2 {% if current_page == 'Add Consultant' %}active-menu{% else %}hover:bg-gray-700{% endif %}">
                 <i class="fas fa-user-plus"></i>
                 <span class="sidebar-text ml-3">Add Consultant</span>
             </a>
             
-            <a href="{% url 'admin_skills' %}" class="menu-item flex items-center px-4 py-3 mt-2 rounded-lg mx-2 {% if current_page == 'Skill Master' %}active-menu{% else %}hover:bg-gray-700{% endif %}">
+            <a href="{% url 'custom_admin:admin_skills' %}" class="menu-item flex items-center px-4 py-3 mt-2 rounded-lg mx-2 {% if current_page == 'Skill Master' %}active-menu{% else %}hover:bg-gray-700{% endif %}">
                 <i class="fas fa-tools"></i>
                 <span class="sidebar-text ml-3">Skill Master</span>
             </a>
             
-            <a href="{% url 'consultation_list' %}" class="menu-item flex items-center px-4 py-3 mt-2 rounded-lg mx-2 {% if current_page == 'Consultation List' %}active-menu{% else %}hover:bg-gray-700{% endif %}">
+            <a href="{% url 'custom_admin:consultation_list' %}" class="menu-item flex items-center px-4 py-3 mt-2 rounded-lg mx-2 {% if current_page == 'Consultation List' %}active-menu{% else %}hover:bg-gray-700{% endif %}">
                 <i class="fas fa-list"></i>
                 <span class="sidebar-text ml-3">Consultation List</span>
             </a>
             
-            <a href="{% url 'admin_invoices' %}" class="menu-item flex items-center px-4 py-3 mt-2 rounded-lg mx-2 {% if current_page == 'Invoice Management' %}active-menu{% else %}hover:bg-gray-700{% endif %}">
+            <a href="{% url 'custom_admin:admin_invoices' %}" class="menu-item flex items-center px-4 py-3 mt-2 rounded-lg mx-2 {% if current_page == 'Invoice Management' %}active-menu{% else %}hover:bg-gray-700{% endif %}">
                 <i class="fas fa-file-invoice-dollar"></i>
                 <span class="sidebar-text ml-3">Invoice Management</span>
             </a>
