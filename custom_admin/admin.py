@@ -2,7 +2,8 @@ from django.contrib import admin
 from django import forms
 from django.core.mail import send_mail
 from django.utils.crypto import get_random_string
-from .models import User, Skill, ConsultantProfile, Invoice
+from .models import User, Skill, Invoice
+from consultation.models import ConsultantProfile
 from cryptography.fernet import Fernet
 
 FERNET_KEY = Fernet.generate_key()
@@ -45,5 +46,15 @@ class InvoiceAdmin(admin.ModelAdmin):
 admin.site.register(User)
 admin.site.register(Skill)
 admin.site.register(ConsultantProfile)
+
+from consultation.models import Timesheet
+
+@admin.register(Timesheet)
+class TimesheetAdmin(admin.ModelAdmin):
+    list_display = ('consultant', 'month', 'status', 'uploaded_at')
+    list_filter = ('month', 'consultant', 'status')
+    search_fields = ('consultant__email',)
+    list_editable = ('status',)
+
 admin.site.unregister(User)
 admin.site.register(User, ConsultantAdmin)

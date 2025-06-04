@@ -1,164 +1,177 @@
-from django.views.decorators.csrf import csrf_exempt
-from django.views.decorators.http import require_http_methods
-from django.http import JsonResponse
-from django import forms
-from .models import User, Skill, ConsultantProfile
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib import messages
-from cryptography.fernet import Fernet
+"""
+Custom Admin Views for Consultation Web Application
 
+This module contains all the views for the custom admin interface including:
+- Consultant management (CRUD operations)
+- User authentication and registration
+- Invoice management
+- Skills management
+- Dashboard functionality
+"""
+
+import json
 import logging
-import datetime
-import openpyxl
+import random
+import string
+import re
+from datetime import datetime
+
+# Django imports
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout, get_user_model
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.hashers import make_password
+from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
-from rest_framework import viewsets, permissions
+from django.db import transaction
+from django.db.models import Count, Prefetch
+from django.http import JsonResponse, HttpResponseBadRequest
+from django.shortcuts import render, redirect, get_object_or_404
+from django.utils.dateparse import parse_date
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_http_methods, require_POST
+from django import forms
+from django.conf import settings
+
+# Third-party imports
+from cryptography.fernet import Fernet
+from rest_framework import viewsets, permissions, status
+from rest_framework.response import Response
+import openpyxl
+
+# Local imports
+from .models import User, Skill, Invoice, SessionBooking, Timesheet
+from consultation.models import ConsultantProfile
 from .serializers import SkillSerializer
 
+# Configure logging
 logger = logging.getLogger(__name__)
+User = get_user_model()
+
+# =============================================================================
+# FORMS
+# =============================================================================
 
 class ConsultantRegistrationForm(forms.Form):
-    name = forms.CharField(max_length=255)
-    mobile = forms.CharField(max_length=20)
-    email = forms.EmailField()
-    agreement = forms.BooleanField()
-    bank_account_name = forms.CharField(max_length=255)
-    bank_account_number = forms.CharField(max_length=50)
-    bank_ifsc = forms.CharField(max_length=20)
-    bank_branch_name = forms.CharField(max_length=255)
-    bank_name = forms.CharField(max_length=255)
-    cost_per_hour = forms.DecimalField(max_digits=10, decimal_places=2)
-    skills = forms.ModelMultipleChoiceField(queryset=None, widget=forms.CheckboxSelectMultiple)
+    """Form for consultant registration with all required fields"""
+    
+    # Personal Information
+    name = forms.CharField(max_length=255, label="Full Name")
+    mobile = forms.CharField(max_length=20, label="Mobile Number")
+    email = forms.EmailField(label="Email Address")
+    agreement = forms.BooleanField(label="Agreement Accepted")
+    
+    # Banking Information
+    bank_account_name = forms.CharField(max_length=255, label="Account Holder Name")
+    bank_account_number = forms.CharField(max_length=50, label="Account Number")
+    bank_ifsc = forms.CharField(max_length=20, label="IFSC Code")
+    bank_branch_name = forms.CharField(max_length=255, label="Branch Name")
+    bank_name = forms.CharField(max_length=255, label="Bank Name")
+    
+    # Professional Information
+    cost_per_hour = forms.DecimalField(
+        max_digits=10, 
+        decimal_places=2, 
+        label="Cost Per Hour"
+    )
+    skills = forms.ModelMultipleChoiceField(
+        queryset=None, 
+        widget=forms.CheckboxSelectMultiple,
+        label="Skills"
+    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['skills'].queryset = Skill.objects.all()
+        
+class ConsultantEditForm(forms.ModelForm):
+    """Form for editing consultant profile information"""
+    
+    status = forms.ModelChoiceField(
+        queryset=None,
+        empty_label="Select status",
+        required=False,
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
+    
+    class Meta:
+        model = ConsultantProfile
+        fields = [
+            'name',
+            'mobile',
+            'bank_account_name',
+            'bank_account_number', 
+            'bank_ifsc',
+            'bank_branch_name',
+            'bank_name',
+            'cost_per_hour',
+            'skills',
+            'status',
+            'agreement_document',
+            'details',
+        ]
+    
+    skills = forms.ModelMultipleChoiceField(
+        queryset=Skill.objects.all(), 
+        widget=forms.CheckboxSelectMultiple
+    )
+    agreement_document = forms.FileField(required=False)
+    details = forms.CharField(widget=forms.Textarea, required=False)
 
-@csrf_exempt
-@require_http_methods(["GET", "POST"])
-def consultant_registration(request, user_id):
-    user = get_object_or_404(User, id=user_id, role='consultant')
-    try:
-        profile = user.consultant_profile
-    except ConsultantProfile.DoesNotExist:
-        profile = None
-
-    if request.method == 'POST':
-        form = ConsultantRegistrationForm(request.POST)
-        if form.is_valid():
-            data = form.cleaned_data
-            if not profile:
-                profile = ConsultantProfile(user=user)
-            profile.bank_account_name = data['bank_account_name']
-            profile.bank_account_number = data['bank_account_number']
-            profile.bank_ifsc = data['bank_ifsc']
-            profile.bank_branch_name = data['bank_branch_name']
-            profile.bank_name = data['bank_name']
-            profile.cost_per_hour = data['cost_per_hour']
-            profile.status = 'to_be_reviewed'
-            profile.save()
-            profile.skills.set(data['skills'])
-            profile.save()
-            messages.success(request, 'Registration completed successfully.')
-            return redirect('registration_success')
-    else:
-        initial_data = {
-            'name': user.email,
-            'mobile': '',  # Could be added to User model if needed
-            'email': user.email,
-            'agreement': True,
-        }
-        form = ConsultantRegistrationForm(initial=initial_data)
-
-    return render(request, 'consultant_registration.html', {'form': form, 'user': user})
-
-def registration_success(request):
-    return render(request, 'registration_success.html')
-
-from rest_framework.response import Response
-from rest_framework import status
-
-import logging
-
-logger = logging.getLogger(__name__)
-
-class SkillViewSet(viewsets.ModelViewSet):
-    serializer_class = SkillSerializer
-    permission_classes = [permissions.IsAdminUser]
-
-    def get_queryset(self):
-        # Return only active skills
-        return Skill.objects.filter(is_active=True)
-
-    def create(self, request, *args, **kwargs):
-        try:
-            response = super().create(request, *args, **kwargs)
-            logger.info(f"Skill created successfully: {response.data}")
-            return response
-        except Exception as e:
-            logger.error(f"Error creating skill: {str(e)}", exc_info=True)
-            return Response({'detail': 'Error creating skill'}, status=status.HTTP_400_BAD_REQUEST)
-
-    def destroy(self, request, *args, **kwargs):
-        # Override destroy to perform soft delete
-        instance = self.get_object()
-        instance.is_active = False
-        instance.save()
-        logger.info(f"Skill soft deleted: {instance.id}")
-        return Response(status=status.HTTP_204_NO_CONTENT)
-
-@csrf_exempt
-def login_view(request):
-    if request.method == 'POST':
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-        logger.info(f"Login attempt for email: {email}")
-        try:
-            user = User.objects.get(email=email)
-            logger.info(f"User found: {user.email} with role {user.role}")
-        except User.DoesNotExist:
-            logger.warning(f"Login failed: User with email {email} does not exist")
-            messages.error(request, 'Invalid email or password')
-            return redirect('login')
-
-        if user.role == 'admin':
-            from django.contrib.auth import authenticate, login
-            user_auth = authenticate(request, username=email, password=password)
-            if user_auth is not None:
-                logger.info(f"Admin user {email} authenticated successfully.")
-                login(request, user_auth)
-                return redirect('admin_dashboard')
-            else:
-                logger.warning(f"Admin user {email} failed authentication.")
-                messages.error(request, 'Invalid email or password')
-                return redirect('login')
-        elif user.role == 'consultant':
-            if user.check_consultant_password(password):
-                from django.contrib.auth import login
-                login(request, user)
-                logger.info(f"Consultant user {email} logged in successfully.")
-                return redirect('consultant_dashboard')
-            else:
-                logger.warning(f"Consultant user {email} failed password check.")
-                messages.error(request, 'Invalid email or password')
-                return redirect('login')
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        from .models import ConsultantStatus
+        qs = ConsultantStatus.objects.all()
+        self.fields['status'].queryset = qs
+        # Debug logging for queryset and initial value
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.debug(f"ConsultantEditForm __init__: status queryset count = {qs.count()}")
+        if 'instance' in kwargs and kwargs['instance'] is not None:
+            status_value = getattr(kwargs['instance'], 'status', None)
+            logger.debug(f"ConsultantEditForm __init__: instance status = {status_value}")
+            if status_value is None:
+                try:
+                    default_status = ConsultantStatus.objects.get(status='to_be_reviewed')
+                    self.fields['status'].initial = default_status
+                    logger.debug(f"ConsultantEditForm __init__: set default initial status to {default_status}")
+                except ConsultantStatus.DoesNotExist:
+                    logger.warning("ConsultantEditForm __init__: default status 'to_be_reviewed' does not exist")
         else:
-            logger.warning(f"User {email} has unknown role {user.role}")
-        # Added fallback return for POST requests that don't match above conditions
-        return render(request, 'landingpage.html')
-    else:
-        return render(request, 'landingpage.html')
+            logger.debug("ConsultantEditForm __init__: no instance provided")
+            try:
+                default_status = ConsultantStatus.objects.get(status='to_be_reviewed')
+                self.fields['status'].initial = default_status
+                logger.debug(f"ConsultantEditForm __init__: set default initial status to {default_status}")
+            except ConsultantStatus.DoesNotExist:
+                logger.warning("ConsultantEditForm __init__: default status 'to_be_reviewed' does not exist")
 
-from django.contrib.auth.decorators import login_required
+# =============================================================================
+# AUTHENTICATION VIEWS
+# =============================================================================
 
-from django.db.models import Count
-from .models import Invoice, SessionBooking
-from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect
+
+@login_required
+def logout_view(request):
+    """Handle user logout and redirect to login page"""
+    logout(request)
+    return redirect('login')
+
+
+# =============================================================================
+# DASHBOARD VIEWS
+# =============================================================================
 
 @login_required
 def admin_dashboard(request):
+    """
+    Admin dashboard with key metrics and statistics
+    """
+    # Calculate dashboard metrics
     total_consultants = User.objects.filter(role='consultant').count()
     pending_invoices = Invoice.objects.filter(status='pending').count()
-    approved_sessions = SessionBooking.objects.count()  # Assuming all sessions are approved
+    approved_sessions = SessionBooking.objects.count()
 
     context = {
         'total_consultants': total_consultants,
@@ -168,41 +181,32 @@ def admin_dashboard(request):
     }
     return render(request, 'admin_dashboard.html', context)
 
-from .models import Skill
-
-@login_required
-def admin_skills(request):
-    skills = Skill.objects.all().order_by('name')
-    return render(request, 'admin_skills.html', {'skills': skills, 'current_page': 'Skill Master'})
+# =============================================================================
+# CONSULTANT MANAGEMENT VIEWS
+# =============================================================================
 
 @login_required
 def consultant_management(request):
-    # Query all users with role 'consultant' and prefetch related ConsultantProfile
+    """
+    Display list of all consultants with their profiles
+    """
     consultants = User.objects.filter(role='consultant').select_related('consultant_profile')
+    
     context = {
         'consultants': consultants,
         'current_page': 'Consultant Management',
     }
-    return render(request, 'consultant_managment.html', context)
-
-@login_required
-def admin_invoices(request):
-    return render(request, 'admin_invoices.html', {'current_page': 'Invoice Management'})
-
-from django.views.decorators.csrf import csrf_exempt
-from django.core.mail import send_mail
-from django.conf import settings
-from django.http import JsonResponse
-import re
+    return render(request, 'consultant_management.html', context)
 
 @login_required
 @csrf_exempt
 def add_consultant(request):
-    import random
-    import string
-    from django.contrib.auth.hashers import make_password
-
+    """
+    Add new consultant with email notification
+    Generates random password and sends login credentials via email
+    """
     if request.method == 'POST':
+        # Extract form data
         name = request.POST.get('name', '').strip()
         mobile = request.POST.get('mobile', '').strip()
         email = request.POST.get('email', '').strip()
@@ -211,30 +215,51 @@ def add_consultant(request):
         # Server-side validation
         if not name:
             return JsonResponse({'success': False, 'message': 'Name is required.'})
+        
         if not re.fullmatch(r'\d{10}', mobile):
             return JsonResponse({'success': False, 'message': 'Mobile number must be exactly 10 digits.'})
+        
         email_regex = r'^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$'
         if not re.fullmatch(email_regex, email, re.IGNORECASE):
             return JsonResponse({'success': False, 'message': 'Invalid email address.'})
+        
         if not agreement:
             return JsonResponse({'success': False, 'message': 'Agreement PDF is required.'})
+        
         if not agreement.name.lower().endswith('.pdf'):
             return JsonResponse({'success': False, 'message': 'Agreement must be a PDF file.'})
 
-        # Check if user with email already exists
+        # Check for existing user
         if User.objects.filter(email=email).exists():
             return JsonResponse({'success': False, 'message': 'User with this email already exists.'})
 
-        # Generate a random password
-        autogenerated_password = ''.join(random.choices(string.ascii_letters + string.digits, k=10))
+        # Generate random password
+        autogenerated_password = ''.join(
+            random.choices(string.ascii_letters + string.digits, k=10)
+        )
 
-        # Create new user with encrypted password using UserManager.create_user
-        new_user = User.objects.create_user(email=email, role='consultant', password=autogenerated_password)
+        # Create new user
+        new_user = User.objects.create_user(
+            email=email, 
+            role='consultant', 
+            password=autogenerated_password
+        )
 
-        # TODO: Save consultant profile or other related data if needed
+        # Create consultant status
+        from .models import ConsultantStatus
+        consultant_status = ConsultantStatus.objects.create(user=new_user, status='to_be_reviewed')
 
-        # Send email to the entered email address with login details
-        login_url = request.build_absolute_uri('/auth/login/')
+        # Create consultant profile
+        profile = ConsultantProfile(user=new_user)
+        profile.name = name
+        profile.mobile = mobile
+        profile.status = consultant_status
+        if agreement:
+            profile.agreement_document = agreement
+        profile.save()
+
+        # Send welcome email with credentials
+        # login_url = request.build_absolute_uri('/auth/login/')
         email_message = (
             f"Dear {name},\n\n"
             f"Thank you for registering as a consultant.\n"
@@ -250,7 +275,7 @@ def add_consultant(request):
             send_mail(
                 subject='Consultant Registration Received - Login Details',
                 message=email_message,
-                from_email=settings.DEFAULT_FROM_EMAIL if hasattr(settings, 'DEFAULT_FROM_EMAIL') else 'no-reply@example.com',
+                from_email=getattr(settings, 'DEFAULT_FROM_EMAIL', 'no-reply@example.com'),
                 recipient_list=[email],
                 fail_silently=False,
             )
@@ -260,66 +285,143 @@ def add_consultant(request):
             return JsonResponse({'success': False, 'message': f'Error sending email: {str(e)}'})
 
         return JsonResponse({'success': True, 'message': 'Consultant added successfully and email sent.'})
-    else:
-        return render(request, 'add_consultant.html', {'current_page': 'Add Consultant'})
+    
+    # GET request - show add consultant form
+    return render(request, 'add_consultant.html', {'current_page': 'Add Consultant'})
 
-@login_required
-def consultation_list(request):
-    logger.info("consultation_list view called")
-    # Render consultant management page instead of consultation_list.html
-    consultants = User.objects.filter(role='consultant').select_related('consultant_profile')
-    context = {
-        'consultants': consultants,
-        'current_page': 'Consultation List',
-    }
-    logger.info(f"consultation_list rendering with {consultants.count()} consultants")
-    return render(request, 'consultant_managment.html', context)
 
 @login_required
 def consultant_profile(request, consultant_id):
+    """
+    Display detailed consultant profile with invoices and timesheets
+    """
     consultant = get_object_or_404(User, id=consultant_id, role='consultant')
-    return render(request, 'consultant_profile.html', {'consultant': consultant})
+    
+    # Get consultant profile with skills
+    try:
+        profile = ConsultantProfile.objects.prefetch_related(
+            Prefetch('skills', queryset=Skill.objects.filter(is_active=True))
+        ).get(user=consultant)
+        logger.info(f"ConsultantProfile found for user {consultant.email} with {profile.skills.count()} skills")
+    except ConsultantProfile.DoesNotExist:
+        profile = None
+        logger.warning(f"ConsultantProfile does not exist for user {consultant.email}")
+    
+    # Get related data
+    invoices = Invoice.objects.filter(consultant=consultant).order_by('-month')
+    timesheets = Timesheet.objects.filter(consultant=consultant).order_by('-month')
+    all_skills = Skill.objects.filter(is_active=True).order_by('name')
+
+    # Prepare form for editing consultant profile
+    form = ConsultantEditForm(instance=profile)
+    
+    context = {
+        'consultant': consultant,
+        'profile': profile,
+        'invoices': invoices,
+        'timesheets': timesheets,
+        'all_skills': all_skills,
+        'form': form,
+    }
+    return render(request, 'consultant_detail.html', context)
+
 
 @login_required
-def reset_consultant_password(request, consultant_id):
+@csrf_exempt
+@require_http_methods(["GET", "POST"])
+def edit_consultant(request, consultant_id):
+    """
+    Edit consultant profile information
+    """
+    user = get_object_or_404(User, id=consultant_id, role='consultant')
+    
+    # Get or create consultant profile
+    try:
+        profile = user.consultant_profile
+    except ConsultantProfile.DoesNotExist:
+        profile = ConsultantProfile(user=user)
+
     if request.method == 'POST':
-        new_password = request.POST.get('new_password')
-        try:
-            consultant = User.objects.get(id=consultant_id, role='consultant')
-            from cryptography.fernet import Fernet
-            FERNET_KEY = Fernet.generate_key()
-            fernet = Fernet(FERNET_KEY)
-            encrypted_password = fernet.encrypt(new_password.encode()).decode()
-            consultant.encrypted_password = encrypted_password
-            consultant.save()
-            messages.success(request, 'Password reset successfully')
-        except User.DoesNotExist:
-            messages.error(request, 'Consultant not found')
-        return redirect('admin_dashboard')
+        form = ConsultantEditForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            try:
+                form.save()
+                logger.info(f"Consultant details updated successfully for user {user.email}")
+                if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+                    return JsonResponse({'success': True, 'message': 'Consultant details updated successfully.'})
+                else:
+                    messages.success(request, 'Consultant details updated successfully.')
+                    return redirect('custom_admin:consultant_profile', consultant_id=consultant_id)
+            except Exception as e:
+                logger.error(f"Error saving consultant details for user {user.email}: {str(e)}")
+                if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+                    return JsonResponse({'success': False, 'message': 'Error saving consultant details.'}, status=500)
+                else:
+                    messages.error(request, 'An error occurred while saving consultant details.')
+                    return redirect('custom_admin:consultant_profile', consultant_id=consultant_id)
+        else:
+            if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+                errors = form.errors.as_json()
+                logger.error(f"Form validation errors: {form.errors}")
+                return JsonResponse({'success': False, 'errors': errors}, status=400)
+            else:
+                logger.error(f"Form validation errors for user {user.email}: {form.errors}")
+                messages.error(request, 'Please correct the errors below.')
+                return redirect('custom_admin:consultant_profile', consultant_id=consultant_id)
     else:
-        return HttpResponse(status=405)  # Method not allowed
+        # Redirect GET requests to consultant_detail page
+        logger.info(f"Redirecting GET request to consultant_profile for user {user.email}")
+        return redirect('custom_admin:consultant_profile', consultant_id=consultant_id)
 
-from django.contrib.auth import logout
-from django.contrib.auth.decorators import login_required
 
-from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponseBadRequest
-from django.views.decorators.http import require_POST
-from django.shortcuts import redirect
+@login_required
+@csrf_exempt
+@require_POST
+def update_consultant_field(request, consultant_id):
+    """
+    API endpoint to update a single field of consultant profile via POST JSON
+    """
+    try:
+        user = User.objects.get(id=consultant_id, role='consultant')
+        profile = user.consultant_profile
+    except (User.DoesNotExist, ConsultantProfile.DoesNotExist):
+        return JsonResponse({'success': False, 'message': 'Consultant not found.'}, status=404)
 
-from django.views.decorators.http import require_POST
-from django.http import HttpResponseBadRequest
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect, get_object_or_404
+    try:
+        data = json.loads(request.body)
+        field_name = data.get('field_name')
+        field_value = data.get('field_value')
+
+        # Validate allowed fields
+        allowed_fields = [
+            'bank_account_name', 'bank_account_number', 'bank_ifsc', 
+            'bank_branch_name', 'bank_name', 'cost_per_hour', 'status'
+        ]
+        
+        if field_name not in allowed_fields:
+            return JsonResponse({'success': False, 'message': 'Invalid field name.'}, status=400)
+
+        setattr(profile, field_name, field_value)
+        profile.save()
+        
+        return JsonResponse({'success': True, 'message': f'{field_name} updated successfully.'})
+    
+    except Exception as e:
+        logger.error(f"Error updating consultant field: {str(e)}")
+        return JsonResponse({'success': False, 'message': 'Error updating field.'}, status=500)
+
 
 @login_required
 @csrf_exempt
 @require_POST
 def delete_consultant(request, consultant_id):
+    """
+    Delete consultant account
+    """
     try:
         consultant = User.objects.get(id=consultant_id, role='consultant')
         consultant.delete()
-        # Optionally, add messages or logging here
+        logger.info(f"Consultant {consultant.email} deleted successfully")
     except User.DoesNotExist:
         return HttpResponseBadRequest("Consultant not found")
 
@@ -329,7 +431,11 @@ def delete_consultant(request, consultant_id):
 @csrf_exempt
 @require_POST
 def change_consultant_status(request, consultant_id):
+    """
+    Change consultant approval status
+    """
     new_status = request.POST.get('status')
+    
     if new_status not in ['approved', 'rejected', 'to_be_reviewed']:
         return HttpResponseBadRequest("Invalid status value")
 
@@ -338,7 +444,7 @@ def change_consultant_status(request, consultant_id):
         profile = consultant.consultant_profile
         profile.status = new_status
         profile.save()
-        # Optionally, add messages or logging here
+        logger.info(f"Consultant {consultant.email} status changed to {new_status}")
     except User.DoesNotExist:
         return HttpResponseBadRequest("Consultant not found")
     except ConsultantProfile.DoesNotExist:
@@ -346,68 +452,256 @@ def change_consultant_status(request, consultant_id):
 
     return redirect('consultant_management')
 
+
 @login_required
-def logout_view(request):
-    logout(request)
-    return redirect('login')
-from django.http import JsonResponse
-from django.contrib.auth import get_user_model
-from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth.decorators import login_required
-from django.views.decorators.http import require_POST
-from django.utils.dateparse import parse_date
-from django.core.exceptions import ValidationError
-from django.db import transaction
-from .models import Invoice
+def reset_consultant_password(request, consultant_id):
+    """
+    Reset consultant password with encryption
+    """
+    if request.method == 'POST':
+        new_password = request.POST.get('new_password')
+        
+        try:
+            consultant = User.objects.get(id=consultant_id, role='consultant')
+            
+            # Generate encryption key and encrypt password
+            FERNET_KEY = Fernet.generate_key()
+            fernet = Fernet(FERNET_KEY)
+            encrypted_password = fernet.encrypt(new_password.encode()).decode()
+            
+            consultant.encrypted_password = encrypted_password
+            consultant.save()
+            
+            messages.success(request, 'Password reset successfully')
+            logger.info(f"Password reset for consultant {consultant.email}")
+            
+        except User.DoesNotExist:
+            messages.error(request, 'Consultant not found')
+            
+        return redirect('custom_admin:admin_dashboard')
+    else:
+        return HttpResponseBadRequest("Method not allowed")
 
-User = get_user_model()
 
-# API view to get consultant data for autofill
+# =============================================================================
+# CONSULTANT REGISTRATION VIEWS
+# =============================================================================
+
+@csrf_exempt
+@require_http_methods(["GET", "POST"])
+def consultant_registration(request, user_id):
+    """
+    Handle consultant self-registration process
+    """
+    user = get_object_or_404(User, id=user_id, role='consultant')
+    
+    # Check if profile already exists
+    try:
+        profile = user.consultant_profile
+    except ConsultantProfile.DoesNotExist:
+        profile = None
+
+    if request.method == 'POST':
+        form = ConsultantRegistrationForm(request.POST)
+        
+        if form.is_valid():
+            data = form.cleaned_data
+            
+            # Create new profile if doesn't exist
+            if not profile:
+                profile = ConsultantProfile(user=user)
+            
+            # Create or update ConsultantStatus
+            from custom_admin.models import ConsultantStatus
+            consultant_status, created = ConsultantStatus.objects.get_or_create(user=user)
+            consultant_status.status = 'to_be_reviewed'
+            consultant_status.save()
+            
+            # Update all fields including name and mobile and status FK
+            profile.name = data['name']
+            profile.mobile = data['mobile']
+            profile.bank_account_name = data['bank_account_name']
+            profile.bank_account_number = data['bank_account_number']
+            profile.bank_ifsc = data['bank_ifsc']
+            profile.bank_branch_name = data['bank_branch_name']
+            profile.bank_name = data['bank_name']
+            profile.cost_per_hour = data['cost_per_hour']
+            profile.status = consultant_status
+            profile.save()
+            
+            # Set skills
+            profile.skills.set(data['skills'])
+            profile.save()
+            
+            messages.success(request, 'Registration completed successfully.')
+            logger.info(f"Registration completed for user {user.email}")
+                
+            return redirect('registration_success')
+    else:
+        # Pre-populate form with user data
+        initial_data = {
+            'name': user.consultant_profile.name if profile else '',
+            'mobile': user.consultant_profile.mobile if profile else '',
+            'email': user.email,
+            'agreement': True,
+        }
+        form = ConsultantRegistrationForm(initial=initial_data)
+
+    return render(request, 'consultant_registration.html', {'form': form, 'user': user})
+
+
+def registration_success(request):
+    """
+    Display registration success page
+    """
+    return render(request, 'registration_success.html')
+
+
+# =============================================================================
+# SKILLS MANAGEMENT
+# =============================================================================
+
+@login_required
+def admin_skills(request):
+    """
+    Display and manage skills master data
+    """
+    skills = Skill.objects.all().order_by('name')
+    return render(request, 'admin_skills.html', {
+        'skills': skills, 
+        'current_page': 'Skill Master'
+    })
+
+
+class SkillViewSet(viewsets.ModelViewSet):
+    """
+    API ViewSet for managing skills with soft delete functionality
+    """
+    serializer_class = SkillSerializer
+    permission_classes = [permissions.IsAdminUser]
+
+    def get_queryset(self):
+        """Return only active skills"""
+        return Skill.objects.filter(is_active=True)
+
+    def create(self, request, *args, **kwargs):
+        """Create new skill with error handling"""
+        try:
+            # Validate skill name in request data
+            skill_name = request.data.get('name', '').strip()
+            if not skill_name:
+                return Response(
+                    {'detail': 'Skill name is required.'},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            # Check if skill with same name exists
+            if Skill.objects.filter(name__iexact=skill_name).exists():
+                return Response(
+                    {'detail': 'Skill with this name already exists.'},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            response = super().create(request, *args, **kwargs)
+            logger.info(f"Skill created successfully: {response.data}")
+            return response
+        except Exception as e:
+            logger.error(f"Error creating skill: {str(e)}", exc_info=True)
+            return Response(
+                {'detail': 'Error creating skill'}, 
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+    def destroy(self, request, *args, **kwargs):
+        """Perform soft delete instead of hard delete"""
+        instance = self.get_object()
+        instance.is_active = False
+        instance.save()
+        logger.info(f"Skill soft deleted: {instance.id}")
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+# =============================================================================
+# INVOICE MANAGEMENT
+# =============================================================================
+
+@login_required
+def admin_invoices(request):
+    """
+    Display invoice management interface
+    """
+    return render(request, 'admin_invoices.html', {
+        'current_page': 'Invoice Management'
+    })
+    
 def consultant_autofill(request):
+    """
+    API endpoint for consultant autocomplete functionality
+    Supports search by ID or name
+    """
     query_id = request.GET.get('id', '').strip()
     query_name = request.GET.get('name', '').strip()
 
+    results = []
+
     if query_id:
-        consultants = User.objects.filter(role='consultant', id__startswith=query_id).values('id', 'email')[:10]
-        results = []
-        for c in consultants:
-            results.append({'id': c['id'], 'name': c['email']})
-        return JsonResponse({'results': results})
+        consultants = User.objects.filter(
+            role='consultant', 
+            id__startswith=query_id
+        ).values('id', 'email')[:10]
+        
+        results = [{'id': c['id'], 'name': c['email']} for c in consultants]
+        
+    elif query_name:
+        consultants = User.objects.filter(
+            role='consultant'
+        ).filter(email__istartswith=query_name)[:10]
+        
+        results = [{'id': c.id, 'name': c.email} for c in consultants]
 
-    if query_name:
-        consultants = User.objects.filter(role='consultant').filter(email__istartswith=query_name)[:10]
-        results = []
-        for c in consultants:
-            results.append({'id': c['id'], 'name': c['email']})
-        return JsonResponse({'results': results})
+    return JsonResponse({'results': results})
 
-    return JsonResponse({'results': []})
 
 @login_required
 @csrf_exempt
 @require_POST
 def add_invoice(request):
+    """
+    Add new invoice for a consultant
+    """
     try:
+        # Extract form data
         consultant_id = request.POST.get('consultant_id')
         name = request.POST.get('name')
         month_str = request.POST.get('month')
         status = request.POST.get('status')
         invoice_file = request.FILES.get('invoice_file')
 
+        # Validate required fields
         if not all([consultant_id, name, month_str, status, invoice_file]):
-            return JsonResponse({'success': False, 'message': 'All fields are required.'})
+            return JsonResponse({
+                'success': False, 
+                'message': 'All fields are required.'
+            })
 
+        # Parse and validate month
         try:
             month = parse_date(month_str + '-01')  # Convert YYYY-MM to date
             if month is None:
                 raise ValidationError('Invalid month format.')
         except ValidationError:
-            return JsonResponse({'success': False, 'message': 'Invalid month format.'})
+            return JsonResponse({
+                'success': False, 
+                'message': 'Invalid month format.'
+            })
 
+        # Validate consultant exists
         consultant = User.objects.filter(id=consultant_id, role='consultant').first()
         if not consultant:
-            return JsonResponse({'success': False, 'message': 'Consultant not found.'})
+            return JsonResponse({
+                'success': False, 
+                'message': 'Consultant not found.'
+            })
 
+        # Create invoice with transaction
         with transaction.atomic():
             invoice = Invoice.objects.create(
                 consultant=consultant,
@@ -416,6 +710,64 @@ def add_invoice(request):
                 file=invoice_file,
                 status=status
             )
-        return JsonResponse({'success': True, 'message': 'Invoice added successfully.'})
+            
+        logger.info(f"Invoice created successfully for consultant {consultant.email}")
+        return JsonResponse({
+            'success': True, 
+            'message': 'Invoice added successfully.'
+        })
+        
     except Exception as e:
-        return JsonResponse({'success': False, 'message': f'Error adding invoice: {str(e)}'})
+        logger.error(f"Error adding invoice: {str(e)}")
+        return JsonResponse({
+            'success': False, 
+            'message': f'Error adding invoice: {str(e)}'
+        })
+
+
+# =============================================================================
+# UTILITY VIEWS
+# =============================================================================
+
+@login_required
+def consultation_list(request):
+    """
+    Display consultation list (redirects to consultant management)
+    """
+    logger.info("consultation_list view called")
+    
+    consultants = User.objects.filter(role='consultant').select_related('consultant_profile')
+    
+    context = {
+        'consultants': consultants,
+        'current_page': 'Consultation List',
+    }
+    
+    logger.info(f"consultation_list rendering with {consultants.count()} consultants")
+    return render(request, 'consultant_managment.html', context)
+
+
+# =============================================================================
+# ERROR HANDLERS AND FALLBACKS
+# =============================================================================
+
+def handle_404(request, exception):
+    """Custom 404 error handler"""
+    return render(request, '404.html', status=404)
+
+
+def handle_500(request):
+    """Custom 500 error handler"""
+    return render(request, '500.html', status=500)
+
+
+# =============================================================================
+# DEPRECATED/LEGACY VIEWS
+# =============================================================================
+
+# Note: The following views might be deprecated or need refactoring
+# Consider reviewing their usage and updating as needed
+
+# TODO: Review if these views are still needed
+# TODO: Add proper error handling and validation
+# TODO: Consider moving to separate modules for better organization

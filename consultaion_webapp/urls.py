@@ -16,13 +16,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from django.conf import settings
+from django.conf.urls.static import static
 from django.shortcuts import redirect
+from .views import landing_page
+from general.views import login_view
+from django.urls import path, include
+from django.views.generic import RedirectView
+from django.contrib import admin
 from .views import landing_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('auth/', include('custom_admin.urls')),
-    path('consultation/', include('consultation.urls')),
+    path('auth/login/', login_view, name='login'),
+    path('auth/', include(('custom_admin.urls', 'custom_admin'), namespace='custom_admin')),
+    path('consultation/', include(('consultation.urls', 'consultation'), namespace='consultation')),
+    path('accounts/login/', RedirectView.as_view(url='/auth/login/', permanent=False), name='account_login_redirect'),
     path('', landing_page, name='landing_page'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
