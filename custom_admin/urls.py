@@ -21,6 +21,7 @@ urlpatterns = [
     path('edit_consultant/<int:consultant_id>/', views.edit_consultant, name='edit_consultant'),
     path('change_consultant_status/<int:consultant_id>/', views.change_consultant_status, name='change_consultant_status'),
     path('delete_consultant/<int:consultant_id>/', views.delete_consultant, name='delete_consultant'),
+    path('update_timesheet_status/<int:timesheetId>/', views.update_timesheet_status, name='update_timesheet_status'),
     path('api/consultant_autofill/', views.consultant_autofill, name='consultant_autofill'),
     path('', include(router.urls)),
 ]

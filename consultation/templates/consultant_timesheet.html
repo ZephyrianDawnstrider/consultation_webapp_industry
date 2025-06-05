@@ -1,499 +1,260 @@
+
 {% extends "consultant_base.html" %}
 {% load static %}
 
-{% block title %}Consultant timesheet upload{% endblock %}
+{% block title %}Consultant Timesheet Upload{% endblock %}
+
+{% block extra_head %}
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css" rel="stylesheet" />
+{% endblock %}
 
 {% block extra_css %}
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/@fullcalendar/core@5.11.0/main.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/@fullcalendar/daygrid@5.11.0/main.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/@fullcalendar/core@5.11.0/main.min.js"></script>
-    <script src="https://unpkg.com/@fullcalendar/daygrid@5.11.0/main.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    <style>
-        /* Custom styles that can't be done with Tailwind */
-        .file-upload {
-            position: relative;
-            display: inline-block;
-        }
-        .file-upload input[type="file"] {
-            position: absolute;
-            left: 0;
-            top: 0;
-            opacity: 0;
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-        }
-        #calendar {
-            max-width: 100%;
-            margin: 20px auto;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            background-color: white;
-        }
-        .fc-event {
-            cursor: pointer;
-            border-radius: 0.375rem;
-            padding: 0.25rem 0.5rem;
-            font-weight: 600;
-        }
-        .bg-primary-100 {
-            background-color: rgba(99, 102, 241, 0.1);
-        }
-        .text-primary-600 {
-            color: #4f46e5;
-        }
-        .border-primary-500 {
-            border-color: #4f46e5;
-        }
-        .hover\:bg-primary-200:hover {
-            background-color: rgba(99, 102, 241, 0.2);
-        }
-        /* Enhanced button styling */
-        #upload-button {
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        #upload-button:hover:not(:disabled) {
-            background-color: #4338ca;
-            box-shadow: 0 4px 14px rgba(67, 56, 202, 0.4);
-        }
-        /* Success and error message styling */
-        #success-message, #error-message {
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-    </style>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+<style>
+  .hidden { display: none; }
+  .cursor-pointer { cursor: pointer; }
+  .file-drop-area {
+    border: 2px dashed #4f46e5;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  .file-drop-area:hover {
+    background-color: #eef2ff;
+  }
+  #file-info {
+    margin-top: 0.5rem;
+    color: #16a34a;
+  }
+  #success-message, #error-message {
+    max-width: 600px;
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 0.375rem;
+  }
+  #success-message {
+    background-color: #d1fae5;
+    border: 1px solid #10b981;
+    color: #065f46;
+  }
+  #error-message {
+    background-color: #fee2e2;
+    border: 1px solid #ef4444;
+    color: #991b1b;
+  }
+  #calendar {
+    max-width: 900px;
+    margin: 2rem auto;
+  }
+</style>
 {% endblock %}
+
 {% block content %}
-    <div class="flex flex-col flex-grow max-w-full px-6 py-10 min-h-[calc(100vh-4.5rem)]">
-        <!-- Header -->
-        <div class="flex justify-between items-center mb-10">
-            <h1 class="text-4xl font-extrabold text-gray-900 flex items-center">
-                <i class="fas fa-calendar-alt mr-4 text-primary-600"></i>
-                Consultant Timesheet
-            </h1>
-            <div class="text-base text-gray-700">
-                Welcome, <span class="font-semibold">{{ request.user.get_full_name|default:request.user.email }}</span>
-            </div>
-        </div>
+<div class="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+  <h1 class="text-4xl font-extrabold mb-8 text-indigo-700 text-center">Upload Your Timesheet</h1>
 
-        <!-- Success Message (hidden by default) -->
-        <div id="success-message" class="hidden mb-8 p-5 rounded-lg bg-green-50 border border-green-300 shadow-sm">
-            <div class="flex items-center space-x-3">
-                <i class="fas fa-check-circle text-green-600 text-2xl"></i>
-                <div>
-                    <h3 class="text-lg font-semibold text-green-800">
-                        Timesheet uploaded successfully!
-                    </h3>
-                    <p class="mt-1 text-green-700">
-                        Your availability has been updated for the selected month.
-                    </p>
-                </div>
-            </div>
-        </div>
+  <div id="success-message" class="hidden bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6" role="alert" aria-live="assertive">
+    Timesheet uploaded successfully! Your availability has been updated.
+  </div>
+  <div id="error-message" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6" role="alert" aria-live="assertive">
+    <span id="error-text">There was an error processing your timesheet file.</span>
+  </div>
 
-        <!-- Error Message (hidden by default) -->
-        <div id="error-message" class="hidden mb-8 p-5 rounded-lg bg-red-50 border border-red-300 shadow-sm">
-            <div class="flex items-center space-x-3">
-                <i class="fas fa-exclamation-circle text-red-600 text-2xl"></i>
-                <div>
-                    <h3 class="text-lg font-semibold text-red-800">
-                        Error processing timesheet
-                    </h3>
-                    <p id="error-details" class="mt-1 text-red-700">
-                        There was an error processing your timesheet file.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Upload Card -->
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden mb-10">
-            <div class="px-8 py-6 border-b border-gray-200">
-                <h3 class="text-xl font-semibold text-gray-900">
-                    Upload Your Timesheet
-                </h3>
-            </div>
-            <div class="p-8">
-                <form id="timesheet-form" class="space-y-8">
-                    <!-- Month Selection -->
-                    <div>
-                        <label for="month-select" class="block text-sm font-medium text-gray-700 mb-2">
-                            Select Month
-                        </label>
-                        <div class="mt-2 relative rounded-md shadow-sm">
-                            <select id="month-select" class="block w-full pl-4 pr-10 py-3 text-base border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 sm:text-base rounded-md border">
-                                <option value="">-- Select Month --</option>
-                                {% for month in month_options %}
-                                    <option value="{{ month.value }}" {% if month.selected %}selected{% endif %}>{{ month.name }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- File Upload -->
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-3">
-                            Timesheet File
-                        </label>
-                        <div class="mt-2 flex justify-center px-8 pt-6 pb-8 border-2 border-gray-300 border-dashed rounded-lg file-upload hover:border-primary-500 transition-colors duration-300">
-                            <div class="space-y-2 text-center">
-                                <div class="flex text-base text-gray-600 items-center justify-center">
-                                    <label for="timesheet-file" class="relative cursor-pointer bg-white rounded-md font-semibold text-primary-600 hover:text-primary-500 focus-within:outline-none">
-                                        <span class="flex items-center">
-                                            <i class="fas fa-upload mr-3 text-lg"></i>
-                                            Upload a file
-                                        </span>
-                                        <input id="timesheet-file" name="timesheet-file" type="file" class="sr-only" accept=".xlsx,.xls" required>
-                                    </label>
-                                    <p class="pl-2">or drag and drop</p>
-                                </div>
-                                <p class="text-sm text-gray-500">
-                                    Excel (.xlsx, .xls) files only
-                                </p>
-                            </div>
-                        </div>
-                        <div id="file-info" class="hidden mt-3 text-sm text-gray-600">
-                            <i class="fas fa-file-excel mr-2 text-green-600"></i>
-                            <span id="file-name"></span> - <span id="file-size"></span>
-                        </div>
-                    </div>
-
-                    <!-- File Requirements -->
-                    <div class="bg-blue-50 border-l-4 border-blue-400 p-5 rounded-lg">
-                        <div class="flex">
-                            <div class="flex-shrink-0">
-                                <i class="fas fa-info-circle h-6 w-6 text-blue-500"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-base font-semibold text-blue-800">
-                                    File Requirements
-                                </h3>
-                                <div class="mt-3 text-sm text-blue-700">
-                                    <ul class="list-disc pl-6 space-y-2">
-                                        <li>Must be an Excel file (.xlsx or .xls)</li>
-                                        <li>Must contain these columns: <strong>Date, Start Time, End Time</strong></li>
-                                        <li>Date format: MM/DD/YYYY or YYYY-MM-DD</li>
-                                        <li>Time format: HH:MM (24-hour)</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Upload Button -->
-                    <div class="flex justify-end">
-                        <button type="submit" id="upload-button" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-semibold rounded-lg shadow-sm text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
-                            <i class="fas fa-cloud-upload-alt mr-3 text-lg"></i>
-                            Process Timesheet
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <!-- Calendar View -->
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-            <div class="px-8 py-6 border-b border-gray-200">
-                <h3 class="text-xl font-semibold text-gray-900 flex items-center">
-                    <i class="fas fa-calendar-week mr-4 text-primary-600"></i>
-                    Your Availability for <span id="display-month" class="ml-1">{{ current_month_display }}</span>
-                </h3>
-            </div>
-            <div class="p-8">
-                <div id='calendar'></div>
-            </div>
-        </div>
-        <div class="flex-grow"></div> <!-- Empty space below content -->
+  <form id="timesheet-form" method="post" enctype="multipart/form-data" action="{% url 'consultation:upload_timesheet' request.user.id %}" novalidate>
+    {% csrf_token %}
+    <div class="mb-6">
+      <label for="month-select" class="block text-lg font-semibold text-gray-700 mb-2">Select Month</label>
+      <select id="month-select" name="month" required class="block w-full rounded-md border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+        <option value="" disabled selected>-- Select Month --</option>
+        {% for month in month_options %}
+          <option value="{{ month.value }}">{{ month.name }}</option>
+        {% endfor %}
+      </select>
+      <p id="month-error" class="text-red-600 text-sm mt-1 hidden">Please select a month.</p>
     </div>
+
+    <div class="mb-6">
+      <label class="block text-lg font-semibold text-gray-700 mb-2">Timesheet File</label>
+      <div id="file-drop-area" class="file-drop-area cursor-pointer rounded-md" tabindex="0" role="button" aria-label="Upload timesheet file">
+        <p class="text-gray-600 text-lg">Click or drag and drop your Excel file here (.xlsx or .xls)</p>
+        <input type="file" id="timesheet-file" name="timesheet_file" accept=".xlsx,.xls" class="hidden" required aria-describedby="file-info" />
+      </div>
+      <div id="file-info" class="hidden text-sm mt-2 text-green-600 font-medium"></div>
+      <p id="file-error" class="text-red-600 text-sm mt-1 hidden">Please upload a valid Excel file.</p>
+    </div>
+
+    <button type="submit" id="upload-button" disabled class="w-full bg-indigo-600 text-white py-3 rounded-md font-semibold hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition duration-300">
+      Upload Timesheet
+    </button>
+  </form>
+
+  <div class="bg-white rounded-lg shadow p-6 mt-10">
+    <h2 class="text-xl font-semibold mb-4">Timesheet Calendar</h2>
+    <div id="timesheet-calendar" style="min-height: 600px;" {% if timesheets and timesheets.first %}data-timesheet-id="{{ timesheets.first.id }}"{% endif %}></div>
+    <script id="timesheet-entries" type="application/json">{{ timesheet_entries|safe }}</script>
+    {% if user.is_staff and timesheets and timesheets.first %}
+    <div class="mt-6">
+      <h3 class="text-lg font-semibold mb-2">Timesheet Status</h3>
+    </div>
+    {% endif %}
+  </div>
+</div>
 {% endblock %}
+
 {% block extra_js %}
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize FullCalendar
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                headerToolbar: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth,dayGridWeek,dayGridDay'
-                },
-                events: [], // Will be populated after file upload
-                eventColor: '#4f46e5',
-                eventDisplay: 'block',
-                eventTimeFormat: {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    hour12: false
-                }
-            });
-            calendar.render();
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('timesheet-form');
+  const monthSelect = document.getElementById('month-select');
+  const fileInput = document.getElementById('timesheet-file');
+  const fileDropArea = document.getElementById('file-drop-area');
+  const fileInfo = document.getElementById('file-info');
+  const uploadButton = document.getElementById('upload-button');
+  const successMessage = document.getElementById('success-message');
+  const errorMessage = document.getElementById('error-message');
+  const errorText = document.getElementById('error-text');
+  const monthError = document.getElementById('month-error');
+  const fileError = document.getElementById('file-error');
 
-            // Handle file selection
-            const fileInput = document.getElementById('timesheet-file');
-            const fileInfo = document.getElementById('file-info');
-            const fileName = document.getElementById('file-name');
-            const fileSize = document.getElementById('file-size');
-            const uploadButton = document.getElementById('upload-button');
-            const monthSelect = document.getElementById('month-select');
-            const displayMonth = document.getElementById('display-month');
+  function validateForm() {
+    const monthValid = monthSelect.value !== '';
+    const fileValid = fileInput.files.length > 0 && /\.(xlsx|xls)$/i.test(fileInput.files[0].name);
+    uploadButton.disabled = !(monthValid && fileValid);
+    monthError.classList.toggle('hidden', monthValid);
+    fileError.classList.toggle('hidden', fileValid);
+  }
 
-            // Update displayed month when selection changes
-            monthSelect.addEventListener('change', function() {
-                if (this.value) {
-                    const [year, month] = this.value.split('-');
-                    const monthNames = ["January", "February", "March", "April", "May", "June",
-                                      "July", "August", "September", "October", "November", "December"];
-                    displayMonth.textContent = `${monthNames[parseInt(month) - 1]} ${year}`;
-                } else {
-                    displayMonth.textContent = '';
-                }
-            });
+  monthSelect.addEventListener('change', validateForm);
 
-            fileInput.addEventListener('change', function(e) {
-                if (this.files.length > 0) {
-                    const file = this.files[0];
-                    fileName.textContent = file.name;
-                    fileSize.textContent = formatFileSize(file.size);
-                    fileInfo.classList.remove('hidden');
-                    uploadButton.disabled = !(monthSelect.value && fileInput.files.length > 0);
-                } else {
-                    fileInfo.classList.add('hidden');
-                    uploadButton.disabled = true;
-                }
-            });
+  fileDropArea.addEventListener('click', () => fileInput.click());
+  fileDropArea.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      fileInput.click();
+    }
+  });
 
-            monthSelect.addEventListener('change', function() {
-                uploadButton.disabled = !(monthSelect.value && fileInput.files.length > 0);
-            });
+  fileInput.addEventListener('change', () => {
+    if (fileInput.files.length > 0) {
+      const file = fileInput.files[0];
+      fileInfo.textContent = `${file.name} (${(file.size / 1024).toFixed(2)} KB)`;
+      fileInfo.classList.remove('hidden');
+    } else {
+      fileInfo.textContent = '';
+      fileInfo.classList.add('hidden');
+    }
+    validateForm();
+  });
 
-            // Form submission
-            const form = document.getElementById('timesheet-form');
-            const successMessage = document.getElementById('success-message');
-            const errorMessage = document.getElementById('error-message');
-            const errorDetails = document.getElementById('error-details');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    successMessage.classList.add('hidden');
+    errorMessage.classList.add('hidden');
 
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                if (!monthSelect.value) {
-                    showError("Please select a month");
-                    return;
-                }
+    if (monthSelect.value === '') {
+      monthError.classList.remove('hidden');
+      return;
+    }
+    if (fileInput.files.length === 0) {
+      fileError.classList.remove('hidden');
+      return;
+    }
 
-                if (!fileInput.files.length) {
-                    showError("Please select a file to upload");
-                    return;
-                }
+    uploadButton.disabled = true;
+    uploadButton.textContent = 'Uploading...';
 
-                const file = fileInput.files[0];
-                
-                // Validate file type
-                if (!file.name.match(/\.(xlsx|xls)$/i)) {
-                    showError("Invalid file type. Please upload an Excel file (.xlsx or .xls)");
-                    return;
-                }
+    const formData = new FormData(form);
 
-                // Process the file
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    try {
-                        const data = new Uint8Array(e.target.result);
-                        const workbook = XLSX.read(data, { type: 'array' });
-                        
-                        // Get first worksheet
-                        const worksheetName = workbook.SheetNames[0];
-                        const worksheet = workbook.Sheets[worksheetName];
-                        
-                        // Convert to JSON
-                        const jsonData = XLSX.utils.sheet_to_json(worksheet);
-                        
-                        // Log upload to backend.log (simulated)
-                        console.log(`[BACKEND LOG] New timesheet uploaded by consultant John Doe for ${monthSelect.value}`);
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest'
+        }
+      });
+      const data = await response.json();
+      if (data.success) {
+        successMessage.classList.remove('hidden');
+        form.reset();
+        fileInfo.textContent = '';
+        fileInfo.classList.add('hidden');
+        uploadButton.disabled = true;
+        uploadButton.textContent = 'Upload Timesheet';
+        // Reload calendar events after successful upload
+        loadCalendarEvents();
+      } else {
+        errorText.textContent = data.message || 'Error uploading timesheet.';
+        errorMessage.classList.remove('hidden');
+        uploadButton.disabled = false;
+        uploadButton.textContent = 'Upload Timesheet';
+      }
+    } catch (error) {
+      errorText.textContent = 'Network error. Please try again.';
+      errorMessage.classList.remove('hidden');
+      uploadButton.disabled = false;
+      uploadButton.textContent = 'Upload Timesheet';
+    }
+  });
 
-                        // Validate and process data
-                        const processedEvents = processExcelData(jsonData, monthSelect.value);
-                        
-                        // Log any errors (simulated)
-                        if (processedEvents.errors.length > 0) {
-                            console.error('[ERROR LOG] Errors processing timesheet:', processedEvents.errors);
-                        }
-                        
-                        // Update calendar with processed events
-                        calendar.getEvents().forEach(event => event.remove());
-                        processedEvents.events.forEach(event => {
-                            calendar.addEvent(event);
-                        });
-                        
-                        // Show success message
-                        showSuccess();
-                        
-                        // In a real app, you would send this data to the server via AJAX
-                        // and handle the ConsultantAvailability model updates there
-                        // simulateServerUpload(processedEvents);
-                        
-                    } catch (error) {
-                        console.error('[ERROR LOG] Error processing Excel file:', error);
-                        showError("Error processing Excel file. Please check the file format and try again.");
-                    }
-                };
-                
-                reader.readAsArrayBuffer(file);
-            });
+  // Initialize FullCalendar
+  const calendarEl = document.getElementById('timesheet-calendar');
+  const calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: 'dayGridMonth',
+    headerToolbar: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'dayGridMonth,dayGridWeek,dayGridDay'
+    },
+    events: [],
+    eventColor: '#4f46e5',
+    eventDisplay: 'block',
+    eventTimeFormat: {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    },
+    eventClick: function(info) {
+      alert('Date: ' + info.event.start.toISOString().slice(0,10) + '\\n' +
+            'Hours Worked: ' + info.event.extendedProps.hours_worked + '\\n' +
+            'Task: ' + info.event.extendedProps.task_name + '\\n' +
+            'Description: ' + info.event.extendedProps.description);
+    }
+  });
 
-            function processExcelData(data, selectedMonth) {
-                const requiredColumns = ['Date', 'Start Time', 'End Time'];
-                const errors = [];
-                const events = [];
-                
-                // Validate columns
-                if (data.length === 0) {
-                    errors.push("Excel file is empty");
-                    return { events, errors };
-                }
-                
-                const firstRow = data[0];
-                const columns = Object.keys(firstRow);
-                const missingColumns = requiredColumns.filter(col => !columns.includes(col));
-                
-                if (missingColumns.length > 0) {
-                    errors.push(`Missing required columns: ${missingColumns.join(', ')}`);
-                    return { events, errors };
-                }
-                
-                // Process each row
-                const [selectedYear, selectedMonthNum] = selectedMonth.split('-').map(Number);
-                
-                data.forEach((row, index) => {
-                    try {
-                        // Parse date
-                        let date;
-                        if (typeof row.Date === 'number') {
-                            // Excel date number
-                            date = XLSX.SSF.parse_date_code(row.Date);
-                            const jsDate = new Date(date.y, date.m - 1, date.d);
-                            date = formatDate(jsDate);
-                        } else {
-                            // String date
-                            date = parseDateString(row.Date);
-                        }
-                        
-                        if (!date) {
-                            errors.push(`Row ${index + 2}: Invalid date format - ${row.Date}`);
-                            return;
-                        }
-                        
-                        // Check if date is in selected month
-                        const [year, month] = date.split('-').map(Number);
-                        if (year !== selectedYear || month !== selectedMonthNum) {
-                            return; // Skip dates not in selected month
-                        }
-                        
-                        // Parse times
-                        const startTime = parseTime(row['Start Time']);
-                        const endTime = parseTime(row['End Time']);
-                            backgroundColor: '#818cf8',
-                            borderColor: '#6366f1'
-                        };
-                        
-                        events.push(event);
-                        
-                    } catch (error) {
-                        errors.push(`Row ${index + 2}: ${error.message}`);
-                    }
-                });
-                
-                return { events, errors };
-            }
-            
-            function parseDateString(dateStr) {
-                // Try different date formats
-                const formats = [
-                    /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/,   // MM/DD/YYYY
-                    /^(\d{4})-(\d{1,2})-(\d{1,2})$/      // YYYY-MM-DD
-                ];
-                
-                for (const re of formats) {
-                    const match = dateStr.match(re);
-                    if (match) {
-                        const [, m, d, y] = match;
-                        return `${y}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`;
-                    }
-                }
-                
-                return null;
-            }
-            
-            function parseTime(timeStr) {
-                // Parse time from various formats
-                if (typeof timeStr === 'number') {
-                    // Excel time number (fraction of day)
-                    const time = XLSX.SSF.parse_date_code(timeStr);
-                    return {
-                        hours: time.H,
-                        minutes: time.M,
-                        day: time.d,
-                        seconds: time.S
-                    };
-                }
-                
-                const timeFormats = [
-                    /^(\d{1,2}):(\d{2})\s*([ap]m)?$/i,   // HH:MM AM/PM
-                    /^(\d{1,2})\.(\d{2})\s*([ap]m)?$/i   // HH.MM AM/PM
-                ];
-                
-                for (const re of timeFormats) {
-                    const match = String(timeStr).trim().match(re);
-                    if (match) {
-                        let hours = parseInt(match[1], 10);
-                        const minutes = parseInt(match[2], 10);
-                        const period = match[3] ? match[3].toLowerCase() : null;
-                        
-                        if (period === 'pm' && hours < 12) {
-                            hours += 12;
-                        } else if (period === 'am' && hours === 12) {
-                            hours = 0;
-                        }
-                        
-                        return { hours, minutes, day: 1 };
-                    }
-                }
-                
-                return null;
-            }
-            
-            function formatFileSize(bytes) {
-                if (bytes === 0) return '0 Bytes';
-                const k = 1024;
-                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-                const i = Math.floor(Math.log(bytes) / Math.log(k));
-                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-            }
-            
-            function formatDate(date) {
-                const year = date.getFullYear();
-                const month = (date.getMonth() + 1).toString().padStart(2, '0');
-                const day = date.getDate().toString().padStart(2, '0');
-                return `${year}-${month}-${day}`;
-            }
-            
-            function showSuccess() {
-                successMessage.classList.remove('hidden');
-                errorMessage.classList.add('hidden');
-                setTimeout(() => {
-                    successMessage.classList.add('hidden');
-                }, 5000);
-            }
-            
-            function showError(message) {
-                errorDetails.innerHTML = `<p>${message}</p>`;
-                errorMessage.classList.remove('hidden');
-                successMessage.classList.add('hidden');
-            }
-        });
-    </script>
+  // Load calendar events from template context
+  function loadCalendarEvents() {
+    const timesheetEntriesScript = document.getElementById('timesheet-entries');
+    if (!timesheetEntriesScript) return;
+    let timesheetData;
+    try {
+      timesheetData = JSON.parse(timesheetEntriesScript.textContent);
+    } catch (e) {
+      console.error('Error parsing timesheet entries JSON:', e);
+      return;
+    }
+    calendar.removeAllEvents();
+    timesheetData.forEach(entry => {
+      calendar.addEvent({
+        title: entry.hours_worked + ' hrs',
+        start: entry.date,
+        extendedProps: {
+          hours_worked: entry.hours_worked,
+          description: entry.description
+        }
+      });
+    });
+  }
+
+  loadCalendarEvents();
+  calendar.render();
+});
+</script>
+{% endblock %}
+
+{% block extra_html %}
+<script id="timesheet-entries" type="application/json">{{ timesheet_entries|safe }}</script>
 {% endblock %}

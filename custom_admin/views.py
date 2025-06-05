@@ -17,6 +17,7 @@ import re
 from datetime import datetime
 
 # Django imports
+from .forms import ConsultantEditForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.decorators import login_required
@@ -30,6 +31,27 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.dateparse import parse_date
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods, require_POST
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
+from .models import Timesheet
+
+@login_required
+@csrf_exempt
+@require_POST
+def update_timesheet_status(request, timesheetId):
+    """
+    View to update the status of a timesheet via AJAX POST request.
+    """
+    timesheet = get_object_or_404(Timesheet, id=timesheetId)
+    status = request.POST.get('status')
+
+    if status not in ['awaiting_review', 'approved', 'rejected']:
+        return JsonResponse({'success': False, 'message': 'Invalid status value.'})
+
+    timesheet.status = status
+    timesheet.save()
+
+    return JsonResponse({'success': True, 'message': 'Timesheet status updated successfully.'})
 from django import forms
 from django.conf import settings
 
@@ -84,12 +106,14 @@ class ConsultantRegistrationForm(forms.Form):
         super().__init__(*args, **kwargs)
         self.fields['skills'].queryset = Skill.objects.all()
         
+from django import forms
+
 class ConsultantEditForm(forms.ModelForm):
     """Form for editing consultant profile information"""
     
-    status = forms.ModelChoiceField(
-        queryset=None,
-        empty_label="Select status",
+    from .models import ConsultantStatus
+    status = forms.ChoiceField(
+        choices=ConsultantStatus.STATUS_CHOICES,
         required=False,
         widget=forms.Select(attrs={'class': 'form-control'})
     )
@@ -120,31 +144,33 @@ class ConsultantEditForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        from .models import ConsultantStatus
-        qs = ConsultantStatus.objects.all()
-        self.fields['status'].queryset = qs
-        # Debug logging for queryset and initial value
-        import logging
-        logger = logging.getLogger(__name__)
-        logger.debug(f"ConsultantEditForm __init__: status queryset count = {qs.count()}")
+        # Set initial status value as string
         if 'instance' in kwargs and kwargs['instance'] is not None:
             status_value = getattr(kwargs['instance'], 'status', None)
-            logger.debug(f"ConsultantEditForm __init__: instance status = {status_value}")
-            if status_value is None:
-                try:
-                    default_status = ConsultantStatus.objects.get(status='to_be_reviewed')
-                    self.fields['status'].initial = default_status
-                    logger.debug(f"ConsultantEditForm __init__: set default initial status to {default_status}")
-                except ConsultantStatus.DoesNotExist:
-                    logger.warning("ConsultantEditForm __init__: default status 'to_be_reviewed' does not exist")
+            if status_value is not None:
+                self.fields['status'].initial = status_value
+            else:
+                self.fields['status'].initial = 'to_be_reviewed'
         else:
-            logger.debug("ConsultantEditForm __init__: no instance provided")
+            self.fields['status'].initial = 'to_be_reviewed'
+
+    def save(self, commit=True):
+        instance = super().save(commit=False)
+        from .models import ConsultantStatus
+        status_value = self.cleaned_data.get('status')
+        if status_value:
             try:
-                default_status = ConsultantStatus.objects.get(status='to_be_reviewed')
-                self.fields['status'].initial = default_status
-                logger.debug(f"ConsultantEditForm __init__: set default initial status to {default_status}")
+                status_instance = ConsultantStatus.objects.get(user=instance.user)
+                status_instance.status = status_value
+                status_instance.save()
+                instance.status = status_instance
             except ConsultantStatus.DoesNotExist:
-                logger.warning("ConsultantEditForm __init__: default status 'to_be_reviewed' does not exist")
+                status_instance = ConsultantStatus.objects.create(user=instance.user, status=status_value)
+                instance.status = status_instance
+        if commit:
+            instance.save()
+            self.save_m2m()
+        return instance
 
 # =============================================================================
 # AUTHENTICATION VIEWS
@@ -196,7 +222,7 @@ def consultant_management(request):
         'consultants': consultants,
         'current_page': 'Consultant Management',
     }
-    return render(request, 'consultant_management.html', context)
+    return render(request, 'consultant_managment.html', context)
 
 @login_required
 @csrf_exempt
@@ -206,95 +232,122 @@ def add_consultant(request):
     Generates random password and sends login credentials via email
     """
     if request.method == 'POST':
-        # Extract form data
-        name = request.POST.get('name', '').strip()
-        mobile = request.POST.get('mobile', '').strip()
-        email = request.POST.get('email', '').strip()
-        agreement = request.FILES.get('agreement')
-
-        # Server-side validation
-        if not name:
-            return JsonResponse({'success': False, 'message': 'Name is required.'})
-        
-        if not re.fullmatch(r'\d{10}', mobile):
-            return JsonResponse({'success': False, 'message': 'Mobile number must be exactly 10 digits.'})
-        
-        email_regex = r'^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$'
-        if not re.fullmatch(email_regex, email, re.IGNORECASE):
-            return JsonResponse({'success': False, 'message': 'Invalid email address.'})
-        
-        if not agreement:
-            return JsonResponse({'success': False, 'message': 'Agreement PDF is required.'})
-        
-        if not agreement.name.lower().endswith('.pdf'):
-            return JsonResponse({'success': False, 'message': 'Agreement must be a PDF file.'})
-
-        # Check for existing user
-        if User.objects.filter(email=email).exists():
-            return JsonResponse({'success': False, 'message': 'User with this email already exists.'})
-
-        # Generate random password
-        autogenerated_password = ''.join(
-            random.choices(string.ascii_letters + string.digits, k=10)
-        )
-
-        # Create new user
-        new_user = User.objects.create_user(
-            email=email, 
-            role='consultant', 
-            password=autogenerated_password
-        )
-
-        # Create consultant status
-        from .models import ConsultantStatus
-        consultant_status = ConsultantStatus.objects.create(user=new_user, status='to_be_reviewed')
-
-        # Create consultant profile
-        profile = ConsultantProfile(user=new_user)
-        profile.name = name
-        profile.mobile = mobile
-        profile.status = consultant_status
-        if agreement:
-            profile.agreement_document = agreement
-        profile.save()
-
-        # Send welcome email with credentials
-        # login_url = request.build_absolute_uri('/auth/login/')
-        email_message = (
-            f"Dear {name},\n\n"
-            f"Thank you for registering as a consultant.\n"
-            f"Your login details are as follows:\n"
-            f"Email: {email}\n"
-            f"Password: {autogenerated_password}\n\n"
-            # f"Please login at: {login_url}\n\n"  # Login URL hidden as per request
-            f"Regards,\n"
-            f"Consultation Team"
-        )
-
         try:
-            send_mail(
-                subject='Consultant Registration Received - Login Details',
-                message=email_message,
-                from_email=getattr(settings, 'DEFAULT_FROM_EMAIL', 'no-reply@example.com'),
-                recipient_list=[email],
-                fail_silently=False,
-            )
-            logger.info(f"Registration email sent to {email}")
-        except Exception as e:
-            logger.error(f"Error sending registration email to {email}: {str(e)}")
-            return JsonResponse({'success': False, 'message': f'Error sending email: {str(e)}'})
+            # Extract form data
+            name = request.POST.get('name', '').strip()
+            mobile = request.POST.get('mobile', '').strip()
+            email = request.POST.get('email', '').strip()
+            agreement = request.FILES.get('agreement')
 
-        return JsonResponse({'success': True, 'message': 'Consultant added successfully and email sent.'})
+            logger.info(f"Received add_consultant POST request with name={name}, mobile={mobile}, email={email}, agreement={agreement}")
+
+            # Server-side validation
+            if not name:
+                logger.warning("Name is required.")
+                return JsonResponse({'success': False, 'message': 'Name is required.'})
+            
+            if not re.fullmatch(r'\d{10}', mobile):
+                logger.warning("Mobile number must be exactly 10 digits.")
+                return JsonResponse({'success': False, 'message': 'Mobile number must be exactly 10 digits.'})
+            
+            email_regex = r'^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$'
+            if not re.fullmatch(email_regex, email, re.IGNORECASE):
+                logger.warning("Invalid email address.")
+                return JsonResponse({'success': False, 'message': 'Invalid email address.'})
+            
+            # Agreement is optional for now, so skip validation
+            # if not agreement:
+            #     logger.warning("Agreement PDF is required.")
+            #     return JsonResponse({'success': False, 'message': 'Agreement PDF is required.'})
+            
+            # if not agreement.name.lower().endswith('.pdf'):
+            #     logger.warning("Agreement must be a PDF file.")
+            #     return JsonResponse({'success': False, 'message': 'Agreement must be a PDF file.'})
+
+            # Check for existing user
+            if User.objects.filter(email=email).exists():
+                logger.warning(f"User with email {email} already exists.")
+                return JsonResponse({'success': False, 'message': 'User with this email already exists.'})
+
+            # Generate random password
+            autogenerated_password = ''.join(
+                random.choices(string.ascii_letters + string.digits, k=10)
+            )
+            logger.info(f"Generated password for new user: {autogenerated_password}")
+
+            # Create new user
+            new_user = User.objects.create_user(
+                email=email, 
+                role='consultant', 
+                password=autogenerated_password
+            )
+            logger.info(f"Created new user with email {email}")
+
+            # Create consultant status
+            from .models import ConsultantStatus
+            consultant_status = ConsultantStatus.objects.create(user=new_user, status='to_be_reviewed')
+            logger.info(f"Created consultant status 'to_be_reviewed' for user {email}")
+
+            # Create consultant profile with minimal fields
+            profile = ConsultantProfile(user=new_user)
+            profile.name = name
+            profile.mobile = mobile
+            profile.status = consultant_status
+            profile.cost_per_hour = 0  # Set default cost_per_hour to avoid NOT NULL constraint error
+            if agreement:
+                profile.agreement_document = agreement
+            profile.save()
+            logger.info(f"Created consultant profile for user {email}")
+
+            # Send welcome email with credentials
+            # login_url = request.build_absolute_uri('/auth/login/')
+            email_message = (
+                f"Dear {name},\n\n"
+                f"Thank you for registering as a consultant.\n"
+                f"Your login details are as follows:\n"
+                f"Email: {email}\n"
+                f"Password: {autogenerated_password}\n\n"
+                # f"Please login at: {login_url}\n\n"  # Login URL hidden as per request
+                f"Regards,\n"
+                f"Consultation Team"
+            )
+
+            try:
+                send_mail(
+                    subject='Consultant Registration Received - Login Details',
+                    message=email_message,
+                    from_email=getattr(settings, 'DEFAULT_FROM_EMAIL', 'no-reply@example.com'),
+                    recipient_list=[email],
+                    fail_silently=False,
+                )
+                logger.info(f"Registration email sent to {email}")
+            except Exception as e:
+                logger.error(f"Error sending registration email to {email}: {str(e)}")
+                return JsonResponse({'success': False, 'message': f'Error sending email: {str(e)}'})
+
+            return JsonResponse({'success': True, 'message': 'Consultant added successfully and email sent.'})
+        except Exception as e:
+            logger.error(f"Unexpected error in add_consultant: {str(e)}", exc_info=True)
+            return JsonResponse({'success': False, 'message': 'An unexpected error occurred.'})
     
     # GET request - show add consultant form
     return render(request, 'add_consultant.html', {'current_page': 'Add Consultant'})
 
 
+from .models import ConsultantStatus
+
 @login_required
 def consultant_profile(request, consultant_id):
     """
-    Display detailed consultant profile with invoices and timesheets
+    Display detailed consultant profile with invoices, timesheets, and timesheet entries
+    Also handle Excel timesheet upload and processing
     """
+    from django.core.serializers.json import DjangoJSONEncoder
+    import json
+    from django.db.models import Prefetch
+    from datetime import datetime
+    import openpyxl
+
     consultant = get_object_or_404(User, id=consultant_id, role='consultant')
     
     # Get consultant profile with skills
@@ -307,14 +360,91 @@ def consultant_profile(request, consultant_id):
         profile = None
         logger.warning(f"ConsultantProfile does not exist for user {consultant.email}")
     
+    # Handle Excel upload POST
+    upload_message = None
+    if request.method == 'POST' and 'timesheet_file' in request.FILES:
+        excel_file = request.FILES.get('timesheet_file')
+        month_str = request.POST.get('month')
+        if not month_str:
+            upload_message = 'Month is required for timesheet upload.'
+        else:
+            try:
+                month = datetime.strptime(month_str, '%Y-%m')
+                # Create Timesheet record
+                timesheet = Timesheet.objects.create(
+                    consultant=consultant,
+                    month=month,
+                    file=excel_file,
+                    status='awaiting_review'
+                )
+                # Process Excel and create TimesheetEntry records
+                wb = openpyxl.load_workbook(timesheet.file)
+                sheet = wb.active
+                header = [cell.value for cell in next(sheet.iter_rows(min_row=1, max_row=1))]
+                expected_headers = ['Date', 'Start Time', 'End Time']
+                if header != expected_headers:
+                    upload_message = f'Invalid Excel format. Expected headers: {expected_headers}'
+                else:
+                    entries = []
+                    for row in sheet.iter_rows(min_row=2, values_only=True):
+                        date_val, start_time, end_time = row
+                        if not date_val or not start_time or not end_time:
+                            continue
+                        if isinstance(date_val, str):
+                            try:
+                                date_val = datetime.strptime(date_val, '%Y-%m-%d').date()
+                            except ValueError:
+                                continue
+                        elif isinstance(date_val, datetime):
+                            date_val = date_val.date()
+
+                        def time_to_decimal(t):
+                            if isinstance(t, datetime):
+                                return t.hour + t.minute / 60
+                            elif isinstance(t, str):
+                                try:
+                                    dt = datetime.strptime(t, '%H:%M')
+                                    return dt.hour + dt.minute / 60
+                                except ValueError:
+                                    return None
+                            elif isinstance(t, (int, float)):
+                                return t * 24
+                            return None
+
+                        start_decimal = time_to_decimal(start_time)
+                        end_decimal = time_to_decimal(end_time)
+                        if start_decimal is None or end_decimal is None or end_decimal <= start_decimal:
+                            continue
+                        hours_worked = end_decimal - start_decimal
+
+                        entry = TimesheetEntry(
+                            timesheet=timesheet,
+                            date=date_val,
+                            hours_worked=hours_worked,
+                            project='',
+                            description=f'Free time from {start_time} to {end_time}'
+                        )
+                        entries.append(entry)
+
+                    TimesheetEntry.objects.bulk_create(entries)
+                    upload_message = f'Timesheet uploaded successfully with {len(entries)} entries.'
+            except Exception as e:
+                upload_message = f'Error processing timesheet: {str(e)}'
+                logger.error(upload_message)
+
     # Get related data
     invoices = Invoice.objects.filter(consultant=consultant).order_by('-month')
+    # Fetch all timesheets regardless of status for calendar display and history
     timesheets = Timesheet.objects.filter(consultant=consultant).order_by('-month')
     all_skills = Skill.objects.filter(is_active=True).order_by('name')
 
+    # Get timesheet entries for all timesheets of this consultant
+    timesheet_entries_qs = TimesheetEntry.objects.filter(timesheet__in=timesheets).order_by('date')
+    timesheet_entries = list(timesheet_entries_qs.values('date', 'hours_worked', 'description'))
+
     # Prepare form for editing consultant profile
     form = ConsultantEditForm(instance=profile)
-    
+
     context = {
         'consultant': consultant,
         'profile': profile,
@@ -322,11 +452,14 @@ def consultant_profile(request, consultant_id):
         'timesheets': timesheets,
         'all_skills': all_skills,
         'form': form,
+        'timesheet_entries': json.dumps(timesheet_entries, cls=DjangoJSONEncoder),
+        'upload_message': upload_message,
     }
     return render(request, 'consultant_detail.html', context)
 
 
 @login_required
+
 @csrf_exempt
 @require_http_methods(["GET", "POST"])
 def edit_consultant(request, consultant_id):
@@ -425,7 +558,7 @@ def delete_consultant(request, consultant_id):
     except User.DoesNotExist:
         return HttpResponseBadRequest("Consultant not found")
 
-    return redirect('consultant_management')
+    return redirect('custom_admin:consultant_management')
 
 @login_required
 @csrf_exempt
@@ -450,7 +583,7 @@ def change_consultant_status(request, consultant_id):
     except ConsultantProfile.DoesNotExist:
         return HttpResponseBadRequest("Consultant profile not found")
 
-    return redirect('consultant_management')
+    return redirect('custom_admin:consultant_managment')
 
 
 @login_required
@@ -752,12 +885,12 @@ def consultation_list(request):
 # =============================================================================
 
 def handle_404(request, exception):
-    """Custom 404 error handler"""
+    "Custom 404 error handler"
     return render(request, '404.html', status=404)
 
 
 def handle_500(request):
-    """Custom 500 error handler"""
+    "Custom 500 error handler"
     return render(request, '500.html', status=500)
 
 
@@ -771,3 +904,33 @@ def handle_500(request):
 # TODO: Review if these views are still needed
 # TODO: Add proper error handling and validation
 # TODO: Consider moving to separate modules for better organization
+
+from django.contrib.auth.decorators import user_passes_test
+from consultation.models import TimesheetEntry, Timesheet
+from django.views.decorators.http import require_POST
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+
+@login_required
+@user_passes_test(lambda u: u.is_staff)
+@csrf_exempt
+@require_POST
+def update_timesheet_status(request, timesheetId):
+    """
+    View to update the status of a timesheet via AJAX POST request.
+    """
+    try:
+        timesheet = Timesheet.objects.get(id=timesheetId)
+    except Timesheet.DoesNotExist:
+        return JsonResponse({'success': False, 'message': 'Timesheet not found.'}, status=404)
+
+    new_status = request.POST.get('status')
+    valid_statuses = ['awaiting_review', 'approved', 'rejected']
+
+    if new_status not in valid_statuses:
+        return JsonResponse({'success': False, 'message': 'Invalid status value.'}, status=400)
+
+    timesheet.status = new_status
+    timesheet.save()
+
+    return JsonResponse({'success': True, 'message': 'Timesheet status updated successfully.'})
