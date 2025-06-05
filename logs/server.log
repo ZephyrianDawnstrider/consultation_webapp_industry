@@ -11583,3 +11583,5 @@ ValueError: Cannot assign "'approved'": "ConsultantProfile.status" must be a "Co
 [2025-06-05 17:38:21,669] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 18845
 [2025-06-05 17:38:26,806] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 18277
 [2025-06-05 17:38:29,599] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 19726
+[2025-06-05 17:45:12,071] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultaion_webapp\settings.py changed, reloading.
+[2025-06-05 17:46:05,881] INFO django.utils.autoreload Watching for file changes with StatReloader
