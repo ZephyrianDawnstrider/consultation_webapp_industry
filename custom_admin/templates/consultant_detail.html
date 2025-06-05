@@ -7,41 +7,41 @@
     <h1 class="text-3xl font-bold mb-6">Consultant Detail</h1>
 
     {% if user.is_staff %}
-            <form id="consultant-edit-form" method="post" action=" {% url 'custom_admin:edit_consultant' consultant.id %} " enctype="multipart/form-data" class="bg-white rounded-lg shadow p-6 mb-8">
-                {% csrf_token %}
-                <h2 class="text-xl font-semibold mb-4">Basic Information</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label for="id_name" class="block font-medium text-gray-700">Name</label>
-                        <input type="text" id="id_name" name="name" value="{{ profile.name }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" />
-                    </div>
-                    <div>
-                        <label for="id_email" class="block font-medium text-gray-700">Email</label>
-                        <input type="email" id="id_email" name="email" value="{{ consultant.email }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" readonly />
-                    </div>
-                    <div>
-                        <label for="id_mobile" class="block font-medium text-gray-700">Mobile</label>
-                        <input type="text" id="id_mobile" name="mobile" value="{{ profile.mobile }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" />
-                    </div>
-                    <div>
-                        <label class="block font-medium text-gray-700">Skills</label>
-                        <div class="mt-1 w-full border border-gray-300 rounded px-3 py-2">
-                            <div class="row">
-                                {% for checkbox in form.skills %}
-                                    <div class="col-3">
-                                        <div class="form-check">
-                                            {{ checkbox.tag }}
-                                            <label class="form-check-label" for="{{ checkbox.id_for_label }}">
-                                                {{ checkbox.choice_label }}
-                                            </label>
-                                        </div>
-                                    </div>
-                                {% empty %}
-                                    <p>No skills available.</p>
-                                {% endfor %}
+    <form id="consultant-edit-form" method="post" action="{% url 'custom_admin:edit_consultant' consultant.id %}" enctype="multipart/form-data" class="bg-white rounded-lg shadow p-6 mb-8">
+        {% csrf_token %}
+        <h2 class="text-xl font-semibold mb-4">Basic Information</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <label for="id_name" class="block font-medium text-gray-700">Name</label>
+                <input type="text" id="id_name" name="name" value="{{ profile.name }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" />
+            </div>
+            <div>
+                <label for="id_email" class="block font-medium text-gray-700">Email</label>
+                <input type="email" id="id_email" name="email" value="{{ consultant.email }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" readonly />
+            </div>
+            <div>
+                <label for="id_mobile" class="block font-medium text-gray-700">Mobile</label>
+                <input type="text" id="id_mobile" name="mobile" value="{{ profile.mobile }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" />
+            </div>
+            <div>
+                <label class="block font-medium text-gray-700">Skills</label>
+                <div class="mt-1 w-full border border-gray-300 rounded px-3 py-2">
+                    <div class="row">
+                        {% for checkbox in form.skills %}
+                        <div class="col-3">
+                            <div class="form-check">
+                                {{ checkbox.tag }}
+                                <label class="form-check-label" for="{{ checkbox.id_for_label }}">
+                                    {{ checkbox.choice_label }}
+                                </label>
                             </div>
                         </div>
+                        {% empty %}
+                        <p>No skills available.</p>
+                        {% endfor %}
                     </div>
+                </div>
+            </div>
             <div>
                 <label for="id_bank_account_name" class="block font-medium text-gray-700">Bank Account Name</label>
                 <input type="text" id="id_bank_account_name" name="bank_account_name" value="{{ consultant.consultant_profile.bank_account_name }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" />
@@ -68,119 +68,50 @@
             </div>
             <div>
                 <label for="id_status" class="block font-medium text-gray-700">Status</label>
-                <select id="id_status" name="status" class="mt-1 w-full border border-gray-300 rounded px-3 py-2">
-                    <option value="approved" {% if consultant.consultant_profile.status == 'approved' %}selected{% endif %}>Approved</option>
-                    <option value="rejected" {% if consultant.consultant_profile.status == 'rejected' %}selected{% endif %}>Rejected</option>
-                    <option value="to_be_reviewed" {% if consultant.consultant_profile.status == 'to_be_reviewed' %}selected{% endif %}>To Be Reviewed</option>
-                </select>
+                {{ form.status }}
             </div>
             <div>
                 <label for="id_agreement_document" class="block font-medium text-gray-700">Agreement Document</label>
                 {% if consultant.consultant_profile.agreement_document %}
-                    <a href="{{ consultant.consultant_profile.agreement_document.url }}" target="_blank" class="ml-3">
-                        View Document
-                    </a>
-                    <button type="button" class="btn btn-danger btn-sm ml-3" id="scrap-agreement-btn">Remove</button>
+                <a href="{{ consultant.consultant_profile.agreement_document.url }}" target="_blank" class="ml-3">View Document</a>
+                <button type="button" class="btn btn-danger btn-sm ml-3" id="scrap-agreement-btn">Remove</button>
                 {% else %}
-                    <p>No agreement uploaded.</p>
+                <p>No agreement uploaded.</p>
                 {% endif %}
                 <input type="file" id="id_agreement_document" name="agreement_document" class="mt-2" accept="application/pdf" />
             </div>
         </div>
         <button type="submit" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save Changes</button>
     </form>
-    {% else %}
-    <div class="bg-white rounded-lg shadow p-6 mb-8">
-        <h2 class="text-xl font-semibold mb-4">Basic Information</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-                <label class="block font-medium text-gray-700">Name</label>
-                <p class="mt-1">{{ consultant.get_full_name }}</p>
-            </div>
-            <div>
-                <label class="block font-medium text-gray-700">Email</label>
-                <p class="mt-1">{{ consultant.email }}</p>
-            </div>
-            <div>
-                <label class="block font-medium text-gray-700">Mobile</label>
-                <p class="mt-1">{{ profile.mobile }}</p>
-            </div>
-            <div>
-                <label class="block font-medium text-gray-700">Skills</label>
-                <p class="mt-1">
-                    {% for skill in profile.skills.all %}
-                        <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold mr-2">{{ skill.name }}</span>
-                    {% empty %}
-                        N/A
-                    {% endfor %}
-                </p>
-            </div>
-            <div>
-                <label class="block font-medium text-gray-700">Bank Details</label>
-                <p class="mt-1">
-                    {{ profile.bank_account_name }}<br>
-                    {{ profile.bank_account_number }}<br>
-                    {{ profile.bank_ifsc }}<br>
-                    {{ profile.bank_branch_name }}<br>
-                    {{ profile.bank_name }}
-                </p>
-            </div>
-            <div>
-                <label class="block font-medium text-gray-700">Cost per Hour</label>
-                <p class="mt-1">{{ consultant.consultant_profile.cost_per_hour }}</p>
-            </div>
-            <div>
-                <label class="block font-medium text-gray-700">Status</label>
-                <p class="mt-1">{{ consultant.consultant_profile.status }}</p>
-            </div>
-            <div>
-                <label class="block font-medium text-gray-700">Agreement Document</label>
-                {% if profile.agreement_document %}
-                    <a href="{{ profile.agreement_document.url }}" target="_blank" class="text-blue-600 hover:underline">View Agreement</a>
-                {% else %}
-                    <p>N/A</p>
-                {% endif %}
-            </div>
+    <!-- Timesheet Calendar and Status Section -->
+    <div class="bg-white rounded-lg shadow p-6 mt-10">
+        <h2 class="text-xl font-semibold mb-4">Timesheet Calendar</h2>
+        <div id="timesheet-calendar" style="min-height: 600px;" {% if timesheets and timesheets.first %}data-timesheet-id="{{ timesheets.first.id }}"{% endif %}></div>
+        <script id="timesheet-entries" type="application/json">{{ timesheet_entries|safe }}</script>
+        {% if user.is_staff and timesheets and timesheets.first %}
+        <div class="mt-6">
+            <h3 class="text-lg font-semibold mb-2">Timesheet Status</h3>
+            <form id="timesheet-status-form">
+                <select id="timesheet-status-select" class="border border-gray-300 rounded px-3 py-2">
+                    <option value="awaiting_review" {% if timesheets.first.status == 'awaiting_review' %}selected{% endif %}>Awaiting Review</option>
+                    <option value="approved" {% if timesheets.first.status == 'approved' %}selected{% endif %}>Approved</option>
+                    <option value="rejected" {% if timesheets.first.status == 'rejected' %}selected{% endif %}>Rejected</option>
+                </select>
+                <button type="button" id="update-status-btn" class="ml-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Update Status</button>
+            </form>
         </div>
-    </div>
-
-    <div class="bg-white rounded-lg shadow p-6 mb-8">
-        <h2 class="text-xl font-semibold mb-4">Invoices Summary</h2>
-        {% if invoices %}
-        <table class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-gray-50">
-                <tr>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Month</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">File</th>
-                </tr>
-            </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-                {% for invoice in invoices %}
-                <tr>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ invoice.name }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ invoice.month|date:"F Y" }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ invoice.status }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <a href="{{ invoice.file.url }}" target="_blank" class="text-blue-600 hover:underline">View</a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        {% else %}
-        <p>No invoices found.</p>
         {% endif %}
     </div>
 
-    <div class="bg-white rounded-lg shadow p-6 mb-8">
-        <h2 class="text-xl font-semibold mb-4">Timesheets Summary</h2>
+    <!-- Timesheet History Table -->
+    <div class="bg-white rounded-lg shadow p-6 mt-10">
+        <h2 class="text-xl font-semibold mb-4">Timesheet History</h2>
         {% if timesheets %}
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
                 <tr>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Month</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">File</th>
                 </tr>
             </thead>
@@ -188,6 +119,7 @@
                 {% for timesheet in timesheets %}
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap">{{ timesheet.month|date:"F Y" }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ timesheet.status }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         <a href="{{ timesheet.file.url }}" target="_blank" class="text-blue-600 hover:underline">View</a>
                     </td>
@@ -199,6 +131,238 @@
         <p>No timesheets found.</p>
         {% endif %}
     </div>
+</div>
+{% else %}
+<div class="bg-white rounded-lg shadow p-6 mb-8">
+    <h2 class="text-xl font-semibold mb-4">Basic Information</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+            <label class="block font-medium text-gray-700">Name</label>
+            <p class="mt-1">{{ consultant.get_full_name }}</p>
+        </div>
+        <div>
+            <label class="block font-medium text-gray-700">Email</label>
+            <p class="mt-1">{{ consultant.email }}</p>
+        </div>
+        <div>
+            <label class="block font-medium text-gray-700">Mobile</label>
+            <p class="mt-1">{{ profile.mobile }}</p>
+        </div>
+        <div>
+            <label class="block font-medium text-gray-700">Skills</label>
+            <p class="mt-1">
+                {% for skill in profile.skills.all %}
+                    <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold mr-2">{{ skill.name }}</span>
+                {% empty %}
+                    N/A
+                {% endfor %}
+            </p>
+        </div>
+        <div>
+            <label class="block font-medium text-gray-700">Bank Details</label>
+            <p class="mt-1">
+                {{ profile.bank_account_name }}<br>
+                {{ profile.bank_account_number }}<br>
+                {{ profile.bank_ifsc }}<br>
+                {{ profile.bank_branch_name }}<br>
+                {{ profile.bank_name }}
+            </p>
+        </div>
+        <div>
+            <label class="block font-medium text-gray-700">Cost per Hour</label>
+            <p class="mt-1">{{ consultant.consultant_profile.cost_per_hour }}</p>
+        </div>
+        <div>
+            <label class="block font-medium text-gray-700">Status</label>
+            <p class="mt-1">{{ consultant.consultant_profile.status }}</p>
+        </div>
+        <div>
+            <label class="block font-medium text-gray-700">Agreement Document</label>
+            {% if profile.agreement_document %}
+                <a href="{{ profile.agreement_document.url }}" target="_blank" class="text-blue-600 hover:underline">View Agreement</a>
+            {% else %}
+                <p>N/A</p>
+            {% endif %}
+        </div>
     </div>
+</div>
+<div class="bg-white rounded-lg shadow p-6 mb-8">
+    <h2 class="text-xl font-semibold mb-4">Invoices Summary</h2>
+    {% if invoices %}
+    <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Month</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                <th class="px-6 py-4 whitespace-nowrap">
+                    <a href="{{ invoice.file.url }}" target="_blank" class="text-blue-600 hover:underline">View</a>
+                </th>
+            </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+            {% for invoice in invoices %}
+            <tr>
+                <td class="px-6 py-4 whitespace-nowrap">{{ invoice.name }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ invoice.month|date:"F Y" }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ invoice.status }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <a href="{{ invoice.file.url }}" target="_blank" class="text-blue-600 hover:underline">View</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No invoices found.</p>
+    {% endif %}
+</div>
+<div class="bg-white rounded-lg shadow p-6 mb-8">
+    <h2 class="text-xl font-semibold mb-4">Timesheets Summary</h2>
+    {% if timesheets %}
+    <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+            <tr>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Month</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">File</th>
+            </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+            {% for timesheet in timesheets %}
+            <tr>
+                <td class="px-6 py-4 whitespace-nowrap">{{ timesheet.month|date:"F Y" }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <a href="{{ timesheet.file.url }}" target="_blank" class="text-blue-600 hover:underline">View</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No timesheets found.</p>
+    {% endif %}
+</div>
 {% endif %}
 {% endblock %}
+
+{% block extra_head %}
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css" rel="stylesheet" />
+{% endblock extra_head %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const calendarEl = document.getElementById('timesheet-calendar');
+    if (!calendarEl) {
+        console.error('Calendar element not found');
+        return;
+    }
+
+    const timesheetScript = document.getElementById('timesheet-entries');
+    if (!timesheetScript) {
+        console.error('Timesheet entries script element not found');
+        return;
+    }
+
+    let timesheetData;
+    try {
+        timesheetData = JSON.parse(timesheetScript.textContent);
+        console.log('Timesheet data:', timesheetData);
+    } catch (e) {
+        console.error('Error parsing timesheet entries JSON:', e);
+        return;
+    }
+
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,dayGridWeek,dayGridDay'
+        },
+        events: [],
+        eventColor: '#4f46e5',
+        eventDisplay: 'block',
+        eventTimeFormat: {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+        },
+        eventClick: function(info) {
+            alert('Date: ' + info.event.start.toISOString().slice(0,10) + '\\n' +
+                  'Hours Worked: ' + info.event.extendedProps.hours_worked + '\\n' +
+                  'Description: ' + info.event.extendedProps.description);
+        }
+    });
+
+    timesheetData.forEach(entry => {
+        calendar.addEvent({
+            title: entry.hours_worked + ' hrs',
+            start: entry.date,
+            extendedProps: {
+                hours_worked: entry.hours_worked,
+                description: entry.description
+            }
+        });
+    });
+
+    calendar.render();
+
+    // Handle status update
+    const statusSelect = document.getElementById('timesheet-status-select');
+    const updateBtn = document.getElementById('update-status-btn');
+
+    if (statusSelect && updateBtn) {
+        updateBtn.addEventListener('click', function() {
+            const selectedStatus = statusSelect.value;
+            const timesheetId = calendarEl.getAttribute('data-timesheet-id');
+
+            if (!timesheetId) {
+                alert('Timesheet ID not found.');
+                return;
+            }
+
+            fetch(`{% url 'custom_admin:update_timesheet_status' timesheetId=0 %}`.replace('0', timesheetId), {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+                body: new URLSearchParams({
+                    'status': selectedStatus
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Timesheet status updated successfully.');
+                } else {
+                    alert('Error updating status: ' + data.message);
+                }
+            })
+            .catch(error => {
+                alert('Error updating status: ' + error);
+            });
+        });
+    }
+
+    // Helper function to get CSRF token cookie
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+});
+</script>
+{% endblock extra_js %}

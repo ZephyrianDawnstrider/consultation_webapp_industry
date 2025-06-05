@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block title %}Consultant Detail{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-6">Consultant Detail</h1>
+
+    {% if user.is_staff %}
+    <form id="consultant-edit-form" method="post" action="{% url 'custom_admin:edit_consultant' consultant.id %}" enctype="multipart/form-data" class="bg-white rounded-lg shadow p-6 mb-8">
+        {% csrf_token %}
+        <h2 class="text-xl font-semibold mb-4">Basic Information</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <label for="id_name" class="block font-medium text-gray-700">Name</label>
+                <input type="text" id="id_name" name="name" value="{{ profile.name }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" />
+            </div>
+            <div>
+                <label for="id_email" class="block font-medium text-gray-700">Email</label>
+                <input type="email" id="id_email" name="email" value="{{ consultant.email }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" readonly />
+            </div>
+            <div>
+                <label for="id_mobile" class="block font-medium text-gray-700">Mobile</label>
+                <input type="text" id="id_mobile" name="mobile" value="{{ profile.mobile }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" />
+            </div>
+            <div>
+                <label class="block font-medium text-gray-700">Skills</label>
+                <div class="mt-1 w-full border border-gray-300 rounded px-3 py-2">
+                    <div class="row">
+                        {% for checkbox in form.skills %}
+                        <div class="col-3">
+                            <div class="form-check">
+                                {{ checkbox.tag }}
+                                <label class="form-check-label" for="{{ checkbox.id_for_label }}">
+                                    {{ checkbox.choice_label }}
+                                </label>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <p>No skills available.</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label for="id_bank_account_name" class="block font-medium text-gray-700">Bank Account Name</label>
+                <input type="text" id="id_bank_account_name" name="bank_account_name" value="{{ consultant.consultant_profile.bank_account_name }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" />
+            </div>
+            <div>
+                <label for="id_bank_account_number" class="block font-medium text-gray-700">Bank Account Number</label>
+                <input type="text" id="id_bank_account_number" name="bank_account_number" value="{{ consultant.consultant_profile.bank_account_number }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" />
+            </div>
+            <div>
+                <label for="id_bank_ifsc" class="block font-medium text-gray-700">Bank IFSC</label>
+                <input type="text" id="id_bank_ifsc" name="bank_ifsc" value="{{ consultant.consultant_profile.bank_ifsc }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" />
+            </div>
+            <div>
+                <label for="id_bank_branch_name" class="block font-medium text-gray-700">Bank Branch Name</label>
+                <input type="text" id="id_bank_branch_name" name="bank_branch_name" value="{{ consultant.consultant_profile.bank_branch_name }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" />
+            </div>
+            <div>
+                <label for="id_bank_name" class="block font-medium text-gray-700">Bank Name</label>
+                <input type="text" id="id_bank_name" name="bank_name" value="{{ consultant.consultant_profile.bank_name }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" />
+            </div>
+            <div>
+                <label for="id_cost_per_hour" class="block font-medium text-gray-700">Cost per Hour</label>
+                <input type="number" step="0.01" id="id_cost_per_hour" name="cost_per_hour" value="{{ consultant.consultant_profile.cost_per_hour }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" />
+            </div>
+            <div>
+                <label for="id_status" class="block font-medium text-gray-700">Status</label>
+                {{ form.status }}
+            </div>
+            <div>
+                <label for="id_agreement_document" class="block font-medium text-gray-700">Agreement Document</label>
+                {% if consultant.consultant_profile.agreement_document %}
+                <a href="{{ consultant.consultant_profile.agreement_document.url }}" target="_blank" class="ml-3">View Document</a>
+                <button type="button" class="btn btn-danger btn-sm ml-3" id="scrap-agreement-btn">Remove</button>
+                {% else %}
+                <p>No agreement uploaded.</p>
+                {% endif %}
+                <input type="file" id="id_agreement_document" name="agreement_document" class="mt-2" accept="application/pdf" />
+            </div>
+        </div>
+        <button type="submit" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save Changes</button>
+    </form>
+
+    <!-- Timesheet Upload Section -->
+    <div class="bg-white rounded-lg shadow p-6 mt-10">
+        <h2 class="text-xl font-semibold mb-4">Upload Timesheet</h2>
+        {% if upload_message %}
+        <p class="mb-4 text-green-600">{{ upload_message }}</p>
+        {% endif %}
+        <form id="timesheet-upload-form" method="post" enctype="multipart/form-data" action="{% url 'custom_admin:consultant_profile' consultant.id %}">
+            {% csrf_token %}
+            <label for="month" class="block font-medium text-gray-700 mb-2">Select Month</label>
+            <input type="month" id="month" name="month" required class="border border-gray-300 rounded px-3 py-2 mb-4" />
+            <label for="timesheet_file" class="block font-medium text-gray-700 mb-2">Select Excel File</label>
+            <input type="file" id="timesheet_file" name="timesheet_file" accept=".xlsx,.xls" required class="border border-gray-300 rounded px-3 py-2 mb-4" />
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Upload Timesheet</button>
+        </form>
+    </div>
+
+    <!-- Timesheet Calendar and Status Section -->
+    <div class="bg-white rounded-lg shadow p-6 mt-10">
+        <h2 class="text-xl font-semibold mb-4">Timesheet Calendar</h2>
+        <div id="timesheet-calendar" style="min-height: 600px;" {% if timesheets and timesheets.first %}data-timesheet-id="{{ timesheets.first.id }}"{% endif %}></div>
+        <script id="timesheet-entries" type="application/json">{{ timesheet_entries|safe }}</script>
+        {% if user.is_staff and timesheets and timesheets.first %}
+        <div class="mt-6">
+            <h3 class="text-lg font-semibold mb-2">Timesheet Status</h3>
