@@ -83,7 +83,7 @@
         </div>
         <button type="submit" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save Changes</button>
     </form>
-    <!-- Timesheet Calendar and Status Section -->
+    {% comment %} <!-- Timesheet Calendar and Status Section -->
     <div class="bg-white rounded-lg shadow p-6 mt-10">
         <h2 class="text-xl font-semibold mb-4">Timesheet Calendar</h2>
         <div id="timesheet-calendar" style="min-height: 600px;" {% if timesheets and timesheets.first %}data-timesheet-id="{{ timesheets.first.id }}"{% endif %}></div>
@@ -101,7 +101,7 @@
             </form>
         </div>
         {% endif %}
-    </div>
+    </div> {% endcomment %}
 
     <!-- Timesheet History Table -->
     <div class="bg-white rounded-lg shadow p-6 mt-10">

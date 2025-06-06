@@ -25,6 +25,12 @@
         </div>
         <button type="submit" class="btn btn-primary d-block ms-auto">Save Consultant</button>
     </form>
+    <div id="loaderModal" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 9999; align-items: center; justify-content: center;">
+        <div style="background: white; padding: 20px 40px; border-radius: 8px; display: flex; align-items: center; gap: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.3);">
+            <div class="spinner" style="width: 30px; height: 30px; border: 4px solid #e0e0e0; border-top: 4px solid #007bff; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+            <span style="font-size: 18px; font-weight: bold;">Loading...</span>
+        </div>
+    </div>
     <div id="responseMessage" class="message" style="display: none;"></div>
 </div>
 {% endblock %}
@@ -101,6 +107,15 @@
         color: #721c24;
         border-color: #f5c6cb;
     }
+    @keyframes loadingAnimation {
+        0% { width: 0; }
+        50% { width: 100%; }
+        100% { width: 0; }
+    }
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
 </style>
 {% endblock %}
 
@@ -112,6 +127,11 @@
         const form = event.target;
         const formData = new FormData(form);
         const responseMessageDiv = document.getElementById('responseMessage');
+        const loaderDiv = document.getElementById('loaderModal');
+
+        // Show loader and hide response message
+        loaderDiv.style.display = 'flex';
+        responseMessageDiv.style.display = 'none';
 
         try {
             const response = await fetch(form.action, {
@@ -137,6 +157,9 @@
             responseMessageDiv.textContent = 'An error occurred. Please try again.';
             console.error('Fetch error:', error);
         }
+
+        // Hide loader and show response message
+        loaderDiv.style.display = 'none';
         responseMessageDiv.style.display = 'block';
     });
 </script>
