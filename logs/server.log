@@ -11700,3 +11700,5 @@ ValueError: Cannot assign "'approved'": "ConsultantProfile.status" must be a "Co
 [2025-06-06 17:52:44,725] WARNING django.server "GET /media/timesheets/sample_timesheet.xlsx HTTP/1.1" 404 179
 [2025-06-06 17:54:46,994] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\urls.py changed, reloading.
 [2025-06-06 17:54:50,096] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-06 18:35:59,069] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultaion_webapp\urls.py changed, reloading.
+[2025-06-06 18:36:00,896] INFO django.utils.autoreload Watching for file changes with StatReloader
