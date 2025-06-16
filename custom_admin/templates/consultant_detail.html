@@ -10,22 +10,29 @@
     <form id="consultant-edit-form" method="post" action="{% url 'custom_admin:edit_consultant' consultant.id %}" enctype="multipart/form-data" class="bg-white rounded-lg shadow p-6 mb-8">
         {% csrf_token %}
         <h2 class="text-xl font-semibold mb-4">Basic Information</h2>
+        <p class="text-sm text-gray-500 mb-4">Fields marked with <span class="text-red-600 font-bold">*</span> are mandatory.</p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-                <label for="id_name" class="block font-medium text-gray-700">Name</label>
-                <input type="text" id="id_name" name="name" value="{{ profile.name }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" />
+                <label for="id_name" class="block font-medium text-gray-700">Name <span class="text-red-600 font-bold">*</span></label>
+                <input type="text" id="id_name" name="name" value="{{ profile.name }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2 {% if form.name.errors %}border-red-600 shadow-md{% endif %}" />
+                {% if form.name.errors %}
+                    <p class="text-red-600 text-sm mt-1">{{ form.name.errors.0 }}</p>
+                {% endif %}
             </div>
             <div>
                 <label for="id_email" class="block font-medium text-gray-700">Email</label>
                 <input type="email" id="id_email" name="email" value="{{ consultant.email }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" readonly />
             </div>
             <div>
-                <label for="id_mobile" class="block font-medium text-gray-700">Mobile</label>
-                <input type="text" id="id_mobile" name="mobile" value="{{ profile.mobile }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" />
+                <label for="id_mobile" class="block font-medium text-gray-700">Mobile <span class="text-red-600 font-bold">*</span></label>
+                <input type="text" id="id_mobile" name="mobile" value="{{ profile.mobile }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2 {% if form.mobile.errors %}border-red-600 shadow-md{% endif %}" />
+                {% if form.mobile.errors %}
+                    <p class="text-red-600 text-sm mt-1">{{ form.mobile.errors.0 }}</p>
+                {% endif %}
             </div>
             <div>
                 <label class="block font-medium text-gray-700">Skills</label>
-                <div class="mt-1 w-full border border-gray-300 rounded px-3 py-2">
+                <div class="mt-1 w-full border border-gray-300 rounded px-3 py-2 {% if form.skills.errors %}border-red-600 shadow-md{% endif %}">
                     <div class="row">
                         {% for checkbox in form.skills %}
                         <div class="col-3">
@@ -41,30 +48,51 @@
                         {% endfor %}
                     </div>
                 </div>
+                {% if form.skills.errors %}
+                    <p class="text-red-600 text-sm mt-1">{{ form.skills.errors.0 }}</p>
+                {% endif %}
             </div>
             <div>
-                <label for="id_bank_account_name" class="block font-medium text-gray-700">Bank Account Name</label>
-                <input type="text" id="id_bank_account_name" name="bank_account_name" value="{{ consultant.consultant_profile.bank_account_name }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" />
+                <label for="id_bank_account_name" class="block font-medium text-gray-700">Bank Account Name <span class="text-red-600 font-bold">*</span></label>
+                <input type="text" id="id_bank_account_name" name="bank_account_name" value="{{ consultant.consultant_profile.bank_account_name }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2 {% if form.bank_account_name.errors %}border-red-600 shadow-md{% endif %}" />
+                {% if form.bank_account_name.errors %}
+                    <p class="text-red-600 text-sm mt-1">{{ form.bank_account_name.errors.0 }}</p>
+                {% endif %}
             </div>
             <div>
-                <label for="id_bank_account_number" class="block font-medium text-gray-700">Bank Account Number</label>
-                <input type="text" id="id_bank_account_number" name="bank_account_number" value="{{ consultant.consultant_profile.bank_account_number }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" />
+                <label for="id_bank_account_number" class="block font-medium text-gray-700">Bank Account Number <span class="text-red-600 font-bold">*</span></label>
+                <input type="text" id="id_bank_account_number" name="bank_account_number" value="{{ consultant.consultant_profile.bank_account_number }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2 {% if form.bank_account_number.errors %}border-red-600 shadow-md{% endif %}" />
+                {% if form.bank_account_number.errors %}
+                    <p class="text-red-600 text-sm mt-1">{{ form.bank_account_number.errors.0 }}</p>
+                {% endif %}
             </div>
             <div>
-                <label for="id_bank_ifsc" class="block font-medium text-gray-700">Bank IFSC</label>
-                <input type="text" id="id_bank_ifsc" name="bank_ifsc" value="{{ consultant.consultant_profile.bank_ifsc }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" />
+                <label for="id_bank_ifsc" class="block font-medium text-gray-700">Bank IFSC <span class="text-red-600 font-bold">*</span></label>
+                <input type="text" id="id_bank_ifsc" name="bank_ifsc" value="{{ consultant.consultant_profile.bank_ifsc }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2 {% if form.bank_ifsc.errors %}border-red-600 shadow-md{% endif %}" />
+                {% if form.bank_ifsc.errors %}
+                    <p class="text-red-600 text-sm mt-1">{{ form.bank_ifsc.errors.0 }}</p>
+                {% endif %}
             </div>
             <div>
-                <label for="id_bank_branch_name" class="block font-medium text-gray-700">Bank Branch Name</label>
-                <input type="text" id="id_bank_branch_name" name="bank_branch_name" value="{{ consultant.consultant_profile.bank_branch_name }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" />
+                <label for="id_bank_branch_name" class="block font-medium text-gray-700">Bank Branch Name <span class="text-red-600 font-bold">*</span></label>
+                <input type="text" id="id_bank_branch_name" name="bank_branch_name" value="{{ consultant.consultant_profile.bank_branch_name }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2 {% if form.bank_branch_name.errors %}border-red-600 shadow-md{% endif %}" />
+                {% if form.bank_branch_name.errors %}
+                    <p class="text-red-600 text-sm mt-1">{{ form.bank_branch_name.errors.0 }}</p>
+                {% endif %}
             </div>
             <div>
-                <label for="id_bank_name" class="block font-medium text-gray-700">Bank Name</label>
-                <input type="text" id="id_bank_name" name="bank_name" value="{{ consultant.consultant_profile.bank_name }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" />
+                <label for="id_bank_name" class="block font-medium text-gray-700">Bank Name <span class="text-red-600 font-bold">*</span></label>
+                <input type="text" id="id_bank_name" name="bank_name" value="{{ consultant.consultant_profile.bank_name }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2 {% if form.bank_name.errors %}border-red-600 shadow-md{% endif %}" />
+                {% if form.bank_name.errors %}
+                    <p class="text-red-600 text-sm mt-1">{{ form.bank_name.errors.0 }}</p>
+                {% endif %}
             </div>
             <div>
-                <label for="id_cost_per_hour" class="block font-medium text-gray-700">Cost per Hour</label>
-                <input type="number" step="0.01" id="id_cost_per_hour" name="cost_per_hour" value="{{ consultant.consultant_profile.cost_per_hour }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" />
+                <label for="id_cost_per_hour" class="block font-medium text-gray-700">Cost per Hour <span class="text-red-600 font-bold">*</span></label>
+                <input type="number" step="0.01" id="id_cost_per_hour" name="cost_per_hour" value="{{ consultant.consultant_profile.cost_per_hour }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2 {% if form.cost_per_hour.errors %}border-red-600 shadow-md{% endif %}" />
+                {% if form.cost_per_hour.errors %}
+                    <p class="text-red-600 text-sm mt-1">{{ form.cost_per_hour.errors.0 }}</p>
+                {% endif %}
             </div>
             <div>
                 <label for="id_status" class="block font-medium text-gray-700">Status</label>
@@ -72,7 +100,7 @@
             </div>
             <div>
                 <label for="id_agreement_document" class="block font-medium text-gray-700">Agreement Document</label>
-                {% if consultant.consultant_profile.agreement_document %}
+                {% if consultant.consultant_profile.agreement_document %} 
                 <a href="{{ consultant.consultant_profile.agreement_document.url }}" target="_blank" class="ml-3">View Document</a>
                 <button type="button" class="btn btn-danger btn-sm ml-3" id="scrap-agreement-btn">Remove</button>
                 {% else %}
@@ -105,6 +133,58 @@
 
     <!-- Timesheet History Table -->
     <div class="bg-white rounded-lg shadow p-6 mt-10">
+        <h2 class="text-xl font-semibold mb-4">Timesheet data </h2>
+        {% if timesheets %}
+        <form method="get" id="timesheet-select-form" class="mb-4">
+            <label for="timesheet-select" class="block font-medium text-gray-700 mb-2">Select Timesheet to Edit Entries:</label>
+            <select id="timesheet-select" name="timesheet_id" onchange="document.getElementById('timesheet-select-form').submit()" class="border border-gray-300 rounded px-3 py-2">
+                {% for timesheet in timesheets %}
+                <option value="{{ timesheet.id }}" {% if selected_timesheet and timesheet.id == selected_timesheet.id %}selected{% endif %}>
+                    {{ timesheet.month|date:"F Y" }}
+                </option>
+                {% endfor %}
+            </select>
+        </form>
+
+        <form method="post" action="" class="mb-6">
+            {% csrf_token %}
+            <input type="hidden" name="edit_timesheet_entries" value="true" />
+            <table class="min-w-full divide-y divide-gray-200 border border-gray-300 rounded">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Start Time</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">End Time</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Task Name</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    {% for form in formset.forms %}
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            {{ form.date }}
+                            {{ form.id }}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            {{ form.start_time }}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            {{ form.end_time }}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            {{ form.task_name }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button type="submit" class="mt-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Save Timesheet Entries</button>
+        </form>
+        {% else %}
+        <p>No timesheets found.</p>
+        {% endif %}
+    </div>
+    <div class="bg-white rounded-lg shadow p-6 mt-10">
         <h2 class="text-xl font-semibold mb-4">Timesheet History</h2>
         {% if timesheets %}
         <table class="min-w-full divide-y divide-gray-200">
@@ -131,6 +211,7 @@
         <p>No timesheets found.</p>
         {% endif %}
     </div>
+
 </div>
 {% else %}
 <div class="bg-white rounded-lg shadow p-6 mb-8">
@@ -355,6 +436,59 @@ document.addEventListener('DOMContentLoaded', function() {
             for (let i = 0; i < cookies.length; i++) {
                 const cookie = cookies[i].trim();
                 // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdowns = document.querySelectorAll('.timesheet-status-dropdown');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('change', function() {
+                    const timesheetId = this.getAttribute('data-timesheet-id');
+                    const newStatus = this.value;
+                    const csrfToken = getCookie('csrftoken');
+                    const baseUrl = this.getAttribute('data-update-url');
+                    const updateUrl = baseUrl.replace('0', timesheetId);
+
+                    fetch(updateUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                            'X-CSRFToken': csrfToken
+                        },
+                        body: new URLSearchParams({
+                            'status': newStatus
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Timesheet status updated successfully.');
+                        } else {
+                            alert('Error updating timesheet status: ' + data.message);
+                        }
+                    })
+                    .catch(error => {
+                        alert('Error updating timesheet status: ' + error);
+                    });
+                });
+            });
+
+    // Helper function to get CSRF token cookie
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
                 if (cookie.substring(0, name.length + 1) === (name + '=')) {
                     cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
                     break;

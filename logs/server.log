@@ -11702,3 +11702,1633 @@ ValueError: Cannot assign "'approved'": "ConsultantProfile.status" must be a "Co
 [2025-06-06 17:54:50,096] INFO django.utils.autoreload Watching for file changes with StatReloader
 [2025-06-06 18:35:59,069] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultaion_webapp\urls.py changed, reloading.
 [2025-06-06 18:36:00,896] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-07 11:25:16,027] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-07 11:25:25,956] INFO django.server "GET / HTTP/1.1" 200 38710
+[2025-06-07 11:25:28,022] WARNING django.request Not Found: /favicon.ico
+[2025-06-07 11:25:28,024] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 179
+[2025-06-07 11:26:43,063] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-07 11:26:43,117] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19257
+[2025-06-08 11:26:42,262] INFO django.server "GET / HTTP/1.1" 200 38710
+[2025-06-08 11:27:06,708] INFO django.server "GET / HTTP/1.1" 200 38710
+[2025-06-08 11:27:13,166] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-08 11:27:13,344] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19257
+[2025-06-08 11:27:16,101] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 46923
+[2025-06-08 11:27:16,145] WARNING django.request Not Found: /static/default_profile.png
+[2025-06-08 11:27:16,147] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 179
+[2025-06-08 11:27:16,352] WARNING django.request Not Found: /static/default_profile.png
+[2025-06-08 11:27:16,353] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 179
+[2025-06-08 11:38:50,181] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 17391
+[2025-06-08 11:39:26,693] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 46923
+[2025-06-08 11:39:26,720] WARNING django.request Not Found: /static/default_profile.png
+[2025-06-08 11:39:26,721] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 179
+[2025-06-08 11:39:26,987] WARNING django.request Not Found: /static/default_profile.png
+[2025-06-08 11:39:26,988] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 179
+[2025-06-08 11:47:02,734] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 46974
+[2025-06-08 11:47:02,763] WARNING django.request Not Found: /static/default_profile.png
+[2025-06-08 11:47:02,764] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 179
+[2025-06-08 11:47:03,150] WARNING django.request Not Found: /static/default_profile.png
+[2025-06-08 11:47:03,151] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 179
+[2025-06-08 11:50:00,298] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 47007
+[2025-06-08 11:50:00,334] WARNING django.request Not Found: /static/default_profile.png
+[2025-06-08 11:50:00,335] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 179
+[2025-06-08 11:50:00,647] WARNING django.request Not Found: /static/default_profile.png
+[2025-06-08 11:50:00,648] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 179
+[2025-06-08 11:58:06,180] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 47007
+[2025-06-08 11:58:06,220] WARNING django.request Not Found: /static/default_profile.png
+[2025-06-08 11:58:06,221] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 179
+[2025-06-08 11:58:06,544] WARNING django.request Not Found: /static/default_profile.png
+[2025-06-08 11:58:06,545] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 179
+[2025-06-08 11:58:07,540] WARNING django.request Method Not Allowed (GET): /auth/change_consultant_status/15/
+[2025-06-08 11:58:07,540] WARNING django.server "GET /auth/change_consultant_status/15/ HTTP/1.1" 405 0
+[2025-06-08 11:58:14,109] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-08 11:58:14,110] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 179
+[2025-06-08 12:00:00,471] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 47154
+[2025-06-08 12:00:00,516] WARNING django.request Not Found: /static/default_profile.png
+[2025-06-08 12:00:00,517] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 179
+[2025-06-08 12:00:00,682] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-08 12:00:00,683] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 179
+[2025-06-08 12:00:01,194] WARNING django.request Not Found: /static/default_profile.png
+[2025-06-08 12:00:01,198] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 179
+[2025-06-08 12:00:05,700] WARNING django.request Method Not Allowed (GET): /auth/change_consultant_status/15/
+[2025-06-08 12:00:05,701] WARNING django.server "GET /auth/change_consultant_status/15/ HTTP/1.1" 405 0
+[2025-06-08 12:00:16,663] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-08 12:00:16,664] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 179
+[2025-06-08 12:00:24,553] WARNING django.request Method Not Allowed (GET): /auth/change_consultant_status/4/
+[2025-06-08 12:00:24,554] WARNING django.server "GET /auth/change_consultant_status/4/ HTTP/1.1" 405 0
+[2025-06-08 12:05:22,597] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 29109
+[2025-06-08 12:05:23,120] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 119
+[2025-06-08 12:05:30,942] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 47007
+[2025-06-08 12:05:30,989] WARNING django.request Not Found: /static/default_profile.png
+[2025-06-08 12:05:30,990] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 179
+[2025-06-08 12:05:31,225] WARNING django.request Not Found: /static/default_profile.png
+[2025-06-08 12:05:31,226] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 179
+[2025-06-16 09:58:23,456] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 09:58:48,683] INFO django.server "GET / HTTP/1.1" 200 38710
+[2025-06-16 09:58:50,026] WARNING django.request Not Found: /favicon.ico
+[2025-06-16 09:58:50,029] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 179
+[2025-06-16 09:59:02,020] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-16 09:59:02,064] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19257
+[2025-06-16 10:00:17,877] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19257
+[2025-06-16 10:00:19,164] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 47007
+[2025-06-16 10:00:19,251] WARNING django.request Not Found: /static/default_profile.png
+[2025-06-16 10:00:19,252] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 179
+[2025-06-16 10:00:19,413] WARNING django.request Not Found: /static/default_profile.png
+[2025-06-16 10:00:19,414] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 179
+[2025-06-16 10:00:20,035] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 25934
+[2025-06-16 10:00:21,606] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 29109
+[2025-06-16 10:00:21,967] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 119
+[2025-06-16 10:00:23,214] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 17067
+[2025-06-16 10:00:26,778] INFO django.server "GET /auth/logout/ HTTP/1.1" 302 0
+[2025-06-16 10:00:26,784] INFO django.server "GET /auth/login/ HTTP/1.1" 200 38710
+[2025-06-16 10:05:07,001] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-16 10:05:07,040] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 18091
+[2025-06-16 10:05:09,602] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 18091
+[2025-06-16 10:05:10,711] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 18267
+[2025-06-16 10:05:19,848] ERROR django.request Internal Server Error: /consultation/consultant_invoice/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py", line 381, in consultant_invoice
+    return render(request, 'consultant_invoice.html', context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: consultant_invoice.html
+[2025-06-16 10:05:19,937] ERROR django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 500 145
+[2025-06-16 10:05:36,253] ERROR django.request Internal Server Error: /consultation/consultant_invoice/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py", line 381, in consultant_invoice
+    return render(request, 'consultant_invoice.html', context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: consultant_invoice.html
+[2025-06-16 10:05:36,257] ERROR django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 500 145
+[2025-06-16 10:07:40,592] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 17970
+[2025-06-16 10:07:43,359] WARNING django.request Not Found: /media/agreements/welcome_YMhWlBo.pdf
+[2025-06-16 10:07:43,360] WARNING django.server "GET /media/agreements/welcome_YMhWlBo.pdf HTTP/1.1" 404 179
+[2025-06-16 10:07:56,011] INFO django.server "GET / HTTP/1.1" 200 38710
+[2025-06-16 10:08:13,901] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-16 10:08:13,920] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 18091
+[2025-06-16 10:08:16,340] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 17970
+[2025-06-16 10:08:19,039] WARNING django.request Not Found: /media/agreements/welcome_YMhWlBo.pdf
+[2025-06-16 10:08:19,040] WARNING django.server "GET /media/agreements/welcome_YMhWlBo.pdf HTTP/1.1" 404 179
+[2025-06-16 10:14:05,905] WARNING django.request Not Found: /media/agreements/welcome_YMhWlBo.pdf
+[2025-06-16 10:14:05,910] WARNING django.server "GET /media/agreements/welcome_YMhWlBo.pdf HTTP/1.1" 404 179
+[2025-06-16 10:14:10,781] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 19709
+[2025-06-16 10:14:13,487] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 19709
+[2025-06-16 10:14:31,804] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 19709
+[2025-06-16 10:15:14,485] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 19711
+[2025-06-16 10:16:40,207] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 19712
+[2025-06-16 10:20:23,449] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 19803
+[2025-06-16 10:26:51,664] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 10:26:54,865] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 10:27:05,589] ERROR django.request Internal Server Error: /consultation/consultant_invoice/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py", line 418, in consultant_invoice
+    invoices = Invoice.objects.filter(consultant=user).order_by('-month')
+               ^^^^^^^
+UnboundLocalError: cannot access local variable 'Invoice' where it is not associated with a value
+[2025-06-16 10:27:05,662] ERROR django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 500 145
+[2025-06-16 10:27:52,106] ERROR django.request Internal Server Error: /consultation/consultant_invoice/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py", line 418, in consultant_invoice
+    invoices = Invoice.objects.filter(consultant=user).order_by('-month')
+               ^^^^^^^
+UnboundLocalError: cannot access local variable 'Invoice' where it is not associated with a value
+[2025-06-16 10:27:52,108] ERROR django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 500 145
+[2025-06-16 10:28:38,962] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 10:28:40,902] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 10:28:44,174] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 20214
+[2025-06-16 10:35:49,647] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 17634
+[2025-06-16 10:36:02,663] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-16 10:36:04,357] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 10:36:28,943] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 17634
+[2025-06-16 10:38:05,270] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 17634
+[2025-06-16 10:38:06,902] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 17634
+[2025-06-16 10:38:07,859] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 20214
+[2025-06-16 10:38:09,218] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 20214
+[2025-06-16 10:38:43,467] INFO django.server "GET / HTTP/1.1" 200 38710
+[2025-06-16 10:38:44,808] WARNING django.request Not Found: /favicon.ico
+[2025-06-16 10:38:44,808] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 179
+[2025-06-16 10:38:48,531] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-16 10:38:48,580] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19257
+[2025-06-16 10:38:51,445] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 21614
+[2025-06-16 10:44:16,384] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 10:44:18,360] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 10:44:25,375] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 10:44:26,864] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 10:45:58,867] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 19342
+[2025-06-16 10:46:00,212] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 19342
+[2025-06-16 10:46:11,052] INFO django.server "POST /consultation/consultant_invoice/ HTTP/1.1" 200 20811
+[2025-06-16 10:46:13,080] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 10:46:15,249] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 10:46:23,303] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 10:46:25,968] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 10:46:34,982] WARNING django.request Not Found: /media/invoices/openart-image_WM8SVq19_1749100402842_raw.pdf
+[2025-06-16 10:46:34,983] WARNING django.server "GET /media/invoices/openart-image_WM8SVq19_1749100402842_raw.pdf HTTP/1.1" 404 179
+[2025-06-16 10:48:32,114] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultaion_webapp\settings.py changed, reloading.
+[2025-06-16 10:48:41,509] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 10:49:05,468] INFO django.server "GET /media/invoices/openart-image_WM8SVq19_1749100402842_raw.pdf HTTP/1.1" 200 125573
+[2025-06-16 10:49:38,136] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 17634
+[2025-06-16 10:49:45,345] INFO django.server "POST /consultation/consultant_profile/4/ HTTP/1.1" 302 0
+[2025-06-16 10:49:45,376] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 17995
+[2025-06-16 10:49:47,472] INFO django.server "GET /media/agreements/openart-image_WM8SVq19_1749100402842_raw.pdf HTTP/1.1" 200 125573
+[2025-06-16 10:49:51,619] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 18267
+[2025-06-16 10:50:03,744] INFO django.server "POST /consultation/upload_timesheet/4/ HTTP/1.1" 200 84
+[2025-06-16 10:50:09,031] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 18267
+[2025-06-16 10:52:19,768] ERROR django.request Internal Server Error: /consultation/consultant_timesheet/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 502, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endif'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py", line 77, in consultant_timesheet
+    return render(request, 'consultant_timesheet.html', context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 504, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 555, in invalid_block_tag
+    raise self.error(
+    ...<8 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 128: 'endif', expected 'endblock'. Did you forget to register or load this tag?
+[2025-06-16 10:52:19,777] ERROR django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 500 210168
+[2025-06-16 10:53:18,580] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 18185
+[2025-06-16 10:54:22,463] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 17995
+[2025-06-16 10:54:23,213] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 20811
+[2025-06-16 10:57:49,744] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 17995
+[2025-06-16 10:57:52,278] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 23198
+[2025-06-16 10:57:53,927] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 47008
+[2025-06-16 10:57:54,056] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 10:57:54,249] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 10:57:54,991] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 23198
+[2025-06-16 10:57:57,801] INFO django.server "GET /media/invoices/openart-image_WM8SVq19_1749100402842_raw.pdf HTTP/1.1" 200 125573
+[2025-06-16 10:58:01,440] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 47008
+[2025-06-16 10:58:01,507] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 10:58:01,687] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 10:58:05,196] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23849
+[2025-06-16 10:58:08,024] INFO django.server "GET /media/agreements/openart-image_WM8SVq19_1749100402842_raw.pdf HTTP/1.1" 200 125573
+[2025-06-16 10:58:29,012] INFO django.server "GET /media/timesheets/sample_timesheet_2.xlsx HTTP/1.1" 200 9274
+[2025-06-16 10:58:55,974] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 18185
+[2025-06-16 11:01:28,682] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultaion_webapp\settings.py changed, reloading.
+[2025-06-16 11:01:30,433] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:01:43,768] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 18185
+[2025-06-16 11:06:47,085] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 11:06:48,649] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:06:52,605] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 18185
+[2025-06-16 11:07:01,337] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 11:07:02,868] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:07:28,637] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 11:07:30,236] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:12:56,169] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 20811
+[2025-06-16 11:12:59,562] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23849
+[2025-06-16 11:13:01,668] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 23198
+[2025-06-16 11:15:49,022] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 11:15:51,383] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:16:58,285] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 23198
+[2025-06-16 11:17:01,007] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 20811
+[2025-06-16 11:17:05,127] ERROR django.request Internal Server Error: /consultation/consultant_timesheet/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py", line 78, in consultant_timesheet
+    return render(request, 'consultation/consultant_timesheet.html', context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: consultation/consultant_timesheet.html
+[2025-06-16 11:17:05,131] ERROR django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 500 104534
+[2025-06-16 11:17:15,278] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 11:17:16,422] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:17:33,479] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 18185
+[2025-06-16 11:20:05,946] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 11:20:07,485] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:20:16,275] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 19237
+[2025-06-16 11:20:19,916] INFO django.server "GET /media/timesheets/sample_timesheet_2.xlsx HTTP/1.1" 200 9274
+[2025-06-16 11:22:20,279] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\models.py changed, reloading.
+[2025-06-16 11:22:21,910] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:22:29,237] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 11:22:30,854] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:22:33,596] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 19237
+[2025-06-16 11:22:37,414] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 17995
+[2025-06-16 11:22:42,089] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 20811
+[2025-06-16 11:22:46,288] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 19237
+[2025-06-16 11:26:55,219] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 23198
+[2025-06-16 11:27:03,086] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-16 11:27:04,691] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:27:34,065] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 23422
+[2025-06-16 11:27:52,086] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 22100
+[2025-06-16 11:31:53,759] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\models.py changed, reloading.
+[2025-06-16 11:31:55,055] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:33:05,309] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\models.py changed, reloading.
+[2025-06-16 11:33:06,625] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:33:52,779] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\constants.py changed, reloading.
+[2025-06-16 11:33:54,690] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:33:57,206] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\constants.py changed, reloading.
+[2025-06-16 11:33:58,609] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:34:02,804] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\constants.py changed, reloading.
+[2025-06-16 11:34:04,184] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:34:05,591] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\constants.py changed, reloading.
+[2025-06-16 11:34:07,429] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:34:11,882] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\constants.py changed, reloading.
+[2025-06-16 11:34:13,446] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:34:19,578] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\constants.py changed, reloading.
+[2025-06-16 11:34:21,263] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:34:24,634] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\constants.py changed, reloading.
+[2025-06-16 11:34:26,188] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:34:30,636] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\constants.py changed, reloading.
+[2025-06-16 11:34:32,145] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:34:37,992] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 22100
+[2025-06-16 11:34:46,298] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 22100
+[2025-06-16 11:36:10,638] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-16 11:36:12,297] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:37:16,996] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:37:38,841] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 22616
+[2025-06-16 11:38:53,653] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-16 11:38:56,398] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:41:44,173] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 22616
+[2025-06-16 11:41:47,522] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 47008
+[2025-06-16 11:41:47,621] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 11:41:47,782] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 11:41:50,376] WARNING django.request Method Not Allowed (GET): /auth/change_consultant_status/4/
+[2025-06-16 11:41:50,377] WARNING django.server "GET /auth/change_consultant_status/4/ HTTP/1.1" 405 0
+[2025-06-16 11:41:53,586] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23849
+[2025-06-16 11:42:11,906] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 19237
+[2025-06-16 11:42:14,740] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 20811
+[2025-06-16 11:45:11,304] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 21406
+[2025-06-16 11:45:14,286] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 19237
+[2025-06-16 11:45:20,954] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 18091
+[2025-06-16 11:48:44,453] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23849
+[2025-06-16 11:48:47,158] ERROR django.request Internal Server Error: /auth/edit_consultant/4/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 479, in edit_consultant
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 329, in full_clean
+    self._post_clean()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 489, in _post_clean
+    self.instance = construct_instance(
+                    ~~~~~~~~~~~~~~~~~~^
+        self, self.instance, opts.fields, opts.exclude
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 85, in construct_instance
+    f.save_form_data(instance, cleaned_data[f.name])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 1092, in save_form_data
+    setattr(instance, self.name, data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 284, in __set__
+    raise ValueError(
+    ...<7 lines>...
+    )
+ValueError: Cannot assign "'approved'": "ConsultantProfile.status" must be a "ConsultantStatus" instance.
+[2025-06-16 11:48:47,165] ERROR django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 500 120716
+[2025-06-16 11:50:22,818] ERROR django.request Internal Server Error: /auth/edit_consultant/4/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 479, in edit_consultant
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 329, in full_clean
+    self._post_clean()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 489, in _post_clean
+    self.instance = construct_instance(
+                    ~~~~~~~~~~~~~~~~~~^
+        self, self.instance, opts.fields, opts.exclude
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 85, in construct_instance
+    f.save_form_data(instance, cleaned_data[f.name])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 1092, in save_form_data
+    setattr(instance, self.name, data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 284, in __set__
+    raise ValueError(
+    ...<7 lines>...
+    )
+ValueError: Cannot assign "'approved'": "ConsultantProfile.status" must be a "ConsultantStatus" instance.
+[2025-06-16 11:50:22,823] ERROR django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 500 120716
+[2025-06-16 11:52:00,617] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-16 11:52:02,662] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:52:12,382] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-16 11:52:13,723] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:52:20,634] ERROR django.request Internal Server Error: /auth/edit_consultant/4/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 479, in edit_consultant
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 329, in full_clean
+    self._post_clean()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 489, in _post_clean
+    self.instance = construct_instance(
+                    ~~~~~~~~~~~~~~~~~~^
+        self, self.instance, opts.fields, opts.exclude
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 85, in construct_instance
+    f.save_form_data(instance, cleaned_data[f.name])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 1092, in save_form_data
+    setattr(instance, self.name, data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 284, in __set__
+    raise ValueError(
+    ...<7 lines>...
+    )
+ValueError: Cannot assign "'approved'": "ConsultantProfile.status" must be a "ConsultantStatus" instance.
+[2025-06-16 11:52:20,646] ERROR django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 500 120772
+[2025-06-16 11:52:22,951] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23849
+[2025-06-16 11:52:24,725] ERROR django.request Internal Server Error: /auth/edit_consultant/4/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 479, in edit_consultant
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 329, in full_clean
+    self._post_clean()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 489, in _post_clean
+    self.instance = construct_instance(
+                    ~~~~~~~~~~~~~~~~~~^
+        self, self.instance, opts.fields, opts.exclude
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 85, in construct_instance
+    f.save_form_data(instance, cleaned_data[f.name])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 1092, in save_form_data
+    setattr(instance, self.name, data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 284, in __set__
+    raise ValueError(
+    ...<7 lines>...
+    )
+ValueError: Cannot assign "'approved'": "ConsultantProfile.status" must be a "ConsultantStatus" instance.
+[2025-06-16 11:52:24,728] ERROR django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 500 120772
+[2025-06-16 11:52:49,501] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23849
+[2025-06-16 11:52:51,149] ERROR django.request Internal Server Error: /auth/edit_consultant/4/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 479, in edit_consultant
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 329, in full_clean
+    self._post_clean()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 489, in _post_clean
+    self.instance = construct_instance(
+                    ~~~~~~~~~~~~~~~~~~^
+        self, self.instance, opts.fields, opts.exclude
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 85, in construct_instance
+    f.save_form_data(instance, cleaned_data[f.name])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 1092, in save_form_data
+    setattr(instance, self.name, data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 284, in __set__
+    raise ValueError(
+    ...<7 lines>...
+    )
+ValueError: Cannot assign "'approved'": "ConsultantProfile.status" must be a "ConsultantStatus" instance.
+[2025-06-16 11:52:51,154] ERROR django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 500 120772
+[2025-06-16 11:54:01,682] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\forms.py changed, reloading.
+[2025-06-16 11:54:02,957] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:54:12,205] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23849
+[2025-06-16 11:54:14,119] ERROR django.request Internal Server Error: /auth/edit_consultant/4/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 479, in edit_consultant
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 329, in full_clean
+    self._post_clean()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 489, in _post_clean
+    self.instance = construct_instance(
+                    ~~~~~~~~~~~~~~~~~~^
+        self, self.instance, opts.fields, opts.exclude
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 85, in construct_instance
+    f.save_form_data(instance, cleaned_data[f.name])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 1092, in save_form_data
+    setattr(instance, self.name, data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 284, in __set__
+    raise ValueError(
+    ...<7 lines>...
+    )
+ValueError: Cannot assign "'approved'": "ConsultantProfile.status" must be a "ConsultantStatus" instance.
+[2025-06-16 11:54:14,134] ERROR django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 500 120772
+[2025-06-16 11:54:48,127] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23849
+[2025-06-16 11:54:52,793] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19257
+[2025-06-16 11:55:03,103] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 17067
+[2025-06-16 11:55:05,226] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 29109
+[2025-06-16 11:55:05,771] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 119
+[2025-06-16 11:55:08,949] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 17067
+[2025-06-16 11:55:11,911] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\forms.py changed, reloading.
+[2025-06-16 11:55:14,400] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:55:16,980] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 47008
+[2025-06-16 11:55:17,113] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 11:55:17,600] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 11:55:19,118] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 47008
+[2025-06-16 11:55:19,171] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 11:55:19,387] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 11:55:28,907] INFO django.server "POST /auth/delete_consultant/15/ HTTP/1.1" 302 0
+[2025-06-16 11:55:28,940] INFO django.server "GET /auth/consultant_management/ HTTP/1.1" 200 44057
+[2025-06-16 11:55:29,035] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 11:55:29,258] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 11:55:30,243] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19257
+[2025-06-16 11:55:31,307] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 17067
+[2025-06-16 11:56:00,448] INFO django.server "POST /auth/add_consultant/ HTTP/1.1" 200 77
+[2025-06-16 11:56:03,954] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 46997
+[2025-06-16 11:56:04,025] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 11:56:04,260] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 11:58:08,099] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 46997
+[2025-06-16 11:58:08,204] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 11:58:08,548] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 11:58:10,961] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23849
+[2025-06-16 11:58:13,639] ERROR django.request Internal Server Error: /auth/edit_consultant/4/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 479, in edit_consultant
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 329, in full_clean
+    self._post_clean()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 489, in _post_clean
+    self.instance = construct_instance(
+                    ~~~~~~~~~~~~~~~~~~^
+        self, self.instance, opts.fields, opts.exclude
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 85, in construct_instance
+    f.save_form_data(instance, cleaned_data[f.name])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 1092, in save_form_data
+    setattr(instance, self.name, data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 284, in __set__
+    raise ValueError(
+    ...<7 lines>...
+    )
+ValueError: Cannot assign "'approved'": "ConsultantProfile.status" must be a "ConsultantStatus" instance.
+[2025-06-16 11:58:13,646] ERROR django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 500 120772
+[2025-06-16 11:59:28,921] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\forms.py changed, reloading.
+[2025-06-16 11:59:31,182] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:59:34,811] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\forms.py changed, reloading.
+[2025-06-16 11:59:36,177] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 11:59:45,115] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23849
+[2025-06-16 11:59:46,289] ERROR django.request Internal Server Error: /auth/edit_consultant/4/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 479, in edit_consultant
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 329, in full_clean
+    self._post_clean()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 489, in _post_clean
+    self.instance = construct_instance(
+                    ~~~~~~~~~~~~~~~~~~^
+        self, self.instance, opts.fields, opts.exclude
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 85, in construct_instance
+    f.save_form_data(instance, cleaned_data[f.name])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 1092, in save_form_data
+    setattr(instance, self.name, data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 284, in __set__
+    raise ValueError(
+    ...<7 lines>...
+    )
+ValueError: Cannot assign "'approved'": "ConsultantProfile.status" must be a "ConsultantStatus" instance.
+[2025-06-16 11:59:46,298] ERROR django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 500 120772
+[2025-06-16 12:00:09,514] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23849
+[2025-06-16 12:00:11,049] ERROR django.request Internal Server Error: /auth/edit_consultant/4/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 479, in edit_consultant
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 329, in full_clean
+    self._post_clean()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 489, in _post_clean
+    self.instance = construct_instance(
+                    ~~~~~~~~~~~~~~~~~~^
+        self, self.instance, opts.fields, opts.exclude
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 85, in construct_instance
+    f.save_form_data(instance, cleaned_data[f.name])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 1092, in save_form_data
+    setattr(instance, self.name, data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 284, in __set__
+    raise ValueError(
+    ...<7 lines>...
+    )
+ValueError: Cannot assign "'approved'": "ConsultantProfile.status" must be a "ConsultantStatus" instance.
+[2025-06-16 12:00:11,052] ERROR django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 500 120772
+[2025-06-16 12:01:44,898] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\forms.py changed, reloading.
+[2025-06-16 12:01:47,638] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 12:01:55,033] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23849
+[2025-06-16 12:01:58,289] ERROR django.request Internal Server Error: /auth/edit_consultant/4/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 479, in edit_consultant
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 329, in full_clean
+    self._post_clean()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 489, in _post_clean
+    self.instance = construct_instance(
+                    ~~~~~~~~~~~~~~~~~~^
+        self, self.instance, opts.fields, opts.exclude
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 85, in construct_instance
+    f.save_form_data(instance, cleaned_data[f.name])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 1092, in save_form_data
+    setattr(instance, self.name, data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 284, in __set__
+    raise ValueError(
+    ...<7 lines>...
+    )
+ValueError: Cannot assign "'approved'": "ConsultantProfile.status" must be a "ConsultantStatus" instance.
+[2025-06-16 12:01:58,322] ERROR django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 500 120772
+[2025-06-16 12:10:26,674] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23849
+[2025-06-16 12:10:28,633] ERROR django.request Internal Server Error: /auth/edit_consultant/4/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 479, in edit_consultant
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 329, in full_clean
+    self._post_clean()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 489, in _post_clean
+    self.instance = construct_instance(
+                    ~~~~~~~~~~~~~~~~~~^
+        self, self.instance, opts.fields, opts.exclude
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 85, in construct_instance
+    f.save_form_data(instance, cleaned_data[f.name])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 1092, in save_form_data
+    setattr(instance, self.name, data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 284, in __set__
+    raise ValueError(
+    ...<7 lines>...
+    )
+ValueError: Cannot assign "'approved'": "ConsultantProfile.status" must be a "ConsultantStatus" instance.
+[2025-06-16 12:10:28,637] ERROR django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 500 120772
+[2025-06-16 12:13:17,634] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-16 12:13:18,939] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 12:13:42,376] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23849
+[2025-06-16 12:13:47,838] ERROR django.request Internal Server Error: /auth/edit_consultant/4/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 479, in edit_consultant
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 329, in full_clean
+    self._post_clean()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 489, in _post_clean
+    self.instance = construct_instance(
+                    ~~~~~~~~~~~~~~~~~~^
+        self, self.instance, opts.fields, opts.exclude
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 85, in construct_instance
+    f.save_form_data(instance, cleaned_data[f.name])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 1092, in save_form_data
+    setattr(instance, self.name, data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 284, in __set__
+    raise ValueError(
+    ...<7 lines>...
+    )
+ValueError: Cannot assign "'approved'": "ConsultantProfile.status" must be a "ConsultantStatus" instance.
+[2025-06-16 12:13:47,849] ERROR django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 500 120772
+[2025-06-16 12:20:21,095] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23849
+[2025-06-16 12:20:24,892] ERROR django.request Internal Server Error: /auth/edit_consultant/4/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 479, in edit_consultant
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 329, in full_clean
+    self._post_clean()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 489, in _post_clean
+    self.instance = construct_instance(
+                    ~~~~~~~~~~~~~~~~~~^
+        self, self.instance, opts.fields, opts.exclude
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 85, in construct_instance
+    f.save_form_data(instance, cleaned_data[f.name])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 1092, in save_form_data
+    setattr(instance, self.name, data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 284, in __set__
+    raise ValueError(
+    ...<7 lines>...
+    )
+ValueError: Cannot assign "'approved'": "ConsultantProfile.status" must be a "ConsultantStatus" instance.
+[2025-06-16 12:20:24,896] ERROR django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 500 120772
+[2025-06-16 12:20:50,174] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\forms.py changed, reloading.
+[2025-06-16 12:20:51,248] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 12:21:06,482] ERROR django.request Internal Server Error: /auth/edit_consultant/4/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 479, in edit_consultant
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 329, in full_clean
+    self._post_clean()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 489, in _post_clean
+    self.instance = construct_instance(
+                    ~~~~~~~~~~~~~~~~~~^
+        self, self.instance, opts.fields, opts.exclude
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 85, in construct_instance
+    f.save_form_data(instance, cleaned_data[f.name])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 1092, in save_form_data
+    setattr(instance, self.name, data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 284, in __set__
+    raise ValueError(
+    ...<7 lines>...
+    )
+ValueError: Cannot assign "'approved'": "ConsultantProfile.status" must be a "ConsultantStatus" instance.
+[2025-06-16 12:21:06,494] ERROR django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 500 120772
+[2025-06-16 12:21:19,762] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23849
+[2025-06-16 12:21:22,220] ERROR django.request Internal Server Error: /auth/edit_consultant/4/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 479, in edit_consultant
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 329, in full_clean
+    self._post_clean()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 489, in _post_clean
+    self.instance = construct_instance(
+                    ~~~~~~~~~~~~~~~~~~^
+        self, self.instance, opts.fields, opts.exclude
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 85, in construct_instance
+    f.save_form_data(instance, cleaned_data[f.name])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 1092, in save_form_data
+    setattr(instance, self.name, data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 284, in __set__
+    raise ValueError(
+    ...<7 lines>...
+    )
+ValueError: Cannot assign "'approved'": "ConsultantProfile.status" must be a "ConsultantStatus" instance.
+[2025-06-16 12:21:22,224] ERROR django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 500 120772
+[2025-06-16 12:24:15,819] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\forms.py changed, reloading.
+[2025-06-16 12:24:18,263] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 12:24:55,653] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 12:24:58,760] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19257
+[2025-06-16 12:25:01,938] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 46997
+[2025-06-16 12:25:02,008] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 12:25:02,192] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 12:25:03,995] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23849
+[2025-06-16 12:25:12,087] ERROR django.request Internal Server Error: /auth/edit_consultant/4/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 479, in edit_consultant
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 329, in full_clean
+    self._post_clean()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 489, in _post_clean
+    self.instance = construct_instance(
+                    ~~~~~~~~~~~~~~~~~~^
+        self, self.instance, opts.fields, opts.exclude
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 85, in construct_instance
+    f.save_form_data(instance, cleaned_data[f.name])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 1092, in save_form_data
+    setattr(instance, self.name, data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 284, in __set__
+    raise ValueError(
+    ...<7 lines>...
+    )
+ValueError: Cannot assign "'approved'": "ConsultantProfile.status" must be a "ConsultantStatus" instance.
+[2025-06-16 12:25:12,100] ERROR django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 500 120772
+[2025-06-16 12:26:56,700] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23849
+[2025-06-16 12:27:02,844] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23849
+[2025-06-16 12:27:06,318] ERROR django.request Internal Server Error: /auth/edit_consultant/4/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 479, in edit_consultant
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 329, in full_clean
+    self._post_clean()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 489, in _post_clean
+    self.instance = construct_instance(
+                    ~~~~~~~~~~~~~~~~~~^
+        self, self.instance, opts.fields, opts.exclude
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 85, in construct_instance
+    f.save_form_data(instance, cleaned_data[f.name])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 1092, in save_form_data
+    setattr(instance, self.name, data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 284, in __set__
+    raise ValueError(
+    ...<7 lines>...
+    )
+ValueError: Cannot assign "'approved'": "ConsultantProfile.status" must be a "ConsultantStatus" instance.
+[2025-06-16 12:27:06,325] ERROR django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 500 120772
+[2025-06-16 12:27:54,742] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\forms.py changed, reloading.
+[2025-06-16 12:27:56,379] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 12:28:02,429] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\forms.py changed, reloading.
+[2025-06-16 12:28:03,808] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 12:28:13,028] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23849
+[2025-06-16 12:28:15,120] ERROR django.request Internal Server Error: /auth/edit_consultant/4/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 479, in edit_consultant
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 329, in full_clean
+    self._post_clean()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 489, in _post_clean
+    self.instance = construct_instance(
+                    ~~~~~~~~~~~~~~~~~~^
+        self, self.instance, opts.fields, opts.exclude
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 85, in construct_instance
+    f.save_form_data(instance, cleaned_data[f.name])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 1092, in save_form_data
+    setattr(instance, self.name, data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 284, in __set__
+    raise ValueError(
+    ...<7 lines>...
+    )
+ValueError: Cannot assign "'approved'": "ConsultantProfile.status" must be a "ConsultantStatus" instance.
+[2025-06-16 12:28:15,127] ERROR django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 500 120772
+[2025-06-16 12:28:42,786] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23849
+[2025-06-16 12:28:45,078] ERROR django.request Internal Server Error: /auth/edit_consultant/4/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 479, in edit_consultant
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 329, in full_clean
+    self._post_clean()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 489, in _post_clean
+    self.instance = construct_instance(
+                    ~~~~~~~~~~~~~~~~~~^
+        self, self.instance, opts.fields, opts.exclude
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 85, in construct_instance
+    f.save_form_data(instance, cleaned_data[f.name])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 1092, in save_form_data
+    setattr(instance, self.name, data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 284, in __set__
+    raise ValueError(
+    ...<7 lines>...
+    )
+ValueError: Cannot assign "'approved'": "ConsultantProfile.status" must be a "ConsultantStatus" instance.
+[2025-06-16 12:28:45,082] ERROR django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 500 120772
+[2025-06-16 12:32:22,705] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-16 12:32:23,937] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 12:32:43,399] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-16 12:32:45,050] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 12:33:05,133] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-16 12:33:06,222] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 12:33:16,546] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23681
+[2025-06-16 12:34:45,339] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\forms.py changed, reloading.
+[2025-06-16 12:34:48,085] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 12:34:52,848] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\forms.py changed, reloading.
+[2025-06-16 12:34:54,060] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 12:35:00,300] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23681
+[2025-06-16 12:35:11,291] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23681
+[2025-06-16 12:35:38,002] ERROR django.request Internal Server Error: /auth/edit_consultant/4/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 465, in edit_consultant
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 329, in full_clean
+    self._post_clean()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 489, in _post_clean
+    self.instance = construct_instance(
+                    ~~~~~~~~~~~~~~~~~~^
+        self, self.instance, opts.fields, opts.exclude
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 85, in construct_instance
+    f.save_form_data(instance, cleaned_data[f.name])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 1092, in save_form_data
+    setattr(instance, self.name, data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 284, in __set__
+    raise ValueError(
+    ...<7 lines>...
+    )
+ValueError: Cannot assign "''": "ConsultantProfile.status" must be a "ConsultantStatus" instance.
+[2025-06-16 12:35:38,017] ERROR django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 500 120709
+[2025-06-16 12:35:45,478] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23681
+[2025-06-16 12:35:53,248] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 12:35:54,934] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23681
+[2025-06-16 12:36:24,626] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23681
+[2025-06-16 12:36:33,923] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\forms.py changed, reloading.
+[2025-06-16 12:36:35,292] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 12:36:38,517] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23849
+[2025-06-16 12:36:47,908] ERROR django.request Internal Server Error: /auth/edit_consultant/4/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 465, in edit_consultant
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 329, in full_clean
+    self._post_clean()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 489, in _post_clean
+    self.instance = construct_instance(
+                    ~~~~~~~~~~~~~~~~~~^
+        self, self.instance, opts.fields, opts.exclude
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\models.py", line 85, in construct_instance
+    f.save_form_data(instance, cleaned_data[f.name])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\__init__.py", line 1092, in save_form_data
+    setattr(instance, self.name, data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 284, in __set__
+    raise ValueError(
+    ...<7 lines>...
+    )
+ValueError: Cannot assign "'approved'": "ConsultantProfile.status" must be a "ConsultantStatus" instance.
+[2025-06-16 12:36:47,920] ERROR django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 500 120773
+[2025-06-16 12:37:14,892] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\forms.py changed, reloading.
+[2025-06-16 12:37:16,489] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 12:37:20,867] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23858
+[2025-06-16 12:37:29,196] INFO django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 302 0
+[2025-06-16 12:37:29,240] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23975
+[2025-06-16 12:37:35,987] INFO django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 302 0
+[2025-06-16 12:37:36,021] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23983
+[2025-06-16 12:40:29,636] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 18091
+[2025-06-16 12:40:31,175] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 18466
+[2025-06-16 12:42:45,291] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 18011
+[2025-06-16 12:42:50,748] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 23866
+[2025-06-16 12:47:42,758] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 26116
+[2025-06-16 12:47:52,362] INFO django.server "POST /auth/update_timesheet_status/7/ HTTP/1.1" 200 70
+[2025-06-16 12:47:57,968] INFO django.server "POST /auth/update_timesheet_status/7/ HTTP/1.1" 200 70
+[2025-06-16 12:48:47,687] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 26116
+[2025-06-16 12:48:50,552] INFO django.server "POST /auth/update_timesheet_status/7/ HTTP/1.1" 200 70
+[2025-06-16 12:48:58,428] INFO django.server "POST /auth/update_timesheet_status/7/ HTTP/1.1" 200 70
+[2025-06-16 12:49:10,058] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19257
+[2025-06-16 12:49:11,887] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 17067
+[2025-06-16 12:49:13,467] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 29109
+[2025-06-16 12:49:13,973] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 119
+[2025-06-16 12:49:16,197] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 47000
+[2025-06-16 12:49:16,299] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 12:49:16,451] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 12:49:20,314] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 26116
+[2025-06-16 12:49:26,045] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 22616
+[2025-06-16 12:49:33,700] WARNING django.request Not Found: /custom_admin/update_invoice_status/1/
+[2025-06-16 12:49:33,701] WARNING django.server "POST /custom_admin/update_invoice_status/1/ HTTP/1.1" 404 2937
+[2025-06-16 12:49:39,764] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 22616
+[2025-06-16 12:51:04,412] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 12:51:10,757] WARNING django.request Not Found: /custom_admin/consultant_detail/1/
+[2025-06-16 12:51:10,758] WARNING django.server "GET /custom_admin/consultant_detail/1/ HTTP/1.1" 404 2924
+[2025-06-16 12:51:10,911] WARNING django.request Not Found: /favicon.ico
+[2025-06-16 12:51:10,912] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-16 12:51:25,214] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 22616
+[2025-06-16 12:51:27,418] WARNING django.request Not Found: /custom_admin/update_invoice_status/1/
+[2025-06-16 12:51:27,419] WARNING django.server "POST /custom_admin/update_invoice_status/1/ HTTP/1.1" 404 2937
+[2025-06-16 12:52:38,216] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 22616
+[2025-06-16 12:52:42,180] WARNING django.request Not Found: /custom_admin/update_invoice_status/1/
+[2025-06-16 12:52:42,181] WARNING django.server "POST /custom_admin/update_invoice_status/1/ HTTP/1.1" 404 2937
+[2025-06-16 12:52:45,033] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 22616
+[2025-06-16 12:53:08,065] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 22616
+[2025-06-16 12:53:09,766] INFO django.server "GET /media/invoices/openart-image_WM8SVq19_1749100402842_raw.pdf HTTP/1.1" 304 0
+[2025-06-16 12:53:25,309] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-16 12:53:27,013] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 12:58:48,628] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 47000
+[2025-06-16 12:58:48,707] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 12:58:48,945] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 12:58:49,503] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 29109
+[2025-06-16 12:58:49,936] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 119
+[2025-06-16 12:58:50,537] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 17067
+[2025-06-16 12:58:52,122] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 29109
+[2025-06-16 12:58:52,576] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 119
+[2025-06-16 12:58:53,150] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 47000
+[2025-06-16 12:58:53,248] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 12:58:53,451] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 12:58:53,917] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 22616
+[2025-06-16 12:59:04,686] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 47000
+[2025-06-16 12:59:04,783] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 12:59:05,214] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 12:59:08,240] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 26487
+[2025-06-16 12:59:15,337] INFO django.server "GET /media/agreements/openart-image_WM8SVq19_1749100402842_raw.pdf HTTP/1.1" 304 0
+[2025-06-16 13:04:19,256] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19257
+[2025-06-16 13:04:23,966] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 18091
+[2025-06-16 13:09:21,988] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 13:20:21,579] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 13:20:23,118] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 13:20:35,524] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 19225
+[2025-06-16 13:21:08,922] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 21406
+[2025-06-16 13:21:23,202] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 19225
+[2025-06-16 13:21:37,535] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 19281
+[2025-06-16 13:21:39,519] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 21406
+[2025-06-16 13:23:51,186] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 13:23:52,878] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 13:23:55,671] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 19281
+[2025-06-16 13:24:14,167] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 19325
+[2025-06-16 13:24:29,834] ERROR django.request Internal Server Error: /consultation/upload_timesheet/4/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py", line 188, in upload_timesheet
+    return render(request, 'upload_timesheet.html', {'consultant': consultant})
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: upload_timesheet.html
+[2025-06-16 13:24:29,838] ERROR django.server "GET /consultation/upload_timesheet/4/ HTTP/1.1" 500 94605
+[2025-06-16 13:24:36,080] ERROR django.request Internal Server Error: /consultation/upload_timesheet/4/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py", line 188, in upload_timesheet
+    return render(request, 'upload_timesheet.html', {'consultant': consultant})
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: upload_timesheet.html
+[2025-06-16 13:24:36,083] ERROR django.server "GET /consultation/upload_timesheet/4/ HTTP/1.1" 500 94605
+[2025-06-16 13:24:43,127] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 19237
+[2025-06-16 13:25:15,870] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 13:25:17,427] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 13:25:22,982] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 19237
+[2025-06-16 13:25:24,332] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 19327
+[2025-06-16 13:25:25,514] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 19237
+[2025-06-16 13:25:31,153] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 29109
+[2025-06-16 13:25:31,858] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 119
+[2025-06-16 13:25:32,596] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 17067
+[2025-06-16 13:25:33,071] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19257
+[2025-06-16 13:26:43,100] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19257
+[2025-06-16 13:26:45,590] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 19269
+[2025-06-16 13:27:25,924] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 21406
+[2025-06-16 13:27:52,084] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 13:27:53,632] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 13:27:56,399] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 21406
+[2025-06-16 13:27:57,385] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 19269
+[2025-06-16 13:29:26,177] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 19386
+[2025-06-16 13:29:29,836] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 21406
+[2025-06-16 13:29:40,477] INFO django.server "GET /media/invoices/openart-image_WM8SVq19_1749100402842_raw.pdf HTTP/1.1" 304 0
+[2025-06-16 13:29:45,050] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 21406
+[2025-06-16 13:29:47,473] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 21406
+[2025-06-16 13:29:51,926] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 19237
+[2025-06-16 13:29:54,141] INFO django.server "GET /media/timesheets/sample_timesheet_2.xlsx HTTP/1.1" 304 0
+[2025-06-16 13:30:26,069] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 19386
+[2025-06-16 13:30:36,695] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 19237
+[2025-06-16 13:30:38,448] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 21406
+[2025-06-16 13:30:39,506] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 18011
+[2025-06-16 13:30:51,425] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 19386
+[2025-06-16 13:30:53,162] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19257
+[2025-06-16 13:30:54,265] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 17067
+[2025-06-16 13:30:55,800] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 29109
+[2025-06-16 13:30:56,204] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 119
+[2025-06-16 13:30:57,961] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 47000
+[2025-06-16 13:30:58,056] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 13:30:58,192] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 13:31:00,247] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 26487
+[2025-06-16 13:31:05,639] INFO django.server "GET /auth/consultant_profile/11/ HTTP/1.1" 200 24726
+[2025-06-16 13:31:11,259] INFO django.server "POST /auth/edit_consultant/11/ HTTP/1.1" 302 0
+[2025-06-16 13:31:11,326] INFO django.server "GET /auth/consultant_profile/11/ HTTP/1.1" 200 24833
+[2025-06-16 13:31:31,864] INFO django.server "POST /auth/edit_consultant/11/ HTTP/1.1" 302 0
+[2025-06-16 13:31:31,932] INFO django.server "GET /auth/consultant_profile/11/ HTTP/1.1" 200 24833
+[2025-06-16 13:36:18,000] INFO django.server "POST /auth/edit_consultant/11/ HTTP/1.1" 302 0
+[2025-06-16 13:36:18,055] INFO django.server "GET /auth/consultant_profile/11/ HTTP/1.1" 200 24833
+[2025-06-16 13:37:02,088] INFO django.server "GET /auth/consultant_profile/11/ HTTP/1.1" 200 24726
+[2025-06-16 13:37:18,662] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 47000
+[2025-06-16 13:37:18,736] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 13:37:18,888] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 13:37:21,814] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 26487
+[2025-06-16 13:37:25,911] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 47000
+[2025-06-16 13:37:25,989] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 13:37:26,133] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 13:37:31,270] INFO django.server "GET /auth/consultant_profile/11/ HTTP/1.1" 200 24726
+[2025-06-16 13:38:29,591] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\forms.py changed, reloading.
+[2025-06-16 13:38:32,167] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 13:38:39,686] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\forms.py changed, reloading.
+[2025-06-16 13:38:40,994] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 13:38:47,065] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\forms.py changed, reloading.
+[2025-06-16 13:38:49,448] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 13:40:37,740] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\forms.py changed, reloading.
+[2025-06-16 13:40:39,046] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 13:42:07,177] INFO django.server "GET /auth/consultant_profile/11/ HTTP/1.1" 200 25386
+[2025-06-16 13:42:32,042] INFO django.server "POST /auth/edit_consultant/11/ HTTP/1.1" 302 0
+[2025-06-16 13:42:32,076] INFO django.server "GET /auth/consultant_profile/11/ HTTP/1.1" 200 25493
+[2025-06-16 13:43:22,749] INFO django.server "GET /auth/consultant_profile/11/ HTTP/1.1" 200 25386
+[2025-06-16 13:43:23,707] INFO django.server "POST /auth/edit_consultant/11/ HTTP/1.1" 302 0
+[2025-06-16 13:43:23,755] INFO django.server "GET /auth/consultant_profile/11/ HTTP/1.1" 200 25493
+[2025-06-16 13:43:52,458] INFO django.server "GET /auth/consultant_profile/11/ HTTP/1.1" 200 25449
+[2025-06-16 13:44:04,319] INFO django.server "GET /auth/consultant_profile/11/ HTTP/1.1" 200 25467
+[2025-06-16 13:44:06,517] INFO django.server "GET /auth/consultant_profile/11/ HTTP/1.1" 200 25467
+[2025-06-16 13:44:10,178] INFO django.server "GET /auth/consultant_profile/11/ HTTP/1.1" 200 25386
+[2025-06-16 13:44:11,753] INFO django.server "POST /auth/edit_consultant/11/ HTTP/1.1" 302 0
+[2025-06-16 13:44:11,782] INFO django.server "GET /auth/consultant_profile/11/ HTTP/1.1" 200 25493
+[2025-06-16 13:45:03,240] INFO django.server "GET /auth/consultant_profile/11/ HTTP/1.1" 200 25386
+[2025-06-16 14:35:56,971] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 19237
+[2025-06-16 14:35:58,700] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 21406
+[2025-06-16 14:36:02,816] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 19237
+[2025-06-16 14:37:18,270] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 47000
+[2025-06-16 14:37:18,357] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 14:37:18,636] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-16 14:37:21,746] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 27148
+[2025-06-16 14:44:05,759] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\forms.py changed, reloading.
+[2025-06-16 14:44:07,050] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 14:44:54,877] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\forms.py changed, reloading.
+[2025-06-16 14:44:56,555] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 14:45:26,359] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\forms.py changed, reloading.
+[2025-06-16 14:45:27,484] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 14:46:41,844] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-16 14:46:44,115] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 14:46:47,538] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-16 14:46:48,755] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 14:47:10,727] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-16 14:47:13,398] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 14:47:23,287] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-16 14:47:25,325] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 14:50:04,546] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 27698
+[2025-06-16 14:50:49,877] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 29156
+[2025-06-16 15:00:58,155] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 27463
+[2025-06-16 15:02:02,436] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28706
+[2025-06-16 15:02:35,987] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28704
+[2025-06-16 15:05:32,126] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-16 15:05:34,738] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 15:05:38,079] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-16 15:05:40,250] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 15:05:48,524] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-16 15:05:50,153] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 15:06:26,401] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28704
+[2025-06-16 15:10:26,182] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 15:10:28,248] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 15:11:33,276] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 15:11:34,449] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 15:12:08,478] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 15:12:38,326] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 15:12:39,746] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 15:12:51,480] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 15:12:52,729] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 15:12:58,713] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 15:12:59,899] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 15:13:12,571] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 15:13:14,466] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 15:13:24,639] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 15:13:25,927] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 15:13:28,745] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 15:13:29,913] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 15:13:33,962] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 15:13:35,626] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 15:13:51,482] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 15:13:52,693] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 15:14:06,895] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 15:14:08,131] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 15:14:38,597] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-16 15:14:40,135] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 15:15:39,729] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28704
+[2025-06-16 15:15:44,045] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 19237
+[2025-06-16 15:15:47,264] INFO django.server "GET /media/timesheets/sample_timesheet_2.xlsx HTTP/1.1" 304 0
+[2025-06-16 15:20:57,706] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-16 15:20:58,986] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 15:22:05,746] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-16 15:22:07,206] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-16 15:24:53,847] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 18185
+[2025-06-16 15:24:58,647] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 25854

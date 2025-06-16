@@ -86,12 +86,10 @@ class Skill(models.Model):
     def __str__(self):
         return self.name
 
+from custom_admin.constants import TIMESHEET_STATUS_CHOICES, INVOICE_STATUS_CHOICES, CONSULTANT_STATUS_CHOICES
+
 class ConsultantStatus(models.Model):
-    STATUS_CHOICES = (
-        ('approved', 'Approved'),
-        ('rejected', 'Rejected'),
-        ('to_be_reviewed', 'To Be Reviewed'),
-    )
+    STATUS_CHOICES = CONSULTANT_STATUS_CHOICES
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='consultant_status')
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='to_be_reviewed')
 
@@ -107,12 +105,7 @@ class Timesheet(models.Model):
     consultation_timesheet = models.ForeignKey(ConsultationTimesheet, on_delete=models.CASCADE, related_name='custom_admin_timesheets', null=True, blank=True)
     month = models.DateField()
     file = models.FileField(upload_to='timesheets/')
-    status = models.CharField(max_length=20, choices=(
-        ('approved', 'Approved'),
-        ('pending', 'Pending'),
-        ('rejected', 'Rejected'),
-        ('awaiting_review', 'Awaiting Review'),
-    ), default='awaiting_review')
+    status = models.CharField(max_length=20, choices=TIMESHEET_STATUS_CHOICES, default='awaiting_review')
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -121,12 +114,7 @@ class Timesheet(models.Model):
 from consultation.models import Timesheet as ConsultationTimesheet, Invoice as ConsultationInvoice
 
 class Invoice(models.Model):
-    STATUS_CHOICES = (
-        ('approved', 'Approved'),
-        ('pending', 'Pending'),
-        ('rejected', 'Rejected'),
-        ('awaiting_review', 'Awaiting Review'),
-    )
+    STATUS_CHOICES = INVOICE_STATUS_CHOICES
     consultant = models.ForeignKey('User', on_delete=models.CASCADE, limit_choices_to={'role': 'consultant'})
     consultation_invoice = models.ForeignKey(ConsultationInvoice, on_delete=models.CASCADE, related_name='custom_admin_invoices', null=True, blank=True)
     name = models.CharField(max_length=255)
