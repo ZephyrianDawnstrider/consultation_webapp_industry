@@ -90,7 +90,7 @@
     </button>
   </form>
 
-  <div class="bg-white rounded-lg shadow p-6 mt-10">
+  {% comment %} <div class="bg-white rounded-lg shadow p-6 mt-10">
     <h2 class="text-xl font-semibold mb-4">Timesheet Calendar</h2>
     <div id="timesheet-calendar" style="min-height: 600px;" {% if timesheets and timesheets.first %}data-timesheet-id="{{ timesheets.first.id }}"{% endif %}></div>
     <script id="timesheet-entries" type="application/json">{{ timesheet_entries|safe }}</script>
@@ -99,7 +99,34 @@
       <h3 class="text-lg font-semibold mb-2">Timesheet Status</h3>
     </div>
     {% endif %}
-  </div>
+  </div> {% endcomment %}
+  <div class="bg-white rounded-lg shadow p-6 mt-10">
+        <h2 class="text-xl font-semibold mb-4">Timesheet History</h2>
+        {% if timesheets %}
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Month</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">File</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                {% for timesheet in timesheets %}
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ timesheet.month|date:"F Y" }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ timesheet.status }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <a href="{{ timesheet.file.url }}" target="_blank" class="text-blue-600 hover:underline">View</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No timesheets found.</p>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}
 

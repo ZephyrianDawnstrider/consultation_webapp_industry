@@ -1,115 +1,44 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Admin - Invoice Management{% endblock %}
+{% block title %}Invoice Management{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h2>Invoice Management Dashboard</h2>
-
-    <div id="messageArea" class="message"></div>
-
-    <div class="top-controls">
-        <div class="search-filters">
-            <label for="searchConsultantId">Consultant ID:</label>
-            <input type="text" id="searchConsultantId" placeholder="e.g., 101">
-
-            <label for="searchConsultantName">Name:</label>
-            <input type="text" id="searchConsultantName" placeholder="e.g., Alice">
-
-            <label for="searchMonth">Month:</label>
-            <input type="month" id="searchMonth">
-
-            <button id="searchInvoicesBtn">Search Invoices</button>
-        </div>
-        <button id="addNewInvoiceBtn" class="add-invoice-btn">Add New Invoice</button>
-    </div>
-
-    <h3>All Invoices</h3>
-    <table id="invoicesTable">
-        <thead>
-            <tr>
-                <th>Invoice ID</th>
-                <th>Consultant ID</th>
-                <th>Name</th>
-                <th>Month</th>
-                <th>Invoice File</th>
-                <th>Status</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-6">Invoice Management</h1>
+    <div class="bg-white shadow rounded-lg p-6">
+        {% if invoices %}
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Consultant</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Month</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">File</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                {% for invoice in invoices %}
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ invoice.consultant.email }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ invoice.month|date:"F Y" }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-primary-600">
+                        <a href="{{ invoice.file.url }}" target="_blank" class="hover:underline">{{ invoice.name }}</a>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm">
+                        <select class="invoice-status-dropdown" data-invoice-id="{{ invoice.id }}">
+                            {% for value, label in status_choices %}
+                                <option value="{{ value }}" {% if invoice.status == value %}selected{% endif %}>{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                {% endfor %}
             </tbody>
-    </table>
-</div>
-
-<div id="changeStatusModal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <span class="close-btn">&times;</span>
-            <h3>Change Invoice Status</h3>
-        </div>
-        <div class="modal-body">
-            <p>Changing status for Invoice ID: <strong id="invoiceIdStatus"></strong> for consultant <strong id="consultantNameStatus"></strong>.</p>
-            <input type="hidden" id="statusInvoiceId">
-            <div class="form-group">
-                <label for="newStatus">Select new status:</label>
-                <select id="newStatus" class="status-dropdown">
-                    <option value="awaiting review">Awaiting Review</option>
-                    <option value="pending">Pending</option>
-                    <option value="approved">Approved</option>
-                    <option value="rejected">Rejected</option>
-                </select>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="cancel-btn" data-modal-close="changeStatusModal">Cancel</button>
-            <button type="button" class="confirm-btn" id="confirmChangeStatusBtn">Confirm Change</button>
-        </div>
-    </div>
-</div>
-
-<div id="addEditInvoiceModal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <span class="close-btn">&times;</span>
-            <h3 id="addEditModalTitle">Add New Invoice</h3>
-        </div>
-        <div class="modal-body">
-            <form id="invoiceForm">
-                <input type="hidden" id="invoiceFormId">
-                <div class="form-group">
-                    <label for="formConsultantId">Consultant ID:</label>
-                    <input type="text" id="formConsultantId" required>
-                </div>
-                <div class="form-group">
-                    <label for="formConsultantName">Consultant Name:</label>
-                    <input type="text" id="formConsultantName" required>
-                </div>
-                <div class="form-group">
-                    <label for="formInvoiceMonth">Month:</label>
-                    <input type="month" id="formInvoiceMonth" required>
-                </div>
-                <div class="form-group">
-                    <label for="formInvoiceFile">Invoice File (PDF):</label>
-                    <input type="file" id="formInvoiceFile" accept=".pdf">
-                    <small>Current file: <a id="currentInvoiceFileLink" href="#" target="_blank" style="display: none;">View File</a></small>
-                </div>
-                <div class="form-group">
-                    <label for="formInvoiceStatus">Status:</label>
-                    <select id="formInvoiceStatus">
-                        <option value="awaiting review">Awaiting Review</option>
-                        <option value="pending">Pending</option>
-                        <option value="approved">Approved</option>
-                        <option value="rejected">Rejected</option>
-                    </select>
-                </div>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="cancel-btn" data-modal-close="addEditInvoiceModal">Cancel</button>
-            <button type="button" class="confirm-btn" id="saveInvoiceBtn">Save Invoice</button>
-        </div>
+        </table>
+        {% else %}
+        <p class="text-gray-500">No invoices found.</p>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
@@ -332,90 +261,54 @@
 {% block extra_js %}
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const addNewInvoiceBtn = document.getElementById('addNewInvoiceBtn');
-        const addEditInvoiceModal = document.getElementById('addEditInvoiceModal');
-        const invoiceForm = document.getElementById('invoiceForm');
-        const addEditModalTitle = document.getElementById('addEditModalTitle');
+        // Existing code omitted for brevity...
 
-        // Function to open modal
-        function openModal(modal) {
-            modal.style.display = 'flex';
-        }
+        // Add event listener for invoice status dropdown changes
+        document.querySelectorAll('.invoice-status-dropdown').forEach(function(dropdown) {
+            dropdown.addEventListener('change', function() {
+                const invoiceId = this.getAttribute('data-invoice-id');
+                const newStatus = this.value;
 
-        // Function to close modal
-        function closeModal(modal) {
-            modal.style.display = 'none';
-        }
+                // Prepare CSRF token for POST request
+                function getCookie(name) {
+                    let cookieValue = null;
+                    if (document.cookie && document.cookie !== '') {
+                        const cookies = document.cookie.split(';');
+                        for (let i = 0; i < cookies.length; i++) {
+                            const cookie = cookies[i].trim();
+                            // Does this cookie string begin with the name we want?
+                            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                break;
+                            }
+                        }
+                    }
+                    return cookieValue;
+                }
+                const csrftoken = getCookie('csrftoken');
 
-        // Close modal when clicking on close button or cancel button
-        document.querySelectorAll('.close-btn, .cancel-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const modal = this.closest('.modal');
-                closeModal(modal);
-            });
-        });
-
-        // Add New Invoice button click handler
-        addNewInvoiceBtn.addEventListener('click', function() {
-            // Reset form fields
-            invoiceForm.reset();
-            document.getElementById('invoiceFormId').value = '';
-            document.getElementById('currentInvoiceFileLink').style.display = 'none';
-            addEditModalTitle.textContent = 'Add New Invoice';
-
-            // Open the modal
-            openModal(addEditInvoiceModal);
-        });
-
-        // Helper function to fetch consultant data by ID or name
-        function fetchConsultantData(params, callback) {
-            const url = new URL('/api/consultant_autofill/', window.location.origin);
-            Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
-
-            fetch(url)
+                fetch(`/custom_admin/update_invoice_status/${invoiceId}/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'X-CSRFToken': csrftoken,
+                    },
+                    body: new URLSearchParams({
+                        'status': newStatus
+                    })
+                })
                 .then(response => response.json())
                 .then(data => {
-                    if (data.results && data.results.length > 0) {
-                        callback(data.results[0]);
+                    if (data.success) {
+                        alert('Invoice status updated successfully.');
                     } else {
-                        callback(null);
+                        alert('Error updating status: ' + data.message);
                     }
                 })
-                .catch(() => callback(null));
-        }
-
-        // Event listener for consultant ID input
-        const formConsultantId = document.getElementById('formConsultantId');
-        formConsultantId.addEventListener('input', function() {
-            const id = this.value.trim();
-            if (id.length > 0) {
-                fetchConsultantData({ id: id }, function(result) {
-                    if (result) {
-                        document.getElementById('formConsultantName').value = result.name;
-                    } else {
-                        document.getElementById('formConsultantName').value = '';
-                    }
+                .catch(error => {
+                    alert('Error updating status: ' + error);
                 });
-            } else {
-                document.getElementById('formConsultantName').value = '';
-            }
-        });
-
-        // Event listener for consultant name input
-        const formConsultantName = document.getElementById('formConsultantName');
-        formConsultantName.addEventListener('input', function() {
-            const name = this.value.trim();
-            if (name.length > 0) {
-                fetchConsultantData({ name: name }, function(result) {
-                    if (result) {
-                        document.getElementById('formConsultantId').value = result.id;
-                    } else {
-                        document.getElementById('formConsultantId').value = '';
-                    }
-                });
-            } else {
-                document.getElementById('formConsultantId').value = '';
-            }
+            });
         });
     });
 </script>

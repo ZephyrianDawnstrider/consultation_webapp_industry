@@ -37,33 +37,37 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white rounded-lg shadow-lg p-6 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                        <a href="{{ timesheet_upload_url }}" class="block bg-white rounded-lg shadow-lg p-6 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
                             <div class="flex items-center justify-between">
                                 <div>
                                     <p class="text-gray-600 text-sm font-medium">Timesheet Status</p>
                                     <h3 class="text-xl font-semibold text-gray-900 mt-1">{% if timesheet_uploaded %}Uploaded{% else %}Not Uploaded{% endif %}</h3>
-                                    <p class="text-yellow-500 text-xs mt-1">Due in 3 days</p>
+                                    {% if not timesheet_uploaded %}
+                                    <p class="text-yellow-500 text-xs mt-1">Due in {{ days_left_in_month }} days</p>
+                                    {% endif %}
                                 </div>
                                 <div class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center">
                                     <i class="fas fa-file-alt text-yellow-600 text-xl"></i>
                                 </div>
                             </div>
-                        </div>
-                        <div class="bg-white rounded-lg shadow-lg p-6 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                        </a>
+                        <a href="{% url 'consultation:consultant_invoice' %}" class="block bg-white rounded-lg shadow-lg p-6 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
                             <div class="flex items-center justify-between">
                                 <div>
                                     <p class="text-gray-600 text-sm font-medium">Invoice Status</p>
                                     <h3 class="text-xl font-semibold text-gray-900 mt-1">{{ invoice_status }}</h3>
+                                    {% if not invoice_uploaded %}
                                     <p class="text-purple-500 text-xs mt-1">Submitted recently</p>
+                                    {% endif %}
                                 </div>
                                 <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
                                     <i class="fas fa-file-invoice-dollar text-purple-600 text-xl"></i>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
-                    <!-- Calendar Section -->
+                    {% comment %} <!-- Calendar Section -->
                     <div class="bg-white rounded-lg shadow-lg p-6">
                         <div class="flex items-center justify-between mb-4">
                             <h2 class="text-lg font-semibold text-gray-900">Consultation Calendar</h2>
@@ -74,15 +78,15 @@
                             </div>
                         </div>
                         <div id="calendar" class="h-[350px] mt-2 mb-6"></div>
-                    </div>
+                    </div> {% endcomment %}
 
                     <!-- Invoice History Table -->
                     <div class="bg-white rounded-xl shadow-md p-6">
                         <div class="flex items-center justify-between mb-4">
                             <h2 class="text-xl font-semibold text-gray-800">Invoice History</h2>
-                            <button class="px-3 py-1 bg-indigo-600 text-white rounded-md text-sm hover:bg-indigo-700">
+                            <a href="{% url 'consultation:consultant_invoice' %}" class="px-3 py-1 bg-indigo-600 text-white rounded-md text-sm hover:bg-indigo-700 inline-flex items-center">
                                 <i class="fas fa-file-upload mr-1"></i> Upload New
-                            </button>
+                            </a>
                         </div>
                         <div class="overflow-x-auto">
                             <table class="min-w-full divide-y divide-gray-200">

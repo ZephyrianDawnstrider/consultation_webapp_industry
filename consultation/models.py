@@ -1,9 +1,7 @@
 from django.db import models
 from django.conf import settings
-
-from django.db import models
-from django.conf import settings
 from custom_admin.models import ConsultantStatus
+from custom_admin.constants import TIMESHEET_STATUS_CHOICES, INVOICE_STATUS_CHOICES
 
 class ConsultantProfile(models.Model):
     name = models.CharField(max_length=255)
@@ -24,16 +22,10 @@ class ConsultantProfile(models.Model):
         return f"{self.user.email} Profile"
 
 class Timesheet(models.Model):
-    STATUS_CHOICES = (
-        ('approved', 'Approved'),
-        ('pending', 'Pending'),
-        ('rejected', 'Rejected'),
-        ('awaiting_review', 'Awaiting Review'),
-    )
     consultant = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, limit_choices_to={'role': 'consultant'}, related_name='consultation_timesheets')
     month = models.DateField()
     file = models.FileField(upload_to='timesheets/')
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='awaiting_review')
+    status = models.CharField(max_length=20, choices=TIMESHEET_STATUS_CHOICES, default='awaiting_review')
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -51,17 +43,11 @@ class TimesheetEntry(models.Model):
         return f"{self.timesheet.consultant.email} - {self.date} - {self.hours_worked} hours - {self.task_name}"
 
 class Invoice(models.Model):
-    STATUS_CHOICES = (
-        ('approved', 'Approved'),
-        ('pending', 'Pending'),
-        ('rejected', 'Rejected'),
-        ('awaiting_review', 'Awaiting Review'),
-    )
     consultant = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, limit_choices_to={'role': 'consultant'}, related_name='consultation_invoices')
     name = models.CharField(max_length=255)
     month = models.DateField()
     file = models.FileField(upload_to='invoices/')
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='awaiting_review')
+    status = models.CharField(max_length=20, choices=INVOICE_STATUS_CHOICES, default='awaiting_review')
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

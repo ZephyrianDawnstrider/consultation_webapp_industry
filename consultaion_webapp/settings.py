@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(=4utn9oke4(8mn&$2jpaz#x=$#g^%bj^%!v=qw_b%8$1g*0)r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['consultaion-webapp.onrender.com','*']
 
@@ -135,8 +135,51 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 # Media files (uploads)
+import os
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Adaptive media storage configuration
+# Detect cloud storage provider from environment variables
+CLOUD_STORAGE_PROVIDER = os.getenv('CLOUD_STORAGE_PROVIDER', '').lower()
+
+if CLOUD_STORAGE_PROVIDER == 'aws':
+    # AWS S3 configuration
+    AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+    AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+    AWS_S3_OBJECT_PARAMETERS = {
+        'CacheControl': 'max-age=86400',
+    }
+    AWS_LOCATION = 'media'
+
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'
+
+elif CLOUD_STORAGE_PROVIDER == 'gcp':
+    # Google Cloud Storage configuration
+    GS_BUCKET_NAME = os.getenv('GS_BUCKET_NAME')
+    GS_CREDENTIALS_JSON = os.getenv('GS_CREDENTIALS_JSON')  # Path to JSON key file
+
+    DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+    MEDIA_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/'
+
+elif CLOUD_STORAGE_PROVIDER == 'azure':
+    # Azure Blob Storage configuration
+    AZURE_ACCOUNT_NAME = os.getenv('AZURE_ACCOUNT_NAME')
+    AZURE_ACCOUNT_KEY = os.getenv('AZURE_ACCOUNT_KEY')
+    AZURE_CONTAINER = os.getenv('AZURE_CONTAINER')
+
+    DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
+    MEDIA_URL = f'https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_CONTAINER}/'
+
+else:
+    # Default to local file system storage
+    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = BASE_DIR / 'media'
 
 # Email backend configuration for SMTP
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

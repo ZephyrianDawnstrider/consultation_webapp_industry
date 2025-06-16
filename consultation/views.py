@@ -19,26 +19,87 @@ from .forms import ConsultantProfileForm
 logger = logging.getLogger(__name__)
 
 
+from datetime import date, timedelta
+import json
+
 def consultant_dashboard(request):
-    """Dashboard view for consultants showing approved timesheets."""
+    """Dashboard view for consultants showing approved timesheets and other data."""
     user = request.user
     if not hasattr(user, 'role') or user.role != 'consultant':
         return render(request, 'consultant_dashboard.html', {'error': 'Access denied'})
 
-    # Fetch approved timesheets and their entries for this consultant
-    approved_timesheets = Timesheet.objects.filter(
+    today = date.today()
+    first_day_of_month = today.replace(day=1)
+    seven_days_later = today + timedelta(days=7)
+
+    # Total consultations: count of approved timesheets
+    total_consultations = Timesheet.objects.filter(
         consultant=user,
         status='approved'
-    ).order_by('-month')
+    ).count()
 
-    timesheet_entries = TimesheetEntry.objects.filter(
-        timesheet__in=approved_timesheets
-    ).order_by('date')
+    # Upcoming consultations: count of SessionBooking in next 7 days
+    upcoming_consultations = SessionBooking.objects.filter(
+        created_at__date__gte=today,
+        created_at__date__lte=seven_days_later
+    ).count()
+
+    # Timesheet uploaded for current month
+    timesheet_uploaded = Timesheet.objects.filter(
+        consultant=user,
+        month__year=today.year,
+        month__month=today.month
+    ).exists()
+
+    # Latest invoice status or 'No Invoices'
+    latest_invoice = Invoice.objects.filter(consultant=user).order_by('-month').first()
+    invoice_status = latest_invoice.status if latest_invoice else 'No Invoices'
+
+    # Invoice uploaded for current month
+    invoice_uploaded = Invoice.objects.filter(
+        consultant=user,
+        month__year=today.year,
+        month__month=today.month
+    ).exists()
+
+    # Invoice history ordered by month descending
+    invoice_history = Invoice.objects.filter(consultant=user).order_by('-month')
+
+    # Calendar events from SessionBooking for FullCalendar
+    bookings = SessionBooking.objects.filter(
+        created_at__date__gte=today
+    ).order_by('created_at')
+
+    calendar_events = []
+    for booking in bookings:
+        event = {
+            'title': f"{booking.name} - {booking.consultation_field}",
+            'start': booking.created_at.isoformat(),
+            'allDay': True,
+        }
+        calendar_events.append(event)
+
+    from django.urls import reverse
+
+    # Calculate days left in current month
+    import calendar
+    last_day = calendar.monthrange(today.year, today.month)[1]
+    days_left_in_month = last_day - today.day
+
+    # URL for timesheet upload page - redirect to consultant_timesheet page instead of upload_timesheet
+    from django.urls import reverse
+    timesheet_upload_url = reverse('consultation:consultant_timesheet')
 
     context = {
         'current_page': 'Consultant Dashboard',
-        'timesheets': approved_timesheets,
-        'timesheet_entries': timesheet_entries,
+        'total_consultations': total_consultations,
+        'upcoming_consultations': upcoming_consultations,
+        'timesheet_uploaded': timesheet_uploaded,
+        'invoice_status': invoice_status,
+        'invoice_history': invoice_history,
+        'calendar_events': json.dumps(calendar_events),
+        'days_left_in_month': days_left_in_month,
+        'timesheet_upload_url': timesheet_upload_url,
     }
     return render(request, 'consultant_dashboard.html', context)
 
@@ -58,7 +119,7 @@ def consultant_timesheet(request):
     # Fetch approved timesheets and their entries for this consultant
     approved_timesheets = Timesheet.objects.filter(
         consultant=request.user,
-        status='approved'
+        status__in=['approved', 'rejected', 'awaiting_review', 'sent_to_bank']
     ).order_by('-month')
 
     timesheet_entries_qs = TimesheetEntry.objects.filter(
@@ -72,10 +133,10 @@ def consultant_timesheet(request):
     context = {
         'current_page': 'Consultant Timesheet',
         'month_options': month_options,
+        'timesheets': approved_timesheets,
         'timesheet_entries': json.dumps(timesheet_entries, cls=DjangoJSONEncoder)
     }
     return render(request, 'consultant_timesheet.html', context)
-
 
 @login_required
 def upload_timesheet(request, consultant_id):
@@ -132,138 +193,6 @@ def upload_timesheet(request, consultant_id):
 
     # GET request - render upload form
     return render(request, 'upload_timesheet.html', {'consultant': consultant})
-
-
-def create_timesheet_entries(timesheet):
-    """
-    Process the Excel file of the given Timesheet and create TimesheetEntry records.
-    Returns (success: bool, error_message: str or None)
-    """
-    try:
-        wb = openpyxl.load_workbook(timesheet.file)
-        sheet = wb.active
-
-        # Validate headers
-        header = [cell.value for cell in next(sheet.iter_rows(min_row=1, max_row=1))]
-        expected_headers = ['Date', 'Start Time', 'End Time', 'Task']
-        if header != expected_headers:
-            logger.error(f"Timesheet {timesheet.id} has invalid Excel headers: {header}")
-            return False, f'Invalid Excel format. Expected headers: {expected_headers}'
-
-        entries = []
-        for row in sheet.iter_rows(min_row=2, values_only=True):
-            date_val, start_time, end_time, task_name = row
-            
-            # Skip empty rows
-            if not all([date_val, start_time, end_time, task_name]):
-                continue
-            
-            # Parse date
-            date_val = _parse_date(date_val)
-            if not date_val:
-                continue
-
-            # Parse times and calculate hours
-            start_decimal = _time_to_decimal(start_time)
-            end_decimal = _time_to_decimal(end_time)
-            if start_decimal is None or end_decimal is None or end_decimal <= start_decimal:
-                continue
-            
-            hours_worked = end_decimal - start_decimal
-
-            entry = TimesheetEntry(
-                timesheet=timesheet,
-                date=date_val,
-                hours_worked=hours_worked,
-                project=task_name,
-                task_name=task_name,
-                description=f'Task: {task_name} from {start_time} to {end_time}'
-            )
-            entries.append(entry)
-
-        TimesheetEntry.objects.bulk_create(entries)
-        logger.info(f"Created {len(entries)} TimesheetEntry records for Timesheet {timesheet.id}")
-        return True, None
-        
-    except Exception as e:
-        logger.error(f"Error processing Timesheet {timesheet.id}: {str(e)}")
-        return False, str(e)
-
-
-def _parse_date(date_val):
-    """Parse date value from Excel."""
-    if isinstance(date_val, str):
-        try:
-            return datetime.strptime(date_val, '%Y-%m-%d').date()
-        except ValueError:
-            return None
-    elif isinstance(date_val, datetime):
-        return date_val.date()
-    return None
-
-
-def _time_to_decimal(time_val):
-    """Convert time value to decimal hours."""
-    if isinstance(time_val, datetime):
-        return time_val.hour + time_val.minute / 60
-    elif isinstance(time_val, str):
-        try:
-            dt = datetime.strptime(time_val, '%H:%M')
-            return dt.hour + dt.minute / 60
-        except ValueError:
-            return None
-    elif isinstance(time_val, (int, float)):
-        return time_val * 24
-    return None
-
-
-@login_required
-@user_passes_test(lambda u: u.is_staff)
-def update_timesheet_status(request, timesheet_id):
-    """
-    Update the status of a timesheet. Only admin can update.
-    Sends email notification if timesheet is rejected.
-    Creates TimesheetEntry records if status is approved.
-    """
-    timesheet = get_object_or_404(Timesheet, id=timesheet_id)
-    new_status = request.POST.get('status')
-
-    if new_status not in dict(Timesheet.STATUS_CHOICES).keys():
-        return JsonResponse({'success': False, 'message': 'Invalid status value.'})
-
-    timesheet.status = new_status
-    timesheet.save()
-
-    if new_status == 'approved':
-        success, error = create_timesheet_entries(timesheet)
-        if not success:
-            return JsonResponse({
-                'success': False, 
-                'message': f'Failed to create timesheet entries: {error}'
-            })
-
-    if new_status == 'rejected':
-        _send_rejection_email(timesheet)
-
-    return JsonResponse({'success': True, 'message': 'Timesheet status updated successfully.'})
-
-
-def _send_rejection_email(timesheet):
-    """Send email notification for rejected timesheet."""
-    subject = 'Timesheet Rejected - Please Upload a New One'
-    message = (
-        f'Dear {timesheet.consultant.email},\n\n'
-        f'Your timesheet for {timesheet.month.strftime("%B %Y")} has been rejected. '
-        f'Please upload a new timesheet.\n\n'
-        f'Regards,\nConsultation Team'
-    )
-    from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', 'no-reply@example.com')
-    recipient_list = [timesheet.consultant.email]
-
-    try:
-        send_mail(subject, message, from_email, recipient_list, fail_silently=False)
-    except Exception as e:
-        logger.error(f"Failed to send timesheet rejection email: {str(e)}")
 
 
 @login_required
@@ -372,10 +301,227 @@ def consultant_registration(request):
     return render(request, 'consultant_registration.html', context)
 
 
+from django.contrib import messages
+from django.utils.dateparse import parse_date
+
+from custom_admin.models import Invoice
+
 @login_required
 def consultant_invoice(request):
-    """Basic view to render the consultant invoice template."""
+    """View to handle invoice upload and display uploaded invoices."""
+    user = request.user
+    if user.role != 'consultant':
+        return render(request, 'consultant_invoice.html', {'error': 'Access denied'})
+
+    if request.method == 'POST':
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.info(f"Invoice upload POST request received from user {user.id}")
+        month_str = request.POST.get('month')
+        invoice_file = request.FILES.get('invoice_file')
+        logger.info(f"Received month: {month_str}, invoice_file present: {invoice_file is not None}")
+
+        if not month_str or not invoice_file:
+            messages.error(request, 'Month and invoice file are required.')
+        else:
+            # Parse month string to date object (assume format is month name)
+            try:
+                # Convert month name to date with day=1 and current year
+                month_date = parse_date(f"2025-{datetime.strptime(month_str, '%B').month:02d}-01")
+                if not month_date:
+                    raise ValueError("Invalid month format")
+            except Exception as e:
+                logger.error(f"Invalid month format error: {str(e)}")
+                messages.error(request, 'Invalid month format. Please select a valid month.')
+                month_date = None
+
+            if month_date:
+                try:
+                    # Save invoice
+                    invoice = Invoice.objects.create(
+                        consultant=user,
+                        month=month_date,
+                        file=invoice_file,
+                        name=invoice_file.name,
+                        status='awaiting_review'
+                    )
+                    messages.success(request, 'Invoice uploaded successfully and awaiting review.')
+                    logger.info(f"Invoice saved successfully for user {user.id}")
+                except Exception as e:
+                    logger.error(f"Error saving invoice: {str(e)}")
+                    messages.error(request, f'Error saving invoice: {str(e)}')
+
+    # Fetch invoices for the logged-in consultant
+    invoices = Invoice.objects.filter(consultant=user).order_by('-month')
+
     context = {
-        'current_page': 'Consultant Invoice'
+        'current_page': 'Consultant Invoice',
+        'invoices': invoices,
+    }
+    return render(request, 'consultant_invoice.html', context)
+
+
+@login_required
+def consultant_profile(request, consultant_id):
+    """View and edit consultant profile."""
+    try:
+        consultant = User.objects.get(id=consultant_id, role='consultant')
+    except User.DoesNotExist:
+        logger.error(f"Consultant with id {consultant_id} not found")
+        raise Http404("Consultant not found")
+
+    if request.method == 'POST':
+        if 'scrap_agreement' in request.POST:
+            return _handle_scrap_agreement(request, consultant)
+        
+        return _handle_profile_update(request, consultant, consultant_id)
+
+    # GET request - render form
+    try:
+        profile = ConsultantProfile.objects.prefetch_related('skills').get(user=consultant)
+    except ConsultantProfile.DoesNotExist:
+        profile = ConsultantProfile(user=consultant)
+    
+    form = ConsultantProfileForm(instance=profile)
+    logger.info(f"Rendering consultant profile page for user {consultant.email}")
+
+    context = {
+        'consultant': consultant,
+        'form': form,
+        'current_page': 'Consultant Profile'
+    }
+    return render(request, 'consultant_profile.html', context)
+
+
+def _handle_scrap_agreement(request, consultant):
+    """Handle scrapping agreement document."""
+    try:
+        profile = consultant.consultant_profile
+    except ConsultantProfile.DoesNotExist:
+        logger.error(f"No profile found for consultant {consultant.id}")
+        return JsonResponse({'error': 'No profile found'}, status=404)
+
+    if not profile.agreement_document:
+        return JsonResponse({'error': 'No agreement document to scrap'}, status=400)
+
+    profile.agreement_document.delete(save=False)
+    profile.agreement_document = None
+    profile.save()
+
+    logger.info(f"Agreement document scrapped by consultant {consultant.id} - {consultant.email}")
+    _send_scrap_notification_email(consultant)
+    
+    return JsonResponse({'success': True})
+
+
+def _handle_profile_update(request, consultant, consultant_id):
+    """Handle profile form submission."""
+    try:
+        profile = consultant.consultant_profile
+    except ConsultantProfile.DoesNotExist:
+        profile = ConsultantProfile(user=consultant)
+
+    form = ConsultantProfileForm(request.POST, request.FILES, instance=profile)
+    if form.is_valid():
+        try:
+            form.save()
+            logger.info(f"Consultant profile updated successfully for user {consultant.email}")
+            return redirect('consultation:consultant_profile', consultant_id=consultant_id)
+        except Exception as e:
+            logger.error(f"Error saving consultant profile for user {consultant.email}: {str(e)}")
+            form.add_error(None, "An error occurred while saving the profile. Please try again.")
+    else:
+        logger.error(f"Form validation errors for consultant {consultant.email}: {form.errors}")
+    
+    context = {
+        'consultant': consultant,
+        'form': form,
+        'current_page': 'Consultant Profile'
+    }
+    return render(request, 'consultant_profile.html', context)
+
+
+def _send_scrap_notification_email(consultant):
+    """Send email notification when agreement document is scrapped."""
+    subject = 'Agreement Document Scrapped'
+    message = (
+        f'Consultant ID: {consultant.id}\n'
+        f'Consultant Email: {consultant.email}\n'
+        f'Action: Agreement document scrapped.'
+    )
+    from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', 'no-reply@example.com')
+    recipient_list = [getattr(settings, 'EMAIL_HOST_USER', 'admin@example.com')]
+
+    try:
+        send_mail(subject, message, from_email, recipient_list, fail_silently=False)
+    except Exception as e:
+        logger.error(f"Failed to send scrap notification email: {str(e)}")
+
+
+@login_required
+def consultant_registration(request):
+    """Basic view to render the consultant registration template."""
+    context = {
+        'current_page': 'Consultant Registration'
+    }
+    return render(request, 'consultant_registration.html', context)
+
+
+from django.contrib import messages
+from django.utils.dateparse import parse_date
+
+from custom_admin.models import Invoice
+
+@login_required
+def consultant_invoice(request):
+    """View to handle invoice upload and display uploaded invoices."""
+    user = request.user
+    if user.role != 'consultant':
+        return render(request, 'consultant_invoice.html', {'error': 'Access denied'})
+
+    if request.method == 'POST':
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.info(f"Invoice upload POST request received from user {user.id}")
+        month_str = request.POST.get('month')
+        invoice_file = request.FILES.get('invoice_file')
+        logger.info(f"Received month: {month_str}, invoice_file present: {invoice_file is not None}")
+
+        if not month_str or not invoice_file:
+            messages.error(request, 'Month and invoice file are required.')
+        else:
+            # Parse month string to date object (assume format is month name)
+            try:
+                # Convert month name to date with day=1 and current year
+                month_date = parse_date(f"2025-{datetime.strptime(month_str, '%B').month:02d}-01")
+                if not month_date:
+                    raise ValueError("Invalid month format")
+            except Exception as e:
+                logger.error(f"Invalid month format error: {str(e)}")
+                messages.error(request, 'Invalid month format. Please select a valid month.')
+                month_date = None
+
+            if month_date:
+                try:
+                    # Save invoice
+                    invoice = Invoice.objects.create(
+                        consultant=user,
+                        month=month_date,
+                        file=invoice_file,
+                        name=invoice_file.name,
+                        status='awaiting_review'
+                    )
+                    messages.success(request, 'Invoice uploaded successfully and awaiting review.')
+                    logger.info(f"Invoice saved successfully for user {user.id}")
+                except Exception as e:
+                    logger.error(f"Error saving invoice: {str(e)}")
+                    messages.error(request, f'Error saving invoice: {str(e)}')
+
+    # Fetch invoices for the logged-in consultant
+    invoices = Invoice.objects.filter(consultant=user).order_by('-month')
+
+    context = {
+        'current_page': 'Consultant Invoice',
+        'invoices': invoices,
     }
     return render(request, 'consultant_invoice.html', context)

@@ -35,6 +35,12 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from .models import Timesheet
 
+
+from django.forms import modelformset_factory
+from .forms import TimesheetEntryFormSet
+from datetime import datetime, timedelta
+
+
 @login_required
 @csrf_exempt
 @require_POST
@@ -51,6 +57,11 @@ def update_timesheet_status(request, timesheetId):
     timesheet.status = status
     timesheet.save()
 
+    # Log the status update
+    import logging
+    logger = logging.getLogger(__name__)
+    logger.info(f"Timesheet ID {timesheetId} status updated to {status} by user {request.user.email}")
+
     return JsonResponse({'success': True, 'message': 'Timesheet status updated successfully.'})
 from django import forms
 from django.conf import settings
@@ -59,7 +70,10 @@ from django.conf import settings
 from cryptography.fernet import Fernet
 from rest_framework import viewsets, permissions, status
 from rest_framework.response import Response
-import openpyxl
+
+
+# Removed all code related to Excel file extraction and processing as requested.
+
 
 # Local imports
 from .models import User, Skill, Invoice, SessionBooking, Timesheet
@@ -106,71 +120,57 @@ class ConsultantRegistrationForm(forms.Form):
         super().__init__(*args, **kwargs)
         self.fields['skills'].queryset = Skill.objects.all()
         
-from django import forms
+from custom_admin.forms import ConsultantEditForm as ImportedConsultantEditForm
 
-class ConsultantEditForm(forms.ModelForm):
-    """Form for editing consultant profile information"""
-    
-    from .models import ConsultantStatus
-    status = forms.ChoiceField(
-        choices=ConsultantStatus.STATUS_CHOICES,
-        required=False,
-        widget=forms.Select(attrs={'class': 'form-control'})
-    )
-    
-    class Meta:
-        model = ConsultantProfile
-        fields = [
-            'name',
-            'mobile',
-            'bank_account_name',
-            'bank_account_number', 
-            'bank_ifsc',
-            'bank_branch_name',
-            'bank_name',
-            'cost_per_hour',
-            'skills',
-            'status',
-            'agreement_document',
-            'details',
-        ]
-    
-    skills = forms.ModelMultipleChoiceField(
-        queryset=Skill.objects.all(), 
-        widget=forms.CheckboxSelectMultiple
-    )
-    agreement_document = forms.FileField(required=False)
-    details = forms.CharField(widget=forms.Textarea, required=False)
+# Use the imported ConsultantEditForm in the view function
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        # Set initial status value as string
-        if 'instance' in kwargs and kwargs['instance'] is not None:
-            status_value = getattr(kwargs['instance'], 'status', None)
-            if status_value is not None:
-                self.fields['status'].initial = status_value
-            else:
-                self.fields['status'].initial = 'to_be_reviewed'
-        else:
-            self.fields['status'].initial = 'to_be_reviewed'
+@login_required
+@csrf_exempt
+@require_http_methods(["GET", "POST"])
+def edit_consultant(request, consultant_id):
+    """
+    Edit consultant profile information
+    """
+    user = get_object_or_404(User, id=consultant_id, role='consultant')
+    
+    # Get or create consultant profile
+    try:
+        profile = user.consultant_profile
+    except ConsultantProfile.DoesNotExist:
+        profile = ConsultantProfile(user=user)
 
-    def save(self, commit=True):
-        instance = super().save(commit=False)
-        from .models import ConsultantStatus
-        status_value = self.cleaned_data.get('status')
-        if status_value:
+    if request.method == 'POST':
+        form = ImportedConsultantEditForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
             try:
-                status_instance = ConsultantStatus.objects.get(user=instance.user)
-                status_instance.status = status_value
-                status_instance.save()
-                instance.status = status_instance
-            except ConsultantStatus.DoesNotExist:
-                status_instance = ConsultantStatus.objects.create(user=instance.user, status=status_value)
-                instance.status = status_instance
-        if commit:
-            instance.save()
-            self.save_m2m()
-        return instance
+                form.save()
+                profile.save()
+                logger.info(f"Consultant details updated successfully for user {user.email}")
+                if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+                    return JsonResponse({'success': True, 'message': 'Consultant details updated successfully.'})
+                else:
+                    messages.success(request, 'Consultant details updated successfully.')
+                    return redirect('custom_admin:consultant_profile', consultant_id=consultant_id)
+            except Exception as e:
+                logger.error(f"Error saving consultant details for user {user.email}: {str(e)}")
+                if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+                    return JsonResponse({'success': False, 'message': 'Error saving consultant details.'}, status=500)
+                else:
+                    messages.error(request, 'An error occurred while saving consultant details.')
+                    return redirect('custom_admin:consultant_profile', consultant_id=consultant_id)
+        else:
+            if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+                errors = form.errors.as_json()
+                logger.error(f"Form validation errors: {form.errors}")
+                return JsonResponse({'success': False, 'errors': errors}, status=400)
+            else:
+                logger.error(f"Form validation errors for user {user.email}: {form.errors}")
+                messages.error(request, 'Please correct the errors below.')
+                return redirect('custom_admin:consultant_profile', consultant_id=consultant_id)
+    else:
+        # Redirect GET requests to consultant_detail page
+        logger.info(f"Redirecting GET request to consultant_profile for user {user.email}")
+        return redirect('custom_admin:consultant_profile', consultant_id=consultant_id)
 
 # =============================================================================
 # AUTHENTICATION VIEWS
@@ -345,7 +345,6 @@ def consultant_profile(request, consultant_id):
     from django.core.serializers.json import DjangoJSONEncoder
     import json
     from django.db.models import Prefetch
-    from datetime import datetime
     import openpyxl
 
     consultant = get_object_or_404(User, id=consultant_id, role='consultant')
@@ -381,14 +380,14 @@ def consultant_profile(request, consultant_id):
                 wb = openpyxl.load_workbook(timesheet.file)
                 sheet = wb.active
                 header = [cell.value for cell in next(sheet.iter_rows(min_row=1, max_row=1))]
-                expected_headers = ['Date', 'Start Time', 'End Time']
+                expected_headers = ['Date', 'Start Time', 'End Time', 'Task Name']
                 if header != expected_headers:
                     upload_message = f'Invalid Excel format. Expected headers: {expected_headers}'
                 else:
                     entries = []
                     for row in sheet.iter_rows(min_row=2, values_only=True):
-                        date_val, start_time, end_time = row
-                        if not date_val or not start_time or not end_time:
+                        date_val, start_time, end_time, task_name = row
+                        if not date_val or not start_time or not end_time or not task_name:
                             continue
                         if isinstance(date_val, str):
                             try:
@@ -421,8 +420,8 @@ def consultant_profile(request, consultant_id):
                             timesheet=timesheet,
                             date=date_val,
                             hours_worked=hours_worked,
-                            project='',
-                            description=f'Free time from {start_time} to {end_time}'
+                            task_name=task_name,
+                            description=f'Task: {task_name} from {start_time} to {end_time}'
                         )
                         entries.append(entry)
 
@@ -434,13 +433,42 @@ def consultant_profile(request, consultant_id):
 
     # Get related data
     invoices = Invoice.objects.filter(consultant=consultant).order_by('-month')
-    # Fetch all timesheets regardless of status for calendar display and history
     timesheets = Timesheet.objects.filter(consultant=consultant).order_by('-month')
     all_skills = Skill.objects.filter(is_active=True).order_by('name')
 
-    # Get timesheet entries for all timesheets of this consultant
-    timesheet_entries_qs = TimesheetEntry.objects.filter(timesheet__in=timesheets).order_by('date')
-    timesheet_entries = list(timesheet_entries_qs.values('date', 'hours_worked', 'description'))
+    # Determine selected timesheet for editing entries
+    selected_timesheet_id = request.GET.get('timesheet_id')
+    if selected_timesheet_id:
+        try:
+            selected_timesheet = timesheets.get(id=selected_timesheet_id)
+        except Timesheet.DoesNotExist:
+            selected_timesheet = timesheets.first()
+    else:
+        selected_timesheet = timesheets.first()
+
+    # Add debug logging for selected_timesheet and TimesheetEntry count
+    logger.info(f"Selected timesheet ID: {selected_timesheet.id if selected_timesheet else 'None'}")
+    timesheet_entries_count = TimesheetEntry.objects.filter(timesheet=selected_timesheet).count() if selected_timesheet else 0
+    logger.info(f"TimesheetEntry count for selected timesheet: {timesheet_entries_count}")
+
+    # Handle TimesheetEntry formset POST for editing entries
+    if request.method == 'POST' and 'edit_timesheet_entries' in request.POST:
+        formset = TimesheetEntryFormSet(request.POST, queryset=TimesheetEntry.objects.filter(timesheet=selected_timesheet))
+        if formset.is_valid():
+            instances = formset.save(commit=False)
+            for form in formset:
+                if form.cleaned_data:
+                    start_time = form.cleaned_data.get('start_time')
+                    end_time = form.cleaned_data.get('end_time')
+                    if start_time and end_time:
+                        hours_worked = (datetime.combine(datetime.min, end_time) - datetime.combine(datetime.min, start_time)).total_seconds() / 3600
+                        form.instance.hours_worked = hours_worked
+            formset.save()
+            upload_message = 'Timesheet entries updated successfully.'
+        else:
+            upload_message = 'Error updating timesheet entries.'
+    else:
+        formset = TimesheetEntryFormSet(queryset=TimesheetEntry.objects.filter(timesheet=selected_timesheet))
 
     # Prepare form for editing consultant profile
     form = ConsultantEditForm(instance=profile)
@@ -452,7 +480,8 @@ def consultant_profile(request, consultant_id):
         'timesheets': timesheets,
         'all_skills': all_skills,
         'form': form,
-        'timesheet_entries': json.dumps(timesheet_entries, cls=DjangoJSONEncoder),
+        'formset': formset,
+        'selected_timesheet': selected_timesheet,
         'upload_message': upload_message,
     }
     return render(request, 'consultant_detail.html', context)
@@ -479,6 +508,7 @@ def edit_consultant(request, consultant_id):
         if form.is_valid():
             try:
                 form.save()
+                profile.save()
                 logger.info(f"Consultant details updated successfully for user {user.email}")
                 if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                     return JsonResponse({'success': True, 'message': 'Consultant details updated successfully.'})
@@ -534,7 +564,18 @@ def update_consultant_field(request, consultant_id):
         if field_name not in allowed_fields:
             return JsonResponse({'success': False, 'message': 'Invalid field name.'}, status=400)
 
-        setattr(profile, field_name, field_value)
+        if field_name == 'status':
+            from .models import ConsultantStatus
+            try:
+                status_instance = ConsultantStatus.objects.get(user=user)
+                status_instance.status = field_value
+                status_instance.save()
+            except ConsultantStatus.DoesNotExist:
+                status_instance = ConsultantStatus.objects.create(user=user, status=field_value)
+            profile.status = status_instance
+        else:
+            setattr(profile, field_name, field_value)
+
         profile.save()
         
         return JsonResponse({'success': True, 'message': f'{field_name} updated successfully.'})
@@ -575,7 +616,11 @@ def change_consultant_status(request, consultant_id):
     try:
         consultant = User.objects.get(id=consultant_id, role='consultant')
         profile = consultant.consultant_profile
-        profile.status = new_status
+        from .models import ConsultantStatus
+        status_instance, created = ConsultantStatus.objects.get_or_create(user=consultant)
+        status_instance.status = new_status
+        status_instance.save()
+        profile.status = status_instance
         profile.save()
         logger.info(f"Consultant {consultant.email} status changed to {new_status}")
     except User.DoesNotExist:
@@ -756,14 +801,45 @@ class SkillViewSet(viewsets.ModelViewSet):
 # INVOICE MANAGEMENT
 # =============================================================================
 
+from custom_admin.constants import INVOICE_STATUS_CHOICES
+
 @login_required
 def admin_invoices(request):
     """
-    Display invoice management interface
+    Display invoice management interface with list of invoices
     """
+    invoices = Invoice.objects.select_related('consultant').order_by('-month')
     return render(request, 'admin_invoices.html', {
-        'current_page': 'Invoice Management'
+        'current_page': 'Invoice Management',
+        'invoices': invoices,
+        'status_choices': INVOICE_STATUS_CHOICES,
     })
+
+@login_required
+@csrf_exempt
+@require_POST
+def update_invoice_status(request, invoice_id):
+    """
+    View to update the status of an invoice via AJAX POST request.
+    """
+    from django.http import JsonResponse
+    from .models import Invoice
+
+    try:
+        invoice = Invoice.objects.get(id=invoice_id)
+    except Invoice.DoesNotExist:
+        return JsonResponse({'success': False, 'message': 'Invoice not found.'}, status=404)
+
+    new_status = request.POST.get('status')
+    valid_statuses = ['approved', 'pending', 'rejected', 'awaiting_review']
+
+    if new_status not in valid_statuses:
+        return JsonResponse({'success': False, 'message': 'Invalid status value.'}, status=400)
+
+    invoice.status = new_status
+    invoice.save()
+
+    return JsonResponse({'success': True, 'message': 'Invoice status updated successfully.'})
     
 def consultant_autofill(request):
     """

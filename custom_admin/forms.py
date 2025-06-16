@@ -1,6 +1,8 @@
 from django import forms
 from .models import ConsultantStatus, Skill
-from consultation.models import ConsultantProfile
+from consultation.models import ConsultantProfile, TimesheetEntry
+from django.forms import modelformset_factory
+from datetime import datetime, time
 
 class ConsultantRegistrationForm(forms.Form):
     """Form for consultant registration with required fields: mobile, email, agreement"""
@@ -12,11 +14,10 @@ class ConsultantRegistrationForm(forms.Form):
 class ConsultantEditForm(forms.ModelForm):
     """Form for editing consultant profile information including banking, professional info, and status"""
     
-    status = forms.ModelChoiceField(
-        queryset=ConsultantStatus.objects.all(),
-        required=False,
-        widget=forms.Select(attrs={'class': 'form-control'})
-    )
+    from .models import CONSULTANT_STATUS_CHOICES
+    from django.forms import Select
+    from .models import CONSULTANT_STATUS_CHOICES
+    status = forms.ChoiceField(choices=CONSULTANT_STATUS_CHOICES, widget=Select(attrs={'class': 'form-control'}), required=False)
     
     class Meta:
         model = ConsultantProfile
@@ -30,15 +31,83 @@ class ConsultantEditForm(forms.ModelForm):
             'bank_name',
             'cost_per_hour',
             'skills',
-            'status',
             'agreement_document',
             'details',
+            # 'status',  # Exclude status from fields to avoid direct assignment error
         ]
     
     skills = forms.ModelMultipleChoiceField(
         queryset=Skill.objects.all(),
         widget=forms.CheckboxSelectMultiple,
-        label="Skills"
+        label="Skills",
+        required=False
     )
     agreement_document = forms.FileField(required=False)
     details = forms.CharField(widget=forms.Textarea, required=False)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Set initial status value as string from ConsultantStatus instance
+        if 'instance' in kwargs and kwargs['instance'] is not None:
+            status_instance = getattr(kwargs['instance'], 'status', None)
+            if status_instance is not None:
+                self.fields['status'].initial = status_instance.status
+            else:
+                self.fields['status'].initial = 'to_be_reviewed'
+        else:
+            self.fields['status'].initial = 'to_be_reviewed'
+
+    def save(self, commit=True):
+        instance = super().save(commit=False)
+        from .models import ConsultantStatus
+        status_value = self.cleaned_data.get('status')
+        if status_value:
+            try:
+                status_instance = ConsultantStatus.objects.get(user=instance.user)
+                status_instance.status = status_value
+                status_instance.save()
+                instance.status = status_instance
+            except ConsultantStatus.DoesNotExist:
+                status_instance = ConsultantStatus.objects.create(user=instance.user, status=status_value)
+                instance.status = status_instance
+        if commit:
+            instance.save()
+            self.save_m2m()
+        return instance
+
+class TimesheetEntryForm(forms.ModelForm):
+    start_time = forms.TimeField(
+        widget=forms.TimeInput(attrs={'type': 'time', 'class': 'form-input'}),
+        required=True,
+        label='Start Time'
+    )
+    end_time = forms.TimeField(
+        widget=forms.TimeInput(attrs={'type': 'time', 'class': 'form-input'}),
+        required=True,
+        label='End Time'
+    )
+
+    class Meta:
+        model = TimesheetEntry
+        fields = ['date', 'task_name']
+        widgets = {
+            'date': forms.DateInput(attrs={'type': 'date', 'class': 'form-input'}),
+            'task_name': forms.TextInput(attrs={'class': 'form-input'}),
+        }
+
+    def clean(self):
+        cleaned_data = super().clean()
+        start_time = cleaned_data.get('start_time')
+        end_time = cleaned_data.get('end_time')
+
+        if start_time and end_time and end_time <= start_time:
+            raise forms.ValidationError('End time must be after start time.')
+
+        return cleaned_data
+
+TimesheetEntryFormSet = modelformset_factory(
+    TimesheetEntry,
+    form=TimesheetEntryForm,
+    extra=0,
+    can_delete=False
+)
