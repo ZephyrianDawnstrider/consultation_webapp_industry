@@ -15632,3 +15632,409 @@ NameError: name 'TimesheetEntry' is not defined
 [2025-06-18 11:23:27,810] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 31251
 [2025-06-18 11:23:41,962] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 31251
 [2025-06-18 11:24:39,414] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 31007
+[2025-06-18 11:30:14,362] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 24220
+[2025-06-18 11:30:20,322] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 31251
+[2025-06-18 11:30:26,858] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 21406
+[2025-06-18 11:30:31,188] INFO django.server "GET /media/invoices/openart-image_WM8SVq19_1749100402842_raw.pdf HTTP/1.1" 304 0
+[2025-06-18 11:30:34,340] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 18011
+[2025-06-18 11:30:36,632] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 31251
+[2025-06-18 11:30:42,172] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 29109
+[2025-06-18 11:30:42,790] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 119
+[2025-06-18 11:30:44,789] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 22616
+[2025-06-18 11:30:49,420] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 47000
+[2025-06-18 11:30:49,488] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 11:30:49,664] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 11:30:54,998] INFO django.server "GET /auth/consultant_profile/11/ HTTP/1.1" 200 25159
+[2025-06-18 11:30:59,399] INFO django.server "GET /auth/consultant_profile/12/ HTTP/1.1" 200 25128
+[2025-06-18 11:31:09,633] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 22616
+[2025-06-18 11:31:12,232] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 29109
+[2025-06-18 11:31:12,573] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 119
+[2025-06-18 11:31:12,941] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 17067
+[2025-06-18 11:31:14,566] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19257
+[2025-06-18 12:02:31,671] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 24220
+[2025-06-18 12:02:38,279] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 24220
+[2025-06-18 12:02:48,989] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 31251
+[2025-06-18 12:03:03,387] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 21406
+[2025-06-18 12:03:10,399] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 18011
+[2025-06-18 12:03:15,405] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 21406
+[2025-06-18 12:03:17,419] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 18011
+[2025-06-18 12:03:29,419] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 31251
+[2025-06-18 12:03:31,063] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 24220
+[2025-06-18 12:03:44,244] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 21406
+[2025-06-18 12:03:50,398] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 21406
+[2025-06-18 12:40:31,228] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-18 12:40:33,718] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-18 12:43:53,197] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19257
+[2025-06-18 12:43:56,688] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 48451
+[2025-06-18 12:43:56,752] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 12:43:56,952] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 12:43:58,724] WARNING django.request Not Found: /custom_admin/change_consultant_status/4/
+[2025-06-18 12:43:58,725] WARNING django.server "GET /custom_admin/change_consultant_status/4/ HTTP/1.1" 404 2945
+[2025-06-18 12:44:09,243] WARNING django.request Not Found: /custom_admin/change_consultant_status/4/
+[2025-06-18 12:44:09,244] WARNING django.server "GET /custom_admin/change_consultant_status/4/ HTTP/1.1" 404 2945
+[2025-06-18 12:45:06,124] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 48451
+[2025-06-18 12:45:06,183] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 12:45:06,364] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 12:45:10,172] WARNING django.request Not Found: /custom_admin/change_consultant_status/4/
+[2025-06-18 12:45:10,173] WARNING django.server "GET /custom_admin/change_consultant_status/4/ HTTP/1.1" 404 2945
+[2025-06-18 12:45:15,585] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-18 12:45:17,360] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-18 12:45:25,076] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 48451
+[2025-06-18 12:45:25,133] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 12:45:25,377] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 12:45:27,356] WARNING django.request Not Found: /custom_admin/change_consultant_status/4/
+[2025-06-18 12:45:27,357] WARNING django.server "GET /custom_admin/change_consultant_status/4/ HTTP/1.1" 404 2945
+[2025-06-18 12:46:13,434] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 48435
+[2025-06-18 12:46:13,485] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 12:46:13,629] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 12:46:15,306] INFO django.server "GET /auth/change_consultant_status/4/ HTTP/1.1" 200 200
+[2025-06-18 12:46:38,458] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-18 12:46:40,177] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-18 12:46:46,352] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 48435
+[2025-06-18 12:46:46,390] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 12:46:46,593] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 12:46:48,185] INFO django.server "GET /auth/change_consultant_status/4/ HTTP/1.1" 200 200
+[2025-06-18 12:47:37,301] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-18 12:47:38,798] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-18 12:47:44,713] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 48435
+[2025-06-18 12:47:44,767] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 12:47:45,005] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 12:47:46,716] INFO django.server "GET /auth/change_consultant_status/4/ HTTP/1.1" 200 200
+[2025-06-18 12:59:56,118] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37115
+[2025-06-18 12:59:56,163] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 12:59:56,456] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 12:59:57,960] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 31007
+[2025-06-18 13:00:00,151] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 31007
+[2025-06-18 13:00:06,035] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 31007
+[2025-06-18 13:00:25,280] ERROR django.request Internal Server Error: /auth/consultation_list/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 502, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endblock'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 1021, in consultation_list
+    return render(request, 'consultant_managment.html', context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 504, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 565, in invalid_block_tag
+    raise self.error(
+    ...<3 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 510: 'endblock'. Did you forget to register or load this tag?
+[2025-06-18 13:00:25,285] ERROR django.server "GET /auth/consultation_list/ HTTP/1.1" 500 178681
+[2025-06-18 13:00:35,597] ERROR django.request Internal Server Error: /auth/consultation_list/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 502, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endblock'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 1021, in consultation_list
+    return render(request, 'consultant_managment.html', context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 504, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 565, in invalid_block_tag
+    raise self.error(
+    ...<3 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 510: 'endblock'. Did you forget to register or load this tag?
+[2025-06-18 13:00:35,601] ERROR django.server "GET /auth/consultation_list/ HTTP/1.1" 500 178681
+[2025-06-18 13:00:47,851] ERROR django.request Internal Server Error: /auth/consultation_list/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 502, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endblock'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 1021, in consultation_list
+    return render(request, 'consultant_managment.html', context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 504, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 565, in invalid_block_tag
+    raise self.error(
+    ...<3 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 510: 'endblock'. Did you forget to register or load this tag?
+[2025-06-18 13:00:47,854] ERROR django.server "GET /auth/consultation_list/ HTTP/1.1" 500 178681
+[2025-06-18 13:00:57,157] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-18 13:01:00,148] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-18 13:04:14,793] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37115
+[2025-06-18 13:04:14,877] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:04:15,220] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:19:41,593] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37115
+[2025-06-18 13:19:41,644] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:19:42,062] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:19:47,145] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-18 13:19:47,146] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-18 13:22:27,629] ERROR django.request Internal Server Error: /auth/consultation_list/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 993, in consultation_list
+    return render(request, 'consultant_managment.html', context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 861, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 481, in parse
+    raise self.error(token, e)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 479, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 597, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 698, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ' if consultant.consultant_profile else ''' from 'consultant.consultant_profile.name|escapejs if consultant.consultant_profile else '''
+[2025-06-18 13:22:27,663] ERROR django.server "GET /auth/consultation_list/ HTTP/1.1" 500 279773
+[2025-06-18 13:22:27,772] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-18 13:22:27,774] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-18 13:23:15,177] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 38225
+[2025-06-18 13:23:15,268] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-18 13:23:15,269] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-18 13:23:15,303] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:23:15,805] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:23:18,422] WARNING django.request Not Found: /custom_admin/change_consultant_status/4/
+[2025-06-18 13:23:18,424] WARNING django.server "GET /custom_admin/change_consultant_status/4/ HTTP/1.1" 404 2945
+[2025-06-18 13:26:20,676] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 38225
+[2025-06-18 13:26:20,731] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:26:21,138] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:26:24,213] WARNING django.request Not Found: /custom_admin/change_consultant_status/4/
+[2025-06-18 13:26:24,214] WARNING django.server "GET /custom_admin/change_consultant_status/4/ HTTP/1.1" 404 2945
+[2025-06-18 13:28:39,569] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 38225
+[2025-06-18 13:28:39,619] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:28:39,872] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:28:42,188] WARNING django.request Not Found: /custom_admin/change_consultant_status/4/
+[2025-06-18 13:28:42,189] WARNING django.server "GET /custom_admin/change_consultant_status/4/ HTTP/1.1" 404 2945
+[2025-06-18 13:28:49,185] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-18 13:28:51,201] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-18 13:28:54,925] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 38225
+[2025-06-18 13:28:54,971] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:28:55,183] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:28:57,776] WARNING django.request Not Found: /custom_admin/change_consultant_status/4/
+[2025-06-18 13:28:57,777] WARNING django.server "GET /custom_admin/change_consultant_status/4/ HTTP/1.1" 404 2945
+[2025-06-18 13:33:58,423] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 38225
+[2025-06-18 13:33:58,475] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:33:58,895] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:34:01,246] WARNING django.request Not Found: /custom_admin/change_consultant_status/4/
+[2025-06-18 13:34:01,248] WARNING django.server "GET /custom_admin/change_consultant_status/4/ HTTP/1.1" 404 2945
+[2025-06-18 13:34:13,806] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 38225
+[2025-06-18 13:34:13,886] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:34:14,207] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:35:08,690] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 38209
+[2025-06-18 13:35:08,759] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:35:08,974] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:35:14,148] INFO django.server "GET /auth/change_consultant_status/4/ HTTP/1.1" 200 200
+[2025-06-18 13:35:22,783] INFO django.server "POST /auth/change_consultant_status/4/ HTTP/1.1" 200 42
+[2025-06-18 13:35:24,485] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 38205
+[2025-06-18 13:35:24,541] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:35:24,779] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:35:26,039] INFO django.server "GET /auth/change_consultant_status/4/ HTTP/1.1" 200 200
+[2025-06-18 13:35:28,650] INFO django.server "POST /auth/change_consultant_status/4/ HTTP/1.1" 200 42
+[2025-06-18 13:35:30,369] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 38209
+[2025-06-18 13:35:30,412] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:35:30,566] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:35:42,767] INFO django.server "GET /auth/change_consultant_status/11/ HTTP/1.1" 200 206
+[2025-06-18 13:35:44,522] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-18 13:35:44,524] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-18 13:36:08,358] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 38209
+[2025-06-18 13:36:08,469] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:36:08,596] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-18 13:36:08,597] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-18 13:36:09,016] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:36:18,997] INFO django.server "GET /auth/change_consultant_status/11/ HTTP/1.1" 200 206
+[2025-06-18 13:36:20,579] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 38209
+[2025-06-18 13:36:20,622] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:36:20,896] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:36:24,354] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37596
+[2025-06-18 13:36:24,389] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:36:24,576] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-18 13:36:26,146] INFO django.server "GET /auth/change_consultant_status/4/ HTTP/1.1" 200 200

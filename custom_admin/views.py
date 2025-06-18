@@ -640,32 +640,51 @@ def delete_consultant(request, consultant_id):
 
 @login_required
 @csrf_exempt
-@require_POST
+@require_http_methods(["GET", "POST"])
 def change_consultant_status(request, consultant_id):
     """
     Change consultant approval status
     """
-    new_status = request.POST.get('status')
-    
-    if new_status not in ['approved', 'rejected', 'to_be_reviewed']:
-        return HttpResponseBadRequest("Invalid status value")
+    def is_ajax(req):
+        return req.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
 
     try:
         consultant = User.objects.get(id=consultant_id, role='consultant')
         profile = consultant.consultant_profile
         from .models import ConsultantStatus
         status_instance, created = ConsultantStatus.objects.get_or_create(user=consultant)
-        status_instance.status = new_status
-        status_instance.save()
-        profile.status = status_instance
-        profile.save()
-        logger.info(f"Consultant {consultant.email} status changed to {new_status}")
     except User.DoesNotExist:
-        return HttpResponseBadRequest("Consultant not found")
+        return JsonResponse({'error': 'Consultant not found'}, status=404)
     except ConsultantProfile.DoesNotExist:
-        return HttpResponseBadRequest("Consultant profile not found")
+        return JsonResponse({'error': 'Consultant profile not found'}, status=404)
 
-    return redirect('custom_admin:consultant_managment')
+    try:
+        if request.method == "POST":
+            new_status = request.POST.get('status')
+            if new_status not in dict(ConsultantStatus.STATUS_CHOICES):
+                return JsonResponse({'error': 'Invalid status value'}, status=400)
+            status_instance.status = new_status
+            status_instance.save()
+            profile.status = status_instance
+            profile.save()
+            logger.info(f"Consultant {consultant.email} status changed to {new_status}")
+            if is_ajax(request):
+                return JsonResponse({'message': 'Status updated successfully'})
+            else:
+                return redirect('custom_admin:consultant_management')
+
+        # GET request: return current status and status choices as JSON
+        status_choices = ConsultantStatus.STATUS_CHOICES
+        if is_ajax(request):
+            return JsonResponse({
+                'current_status': status_instance.status,
+                'status_choices': [{'value': choice[0], 'display': choice[1]} for choice in status_choices]
+            })
+        else:
+            return redirect('custom_admin:consultant_management')
+    except Exception as e:
+        logger.error(f"Exception in change_consultant_status: {str(e)}", exc_info=True)
+        return JsonResponse({'error': 'Internal server error'}, status=500)
 
 
 @login_required
