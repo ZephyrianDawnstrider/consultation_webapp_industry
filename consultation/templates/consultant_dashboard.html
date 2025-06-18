@@ -172,19 +172,166 @@
         }
     });
 
-    // Initialize calendar
-    document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth',
-            headerToolbar: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'dayGridMonth,timeGridWeek,timeGridDay'
-            },
-            events: {{ calendar_events|safe }}
-        });
-        calendar.render();
+document.addEventListener('DOMContentLoaded', () => {
+  const timesheetEntries = JSON.parse(document.getElementById('timesheet-entries').textContent);
+  const timesheetId = document.getElementById('timesheet-select').value;
+  const tbody = document.getElementById('timesheet-entries-body');
+  const addRowBtn = document.getElementById('add-row-button');
+  const saveBtn = document.getElementById('save-entries-button');
+  const saveSuccessMsg = document.getElementById('save-success-message');
+  const saveErrorMsg = document.getElementById('save-error-message');
+  const saveErrorText = document.getElementById('save-error-text');
+
+  function createCell(content, type = 'text') {
+    const td = document.createElement('td');
+    if (type === 'text') {
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.className = 'w-full border border-gray-300 rounded px-2 py-1';
+      input.value = content || '';
+      td.appendChild(input);
+    } else {
+      td.textContent = content;
+    }
+    return td;
+  }
+
+  function createRow(entry = {}) {
+    const tr = document.createElement('tr');
+
+    // Date
+    const dateTd = document.createElement('td');
+    const dateInput = document.createElement('input');
+    dateInput.type = 'date';
+    dateInput.className = 'w-full border border-gray-300 rounded px-2 py-1';
+    dateInput.value = entry.date || '';
+    dateTd.appendChild(dateInput);
+    tr.appendChild(dateTd);
+
+    // Start Time
+    const startTd = document.createElement('td');
+    const startInput = document.createElement('input');
+    startInput.type = 'time';
+    startInput.className = 'w-full border border-gray-300 rounded px-2 py-1';
+    startInput.value = entry.start_time || '';
+    startTd.appendChild(startInput);
+    tr.appendChild(startTd);
+
+    // End Time
+    const endTd = document.createElement('td');
+    const endInput = document.createElement('input');
+    endInput.type = 'time';
+    endInput.className = 'w-full border border-gray-300 rounded px-2 py-1';
+    endInput.value = entry.end_time || '';
+    endTd.appendChild(endInput);
+    tr.appendChild(endTd);
+
+    // Task Name
+    const taskTd = document.createElement('td');
+    const taskInput = document.createElement('input');
+    taskInput.type = 'text';
+    taskInput.className = 'w-full border border-gray-300 rounded px-2 py-1';
+    taskInput.value = entry.task_name || '';
+    taskTd.appendChild(taskInput);
+    tr.appendChild(taskTd);
+
+    // Description
+    const descTd = document.createElement('td');
+    const descInput = document.createElement('input');
+    descInput.type = 'text';
+    descInput.className = 'w-full border border-gray-300 rounded px-2 py-1';
+    descInput.value = entry.description || '';
+    descTd.appendChild(descInput);
+    tr.appendChild(descTd);
+
+    // Actions
+    const actionsTd = document.createElement('td');
+    actionsTd.className = 'text-center';
+    const delBtn = document.createElement('button');
+    delBtn.type = 'button';
+    delBtn.textContent = 'Delete';
+    delBtn.className = 'bg-red-600 text-white px-2 py-1 rounded hover:bg-red-700';
+    delBtn.addEventListener('click', () => {
+      tr.remove();
     });
+    actionsTd.appendChild(delBtn);
+    tr.appendChild(actionsTd);
+
+    return tr;
+  }
+
+  function loadEntries() {
+    tbody.innerHTML = '';
+    timesheetEntries.forEach(entry => {
+      const row = createRow(entry);
+      tbody.appendChild(row);
+    });
+  }
+
+  addRowBtn.addEventListener('click', () => {
+    const newRow = createRow();
+    tbody.appendChild(newRow);
+  });
+
+  saveBtn.addEventListener('click', async () => {
+    saveSuccessMsg.classList.add('hidden');
+    saveErrorMsg.classList.add('hidden');
+
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    const entries = rows.map(row => {
+      const inputs = row.querySelectorAll('input');
+      return {
+        date: inputs[0].value,
+        start_time: inputs[1].value,
+        end_time: inputs[2].value,
+        task_name: inputs[3].value,
+        description: inputs[4].value,
+      };
+    });
+
+    try {
+      const response = await fetch('/custom_admin/save_timesheet_entries/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': getCookie('csrftoken'),
+        },
+        body: JSON.stringify({
+          timesheet_id: timesheetId,
+          entries: entries,
+        }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        saveSuccessMsg.classList.remove('hidden');
+      } else {
+        saveErrorText.textContent = data.message || 'Error saving timesheet entries.';
+        saveErrorMsg.classList.remove('hidden');
+      }
+    } catch (error) {
+      saveErrorText.textContent = 'Network error. Please try again.';
+      saveErrorMsg.classList.remove('hidden');
+    }
+  });
+
+  // CSRF helper
+  function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+
+  loadEntries();
+});
+
 </script>
 {% endblock %}

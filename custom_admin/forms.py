@@ -1,8 +1,7 @@
 from django import forms
 from .models import ConsultantStatus, Skill
-from consultation.models import ConsultantProfile, TimesheetEntry
-from django.forms import modelformset_factory
-from datetime import datetime, time
+from consultation.models import ConsultantProfile
+from django import forms
 
 class ConsultantRegistrationForm(forms.Form):
     """Form for consultant registration with required fields: mobile, email, agreement"""
@@ -74,40 +73,3 @@ class ConsultantEditForm(forms.ModelForm):
             instance.save()
             self.save_m2m()
         return instance
-
-class TimesheetEntryForm(forms.ModelForm):
-    start_time = forms.TimeField(
-        widget=forms.TimeInput(attrs={'type': 'time', 'class': 'form-input'}),
-        required=True,
-        label='Start Time'
-    )
-    end_time = forms.TimeField(
-        widget=forms.TimeInput(attrs={'type': 'time', 'class': 'form-input'}),
-        required=True,
-        label='End Time'
-    )
-
-    class Meta:
-        model = TimesheetEntry
-        fields = ['date', 'task_name']
-        widgets = {
-            'date': forms.DateInput(attrs={'type': 'date', 'class': 'form-input'}),
-            'task_name': forms.TextInput(attrs={'class': 'form-input'}),
-        }
-
-    def clean(self):
-        cleaned_data = super().clean()
-        start_time = cleaned_data.get('start_time')
-        end_time = cleaned_data.get('end_time')
-
-        if start_time and end_time and end_time <= start_time:
-            raise forms.ValidationError('End time must be after start time.')
-
-        return cleaned_data
-
-TimesheetEntryFormSet = modelformset_factory(
-    TimesheetEntry,
-    form=TimesheetEntryForm,
-    extra=0,
-    can_delete=False
-)
