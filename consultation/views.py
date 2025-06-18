@@ -13,7 +13,7 @@ from django.utils.timezone import now
 from django.views.decorators.http import require_POST
 
 from custom_admin.models import User, Invoice, SessionBooking
-from consultation.models import Timesheet, TimesheetEntry, ConsultantProfile
+from consultation.models import Timesheet, ConsultantProfile
 from .forms import ConsultantProfileForm
 
 logger = logging.getLogger(__name__)
@@ -103,10 +103,93 @@ def consultant_dashboard(request):
     }
     return render(request, 'consultant_dashboard.html', context)
 
+# @login_required
+# def consultant_timesheet(request):
+#     """View for consultant timesheet with month options and entries."""
+#     import csv
+#     from io import StringIO
+#     from django.core.serializers.json import DjangoJSONEncoder
+
+#     # Prepare month options for last 12 months
+#     today = now().date()
+#     month_options = []
+#     for i in range(12):
+#         month_date = (today.replace(day=1) - timedelta(days=i*30)).replace(day=1)
+#         month_value = month_date.strftime('%Y-%m')
+#         month_name = month_date.strftime('%B %Y')
+#         month_options.append({'value': month_value, 'name': month_name, 'selected': False})
+
+#     # Fetch approved timesheets for this consultant
+#     approved_timesheets = Timesheet.objects.filter(
+#         consultant=request.user,
+#         status__in=['approved', 'rejected', 'awaiting_review', 'sent_to_bank']
+#     ).order_by('-month')
+
+#     # Determine selected timesheet for editing entries
+#     selected_timesheet_id = request.GET.get('timesheet_id')
+#     if selected_timesheet_id:
+#         try:
+#             selected_timesheet = approved_timesheets.get(id=selected_timesheet_id)
+#         except Timesheet.DoesNotExist:
+#             selected_timesheet = approved_timesheets.first()
+#     else:
+#         selected_timesheet = approved_timesheets.first()
+
+#     # Read timesheet entries from CSV file for selected timesheet
+#     timesheet_entries = []
+#     if selected_timesheet:
+#         try:
+#             # Read CSV file from storage
+#             csv_file = selected_timesheet.file.open('r')
+#             csv_data = csv_file.read()
+#             csv_file.close()
+
+#             # Parse CSV data
+#             f = StringIO(csv_data)
+#             reader = csv.DictReader(f)
+#             for row in reader:
+#                 # Normalize keys to lowercase and strip spaces for flexible matching
+#                 normalized_row = {k.strip().lower(): v for k, v in row.items()}
+#                 # Possible keys for task name
+#                 task_name_keys = ['task name', 'task_name', 'task', 'name']
+#                 task_name_value = ''
+#                 for key in task_name_keys:
+#                     if key in normalized_row:
+#                         task_name_value = normalized_row[key]
+#                         break
+#                 entry = {
+#                     'date': normalized_row.get('date') or normalized_row.get('date'),
+#                     'start_time': normalized_row.get('start time') or normalized_row.get('start_time'),
+#                     'end_time': normalized_row.get('end time') or normalized_row.get('end_time'),
+#                     'hours_worked': normalized_row.get('hours worked') or normalized_row.get('hours_worked'),
+#                     'task_name': task_name_value,
+#                     'description': normalized_row.get('description'),
+#                 }
+#                 timesheet_entries.append(entry)
+#         except Exception as e:
+#             # Log error and continue with empty entries
+#             import logging
+#             logger = logging.getLogger(__name__)
+#             logger.error(f"Error reading timesheet CSV file: {str(e)}")
+
+#     context = {
+#         'current_page': 'Consultant Timesheet',
+#         'month_options': month_options,
+#         'timesheets': approved_timesheets,
+#         'selected_timesheet': selected_timesheet,
+#         'timesheet_entries': timesheet_entries,
+#     }
+#     return render(request, 'consultant_timesheet.html', context)
+
+
 
 @login_required
 def consultant_timesheet(request):
     """View for consultant timesheet with month options and entries."""
+    import csv
+    from io import StringIO
+    from django.core.serializers.json import DjangoJSONEncoder
+
     # Prepare month options for last 12 months
     today = now().date()
     month_options = []
@@ -116,35 +199,131 @@ def consultant_timesheet(request):
         month_name = month_date.strftime('%B %Y')
         month_options.append({'value': month_value, 'name': month_name, 'selected': False})
 
-    # Fetch approved timesheets and their entries for this consultant
+    # Fetch approved timesheets for this consultant
     approved_timesheets = Timesheet.objects.filter(
         consultant=request.user,
         status__in=['approved', 'rejected', 'awaiting_review', 'sent_to_bank']
     ).order_by('-month')
 
-    timesheet_entries_qs = TimesheetEntry.objects.filter(
-        timesheet__in=approved_timesheets
-    ).order_by('date')
+    # Determine selected timesheet for editing entries
+    selected_timesheet_id = request.GET.get('timesheet_id')
+    if selected_timesheet_id:
+        try:
+            selected_timesheet = approved_timesheets.get(id=selected_timesheet_id)
+        except Timesheet.DoesNotExist:
+            selected_timesheet = approved_timesheets.first()
+    else:
+        selected_timesheet = approved_timesheets.first()
 
-    timesheet_entries = list(timesheet_entries_qs.values(
-        'date', 'hours_worked', 'task_name', 'description'
-    ))
+    # Read timesheet entries from CSV file for selected timesheet
+    timesheet_entries = []
+    if selected_timesheet:
+        try:
+            csv_file = selected_timesheet.file.open('r')
+            csv_data = csv_file.read()
+            csv_file.close()
+            f = StringIO(csv_data)
+            reader = csv.DictReader(f)
+            for row in reader:
+                normalized_row = {k.strip().lower(): v for k, v in row.items()}
+                task_name_keys = ['task name', 'task_name', 'task', 'name']
+                task_name_value = ''
+                for key in task_name_keys:
+                    if key in normalized_row:
+                        task_name_value = normalized_row[key]
+                        break
+                entry = {
+                    'date': normalized_row.get('date'),
+                    'start_time': normalized_row.get('start time'),
+                    'end_time': normalized_row.get('end time'),
+                    'hours_worked': normalized_row.get('hours worked'),
+                    'task_name': task_name_value,
+                    'description': normalized_row.get('description'),
+                }
+                timesheet_entries.append(entry)
+        except Exception as e:
+            import logging
+            logger = logging.getLogger(__name__)
+            logger.error(f"Error reading timesheet CSV file: {str(e)}")
 
     context = {
         'current_page': 'Consultant Timesheet',
         'month_options': month_options,
         'timesheets': approved_timesheets,
-        'timesheet_entries': json.dumps(timesheet_entries, cls=DjangoJSONEncoder)
+        'selected_timesheet': selected_timesheet,
+        'timesheet_entries': timesheet_entries,
     }
     return render(request, 'consultant_timesheet.html', context)
+
+
+@login_required
+@require_POST
+def save_timesheet_entries(request):
+    import json
+    import csv
+    from io import StringIO
+    from django.http import JsonResponse
+    from django.core.exceptions import PermissionDenied
+    import logging
+
+    user = request.user
+    try:
+        data = json.loads(request.body)
+        logging.info(f"save_timesheet_entries received data: {data}")
+        timesheet_id = data.get('timesheet_id')
+        entries = data.get('entries')
+        if not timesheet_id or entries is None:
+            logging.error("Missing timesheet_id or entries in request data")
+            return JsonResponse({'success': False, 'message': 'Missing timesheet_id or entries.'})
+
+        # Fetch the timesheet instance
+        timesheet = Timesheet.objects.get(id=timesheet_id, consultant=user)
+
+        # Prepare CSV output
+        output = StringIO()
+        fieldnames = ['Date', 'Start Time', 'End Time', 'Hours Worked', 'Task Name', 'Description']
+        writer = csv.DictWriter(output, fieldnames=fieldnames)
+        writer.writeheader()
+
+        for entry in entries:
+            writer.writerow({
+                'Date': entry.get('date', ''),
+                'Start Time': entry.get('start_time', ''),
+                'End Time': entry.get('end_time', ''),
+                'Hours Worked': entry.get('hours_worked', ''),
+                'Task Name': entry.get('task_name', ''),
+                'Description': entry.get('description', ''),
+            })
+
+        csv_content = output.getvalue()
+        output.close()
+
+        # Save CSV content to the file field
+        timesheet.file.save(timesheet.file.name, content=ContentFile(csv_content.encode('utf-8')))
+        timesheet.save()
+
+        logging.info("Timesheet entries saved successfully")
+        return JsonResponse({'success': True, 'message': 'Timesheet entries saved successfully.'})
+    except Timesheet.DoesNotExist:
+        logging.error("Timesheet not found or access denied")
+        return JsonResponse({'success': False, 'message': 'Timesheet not found or access denied.'})
+    except Exception as e:
+        logging.error(f"Error saving timesheet entries: {str(e)}")
+        return JsonResponse({'success': False, 'message': f'Error saving timesheet entries: {str(e)}'})
 
 @login_required
 def upload_timesheet(request, consultant_id):
     """
-    Upload a timesheet Excel file and save Timesheet record.
-    TimesheetEntry records are created only when Timesheet status is approved.
+    Upload a timesheet Excel file, convert it to CSV, delete the original Excel file,
+    save the CSV file path in the Timesheet record.
     Accessible by the consultant user themselves or admin users.
     """
+    import os
+    import pandas as pd
+    from django.core.files.base import ContentFile
+    from django.core.files.storage import default_storage
+    from io import BytesIO
+
     consultant = get_object_or_404(User, id=consultant_id, role='consultant')
 
     # Check if the user is the consultant or an admin
@@ -158,7 +337,7 @@ def upload_timesheet(request, consultant_id):
         if not excel_file or not month_str:
             logger.error(f"Upload failed: Missing file or month. User: {request.user.id}")
             return JsonResponse({
-                'success': False, 
+                'success': False,
                 'message': 'Timesheet file and month are required.'
             })
 
@@ -167,28 +346,53 @@ def upload_timesheet(request, consultant_id):
         except ValueError:
             logger.error(f"Upload failed: Invalid month format '{month_str}'. User: {request.user.id}")
             return JsonResponse({
-                'success': False, 
+                'success': False,
                 'message': 'Invalid month format. Use YYYY-MM.'
             })
 
         try:
-            # Create Timesheet record only
+            # Save the uploaded Excel file temporarily
+            temp_path = default_storage.save(f'temp/{excel_file.name}', ContentFile(excel_file.read()))
+            temp_file_path = default_storage.path(temp_path)
+
+            # Read Excel file using pandas
+            df = pd.read_excel(temp_file_path)
+
+            # Convert to CSV in memory
+            csv_buffer = BytesIO()
+            df.to_csv(csv_buffer, index=False)
+            csv_buffer.seek(0)
+
+            # Prepare CSV file name
+            csv_file_name = os.path.splitext(excel_file.name)[0] + '.csv'
+
+            # Save CSV file to storage
+            csv_path = f'timesheets/{csv_file_name}'
+            if default_storage.exists(csv_path):
+                default_storage.delete(csv_path)
+            default_storage.save(csv_path, ContentFile(csv_buffer.read()))
+
+            # Delete the original Excel file
+            default_storage.delete(temp_path)
+
+            # Create Timesheet record with CSV file path
             timesheet = Timesheet.objects.create(
                 consultant=consultant,
                 month=month,
-                file=excel_file,
+                file=csv_path,
                 status='awaiting_review'
             )
-            logger.info(f"Timesheet uploaded successfully by user {request.user.id} for month {month_str}")
+
+            logger.info(f"Timesheet uploaded and converted to CSV successfully by user {request.user.id} for month {month_str}")
             return JsonResponse({
-                'success': True, 
-                'message': 'Timesheet uploaded successfully and awaiting review.'
+                'success': True,
+                'message': 'Timesheet uploaded successfully, converted to CSV, and awaiting review.'
             })
         except Exception as e:
             logger.error(f"Upload failed: Exception {str(e)}. User: {request.user.id}")
             return JsonResponse({
-                'success': False, 
-                'message': f'Error saving timesheet: {str(e)}'
+                'success': False,
+                'message': f'Error processing timesheet: {str(e)}'
             })
 
     # GET request - render upload form

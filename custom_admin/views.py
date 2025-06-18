@@ -37,7 +37,8 @@ from .models import Timesheet
 
 
 from django.forms import modelformset_factory
-from .forms import TimesheetEntryFormSet
+# Removed import of TimesheetEntryFormSet as it is no longer used
+# from .forms import TimesheetEntryFormSet
 from datetime import datetime, timedelta
 
 
@@ -63,6 +64,77 @@ def update_timesheet_status(request, timesheetId):
     logger.info(f"Timesheet ID {timesheetId} status updated to {status} by user {request.user.email}")
 
     return JsonResponse({'success': True, 'message': 'Timesheet status updated successfully.'})
+
+@login_required
+@csrf_exempt
+@require_POST
+def save_timesheet_entries(request):
+    """
+    Save edited timesheet entries from JSON POST data, overwrite CSV file.
+    Includes server-side validation of entries.
+    """
+    user = request.user
+    try:
+        data = json.loads(request.body)
+        timesheet_id = data.get('timesheet_id')
+        entries = data.get('entries')
+        if not timesheet_id or entries is None:
+            return JsonResponse({'success': False, 'message': 'Missing timesheet_id or entries.'})
+
+        # Fetch the timesheet instance
+        timesheet = Timesheet.objects.get(id=timesheet_id)
+
+        # Check if user has permission (staff or owner)
+        if not (user.is_staff or timesheet.consultant == user):
+            return JsonResponse({'success': False, 'message': 'Permission denied.'})
+
+        # Server-side validation function
+        def validate_entry(entry):
+            if not entry.get('date'):
+                return 'Date is required.'
+            if not entry.get('start_time'):
+                return 'Start Time is required.'
+            if not entry.get('end_time'):
+                return 'End Time is required.'
+            if entry.get('start_time') >= entry.get('end_time'):
+                return 'Start Time must be before End Time.'
+            if not entry.get('task_name') or entry.get('task_name').strip() == '':
+                return 'Task Name is required.'
+            return None
+
+        # Validate all entries
+        for i, entry in enumerate(entries):
+            error = validate_entry(entry)
+            if error:
+                return JsonResponse({'success': False, 'message': f'Error in entry {i + 1}: {error}'})
+
+        # Prepare CSV output
+        output = StringIO()
+        fieldnames = ['Date', 'Start Time', 'End Time', 'Task Name', 'Description']
+        writer = csv.DictWriter(output, fieldnames=fieldnames)
+        writer.writeheader()
+
+        for entry in entries:
+            writer.writerow({
+                'Date': entry.get('date', ''),
+                'Start Time': entry.get('start_time', ''),
+                'End Time': entry.get('end_time', ''),
+                'Task Name': entry.get('task_name', ''),
+                'Description': entry.get('description', ''),
+            })
+
+        csv_content = output.getvalue()
+        output.close()
+
+        # Save CSV content to the file field
+        timesheet.file.save(timesheet.file.name, content=ContentFile(csv_content.encode('utf-8')))
+        timesheet.save()
+
+        return JsonResponse({'success': True, 'message': 'Timesheet entries saved successfully.'})
+    except Timesheet.DoesNotExist:
+        return JsonResponse({'success': False, 'message': 'Timesheet not found.'})
+    except Exception as e:
+        return JsonResponse({'success': False, 'message': f'Error saving timesheet entries: {str(e)}'})
 from django import forms
 from django.conf import settings
 
@@ -78,6 +150,13 @@ from rest_framework.response import Response
 # Local imports
 from .models import User, Skill, Invoice, SessionBooking, Timesheet
 from consultation.models import ConsultantProfile
+import csv
+from io import StringIO
+from django.core.serializers.json import DjangoJSONEncoder
+import logging
+import io
+from datetime import datetime
+
 from .serializers import SkillSerializer
 
 # Configure logging
@@ -340,13 +419,8 @@ from .models import ConsultantStatus
 def consultant_profile(request, consultant_id):
     """
     Display detailed consultant profile with invoices, timesheets, and timesheet entries
-    Also handle Excel timesheet upload and processing
+    Also handle CSV timesheet upload and processing
     """
-    from django.core.serializers.json import DjangoJSONEncoder
-    import json
-    from django.db.models import Prefetch
-    import openpyxl
-
     consultant = get_object_or_404(User, id=consultant_id, role='consultant')
     
     # Get consultant profile with skills
@@ -359,10 +433,10 @@ def consultant_profile(request, consultant_id):
         profile = None
         logger.warning(f"ConsultantProfile does not exist for user {consultant.email}")
     
-    # Handle Excel upload POST
+    # Handle CSV upload POST
     upload_message = None
     if request.method == 'POST' and 'timesheet_file' in request.FILES:
-        excel_file = request.FILES.get('timesheet_file')
+        csv_file = request.FILES.get('timesheet_file')
         month_str = request.POST.get('month')
         if not month_str:
             upload_message = 'Month is required for timesheet upload.'
@@ -373,60 +447,11 @@ def consultant_profile(request, consultant_id):
                 timesheet = Timesheet.objects.create(
                     consultant=consultant,
                     month=month,
-                    file=excel_file,
+                    file=csv_file,
                     status='awaiting_review'
                 )
-                # Process Excel and create TimesheetEntry records
-                wb = openpyxl.load_workbook(timesheet.file)
-                sheet = wb.active
-                header = [cell.value for cell in next(sheet.iter_rows(min_row=1, max_row=1))]
-                expected_headers = ['Date', 'Start Time', 'End Time', 'Task Name']
-                if header != expected_headers:
-                    upload_message = f'Invalid Excel format. Expected headers: {expected_headers}'
-                else:
-                    entries = []
-                    for row in sheet.iter_rows(min_row=2, values_only=True):
-                        date_val, start_time, end_time, task_name = row
-                        if not date_val or not start_time or not end_time or not task_name:
-                            continue
-                        if isinstance(date_val, str):
-                            try:
-                                date_val = datetime.strptime(date_val, '%Y-%m-%d').date()
-                            except ValueError:
-                                continue
-                        elif isinstance(date_val, datetime):
-                            date_val = date_val.date()
-
-                        def time_to_decimal(t):
-                            if isinstance(t, datetime):
-                                return t.hour + t.minute / 60
-                            elif isinstance(t, str):
-                                try:
-                                    dt = datetime.strptime(t, '%H:%M')
-                                    return dt.hour + dt.minute / 60
-                                except ValueError:
-                                    return None
-                            elif isinstance(t, (int, float)):
-                                return t * 24
-                            return None
-
-                        start_decimal = time_to_decimal(start_time)
-                        end_decimal = time_to_decimal(end_time)
-                        if start_decimal is None or end_decimal is None or end_decimal <= start_decimal:
-                            continue
-                        hours_worked = end_decimal - start_decimal
-
-                        entry = TimesheetEntry(
-                            timesheet=timesheet,
-                            date=date_val,
-                            hours_worked=hours_worked,
-                            task_name=task_name,
-                            description=f'Task: {task_name} from {start_time} to {end_time}'
-                        )
-                        entries.append(entry)
-
-                    TimesheetEntry.objects.bulk_create(entries)
-                    upload_message = f'Timesheet uploaded successfully with {len(entries)} entries.'
+                # No longer create TimesheetEntry records, just save CSV file
+                upload_message = 'Timesheet uploaded successfully and awaiting review.'
             except Exception as e:
                 upload_message = f'Error processing timesheet: {str(e)}'
                 logger.error(upload_message)
@@ -446,29 +471,40 @@ def consultant_profile(request, consultant_id):
     else:
         selected_timesheet = timesheets.first()
 
-    # Add debug logging for selected_timesheet and TimesheetEntry count
-    logger.info(f"Selected timesheet ID: {selected_timesheet.id if selected_timesheet else 'None'}")
-    timesheet_entries_count = TimesheetEntry.objects.filter(timesheet=selected_timesheet).count() if selected_timesheet else 0
-    logger.info(f"TimesheetEntry count for selected timesheet: {timesheet_entries_count}")
+    # Read timesheet entries from CSV file for selected timesheet
+    timesheet_entries = []
+    if selected_timesheet:
+        try:
+            csv_file = selected_timesheet.file.open('r')
+            csv_data = csv_file.read()
+            csv_file.close()
+            f = StringIO(csv_data)
+            reader = csv.DictReader(f)
+            for row in reader:
+                # Normalize keys to lowercase and strip spaces for flexible matching
+                normalized_row = {k.strip().lower(): v for k, v in row.items()}
+                # Possible keys for task name
+                task_name_keys = ['task name', 'task_name', 'task', 'name']
+                task_name_value = ''
+                for key in task_name_keys:
+                    if key in normalized_row:
+                        task_name_value = normalized_row[key]
+                        break
+                entry = {
+                    'date': normalized_row.get('date') or normalized_row.get('date'),
+                    'start_time': normalized_row.get('start time') or normalized_row.get('start_time'),
+                    'end_time': normalized_row.get('end time') or normalized_row.get('end_time'),
+                    'task_name': task_name_value,
+                    'description': normalized_row.get('description'),
+                }
+                timesheet_entries.append(entry)
+        except Exception as e:
+            logger.error(f"Error reading timesheet CSV file: {str(e)}")
 
-    # Handle TimesheetEntry formset POST for editing entries
+    # Editing timesheet entries is no longer supported
+    upload_message_edit = None
     if request.method == 'POST' and 'edit_timesheet_entries' in request.POST:
-        formset = TimesheetEntryFormSet(request.POST, queryset=TimesheetEntry.objects.filter(timesheet=selected_timesheet))
-        if formset.is_valid():
-            instances = formset.save(commit=False)
-            for form in formset:
-                if form.cleaned_data:
-                    start_time = form.cleaned_data.get('start_time')
-                    end_time = form.cleaned_data.get('end_time')
-                    if start_time and end_time:
-                        hours_worked = (datetime.combine(datetime.min, end_time) - datetime.combine(datetime.min, start_time)).total_seconds() / 3600
-                        form.instance.hours_worked = hours_worked
-            formset.save()
-            upload_message = 'Timesheet entries updated successfully.'
-        else:
-            upload_message = 'Error updating timesheet entries.'
-    else:
-        formset = TimesheetEntryFormSet(queryset=TimesheetEntry.objects.filter(timesheet=selected_timesheet))
+        upload_message_edit = 'Editing timesheet entries is no longer supported.'
 
     # Prepare form for editing consultant profile
     form = ConsultantEditForm(instance=profile)
@@ -480,9 +516,10 @@ def consultant_profile(request, consultant_id):
         'timesheets': timesheets,
         'all_skills': all_skills,
         'form': form,
-        'formset': formset,
+        'timesheet_entries': timesheet_entries,
         'selected_timesheet': selected_timesheet,
         'upload_message': upload_message,
+        'upload_message_edit': upload_message_edit,
     }
     return render(request, 'consultant_detail.html', context)
 
@@ -982,7 +1019,7 @@ def handle_500(request):
 # TODO: Consider moving to separate modules for better organization
 
 from django.contrib.auth.decorators import user_passes_test
-from consultation.models import TimesheetEntry, Timesheet
+from consultation.models import Timesheet
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
