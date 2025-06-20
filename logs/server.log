@@ -16229,3 +16229,12 @@ django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '
 [2025-06-20 09:58:42,877] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 21406
 [2025-06-20 09:58:44,044] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 18011
 [2025-06-20 09:58:44,847] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 30853
+[2025-06-20 09:59:20,031] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 30853
+[2025-06-20 10:21:01,936] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37596
+[2025-06-20 10:21:02,019] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-20 10:21:02,316] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-20 10:21:05,149] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 31116
+[2025-06-20 10:21:10,632] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=27 HTTP/1.1" 200 27909
+[2025-06-20 10:21:15,495] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=26 HTTP/1.1" 200 31116
+[2025-06-20 14:09:59,400] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 30853
+[2025-06-20 14:10:07,394] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 30853
