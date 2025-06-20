@@ -61,24 +61,39 @@
     <span id="error-text">There was an error processing your timesheet file.</span>
   </div>
 
-  <form id="timesheet-form" method="post" enctype="multipart/form-data" action="{% url 'consultation:upload_timesheet' request.user.id %}" novalidate>
-    {% csrf_token %}
-    <div class="mb-6">
-      <label for="month-select" class="block text-lg font-semibold text-gray-700 mb-2">Select Month</label>
-      <select id="month-select" name="month" required class="block w-full rounded-md border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-        <option value="" disabled selected>-- Select Month --</option>
-        {% for month in month_options %}
-          <option value="{{ month.value }}">{{ month.name }}</option>
-        {% endfor %}
-      </select>
-      <p id="month-error" class="text-red-600 text-sm mt-1 hidden">Please select a month.</p>
-    </div>
+  <div class="mb-6">
+    <label for="month-select" class="block text-lg font-semibold text-gray-700 mb-2">Select Month</label>
+    <select id="month-select" name="month" required class="block w-full rounded-md border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+      <option value="" disabled {% if not selected_month %}selected{% endif %}>-- Select Month --</option>
+      {% for month in month_options %}
+        <option value="{{ month.value }}" {% if selected_month == month.value %}selected{% endif %}>{{ month.name }}</option>
+      {% endfor %}
+    </select>
+    <p id="month-error" class="text-red-600 text-sm mt-1 hidden">Please select a month.</p>
+  </div>
 
+  <div class="mb-6">
+    <label class="block text-lg font-semibold text-gray-700 mb-2">Select Input Mode</label>
+    <div class="flex space-x-6">
+      <label class="inline-flex items-center">
+        <input type="radio" name="input_mode" value="upload" id="mode-upload" class="form-radio" {% if mode == 'upload' %}checked{% endif %}>
+        <span class="ml-2">Upload Excel Sheet</span>
+      </label>
+      <label class="inline-flex items-center">
+        <input type="radio" name="input_mode" value="manual" id="mode-manual" class="form-radio" {% if mode == 'manual' %}checked{% endif %}>
+        <span class="ml-2">Enter Data Manually</span>
+      </label>
+    </div>
+  </div>
+
+  <form id="upload-form" method="post" enctype="multipart/form-data" action="{% url 'consultation:upload_timesheet' request.user.id %}" novalidate class="{% if mode != 'upload' %}hidden{% endif %}">
+    {% csrf_token %}
+    <input type="hidden" name="month" id="upload-month" value="{{ selected_month }}">
     <div class="mb-6">
       <label class="block text-lg font-semibold text-gray-700 mb-2">Timesheet File</label>
       <div id="file-drop-area" class="file-drop-area cursor-pointer rounded-md" tabindex="0" role="button" aria-label="Upload timesheet file">
         <p class="text-gray-600 text-lg">Click or drag and drop your Excel file here (.xlsx or .xls)</p>
-        <input type="file" id="timesheet-file" name="timesheet_file" accept=".xlsx,.xls" class="hidden" required aria-describedby="file-info" />
+        <input type="file" id="timesheet-file" name="timesheet_file" accept=".xlsx,.xls" class="hidden" {% if mode == 'upload' %}required{% endif %} aria-describedby="file-info" />
       </div>
       <div id="file-info" class="hidden text-sm mt-2 text-green-600 font-medium"></div>
       <p id="file-error" class="text-red-600 text-sm mt-1 hidden">Please upload a valid Excel file.</p>
@@ -88,48 +103,9 @@
       Upload Timesheet
     </button>
   </form>
-  <div class="bg-white rounded-lg shadow p-6 mt-10">
-    <h2 class="text-xl font-semibold mb-4">Timesheet History</h2>
-    {% if timesheets %}
-    <table class="min-w-full divide-y divide-gray-200">
-      <thead class="bg-gray-50">
-        <tr>
-          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Month</th>
-          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">File</th>
-        </tr>
-      </thead>
-      <tbody class="bg-white divide-y divide-gray-200">
-        {% for timesheet in timesheets %}
-        <tr>
-          <td class="px-6 py-4 whitespace-nowrap">{{ timesheet.month|date:"F Y" }}</td>
-          <td class="px-6 py-4 whitespace-nowrap">{{ timesheet.status }}</td>
-          <td class="px-6 py-4 whitespace-nowrap">
-            <a href="{{ timesheet.file.url }}" target="_blank" class="text-blue-600 hover:underline">View</a>
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-    {% else %}
-    <p>No timesheets found.</p>
-    {% endif %}
-  </div>
-
-  <!-- New Timesheet Data Section -->
-  <div class="bg-white rounded-lg shadow p-6 mt-10">
-    <h2 class="text-xl font-semibold mb-4">Timesheet data</h2>
-    <form method="get" id="timesheet-select-form" class="mb-4">
-      <label for="timesheet-select" class="block font-medium text-gray-700 mb-2">Select Timesheet to Edit Entries:</label>
-      <select id="timesheet-select" name="timesheet_id" onchange="document.getElementById('timesheet-select-form').submit()" class="border border-gray-300 rounded px-3 py-2">
-        {% for timesheet in timesheets %}
-        <option value="{{ timesheet.id }}" {% if selected_timesheet and timesheet.id == selected_timesheet.id %}selected{% endif %}>
-          {{ timesheet.month|date:"F Y" }}
-        </option>
-        {% endfor %}
-      </select>
-    </form>
-
+  
+  <div id="timesheet-data-section" class="bg-white rounded-lg shadow p-6 mt-10">
+    <h2 class="text-xl font-semibold mb-4">Timesheet Data</h2>
     <div class="overflow-x-auto">
       {{ timesheet_entries|json_script:"timesheet-entries" }}
       <table id="timesheet-entries-table" class="min-w-full divide-y divide-gray-200 border border-gray-300 rounded">
@@ -147,13 +123,42 @@
         </tbody>
       </table>
     </div>
-
     <div class="mt-4 flex space-x-4">
+      {% if mode == 'manual' %}
       <button id="add-row-button" type="button" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">Add Row</button>
       <button id="save-entries-button" type="button" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">Save Timesheet Entries</button>
+      {% endif %}
     </div>
     <div id="save-feedback" class="mt-2 text-sm"></div>
     <div id="save-loading" class="mt-2 text-sm text-blue-600 hidden">Saving...</div>
+  </div>
+  <div class="bg-white rounded-lg shadow p-6 mt-10">
+    <h2 class="text-xl font-semibold mb-4">Timesheet History</h2>
+    {% if timesheets %}
+    <table class="min-w-full divide-y divide-gray-200">
+      <thead class="bg-gray-50">
+        <tr>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Month</th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">File</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-gray-200">
+        {% for timesheet in timesheets %}
+        <tr>
+          <td class="px-6 py-4 whitespace-nowrap">{{ timesheet.month|date:"F Y" }}</td>
+          <!-- Removed status display as per request -->
+          <!--<td class="px-6 py-4 whitespace-nowrap">{{ timesheet.status }}</td>-->
+          <td class="px-6 py-4 whitespace-nowrap">
+            <a href="{{ timesheet.file.url }}" target="_blank" class="text-blue-600 hover:underline">View</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>No timesheets found.</p>
+    {% endif %}
   </div>
 </div>
 {% endblock %}
@@ -162,8 +167,10 @@
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('timesheet-form');
   const monthSelect = document.getElementById('month-select');
+  const modeUploadRadio = document.getElementById('mode-upload');
+  const modeManualRadio = document.getElementById('mode-manual');
+  const uploadForm = document.getElementById('upload-form');
   const fileInput = document.getElementById('timesheet-file');
   const fileDropArea = document.getElementById('file-drop-area');
   const fileInfo = document.getElementById('file-info');
@@ -174,7 +181,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const monthError = document.getElementById('month-error');
   const fileError = document.getElementById('file-error');
 
-  function validateForm() {
+  const manualSection = document.getElementById('manual-section');
+  const timesheetEntriesElement = document.getElementById('timesheet-entries');
+  const timesheetEntries = JSON.parse(timesheetEntriesElement.textContent);
+  const tbody = document.getElementById('timesheet-entries-body');
+  const addRowBtn = document.getElementById('add-row-button');
+  const saveBtn = document.getElementById('save-entries-button');
+  const saveFeedback = document.getElementById('save-feedback');
+  const saveLoading = document.getElementById('save-loading');
+
+  function validateUploadForm() {
     const monthValid = monthSelect.value !== '';
     const fileValid = fileInput.files.length > 0 && /\.(xlsx|xls)$/i.test(fileInput.files[0].name);
     uploadButton.disabled = !(monthValid && fileValid);
@@ -182,7 +198,29 @@ document.addEventListener('DOMContentLoaded', () => {
     fileError.classList.toggle('hidden', fileValid);
   }
 
-  monthSelect.addEventListener('change', validateForm);
+  monthSelect.addEventListener('change', () => {
+    reloadPage();
+  });
+
+  modeUploadRadio.addEventListener('change', () => {
+    reloadPage();
+  });
+
+  modeManualRadio.addEventListener('change', () => {
+    reloadPage();
+  });
+
+  function reloadPage() {
+    const selectedMonth = monthSelect.value;
+    const selectedMode = modeUploadRadio.checked ? 'upload' : 'manual';
+    if (!selectedMonth) {
+      return;
+    }
+    const url = new URL(window.location.href);
+    url.searchParams.set('month', selectedMonth);
+    url.searchParams.set('mode', selectedMode);
+    window.location.href = url.toString();
+  }
 
   fileDropArea.addEventListener('click', () => fileInput.click());
   fileDropArea.addEventListener('keydown', (e) => {
@@ -201,10 +239,10 @@ document.addEventListener('DOMContentLoaded', () => {
       fileInfo.textContent = '';
       fileInfo.classList.add('hidden');
     }
-    validateForm();
+    validateUploadForm();
   });
 
-  form.addEventListener('submit', async (e) => {
+  uploadForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     successMessage.classList.add('hidden');
     errorMessage.classList.add('hidden');
@@ -221,10 +259,10 @@ document.addEventListener('DOMContentLoaded', () => {
     uploadButton.disabled = true;
     uploadButton.textContent = 'Uploading...';
 
-    const formData = new FormData(form);
+    const formData = new FormData(uploadForm);
 
     try {
-      const response = await fetch(form.action, {
+      const response = await fetch(uploadForm.action, {
         method: 'POST',
         body: formData,
         headers: {
@@ -234,13 +272,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await response.json();
       if (data.success) {
         successMessage.classList.remove('hidden');
-        form.reset();
+        uploadForm.reset();
         fileInfo.textContent = '';
         fileInfo.classList.add('hidden');
         uploadButton.disabled = true;
         uploadButton.textContent = 'Upload Timesheet';
-        // Reload calendar events after successful upload
-        loadCalendarEvents();
+        // Reload page to show updated timesheet
+        reloadPage();
       } else {
         errorText.textContent = data.message || 'Error uploading timesheet.';
         errorMessage.classList.remove('hidden');
@@ -254,77 +292,6 @@ document.addEventListener('DOMContentLoaded', () => {
       uploadButton.textContent = 'Upload Timesheet';
     }
   });
-
-  // Initialize FullCalendar
-  // Remove or comment out the calendar initialization since the element is missing
-  /*
-  const calendarEl = document.getElementById('timesheet-calendar');
-  if (calendarEl) {
-    const calendar = new FullCalendar.Calendar(calendarEl, {
-      initialView: 'dayGridMonth',
-      headerToolbar: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'dayGridMonth,dayGridWeek,dayGridDay'
-      },
-      events: [],
-      eventColor: '#4f46e5',
-      eventDisplay: 'block',
-      eventTimeFormat: {
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: false
-      },
-      eventClick: function(info) {
-        alert('Date: ' + info.event.start.toISOString().slice(0,10) + '\\n' +
-              'Hours Worked: ' + info.event.extendedProps.hours_worked + '\\n' +
-              'Task: ' + info.event.extendedProps.task_name + '\\n' +
-              'Description: ' + info.event.extendedProps.description);
-      }
-    });
-  
-    // Load calendar events from template context
-    function loadCalendarEvents() {
-      const timesheetEntriesScript = document.getElementById('timesheet-entries');
-      if (!timesheetEntriesScript) return;
-      let timesheetData;
-      try {
-        timesheetData = JSON.parse(timesheetEntriesScript.textContent);
-      } catch (e) {
-        console.error('Error parsing timesheet entries JSON:', e);
-        return;
-      }
-      calendar.removeAllEvents();
-      timesheetData.forEach(entry => {
-        calendar.addEvent({
-          title: entry.hours_worked + ' hrs',
-          start: entry.date,
-          extendedProps: {
-            hours_worked: entry.hours_worked,
-            description: entry.description
-          }
-        });
-      });
-    }
-  
-    loadCalendarEvents();
-    calendar.render();
-  }
-  */
-
-  // Timesheet entries table management
-  const timesheetEntriesElement = document.getElementById('timesheet-entries');
-  if (!timesheetEntriesElement) {
-    console.error('timesheet-entries element not found in DOM');
-    return;
-  }
-  const timesheetEntries = JSON.parse(timesheetEntriesElement.textContent);
-  const timesheetSelect = document.getElementById('timesheet-select');
-  const tbody = document.getElementById('timesheet-entries-body');
-  const addRowBtn = document.getElementById('add-row-button');
-  const saveBtn = document.getElementById('save-entries-button');
-  const saveFeedback = document.getElementById('save-feedback');
-  const saveLoading = document.getElementById('save-loading');
 
   function validateEntry(entry) {
     if (!entry.date) {
@@ -410,64 +377,77 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  addRowBtn.addEventListener('click', () => {
-    const newRow = createRow();
-    tbody.appendChild(newRow);
-  });
-
-  saveBtn.addEventListener('click', async () => {
-    saveFeedback.textContent = '';
-    saveLoading.classList.remove('hidden');
-
-    const rows = Array.from(tbody.querySelectorAll('tr'));
-    const entries = rows.map(row => {
-      const inputs = row.querySelectorAll('input');
-      return {
-        date: inputs[0].value,
-        start_time: inputs[1].value,
-        end_time: inputs[2].value,
-        task_name: inputs[3].value
-      };
+  if (addRowBtn) {
+    addRowBtn.addEventListener('click', () => {
+      const newRow = createRow();
+      tbody.appendChild(newRow);
     });
+  }
 
-    // Client-side validation
-    for (let i = 0; i < entries.length; i++) {
-      const error = validateEntry(entries[i]);
-      if (error) {
-        saveLoading.classList.add('hidden');
-        saveFeedback.textContent = `Error in row ${i + 1}: ${error}`;
-        saveFeedback.className = 'text-red-600 mt-2';
-        return;
-      }
-    }
+  if (saveBtn) {
+    saveBtn.addEventListener('click', async () => {
+      saveFeedback.textContent = '';
+      saveLoading.classList.remove('hidden');
 
-    try {
-      const response = await fetch('/consultation/save_timesheet_entries/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-CSRFToken': getCookie('csrftoken'),
-        },
-        body: JSON.stringify({
-          timesheet_id: timesheetSelect.value,
-          entries: entries,
-        }),
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      const entries = rows.map(row => {
+        const inputs = row.querySelectorAll('input');
+        return {
+          date: inputs[0].value,
+          start_time: inputs[1].value,
+          end_time: inputs[2].value,
+          task_name: inputs[3].value
+        };
       });
-      const data = await response.json();
-      saveLoading.classList.add('hidden');
-      if (data.success) {
-        saveFeedback.textContent = 'Timesheet entries saved successfully.';
-        saveFeedback.className = 'text-green-600 mt-2';
-      } else {
-        saveFeedback.textContent = 'Error saving timesheet entries: ' + (data.message || 'Unknown error.');
+
+      // Client-side validation
+      for (let i = 0; i < entries.length; i++) {
+        const error = validateEntry(entries[i]);
+        if (error) {
+          saveLoading.classList.add('hidden');
+          saveFeedback.textContent = `Error in row ${i + 1}: ${error}`;
+          saveFeedback.className = 'text-red-600 mt-2';
+          return;
+        }
+      }
+
+      try {
+        const response = await fetch('/consultation/save_timesheet_entries/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken'),
+          },
+          body: JSON.stringify({
+            timesheet_id: modeManualRadio.checked ? null : timesheetSelect.value,
+            entries: entries,
+            selected_month: monthSelect.value,
+          }),
+        });
+        const data = await response.json();
+        saveLoading.classList.add('hidden');
+        if (data.success) {
+          saveFeedback.textContent = 'Timesheet entries saved successfully.';
+          saveFeedback.className = 'text-green-600 mt-2';
+          if (data.timesheet_id) {
+            // Reload page with new timesheet selected
+            const url = new URL(window.location.href);
+            url.searchParams.set('timesheet_id', data.timesheet_id);
+            url.searchParams.set('mode', 'manual');
+            url.searchParams.set('month', monthSelect.value);
+            window.location.href = url.toString();
+          }
+        } else {
+          saveFeedback.textContent = 'Error saving timesheet entries: ' + (data.message || 'Unknown error.');
+          saveFeedback.className = 'text-red-600 mt-2';
+        }
+      } catch (error) {
+        saveLoading.classList.add('hidden');
+        saveFeedback.textContent = 'Network error. Please try again.';
         saveFeedback.className = 'text-red-600 mt-2';
       }
-    } catch (error) {
-      saveLoading.classList.add('hidden');
-      saveFeedback.textContent = 'Network error. Please try again.';
-      saveFeedback.className = 'text-red-600 mt-2';
-    }
-  });
+    });
+  }
 
   // CSRF helper
   function getCookie(name) {

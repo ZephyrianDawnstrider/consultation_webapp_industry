@@ -12,7 +12,6 @@ This module contains all the views for the custom admin interface including:
 import json
 import logging
 import random
-import string
 import re
 from datetime import datetime
 
@@ -333,15 +332,6 @@ def add_consultant(request):
             if not re.fullmatch(email_regex, email, re.IGNORECASE):
                 logger.warning("Invalid email address.")
                 return JsonResponse({'success': False, 'message': 'Invalid email address.'})
-            
-            # Agreement is optional for now, so skip validation
-            # if not agreement:
-            #     logger.warning("Agreement PDF is required.")
-            #     return JsonResponse({'success': False, 'message': 'Agreement PDF is required.'})
-            
-            # if not agreement.name.lower().endswith('.pdf'):
-            #     logger.warning("Agreement must be a PDF file.")
-            #     return JsonResponse({'success': False, 'message': 'Agreement must be a PDF file.'})
 
             # Check for existing user
             if User.objects.filter(email=email).exists():
