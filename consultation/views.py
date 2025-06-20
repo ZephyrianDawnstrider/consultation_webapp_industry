@@ -32,10 +32,9 @@ def consultant_dashboard(request):
     first_day_of_month = today.replace(day=1)
     seven_days_later = today + timedelta(days=7)
 
-    # Total consultations: count of approved timesheets
+    # Total consultations: count of timesheets (approval removed)
     total_consultations = Timesheet.objects.filter(
         consultant=user,
-        status='approved'
     ).count()
 
     # Upcoming consultations: count of SessionBooking in next 7 days
@@ -199,29 +198,43 @@ def consultant_timesheet(request):
         month_name = month_date.strftime('%B %Y')
         month_options.append({'value': month_value, 'name': month_name, 'selected': False})
 
-    # Fetch approved timesheets for this consultant
+    # Fetch timesheets for this consultant (approval removed)
     approved_timesheets = Timesheet.objects.filter(
         consultant=request.user,
-        status__in=['approved', 'rejected', 'awaiting_review', 'sent_to_bank']
     ).order_by('-month')
 
-    # Determine selected timesheet for editing entries
-    selected_timesheet_id = request.GET.get('timesheet_id')
-    if selected_timesheet_id:
+    # Get mode from GET params: 'upload' or 'manual', default to 'upload'
+    mode = request.GET.get('mode', 'upload')
+
+    # Get selected month from GET params
+    selected_month_str = request.GET.get('month')
+    selected_month = None
+    if selected_month_str:
         try:
-            selected_timesheet = approved_timesheets.get(id=selected_timesheet_id)
-        except Timesheet.DoesNotExist:
-            selected_timesheet = approved_timesheets.first()
+            selected_month = datetime.strptime(selected_month_str, '%Y-%m').date()
+        except ValueError:
+            selected_month = None
+
+    # Determine selected timesheet for editing entries
+    selected_timesheet = None
+    if selected_month:
+        # Try to find timesheet for selected month
+        selected_timesheet = approved_timesheets.filter(month__year=selected_month.year, month__month=selected_month.month).first()
     else:
         selected_timesheet = approved_timesheets.first()
 
-    # Read timesheet entries from CSV file for selected timesheet
     timesheet_entries = []
+
+    import logging
+    logger = logging.getLogger(__name__)
+    logger.info(f"Selected timesheet: {selected_timesheet}")
+
     if selected_timesheet:
         try:
-            csv_file = selected_timesheet.file.open('r')
-            csv_data = csv_file.read()
-            csv_file.close()
+            # Open the file using default_storage to ensure correct path and access
+            from django.core.files.storage import default_storage
+            with default_storage.open(selected_timesheet.file.name, 'r') as csv_file:
+                csv_data = csv_file.read()
             f = StringIO(csv_data)
             reader = csv.DictReader(f)
             for row in reader:
@@ -241,9 +254,8 @@ def consultant_timesheet(request):
                     'description': normalized_row.get('description'),
                 }
                 timesheet_entries.append(entry)
+            logger.info(f"Loaded {len(timesheet_entries)} timesheet entries")
         except Exception as e:
-            import logging
-            logger = logging.getLogger(__name__)
             logger.error(f"Error reading timesheet CSV file: {str(e)}")
 
     context = {
@@ -252,6 +264,8 @@ def consultant_timesheet(request):
         'timesheets': approved_timesheets,
         'selected_timesheet': selected_timesheet,
         'timesheet_entries': timesheet_entries,
+        'mode': mode,
+        'selected_month': selected_month_str,
     }
     return render(request, 'consultant_timesheet.html', context)
 
@@ -264,7 +278,11 @@ def save_timesheet_entries(request):
     from io import StringIO
     from django.http import JsonResponse
     from django.core.exceptions import PermissionDenied
+    from django.core.files.base import ContentFile
     import logging
+    import os
+    from django.conf import settings
+    from datetime import datetime
 
     user = request.user
     try:
@@ -272,12 +290,35 @@ def save_timesheet_entries(request):
         logging.info(f"save_timesheet_entries received data: {data}")
         timesheet_id = data.get('timesheet_id')
         entries = data.get('entries')
-        if not timesheet_id or entries is None:
-            logging.error("Missing timesheet_id or entries in request data")
-            return JsonResponse({'success': False, 'message': 'Missing timesheet_id or entries.'})
+        selected_month_str = data.get('selected_month')
 
-        # Fetch the timesheet instance
-        timesheet = Timesheet.objects.get(id=timesheet_id, consultant=user)
+        if entries is None:
+            logging.error("Missing entries in request data")
+            return JsonResponse({'success': False, 'message': 'Missing entries.'})
+
+        if timesheet_id:
+            # Update existing timesheet
+            timesheet = Timesheet.objects.get(id=timesheet_id, consultant=user)
+        else:
+            # Create new timesheet for manual entry
+            if not selected_month_str:
+                return JsonResponse({'success': False, 'message': 'Missing selected_month for new timesheet.'})
+            try:
+                selected_month = datetime.strptime(selected_month_str, '%Y-%m').date()
+            except ValueError:
+                return JsonResponse({'success': False, 'message': 'Invalid selected_month format.'})
+
+            # Prepare file name and path
+            file_name = f"{user.id}_{selected_month.strftime('%Y_%m')}.csv"
+            file_path = os.path.join('timesheets', file_name)
+
+            # Create new Timesheet instance
+            timesheet = Timesheet.objects.create(
+                consultant=user,
+                month=selected_month,
+                status='awaiting_review',
+            )
+            timesheet.file.name = file_path
 
         # Prepare CSV output
         output = StringIO()
@@ -303,7 +344,7 @@ def save_timesheet_entries(request):
         timesheet.save()
 
         logging.info("Timesheet entries saved successfully")
-        return JsonResponse({'success': True, 'message': 'Timesheet entries saved successfully.'})
+        return JsonResponse({'success': True, 'message': 'Timesheet entries saved successfully.', 'timesheet_id': timesheet.id})
     except Timesheet.DoesNotExist:
         logging.error("Timesheet not found or access denied")
         return JsonResponse({'success': False, 'message': 'Timesheet not found or access denied.'})
@@ -375,12 +416,11 @@ def upload_timesheet(request, consultant_id):
             # Delete the original Excel file
             default_storage.delete(temp_path)
 
-            # Create Timesheet record with CSV file path
+            # Create Timesheet record with CSV file path (approval removed)
             timesheet = Timesheet.objects.create(
                 consultant=consultant,
                 month=month,
                 file=csv_path,
-                status='awaiting_review'
             )
 
             logger.info(f"Timesheet uploaded and converted to CSV successfully by user {request.user.id} for month {month_str}")
@@ -673,7 +713,6 @@ def consultant_registration(request):
 
 from django.contrib import messages
 from django.utils.dateparse import parse_date
-
 from custom_admin.models import Invoice
 
 @login_required
