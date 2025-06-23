@@ -16659,3 +16659,20 @@ django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '
 [2025-06-23 13:25:37,467] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28553
 [2025-06-23 13:25:44,529] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28436
 [2025-06-23 13:25:53,986] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28436
+[2025-06-23 13:29:40,417] INFO django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 302 0
+[2025-06-23 13:29:40,605] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28553
+[2025-06-23 13:30:06,582] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28436
+[2025-06-23 13:30:18,965] INFO django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 302 0
+[2025-06-23 13:30:18,993] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28553
+[2025-06-23 13:32:00,934] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-23 13:32:04,914] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 13:32:12,493] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28436
+[2025-06-23 13:32:25,077] INFO django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 302 0
+[2025-06-23 13:32:25,128] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28553
+[2025-06-23 13:33:50,480] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28436
+[2025-06-23 13:37:32,334] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-23 13:37:34,736] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 13:37:39,576] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28436
+[2025-06-23 13:37:40,615] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28436
+[2025-06-23 13:37:49,265] INFO django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 302 0
+[2025-06-23 13:37:49,329] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28553
