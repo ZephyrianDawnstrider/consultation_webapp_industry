@@ -16676,3 +16676,18 @@ django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '
 [2025-06-23 13:37:40,615] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28436
 [2025-06-23 13:37:49,265] INFO django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 302 0
 [2025-06-23 13:37:49,329] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28553
+[2025-06-23 13:44:23,301] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-23 13:44:26,151] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 13:44:35,150] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28436
+[2025-06-23 13:44:49,558] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-23 13:44:52,535] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 13:44:57,735] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28436
+[2025-06-23 13:45:09,564] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28436
+[2025-06-23 13:45:21,278] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28436
+[2025-06-23 13:45:57,308] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28436
+[2025-06-23 13:46:00,434] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 33933
+[2025-06-23 13:47:25,394] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 33933
+[2025-06-23 13:47:28,368] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 33933
+[2025-06-23 13:47:35,326] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34454
+[2025-06-23 13:48:43,254] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34454
+[2025-06-23 13:48:46,158] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34509
