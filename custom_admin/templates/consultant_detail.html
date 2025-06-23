@@ -112,6 +112,17 @@
         </div>
         <button type="submit" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save Changes</button>
     </form>
+    
+    <!-- Password Section -->
+    <div class="form-group row mt-4">
+        <label class="col-sm-3 col-form-label">Password:</label>
+        <div class="col-sm-9 position-relative">
+            <input type="password" id="current-password" name="password" class="form-control" value="{{ decrypted_password }}" />
+            <button type="button" id="toggle-password-visibility" class="btn btn-outline-secondary position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%);">
+                <i class="fas fa-eye" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
 
     <!-- Timesheet Data Section -->
     <div class="bg-white rounded-lg shadow p-6 mt-10">

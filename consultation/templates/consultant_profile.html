@@ -8,7 +8,7 @@
     <div class="card">
         <div class="card-body">
             {% if form %}
-            <form method="post" enctype="multipart/form-data">
+            <form method="post" enctype="multipart/form-data" id="profile-form">
                 {% csrf_token %}
                 {{ form.non_field_errors }}
                 <div class="form-group row">
@@ -104,6 +104,43 @@
                         {% endif %}
                     </div>
                 </div>
+
+                <!-- Password Section -->
+                <div class="form-group row mt-4">
+                    <label class="col-sm-3 col-form-label">Current Password:</label>
+                    <div class="col-sm-5 position-relative">
+                        <input type="password" id="current-password" class="form-control" value="{{ decrypted_password }}" readonly />
+                        <button type="button" id="toggle-password-visibility" class="btn btn-outline-secondary position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%);">
+                            <i class="fas fa-eye" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="col-sm-4">
+                        <button type="button" class="btn btn-primary" id="edit-password-btn">Edit Password</button>
+                    </div>
+                </div>
+
+                <!-- OTP Section (hidden initially) -->
+                <div class="form-group row mt-3 d-none" id="otp-section">
+                    <label class="col-sm-3 col-form-label">Enter OTP:</label>
+                    <div class="col-sm-6">
+                        <input type="text" id="otp-input" class="form-control" maxlength="6" />
+                    </div>
+                    <div class="col-sm-3">
+                        <button type="button" class="btn btn-success" id="verify-otp-btn">Verify OTP</button>
+                    </div>
+                </div>
+
+                <!-- New Password Section (hidden initially) -->
+                <div class="form-group row mt-3 d-none" id="new-password-section">
+                    <label class="col-sm-3 col-form-label">New Password:</label>
+                    <div class="col-sm-6">
+                        <input type="password" id="new-password-input" class="form-control" />
+                    </div>
+                    <div class="col-sm-3">
+                        <button type="button" class="btn btn-success" id="change-password-btn">Change Password</button>
+                    </div>
+                </div>
+
                 <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
             </form>
             {% else %}
@@ -112,6 +149,146 @@
         </div>
     </div>
 </div>
+<script>
+console.log("Toggle script loaded");
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.getElementById('toggle-password-visibility');
+    const passwordInput = document.getElementById('current-password');
+    console.log("Toggle button element:", toggleBtn);
+    console.log("Password input element:", passwordInput);
+
+    if (toggleBtn && passwordInput) {
+        toggleBtn.addEventListener('click', function() {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                console.log('Password visibility: ON');
+            } else {
+                passwordInput.type = 'password';
+                console.log('Password visibility: OFF');
+            }
+        });
+    }
+
+    const editPasswordBtn = document.getElementById('edit-password-btn');
+    const otpSection = document.getElementById('otp-section');
+    const verifyOtpBtn = document.getElementById('verify-otp-btn');
+    const newPasswordSection = document.getElementById('new-password-section');
+    const changePasswordBtn = document.getElementById('change-password-btn');
+    const newPasswordInput = document.getElementById('new-password-input');
+
+    if (editPasswordBtn && otpSection) {
+        editPasswordBtn.addEventListener('click', function() {
+            otpSection.classList.remove('d-none');
+            console.log('OTP section shown');
+
+            // Send OTP via AJAX POST
+            fetch('/consultation/send_otp/', {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken'),
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({})
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('OTP sent to your email.');
+                } else {
+                    alert('Failed to send OTP: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error sending OTP:', error);
+                alert('Error sending OTP.');
+            });
+        });
+    }
+
+    if (verifyOtpBtn && otpSection && newPasswordSection) {
+        verifyOtpBtn.addEventListener('click', function() {
+            const otpInput = document.getElementById('otp-input').value.trim();
+            if (!otpInput) {
+                alert('Please enter the OTP.');
+                return;
+            }
+
+            fetch('/consultation/verify_otp/', {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken'),
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ otp: otpInput })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('OTP verified successfully.');
+                    otpSection.classList.add('d-none');
+                    newPasswordSection.classList.remove('d-none');
+                } else {
+                    alert('Invalid OTP.');
+                }
+            })
+            .catch(error => {
+                console.error('Error verifying OTP:', error);
+                alert('Error verifying OTP.');
+            });
+        });
+    }
+
+    if (changePasswordBtn && newPasswordInput) {
+        changePasswordBtn.addEventListener('click', function() {
+            const newPassword = newPasswordInput.value.trim();
+            if (!newPassword) {
+                alert('Please enter a new password.');
+                return;
+            }
+
+            fetch('/consultation/change_password/', {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken'),
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ new_password: newPassword })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Password changed successfully.');
+                    newPasswordSection.classList.add('d-none');
+                    newPasswordInput.value = '';
+                } else {
+                    alert('Failed to change password: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error changing password:', error);
+                alert('Error changing password.');
+            });
+        });
+    }
+
+    // Helper function to get CSRF token from cookies
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+});
+</script>
 {% endblock %}
 {% block extra_css %}
 .form-control-plaintext {
