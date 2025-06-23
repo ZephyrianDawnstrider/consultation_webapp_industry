@@ -3,3 +3,5 @@ djangorestframework
 cryptography
 openpyxl
 gunicorn
+pansas
+psycopg2-binary

@@ -229,8 +229,11 @@ def edit_consultant(request, consultant_id):
         profile = ConsultantProfile(user=user)
 
     if request.method == 'POST':
+        logger.info(f"Received POST data: {request.POST}")
         form = ImportedConsultantEditForm(request.POST, request.FILES, instance=profile)
+        logger.info(f"Form fields: {form.fields.keys()}")
         if form.is_valid():
+            logger.info("Form is valid")
             try:
                 # Save profile fields
                 form.save()
@@ -238,33 +241,37 @@ def edit_consultant(request, consultant_id):
 
                 # Handle password change if password field is filled
                 new_password = form.cleaned_data.get('password')
+                logger.info(f"Password field value: {new_password}")
                 if new_password:
-                    from custom_admin.utils import encrypt_password
-                    encrypted_password = encrypt_password(new_password)
-                    user.encrypted_password = encrypted_password
-                    user.set_password(new_password)
-                    user.save()
+                    try:
+                        from custom_admin.utils import encrypt_password
+                        encrypted_password = encrypt_password(new_password)
+                        user.encrypted_password = encrypted_password
+                        user.set_password(new_password)
+                        user.save()
 
-                    # Send email with new login credentials
-                    from django.conf import settings
-                    email_message = (
-                        f"Dear {user.email},\n\n"
-                        f"Your password has been changed by the admin.\n"
-                        f"Your new login credentials are:\n"
-                        f"Email: {user.email}\n"
-                        f"Password: {new_password}\n\n"
-                        f"Please login using these credentials.\n\n"
-                        f"Regards,\n"
-                        f"Consultation Team"
-                    )
-                    send_mail(
-                        subject='Your Login Credentials Have Been Updated',
-                        message=email_message,
-                        from_email=settings.DEFAULT_FROM_EMAIL,
-                        recipient_list=[user.email],
-                        fail_silently=False,
-                    )
-                    logger.info(f"Password changed and email sent for user {user.email}")
+                        # Send email with new login credentials
+                        from django.conf import settings
+                        email_message = (
+                            f"Dear {user.email},\n\n"
+                            f"Your password has been changed by the admin.\n"
+                            f"Your new login credentials are:\n"
+                            f"Email: {user.email}\n"
+                            f"Password: {new_password}\n\n"
+                            f"Please login using these credentials.\n\n"
+                            f"Regards,\n"
+                            f"Consultation Team"
+                        )
+                        send_mail(
+                            subject='Your Login Credentials Have Been Updated',
+                            message=email_message,
+                            from_email=settings.DEFAULT_FROM_EMAIL,
+                            recipient_list=[user.email],
+                            fail_silently=False,
+                        )
+                        logger.info(f"Password changed and email sent for user {user.email}")
+                    except Exception as e:
+                        logger.error(f"Error changing password or sending email for user {user.email}: {str(e)}")
 
                 logger.info(f"Consultant details updated successfully for user {user.email}")
                 if request.headers.get('x-requested-with') == 'XMLHttpRequest':
@@ -280,12 +287,11 @@ def edit_consultant(request, consultant_id):
                     messages.error(request, 'An error occurred while saving consultant details.')
                     return redirect('custom_admin:consultant_profile', consultant_id=consultant_id)
         else:
+            logger.error(f"Form validation errors: {form.errors}")
             if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                 errors = form.errors.as_json()
-                logger.error(f"Form validation errors: {form.errors}")
                 return JsonResponse({'success': False, 'errors': errors}, status=400)
             else:
-                logger.error(f"Form validation errors for user {user.email}: {form.errors}")
                 messages.error(request, 'Please correct the errors below.')
                 return redirect('custom_admin:consultant_profile', consultant_id=consultant_id)
     else:
