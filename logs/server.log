@@ -16640,3 +16640,22 @@ django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '
 [2025-06-23 13:15:02,339] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 25438
 [2025-06-23 13:15:07,698] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34517
 [2025-06-23 13:16:15,660] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 35030
+[2025-06-23 13:18:33,046] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 33933
+[2025-06-23 13:18:51,385] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 33933
+[2025-06-23 13:20:44,893] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34551
+[2025-06-23 13:21:14,167] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34551
+[2025-06-23 13:21:20,816] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 33956
+[2025-06-23 13:21:22,915] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 33956
+[2025-06-23 13:21:44,751] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 33956
+[2025-06-23 13:21:46,515] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 33956
+[2025-06-23 13:21:47,591] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 33956
+[2025-06-23 13:21:48,784] WARNING django.request Not Found: /favicon.ico
+[2025-06-23 13:21:48,785] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-23 13:22:09,029] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 33956
+[2025-06-23 13:23:13,792] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 33956
+[2025-06-23 13:23:28,528] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 33956
+[2025-06-23 13:25:21,529] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28436
+[2025-06-23 13:25:37,436] INFO django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 302 0
+[2025-06-23 13:25:37,467] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28553
+[2025-06-23 13:25:44,529] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28436
+[2025-06-23 13:25:53,986] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 28436
