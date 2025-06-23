@@ -16434,3 +16434,209 @@ django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '
 [2025-06-23 10:40:20,536] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 31058
 [2025-06-23 10:40:33,117] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-05&mode=upload HTTP/1.1" 200 27486
 [2025-06-23 10:40:46,653] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-06&mode=upload HTTP/1.1" 200 31061
+[2025-06-23 11:03:33,400] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-23 11:03:35,970] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 11:06:14,611] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-23 11:06:17,147] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 11:07:30,773] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-06&mode=upload HTTP/1.1" 200 31061
+[2025-06-23 11:07:34,668] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 19786
+[2025-06-23 11:08:28,661] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37585
+[2025-06-23 11:08:28,748] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-23 11:08:29,144] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-23 11:08:31,377] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37585
+[2025-06-23 11:08:31,416] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-23 11:08:31,581] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-23 11:08:34,497] INFO django.server "GET /auth/change_consultant_status/4/ HTTP/1.1" 200 200
+[2025-06-23 11:08:36,307] INFO django.server "POST /auth/change_consultant_status/4/ HTTP/1.1" 200 42
+[2025-06-23 11:08:38,217] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37596
+[2025-06-23 11:08:38,264] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-23 11:08:38,393] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-23 11:08:41,613] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 33338
+[2025-06-23 11:08:59,270] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20110
+[2025-06-23 11:09:26,839] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20110
+[2025-06-23 11:09:33,240] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-23 11:09:33,249] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-23 11:10:26,639] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20110
+[2025-06-23 11:10:27,095] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-23 11:10:27,096] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-23 11:10:30,261] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20110
+[2025-06-23 11:10:35,979] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-23 11:10:35,980] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-23 11:10:36,488] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20110
+[2025-06-23 11:10:36,689] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-23 11:10:36,690] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-23 11:11:21,841] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20110
+[2025-06-23 11:11:21,997] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-23 11:11:21,998] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-23 11:11:30,491] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20110
+[2025-06-23 11:11:31,457] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-23 11:11:31,458] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-23 11:12:42,608] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20110
+[2025-06-23 11:12:51,411] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20110
+[2025-06-23 11:12:56,122] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20110
+[2025-06-23 11:12:56,988] WARNING django.request Not Found: /favicon.ico
+[2025-06-23 11:12:56,989] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-23 11:13:06,200] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20110
+[2025-06-23 11:13:06,863] WARNING django.request Not Found: /favicon.ico
+[2025-06-23 11:13:06,864] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-23 11:13:07,680] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20110
+[2025-06-23 11:13:10,110] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-23 11:13:10,112] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-23 11:13:46,933] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20110
+[2025-06-23 11:13:47,106] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-23 11:13:47,107] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-23 11:14:15,415] INFO django.server "GET / HTTP/1.1" 200 38710
+[2025-06-23 11:14:16,615] WARNING django.request Not Found: /favicon.ico
+[2025-06-23 11:14:16,617] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-23 11:14:20,325] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-23 11:14:20,380] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 25594
+[2025-06-23 11:14:23,180] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 22520
+[2025-06-23 11:14:24,375] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20110
+[2025-06-23 11:16:20,458] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 31058
+[2025-06-23 11:17:30,220] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 31058
+[2025-06-23 11:17:33,905] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20110
+[2025-06-23 11:17:37,124] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20110
+[2025-06-23 11:17:37,999] WARNING django.request Not Found: /favicon.ico
+[2025-06-23 11:17:38,000] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-23 11:20:14,258] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20110
+[2025-06-23 11:20:19,951] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-23 11:20:19,952] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-23 11:22:35,583] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20110
+[2025-06-23 11:22:35,787] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-23 11:22:35,788] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-23 11:24:17,465] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20110
+[2025-06-23 11:24:17,642] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-23 11:24:17,643] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-23 11:24:55,899] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20110
+[2025-06-23 11:24:56,079] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-23 11:24:56,080] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-23 11:26:42,241] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20110
+[2025-06-23 11:26:43,399] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-23 11:26:43,400] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-23 11:27:13,397] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20110
+[2025-06-23 11:27:38,895] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20110
+[2025-06-23 11:31:40,673] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20110
+[2025-06-23 11:31:45,580] INFO django.server "GET /media/agreements/openart-image_WM8SVq19_1749100402842_raw.pdf HTTP/1.1" 304 0
+[2025-06-23 11:34:28,370] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20111
+[2025-06-23 11:40:47,824] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20111
+[2025-06-23 11:40:55,835] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20111
+[2025-06-23 11:41:22,684] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20111
+[2025-06-23 11:42:22,805] INFO django.server "GET /auth/logout/ HTTP/1.1" 302 0
+[2025-06-23 11:42:22,819] INFO django.server "GET /auth/login/ HTTP/1.1" 200 38710
+[2025-06-23 11:45:20,368] INFO django.server "GET /auth/login/ HTTP/1.1" 200 38710
+[2025-06-23 11:45:24,983] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-23 11:45:25,019] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 25594
+[2025-06-23 11:45:27,507] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20111
+[2025-06-23 11:45:54,490] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20111
+[2025-06-23 11:47:23,167] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20111
+[2025-06-23 11:47:25,221] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20111
+[2025-06-23 11:47:26,464] WARNING django.request Not Found: /favicon.ico
+[2025-06-23 11:47:26,465] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-23 11:48:09,629] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 11:48:13,821] INFO django.server "GET / HTTP/1.1" 200 38710
+[2025-06-23 11:48:15,204] WARNING django.request Not Found: /favicon.ico
+[2025-06-23 11:48:15,206] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-23 11:48:18,804] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-23 11:48:19,021] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 25594
+[2025-06-23 11:48:21,390] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20102
+[2025-06-23 11:48:23,230] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20102
+[2025-06-23 11:49:23,573] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20102
+[2025-06-23 11:50:08,413] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20102
+[2025-06-23 11:50:32,941] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20102
+[2025-06-23 11:52:42,422] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 20891
+[2025-06-23 11:55:20,784] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 21314
+[2025-06-23 11:59:51,175] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 25426
+[2025-06-23 11:59:56,250] WARNING django.request Not Found: /consultation/send_otp/
+[2025-06-23 11:59:56,251] WARNING django.server "POST /consultation/send_otp/ HTTP/1.1" 404 4295
+[2025-06-23 12:08:34,712] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\urls.py changed, reloading.
+[2025-06-23 12:08:40,740] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 12:08:49,389] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 12:09:01,417] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 25426
+[2025-06-23 12:09:03,041] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 25426
+[2025-06-23 12:09:09,413] INFO django.server "POST /consultation/send_otp/ HTTP/1.1" 200 53
+[2025-06-23 12:09:43,702] INFO django.server "POST /consultation/consultant_profile/4/ HTTP/1.1" 302 0
+[2025-06-23 12:09:43,727] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 25418
+[2025-06-23 12:09:54,313] INFO django.server "POST /consultation/send_otp/ HTTP/1.1" 200 53
+[2025-06-23 12:10:12,588] INFO django.server "POST /consultation/verify_otp/ HTTP/1.1" 200 44
+[2025-06-23 12:10:58,695] INFO django.server "POST /consultation/send_otp/ HTTP/1.1" 200 53
+[2025-06-23 12:11:08,148] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 25418
+[2025-06-23 12:11:14,441] INFO django.server "POST /consultation/send_otp/ HTTP/1.1" 200 53
+[2025-06-23 12:11:28,933] INFO django.server "POST /consultation/consultant_profile/4/ HTTP/1.1" 302 0
+[2025-06-23 12:11:28,956] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 25418
+[2025-06-23 12:11:42,691] INFO django.server "POST /consultation/send_otp/ HTTP/1.1" 200 53
+[2025-06-23 12:11:58,792] INFO django.server "POST /consultation/verify_otp/ HTTP/1.1" 200 44
+[2025-06-23 12:12:24,322] INFO django.server "POST /consultation/change_password/ HTTP/1.1" 200 61
+[2025-06-23 12:12:27,140] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 302 0
+[2025-06-23 12:12:27,154] INFO django.server "GET /auth/login/?next=/consultation/consultant_profile/4/ HTTP/1.1" 200 38710
+[2025-06-23 12:12:35,788] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-23 12:12:35,855] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 25594
+[2025-06-23 12:12:41,105] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 25420
+[2025-06-23 12:13:51,218] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 33338
+[2025-06-23 12:14:04,494] INFO django.server "POST /auth/edit_consultant/4/ HTTP/1.1" 302 0
+[2025-06-23 12:14:04,535] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 33455
+[2025-06-23 12:16:50,087] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34177
+[2025-06-23 12:17:55,224] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34177
+[2025-06-23 12:18:03,497] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 33339
+[2025-06-23 12:19:02,389] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 25446
+[2025-06-23 12:20:02,829] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 25446
+[2025-06-23 12:20:08,018] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 33339
+[2025-06-23 12:20:51,228] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 33339
+[2025-06-23 12:20:57,323] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34214
+[2025-06-23 12:30:54,601] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-23 12:30:57,516] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 12:31:04,705] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34214
+[2025-06-23 12:31:56,591] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34214
+[2025-06-23 12:35:20,333] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-23 12:35:22,205] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 12:35:32,784] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34226
+[2025-06-23 12:36:45,356] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-23 12:36:47,333] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 12:39:34,533] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-23 12:39:37,752] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 12:40:53,216] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34226
+[2025-06-23 12:44:57,441] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34226
+[2025-06-23 12:45:54,112] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34226
+[2025-06-23 12:47:07,329] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34226
+[2025-06-23 12:47:43,943] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34226
+[2025-06-23 12:50:35,438] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\forms.py changed, reloading.
+[2025-06-23 12:50:39,447] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 12:50:45,943] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34226
+[2025-06-23 12:53:41,942] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-23 12:53:46,207] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 12:54:27,448] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34226
+[2025-06-23 12:54:56,384] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34226
+[2025-06-23 12:56:21,611] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34226
+[2025-06-23 12:56:28,306] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 33340
+[2025-06-23 12:56:30,375] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 33340
+[2025-06-23 12:57:09,501] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 24929
+[2025-06-23 12:57:25,423] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-23 12:57:27,372] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 12:57:31,679] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 24906
+[2025-06-23 12:57:36,690] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\forms.py changed, reloading.
+[2025-06-23 12:57:39,024] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 12:58:19,597] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 24929
+[2025-06-23 12:58:23,333] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 24929
+[2025-06-23 13:04:32,846] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 24929
+[2025-06-23 13:05:16,320] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 24929
+[2025-06-23 13:05:16,414] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\forms.py changed, reloading.
+[2025-06-23 13:05:20,286] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 13:05:44,266] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\forms.py changed, reloading.
+[2025-06-23 13:05:47,128] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 13:05:53,318] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 24929
+[2025-06-23 13:06:28,402] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34513
+[2025-06-23 13:07:55,388] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34513
+[2025-06-23 13:08:35,483] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34534
+[2025-06-23 13:09:04,134] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 24929
+[2025-06-23 13:11:15,637] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 24929
+[2025-06-23 13:13:18,583] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 25437
+[2025-06-23 13:13:26,150] INFO django.server "POST /consultation/send_otp/ HTTP/1.1" 200 53
+[2025-06-23 13:13:49,441] INFO django.server "POST /consultation/verify_otp/ HTTP/1.1" 200 44
+[2025-06-23 13:14:09,739] INFO django.server "POST /consultation/change_password/ HTTP/1.1" 200 61
+[2025-06-23 13:14:15,549] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 302 0
+[2025-06-23 13:14:15,574] INFO django.server "GET /auth/login/?next=/consultation/consultant_profile/4/ HTTP/1.1" 200 38710
+[2025-06-23 13:14:37,545] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-23 13:14:37,600] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 25594
+[2025-06-23 13:14:42,509] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 25438
+[2025-06-23 13:15:02,339] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 25438
+[2025-06-23 13:15:07,698] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34517
+[2025-06-23 13:16:15,660] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 35030

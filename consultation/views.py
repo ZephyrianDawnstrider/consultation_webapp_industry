@@ -14,6 +14,18 @@ from django.core.files.storage import default_storage
 from django.core.mail import send_mail
 from django.http import Http404, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+from django.core.mail import send_mail
+from django.conf import settings
+import random
+import string
+from custom_admin.utils import decrypt_password, encrypt_password
+from custom_admin.models import User
+from django.contrib.auth.decorators import login_required
+import logging
+
+logger = logging.getLogger(__name__)
 from django.utils.dateparse import parse_date
 from django.utils.timezone import now
 from django.views.decorators.http import require_POST
@@ -330,10 +342,19 @@ def consultant_profile(request, consultant_id):
     form = ConsultantProfileForm(instance=profile)
     logger.info(f"Rendering consultant profile page for user {consultant.email}")
 
+    # Decrypt password if exists
+    decrypted_password = None
+    if hasattr(consultant, 'encrypted_password') and consultant.encrypted_password:
+        try:
+            decrypted_password = decrypt_password(consultant.encrypted_password)
+        except Exception as e:
+            logger.error(f"Error decrypting password for user {consultant.email}: {str(e)}")
+
     context = {
         'consultant': consultant,
         'form': form,
-        'current_page': 'Consultant Profile'
+        'current_page': 'Consultant Profile',
+        'decrypted_password': decrypted_password,
     }
     return render(request, 'consultant_profile.html', context)
 
@@ -384,6 +405,84 @@ def _handle_profile_update(request, consultant, consultant_id):
         'current_page': 'Consultant Profile'
     }
     return render(request, 'consultant_profile.html', context)
+
+# OTP storage for demo purposes (in-memory dictionary)
+otp_storage = {}
+
+@login_required
+@csrf_exempt
+def send_otp(request):
+    if request.method == 'POST':
+        user = request.user
+        if user.role != 'consultant':
+            return JsonResponse({'success': False, 'message': 'Unauthorized'}, status=403)
+        otp = ''.join(random.choices(string.digits, k=6))
+        otp_storage[user.id] = otp
+        # Send OTP via email
+        try:
+            send_mail(
+                subject='Your OTP for Password Change',
+                message=f'Your OTP is: {otp}',
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[user.email],
+                fail_silently=False,
+            )
+            logger.info(f"OTP sent to user {user.email}")
+            return JsonResponse({'success': True, 'message': 'OTP sent successfully'})
+        except Exception as e:
+            logger.error(f"Error sending OTP email to {user.email}: {str(e)}")
+            return JsonResponse({'success': False, 'message': 'Failed to send OTP'}, status=500)
+    return JsonResponse({'success': False, 'message': 'Invalid request method'}, status=405)
+
+@login_required
+@csrf_exempt
+def verify_otp(request):
+    if request.method == 'POST':
+        user = request.user
+        if user.role != 'consultant':
+            return JsonResponse({'success': False, 'message': 'Unauthorized'}, status=403)
+        data = json.loads(request.body)
+        otp = data.get('otp')
+        if otp_storage.get(user.id) == otp:
+            # OTP verified, allow password change
+            return JsonResponse({'success': True, 'message': 'OTP verified'})
+        else:
+            return JsonResponse({'success': False, 'message': 'Invalid OTP'}, status=400)
+    return JsonResponse({'success': False, 'message': 'Invalid request method'}, status=405)
+
+@login_required
+@csrf_exempt
+def change_password(request):
+    if request.method == 'POST':
+        user = request.user
+        if user.role != 'consultant':
+            return JsonResponse({'success': False, 'message': 'Unauthorized'}, status=403)
+        data = json.loads(request.body)
+        new_password = data.get('new_password')
+        if not new_password:
+            return JsonResponse({'success': False, 'message': 'New password is required'}, status=400)
+        try:
+            encrypted_password = encrypt_password(new_password)
+            user.encrypted_password = encrypted_password
+            user.set_password(new_password)
+            user.save()
+            # Remove OTP after successful change
+            otp_storage.pop(user.id, None)
+            # Send notification emails to admin and consultant
+            admin_email = settings.EMAIL_HOST_USER
+            send_mail(
+                subject='Password Changed Successfully',
+                message=f'Consultant {user.email} has changed their password successfully.',
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[admin_email, user.email],
+                fail_silently=False,
+            )
+            logger.info(f"Password changed successfully for user {user.email}")
+            return JsonResponse({'success': True, 'message': 'Password changed successfully'})
+        except Exception as e:
+            logger.error(f"Error changing password for user {user.email}: {str(e)}")
+            return JsonResponse({'success': False, 'message': 'Failed to change password'}, status=500)
+    return JsonResponse({'success': False, 'message': 'Invalid request method'}, status=405)
 
 
 def _send_scrap_notification_email(consultant):

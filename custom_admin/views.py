@@ -218,7 +218,7 @@ from custom_admin.forms import ConsultantEditForm as ImportedConsultantEditForm
 @require_http_methods(["GET", "POST"])
 def edit_consultant(request, consultant_id):
     """
-    Edit consultant profile information
+    Edit consultant profile information, including password change with email notification
     """
     user = get_object_or_404(User, id=consultant_id, role='consultant')
     
@@ -232,8 +232,40 @@ def edit_consultant(request, consultant_id):
         form = ImportedConsultantEditForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             try:
+                # Save profile fields
                 form.save()
                 profile.save()
+
+                # Handle password change if password field is filled
+                new_password = form.cleaned_data.get('password')
+                if new_password:
+                    from custom_admin.utils import encrypt_password
+                    encrypted_password = encrypt_password(new_password)
+                    user.encrypted_password = encrypted_password
+                    user.set_password(new_password)
+                    user.save()
+
+                    # Send email with new login credentials
+                    from django.conf import settings
+                    email_message = (
+                        f"Dear {user.email},\n\n"
+                        f"Your password has been changed by the admin.\n"
+                        f"Your new login credentials are:\n"
+                        f"Email: {user.email}\n"
+                        f"Password: {new_password}\n\n"
+                        f"Please login using these credentials.\n\n"
+                        f"Regards,\n"
+                        f"Consultation Team"
+                    )
+                    send_mail(
+                        subject='Your Login Credentials Have Been Updated',
+                        message=email_message,
+                        from_email=settings.DEFAULT_FROM_EMAIL,
+                        recipient_list=[user.email],
+                        fail_silently=False,
+                    )
+                    logger.info(f"Password changed and email sent for user {user.email}")
+
                 logger.info(f"Consultant details updated successfully for user {user.email}")
                 if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                     return JsonResponse({'success': True, 'message': 'Consultant details updated successfully.'})
@@ -422,6 +454,8 @@ def consultant_profile(request, consultant_id):
     Display detailed consultant profile with invoices, timesheets, and timesheet entries
     Also handle CSV timesheet upload and processing
     """
+    from custom_admin.utils import decrypt_password
+
     consultant = get_object_or_404(User, id=consultant_id, role='consultant')
     
     # Get consultant profile with skills
@@ -510,6 +544,14 @@ def consultant_profile(request, consultant_id):
     # Prepare form for editing consultant profile
     form = ConsultantEditForm(instance=profile)
 
+    # Decrypt password for display in template
+    decrypted_password = ''
+    try:
+        if consultant.encrypted_password:
+            decrypted_password = decrypt_password(consultant.encrypted_password)
+    except Exception as e:
+        logger.error(f"Error decrypting password for user {consultant.email}: {str(e)}")
+
     context = {
         'consultant': consultant,
         'profile': profile,
@@ -521,6 +563,7 @@ def consultant_profile(request, consultant_id):
         'selected_timesheet': selected_timesheet,
         'upload_message': upload_message,
         'upload_message_edit': upload_message_edit,
+        'decrypted_password': decrypted_password,
     }
     return render(request, 'consultant_detail.html', context)
 
@@ -693,22 +736,63 @@ def reset_consultant_password(request, consultant_id):
     """
     Reset consultant password with encryption
     """
+    from django.contrib import messages
+    from django.http import HttpResponseBadRequest
+    from cryptography.fernet import Fernet
+    from custom_admin.utils import encrypt_password
+    from django.conf import settings
+
     if request.method == 'POST':
         new_password = request.POST.get('new_password')
+        
+        if not new_password:
+            messages.error(request, 'New password cannot be empty.')
+            return redirect('custom_admin:admin_dashboard')
         
         try:
             consultant = User.objects.get(id=consultant_id, role='consultant')
             
-            # Generate encryption key and encrypt password
-            FERNET_KEY = Fernet.generate_key()
-            fernet = Fernet(FERNET_KEY)
-            encrypted_password = fernet.encrypt(new_password.encode()).decode()
+            # Encrypt password using utility function
+            encrypted_password = encrypt_password(new_password)
             
             consultant.encrypted_password = encrypted_password
+            consultant.set_password(new_password)
             consultant.save()
             
             messages.success(request, 'Password reset successfully')
             logger.info(f"Password reset for consultant {consultant.email}")
+            
+            # Send email with new login credentials to consultant only (no OTP)
+            email_message = (
+                f"Dear {consultant.email},\n\n"
+                f"Your password has been changed by the admin.\n"
+                f"Your new login credentials are:\n"
+                f"Email: {consultant.email}\n"
+                f"Password: {new_password}\n\n"
+                f"Please login using these credentials.\n\n"
+                f"Regards,\n"
+                f"Consultation Team"
+            )
+            
+            send_mail(
+                subject='Your Login Credentials Have Been Updated',
+                message=email_message,
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[consultant.email],
+                fail_silently=False,
+            )
+            
+            # Send internal notification email to admin about password change
+            admin_email = settings.EMAIL_HOST_USER
+            send_mail(
+                subject='Password Changed by Admin',
+                message=f'Admin has changed the password for consultant {consultant.email} (ID: {consultant.id}).',
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[admin_email],
+                fail_silently=False,
+            )
+            
+            # Explicitly ensure no OTP is triggered here
             
         except User.DoesNotExist:
             messages.error(request, 'Consultant not found')

@@ -14,9 +14,15 @@ class ConsultantEditForm(forms.ModelForm):
     """Form for editing consultant profile information including banking, professional info, and status"""
     
     from .models import CONSULTANT_STATUS_CHOICES
-    from django.forms import Select
+    from django.forms import Select, PasswordInput
     from .models import CONSULTANT_STATUS_CHOICES
     status = forms.ChoiceField(choices=CONSULTANT_STATUS_CHOICES, widget=Select(attrs={'class': 'form-control'}), required=False)
+    password = forms.CharField(
+        label="Password",
+        widget=PasswordInput(render_value=True),
+        required=False,
+        help_text="Leave blank if you do not want to change the password."
+    )
     
     class Meta:
         model = ConsultantProfile
