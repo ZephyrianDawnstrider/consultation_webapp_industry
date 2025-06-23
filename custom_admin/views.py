@@ -34,11 +34,13 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from .models import Timesheet
 
+from django.core.files.base import ContentFile
 
 from django.forms import modelformset_factory
 # Removed import of TimesheetEntryFormSet as it is no longer used
 # from .forms import TimesheetEntryFormSet
 from datetime import datetime, timedelta
+# Django imports
 
 
 @login_required
@@ -71,6 +73,7 @@ def save_timesheet_entries(request):
     """
     Save edited timesheet entries from JSON POST data, overwrite CSV file.
     Includes server-side validation of entries.
+    Deletes the timesheet file and record if entries are empty.
     """
     user = request.user
     try:
@@ -86,6 +89,14 @@ def save_timesheet_entries(request):
         # Check if user has permission (staff or owner)
         if not (user.is_staff or timesheet.consultant == user):
             return JsonResponse({'success': False, 'message': 'Permission denied.'})
+
+        # If entries list is empty, delete the file and timesheet record
+        if len(entries) == 0:
+            # Delete the file from storage
+            timesheet.file.delete(save=False)
+            # Delete the timesheet record
+            timesheet.delete()
+            return JsonResponse({'success': True, 'message': 'Timesheet deleted as it was empty.'})
 
         # Server-side validation function
         def validate_entry(entry):

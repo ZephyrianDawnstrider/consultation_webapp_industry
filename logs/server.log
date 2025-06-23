@@ -16313,3 +16313,124 @@ django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '
 [2025-06-20 18:49:54,342] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37596
 [2025-06-20 18:49:54,401] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
 [2025-06-20 18:49:54,662] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-23 10:03:34,787] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 10:03:57,858] INFO django.server "GET / HTTP/1.1" 200 38710
+[2025-06-23 10:04:05,788] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 22520
+[2025-06-23 10:04:07,260] WARNING django.request Not Found: /favicon.ico
+[2025-06-23 10:04:07,267] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-23 10:04:07,697] WARNING django.request Not Found: /favicon.ico
+[2025-06-23 10:04:07,699] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-23 10:04:13,231] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 31285
+[2025-06-23 10:04:16,531] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-06&mode=upload HTTP/1.1" 200 31288
+[2025-06-23 10:04:23,036] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 22520
+[2025-06-23 10:04:25,058] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 18011
+[2025-06-23 10:04:26,366] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 22520
+[2025-06-23 10:04:41,352] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-23 10:04:41,651] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19257
+[2025-06-23 10:04:44,121] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37596
+[2025-06-23 10:04:44,606] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-23 10:04:45,435] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 29109
+[2025-06-23 10:04:46,269] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 119
+[2025-06-23 10:04:46,948] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37596
+[2025-06-23 10:04:47,074] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-23 10:04:47,411] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-23 10:04:49,275] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 33218
+[2025-06-23 10:04:55,234] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=27 HTTP/1.1" 200 30011
+[2025-06-23 10:04:59,002] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=29 HTTP/1.1" 200 30029
+[2025-06-23 10:08:30,006] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=29 HTTP/1.1" 200 30029
+[2025-06-23 10:08:52,058] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=29 HTTP/1.1" 200 30326
+[2025-06-23 10:10:36,121] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 22520
+[2025-06-23 10:10:38,570] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 31285
+[2025-06-23 10:10:43,583] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-05&mode=manual HTTP/1.1" 200 27865
+[2025-06-23 10:10:51,810] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-05&mode=upload HTTP/1.1" 200 27463
+[2025-06-23 10:10:59,768] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-05&mode=manual HTTP/1.1" 200 27865
+[2025-06-23 10:11:23,999] INFO django.server "POST /consultation/save_timesheet_entries/ HTTP/1.1" 200 89
+[2025-06-23 10:11:24,076] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-05&mode=manual&timesheet_id=30 HTTP/1.1" 200 28303
+[2025-06-23 10:11:25,741] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-05&mode=manual&timesheet_id=30 HTTP/1.1" 200 28303
+[2025-06-23 10:11:47,396] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-06&mode=manual&timesheet_id=30 HTTP/1.1" 200 32128
+[2025-06-23 10:11:49,119] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-05&mode=manual&timesheet_id=30 HTTP/1.1" 200 28303
+[2025-06-23 10:12:18,552] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\urls.py changed, reloading.
+[2025-06-23 10:12:21,169] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 10:12:27,633] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=29 HTTP/1.1" 200 30873
+[2025-06-23 10:14:21,059] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=29 HTTP/1.1" 200 30873
+[2025-06-23 10:14:27,315] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=27 HTTP/1.1" 200 30855
+[2025-06-23 10:14:30,536] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=30 HTTP/1.1" 200 30963
+[2025-06-23 10:15:19,429] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=27 HTTP/1.1" 200 30855
+[2025-06-23 10:15:22,577] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=30 HTTP/1.1" 200 30963
+[2025-06-23 10:15:34,380] WARNING django.request Not Found: /custom_admin/save_timesheet_entries/
+[2025-06-23 10:15:34,382] WARNING django.server "POST /custom_admin/save_timesheet_entries/ HTTP/1.1" 404 2934
+[2025-06-23 10:15:49,494] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=30 HTTP/1.1" 200 30955
+[2025-06-23 10:15:57,386] INFO django.server "POST /auth/save_timesheet_entries/ HTTP/1.1" 200 98
+[2025-06-23 10:16:16,331] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-23 10:16:19,538] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 10:16:23,171] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=30 HTTP/1.1" 200 30963
+[2025-06-23 10:16:31,879] WARNING django.request Not Found: /custom_admin/save_timesheet_entries/
+[2025-06-23 10:16:31,880] WARNING django.server "POST /custom_admin/save_timesheet_entries/ HTTP/1.1" 404 2934
+[2025-06-23 10:17:47,455] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=30 HTTP/1.1" 200 30963
+[2025-06-23 10:17:47,837] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-23 10:17:52,185] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 10:18:36,067] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=30 HTTP/1.1" 200 30955
+[2025-06-23 10:18:42,312] INFO django.server "POST /auth/save_timesheet_entries/ HTTP/1.1" 200 66
+[2025-06-23 10:18:46,255] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=30 HTTP/1.1" 200 33507
+[2025-06-23 10:19:11,862] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=27 HTTP/1.1" 200 30300
+[2025-06-23 10:20:58,533] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=27 HTTP/1.1" 200 30300
+[2025-06-23 10:21:27,742] INFO django.server "POST /auth/save_timesheet_entries/ HTTP/1.1" 200 98
+[2025-06-23 10:21:36,992] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-23 10:21:39,499] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 10:22:02,184] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-23 10:22:04,422] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 10:22:09,396] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=27 HTTP/1.1" 200 30300
+[2025-06-23 10:22:27,144] INFO django.server "POST /auth/save_timesheet_entries/ HTTP/1.1" 200 69
+[2025-06-23 10:22:29,604] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=27 HTTP/1.1" 200 30421
+[2025-06-23 10:22:32,966] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=26 HTTP/1.1" 200 33518
+[2025-06-23 10:22:36,949] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=27 HTTP/1.1" 200 30421
+[2025-06-23 10:22:41,180] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=29 HTTP/1.1" 200 30329
+[2025-06-23 10:22:47,439] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-05&mode=manual&timesheet_id=30 HTTP/1.1" 200 28010
+[2025-06-23 10:28:16,397] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-23 10:28:17,967] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-23 10:28:21,997] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-05&mode=manual&timesheet_id=30 HTTP/1.1" 200 28010
+[2025-06-23 10:28:42,354] INFO django.server "POST /consultation/save_timesheet_entries/ HTTP/1.1" 200 89
+[2025-06-23 10:28:42,408] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-05&mode=manual&timesheet_id=27 HTTP/1.1" 200 28130
+[2025-06-23 10:28:55,044] INFO django.server "POST /consultation/save_timesheet_entries/ HTTP/1.1" 200 89
+[2025-06-23 10:28:55,087] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-05&mode=manual&timesheet_id=27 HTTP/1.1" 200 28003
+[2025-06-23 10:29:07,646] INFO django.server "POST /consultation/save_timesheet_entries/ HTTP/1.1" 200 89
+[2025-06-23 10:29:07,699] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-05&mode=manual&timesheet_id=27 HTTP/1.1" 200 28003
+[2025-06-23 10:29:11,030] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=29 HTTP/1.1" 200 30326
+[2025-06-23 10:29:14,249] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=27 HTTP/1.1" 200 30418
+[2025-06-23 10:30:39,706] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=27 HTTP/1.1" 200 30418
+[2025-06-23 10:30:42,651] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=27 HTTP/1.1" 200 30305
+[2025-06-23 10:31:24,684] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-05&mode=manual&timesheet_id=27 HTTP/1.1" 200 27890
+[2025-06-23 10:31:29,117] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 25594
+[2025-06-23 10:31:34,284] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 31180
+[2025-06-23 10:31:39,980] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 22520
+[2025-06-23 10:31:42,875] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 18011
+[2025-06-23 10:31:44,954] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 25594
+[2025-06-23 10:31:56,710] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 25594
+[2025-06-23 10:32:01,644] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 31180
+[2025-06-23 10:32:25,494] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-06&mode=upload HTTP/1.1" 200 31183
+[2025-06-23 10:33:02,827] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-06&mode=manual HTTP/1.1" 200 31585
+[2025-06-23 10:34:57,768] INFO django.server "POST /consultation/save_timesheet_entries/ HTTP/1.1" 200 89
+[2025-06-23 10:34:57,872] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-06&mode=manual&timesheet_id=26 HTTP/1.1" 200 31463
+[2025-06-23 10:35:16,876] INFO django.server "GET /media/timesheets/timesheets/4_2025_06.csv HTTP/1.1" 200 1084
+[2025-06-23 10:35:39,300] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 17067
+[2025-06-23 10:35:54,794] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37596
+[2025-06-23 10:35:54,934] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-23 10:35:55,050] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-23 10:36:09,316] INFO django.server "GET /auth/consultant_profile/16/ HTTP/1.1" 200 25804
+[2025-06-23 10:36:24,232] INFO django.server "GET /auth/change_consultant_status/12/ HTTP/1.1" 200 206
+[2025-06-23 10:36:30,569] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-23 10:36:30,571] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-23 10:37:35,752] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 29109
+[2025-06-23 10:37:36,220] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 119
+[2025-06-23 10:37:49,300] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 17067
+[2025-06-23 10:37:51,656] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 24234
+[2025-06-23 10:38:00,858] INFO django.server "GET /media/invoices/openart-image_WM8SVq19_1749100402842_raw.pdf HTTP/1.1" 304 0
+[2025-06-23 10:38:18,472] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19257
+[2025-06-23 10:39:05,927] WARNING django.request Not Found: /auth/consultant_profile/1/
+[2025-06-23 10:39:05,930] WARNING django.server "GET /auth/consultant_profile/1/ HTTP/1.1" 404 4461
+[2025-06-23 10:39:31,935] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 18011
+[2025-06-23 10:39:54,810] INFO django.server "POST /consultation/consultant_profile/4/ HTTP/1.1" 302 0
+[2025-06-23 10:39:54,858] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 18003
+[2025-06-23 10:40:20,536] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 31058
+[2025-06-23 10:40:33,117] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-05&mode=upload HTTP/1.1" 200 27486
+[2025-06-23 10:40:46,653] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-06&mode=upload HTTP/1.1" 200 31061
