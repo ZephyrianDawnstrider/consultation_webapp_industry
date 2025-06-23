@@ -191,12 +191,18 @@ def save_timesheet_entries(request):
             file_name = f"{user.id}_{selected_month.strftime('%Y_%m')}.csv"
             file_path = os.path.join('timesheets', file_name)
 
-            timesheet = Timesheet.objects.create(
-                consultant=user,
-                month=selected_month,
-                status='awaiting_review',
-            )
-            timesheet.file.name = file_path
+            # Check if a timesheet already exists for this user and month to avoid duplicates
+            existing_timesheet = Timesheet.objects.filter(consultant=user, month=selected_month).first()
+            if existing_timesheet:
+                timesheet = existing_timesheet
+                timesheet.file.name = file_path
+            else:
+                timesheet = Timesheet.objects.create(
+                    consultant=user,
+                    month=selected_month,
+                    status='awaiting_review',
+                )
+                timesheet.file.name = file_path
 
         output = StringIO()
         fieldnames = ['Date', 'Start Time', 'End Time', 'Hours Worked', 'Task Name', 'Description']

@@ -164,7 +164,6 @@
         <tr>
           <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Month</th>
           <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">File</th>
-          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
         </tr>
       </thead>
       <tbody class="bg-white divide-y divide-gray-200">
@@ -304,7 +303,12 @@ document.addEventListener('DOMContentLoaded', () => {
     saveFeedback.textContent = '';
     saveLoading.classList.remove('hidden');
 
+    // Clear previous error highlights
     const rows = Array.from(tbody.querySelectorAll('tr'));
+    rows.forEach(row => {
+      row.style.border = '';
+    });
+
     const entries = rows.map(row => {
       const inputs = row.querySelectorAll('input');
       return {
@@ -322,12 +326,19 @@ document.addEventListener('DOMContentLoaded', () => {
         saveLoading.classList.add('hidden');
         saveFeedback.textContent = `Error in row ${i + 1}: ${error}`;
         saveFeedback.className = 'text-red-600 mt-2';
+
+        // Highlight the error row
+        rows[i].style.border = '2px solid red';
+
+        // Scroll to the error row
+        rows[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
+
         return;
       }
     }
 
     try {
-      const response = await fetch('/custom_admin/save_timesheet_entries/', {
+      const response = await fetch('/auth/save_timesheet_entries/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
