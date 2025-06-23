@@ -273,6 +273,18 @@ def edit_consultant(request, consultant_id):
                     except Exception as e:
                         logger.error(f"Error changing password or sending email for user {user.email}: {str(e)}")
 
+                # Ensure encrypted_password is always set
+                else:
+                    if not user.encrypted_password or user.encrypted_password.strip() == '':
+                        try:
+                            from custom_admin.utils import encrypt_password
+                            encrypted_password = encrypt_password(new_password)
+                            user.encrypted_password = encrypted_password
+                            user.save()
+                            logger.info(f"Encrypted password set for user {user.email} after save")
+                        except Exception as e:
+                            logger.error(f"Error setting encrypted_password for user {user.email}: {str(e)}")
+
                 logger.info(f"Consultant details updated successfully for user {user.email}")
                 if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                     return JsonResponse({'success': True, 'message': 'Consultant details updated successfully.'})
@@ -460,7 +472,6 @@ def add_consultant(request):
 
 
 from .models import ConsultantStatus
-
 @login_required
 def consultant_profile(request, consultant_id):
     """
@@ -471,6 +482,9 @@ def consultant_profile(request, consultant_id):
 
     consultant = get_object_or_404(User, id=consultant_id, role='consultant')
     
+    # Log encrypted_password for debugging
+    logger.info(f"Encrypted password for user {consultant.email}: {consultant.encrypted_password}")
+
     # Get consultant profile with skills
     try:
         profile = ConsultantProfile.objects.prefetch_related(
@@ -562,8 +576,14 @@ def consultant_profile(request, consultant_id):
     try:
         if consultant.encrypted_password:
             decrypted_password = decrypt_password(consultant.encrypted_password)
+            logger.info(f"Decrypted password for user {consultant.email}: {decrypted_password}")
+        else:
+            logger.warning(f"No encrypted_password set for user {consultant.email}")
+            decrypted_password = '[Password not set]'
     except Exception as e:
         logger.error(f"Error decrypting password for user {consultant.email}: {str(e)}")
+        decrypted_password = '[Error decrypting password]'
+    logger.debug(f"Final decrypted_password value for user {consultant.email}: {decrypted_password}")
 
     context = {
         'consultant': consultant,
