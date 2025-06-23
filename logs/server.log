@@ -16890,3 +16890,5 @@ django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '
 [2025-06-23 16:38:06,023] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
 [2025-06-23 16:38:07,572] INFO django.server "GET /auth/consultant_profile/11/ HTTP/1.1" 200 26833
 [2025-06-23 16:45:23,041] INFO django.server "GET /auth/consultant_profile/11/ HTTP/1.1" 200 27226
+[2025-06-23 16:47:35,376] INFO django.server "GET /auth/consultant_profile/12/ HTTP/1.1" 200 27195
+[2025-06-23 16:47:40,661] INFO django.server "GET /auth/consultant_profile/16/ HTTP/1.1" 200 27414
