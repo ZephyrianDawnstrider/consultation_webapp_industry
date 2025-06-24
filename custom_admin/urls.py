@@ -25,4 +25,5 @@ urlpatterns = [
     path('save_timesheet_entries/', views.save_timesheet_entries, name='save_timesheet_entries'),
     path('api/consultant_autofill/', views.consultant_autofill, name='consultant_autofill'),
     path('', include(router.urls)),
+    path('admin_profile/<int:admin_id>/', views.admin_profile, name='admin_profile'),
 ]

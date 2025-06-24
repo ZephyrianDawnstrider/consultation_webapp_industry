@@ -2,6 +2,9 @@ from django import forms
 from .models import ConsultantStatus, Skill
 from consultation.models import ConsultantProfile
 from django import forms
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 class ConsultantRegistrationForm(forms.Form):
     """Form for consultant registration with required fields: mobile, email, agreement"""
@@ -79,3 +82,35 @@ class ConsultantEditForm(forms.ModelForm):
             instance.save()
             self.save_m2m()
         return instance
+
+from django import forms
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+
+class AdminProfileForm(forms.ModelForm):
+    """Form for editing admin profile information"""
+    password = forms.CharField(
+        label="Password",
+        widget=forms.PasswordInput(render_value=True),
+        required=False,
+        help_text="Leave blank if you do not want to change the password."
+    )
+
+    class Meta:
+        model = User
+        fields = [
+            'first_name',
+            'last_name',
+            'phone_number',
+            'email',
+        ]
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        password = self.cleaned_data.get('password')
+        if password:
+            user.set_password(password)
+        if commit:
+            user.save()
+        return user
