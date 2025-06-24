@@ -39,6 +39,9 @@ class User(AbstractBaseUser, PermissionsMixin):
         ('consultant', 'Consultant'),
     )
     email = models.EmailField(unique=True)
+    first_name = models.CharField(max_length=30, blank=True, null=True)
+    last_name = models.CharField(max_length=30, blank=True, null=True)
+    phone_number = models.CharField(max_length=20, blank=True, null=True)
     role = models.CharField(max_length=20, choices=ROLE_CHOICES)
     encrypted_password = models.TextField(blank=True, null=True)
     is_active = models.BooleanField(default=True)

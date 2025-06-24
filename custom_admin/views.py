@@ -145,6 +145,7 @@ def save_timesheet_entries(request):
         return JsonResponse({'success': False, 'message': 'Timesheet not found.'})
     except Exception as e:
         return JsonResponse({'success': False, 'message': f'Error saving timesheet entries: {str(e)}'})
+    
 from django import forms
 from django.conf import settings
 
@@ -1223,3 +1224,44 @@ def update_timesheet_status(request, timesheetId):
     timesheet.save()
 
     return JsonResponse({'success': True, 'message': 'Timesheet status updated successfully.'})
+
+from .forms import AdminProfileForm
+
+def admin_profile(request, admin_id):
+    """View and edit admin profile."""
+    try:
+        admin_user = User.objects.get(id=admin_id, is_staff=True)
+    except User.DoesNotExist:
+        logger.error(f"Admin user with id {admin_id} not found")
+        raise Http404("Admin user not found")
+
+    if request.method == 'POST':
+        if 'scrap_agreement' in request.POST:
+            return _handle_scrap_agreement(request, admin_user)
+        
+        # Handle profile update
+        form = AdminProfileForm(request.POST, request.FILES, instance=admin_user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Admin profile updated successfully.')
+            return redirect('custom_admin:admin_profile', admin_id=admin_id)
+        else:
+            messages.error(request, 'Please correct the errors below.')
+    else:
+        form = AdminProfileForm(instance=admin_user)
+
+    # Decrypt password if exists
+    decrypted_password = None
+    if hasattr(admin_user, 'encrypted_password') and admin_user.encrypted_password:
+        try:
+            decrypted_password = decrypt_password(admin_user.encrypted_password)
+        except Exception as e:
+            logger.error(f"Error decrypting password for user {admin_user.email}: {str(e)}")
+
+    context = {
+        'admin_user': admin_user,
+        'form': form,
+        'current_page': 'Admin Profile',
+        'decrypted_password': decrypted_password,
+    }
+    return render(request, 'admin_profile.html', context)

@@ -20,8 +20,8 @@
                 </button>
                 <div id="profileDropdown" class="hidden origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10" role="menu" aria-orientation="vertical" aria-labelledby="profileDropdownButton" tabindex="-1">
                     <div class="py-1" role="none">
-                        <a href="{% url 'custom_admin:consultant_profile' request.user.id %}" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 cursor-pointer" role="menuitem" tabindex="-1" id="menu-item-0">
-                            <i class="fas fa-user mr-2"></i> Profile
+                        <a href="{% url 'custom_admin:admin_profile' request.user.id %}" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 cursor-pointer" role="menuitem" tabindex="-1" id="menu-item-0">
+                            <i class="fas fa-user mr-2"></i> Admin Profile
                         </a>
                         <a href="{% url 'custom_admin:logout' %}" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100 cursor-pointer" role="menuitem" tabindex="-1" id="menu-item-1">
                             <i class="fas fa-sign-out-alt mr-2"></i> Logout

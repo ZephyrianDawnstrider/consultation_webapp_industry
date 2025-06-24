@@ -64,6 +64,30 @@
             overflow-y: auto;
             padding: 1.5rem;
         }
+
+        /* Fix button transparency conflicts between Tailwind and Bootstrap */
+        .btn, .btn-danger, .btn-primary, .btn-sm {
+            background-color: initial !important;
+            opacity: 1 !important;
+            border: 1px solid transparent !important;
+        }
+        .btn-danger {
+            background-color: #dc3545 !important; /* Bootstrap danger red */
+            color: white !important;
+        }
+        .btn-primary {
+            background-color: #007bff !important; /* Bootstrap primary blue */
+            color: white !important;
+        }
+        .btn-sm {
+            padding: 0.25rem 0.5rem !important;
+            font-size: 0.875rem !important;
+            border-radius: 0.2rem !important;
+        }
+        /* Ensure Tailwind buttons have solid backgrounds */
+        button[class*="bg-"] {
+            opacity: 1 !important;
+        }
     </style>
 </head>
 <body>
