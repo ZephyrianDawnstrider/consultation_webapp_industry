@@ -98,25 +98,36 @@ def consultant_dashboard(request):
 def consultant_timesheet(request):
     """View for consultant timesheet with month options and entries."""
     import csv
+    from datetime import datetime as dt
 
-    today = now().date()
-    month_options = []
-    for i in range(12):
-        month_date = (today.replace(day=1) - timedelta(days=i*30)).replace(day=1)
-        month_options.append({
-            'value': month_date.strftime('%Y-%m'),
-            'name': month_date.strftime('%B %Y'),
-            'selected': False
-        })
+    today = dt.today().date()
+    current_year = today.year
+    year_options = [year for year in range(current_year - 5, current_year + 6)]
+
+    month_options = [
+        {'value': '01', 'name': 'January'},
+        {'value': '02', 'name': 'February'},
+        {'value': '03', 'name': 'March'},
+        {'value': '04', 'name': 'April'},
+        {'value': '05', 'name': 'May'},
+        {'value': '06', 'name': 'June'},
+        {'value': '07', 'name': 'July'},
+        {'value': '08', 'name': 'August'},
+        {'value': '09', 'name': 'September'},
+        {'value': '10', 'name': 'October'},
+        {'value': '11', 'name': 'November'},
+        {'value': '12', 'name': 'December'},
+    ]
 
     approved_timesheets = Timesheet.objects.filter(consultant=request.user).order_by('-month')
 
     mode = request.GET.get('mode', 'upload')
-    selected_month_str = request.GET.get('month')
+    selected_year_str = request.GET.get('year') or str(current_year)
+    selected_month_str = request.GET.get('month') or today.strftime('%m')
     selected_month = None
-    if selected_month_str:
+    if selected_year_str and selected_month_str:
         try:
-            selected_month = datetime.strptime(selected_month_str, '%Y-%m').date()
+            selected_month = dt.strptime(f"{selected_year_str}-{selected_month_str}", '%Y-%m').date()
         except ValueError:
             selected_month = None
 
@@ -159,11 +170,13 @@ def consultant_timesheet(request):
 
     context = {
         'current_page': 'Consultant Timesheet',
+        'year_options': year_options,
         'month_options': month_options,
         'timesheets': approved_timesheets,
         'selected_timesheet': selected_timesheet,
         'timesheet_entries': timesheet_entries,
         'mode': mode,
+        'selected_year': selected_year_str,
         'selected_month': selected_month_str,
     }
     return render(request, 'consultant_timesheet.html', context)
@@ -184,6 +197,7 @@ def save_timesheet_entries(request):
         logger.info(f"save_timesheet_entries received data: {data}")
         timesheet_id = data.get('timesheet_id')
         entries = data.get('entries')
+        selected_year_str = data.get('selected_year')
         selected_month_str = data.get('selected_month')
 
         if entries is None:
@@ -193,12 +207,12 @@ def save_timesheet_entries(request):
         if timesheet_id:
             timesheet = Timesheet.objects.get(id=timesheet_id, consultant=user)
         else:
-            if not selected_month_str:
-                return JsonResponse({'success': False, 'message': 'Missing selected_month for new timesheet.'})
+            if not selected_year_str or not selected_month_str:
+                return JsonResponse({'success': False, 'message': 'Missing selected_year or selected_month for new timesheet.'})
             try:
-                selected_month = datetime.strptime(selected_month_str, '%Y-%m').date()
+                selected_month = datetime.strptime(f"{selected_year_str}-{selected_month_str}", '%Y-%m').date()
             except ValueError:
-                return JsonResponse({'success': False, 'message': 'Invalid selected_month format.'})
+                return JsonResponse({'success': False, 'message': 'Invalid selected_year or selected_month format.'})
 
             file_name = f"{user.id}_{selected_month.strftime('%Y_%m')}.csv"
             file_path = os.path.join('timesheets', file_name)
@@ -247,6 +261,8 @@ def save_timesheet_entries(request):
         return JsonResponse({'success': False, 'message': f'Error saving timesheet entries: {str(e)}'})
 
 
+
+
 @login_required
 def upload_timesheet(request, consultant_id):
     """
@@ -261,22 +277,23 @@ def upload_timesheet(request, consultant_id):
 
     if request.method == "POST":
         excel_file = request.FILES.get('timesheet_file')
+        year_str = request.POST.get('year')
         month_str = request.POST.get('month')
 
-        if not excel_file or not month_str:
-            logger.error(f"Upload failed: Missing file or month. User: {request.user.id}")
+        if not excel_file or not year_str or not month_str:
+            logger.error(f"Upload failed: Missing file or year/month. User: {request.user.id}")
             return JsonResponse({
                 'success': False,
-                'message': 'Timesheet file and month are required.'
+                'message': 'Timesheet file, year, and month are required.'
             })
 
         try:
-            month = datetime.strptime(month_str, '%Y-%m')
+            month = datetime.strptime(f"{year_str}-{month_str}", '%Y-%m')
         except ValueError:
-            logger.error(f"Upload failed: Invalid month format '{month_str}'. User: {request.user.id}")
+            logger.error(f"Upload failed: Invalid year/month format '{year_str}-{month_str}'. User: {request.user.id}")
             return JsonResponse({
                 'success': False,
-                'message': 'Invalid month format. Use YYYY-MM.'
+                'message': 'Invalid year/month format. Use YYYY-MM.'
             })
 
         try:
@@ -304,7 +321,7 @@ def upload_timesheet(request, consultant_id):
                 file=csv_path,
             )
 
-            logger.info(f"Timesheet uploaded and converted to CSV successfully by user {request.user.id} for month {month_str}")
+            logger.info(f"Timesheet uploaded and converted to CSV successfully by user {request.user.id} for month {year_str}-{month_str}")
             return JsonResponse({
                 'success': True,
                 'message': 'Timesheet uploaded successfully, converted to CSV, and awaiting review.'
@@ -318,6 +335,30 @@ def upload_timesheet(request, consultant_id):
 
     return render(request, 'upload_timesheet.html', {'consultant': consultant})
 
+
+@login_required
+def delete_timesheet(request, timesheet_id):
+    """Hard delete a timesheet and its associated file."""
+    user = request.user
+    try:
+        timesheet = Timesheet.objects.get(id=timesheet_id)
+    except Timesheet.DoesNotExist:
+        return JsonResponse({'success': False, 'message': 'Timesheet not found.'}, status=404)
+
+    # Check permission: user must be the owner or staff
+    if not (user == timesheet.consultant or user.is_staff):
+        return JsonResponse({'success': False, 'message': 'Permission denied.'}, status=403)
+
+    try:
+        # Delete the file from storage
+        if timesheet.file and timesheet.file.name:
+            timesheet.file.delete(save=False)
+        # Delete the timesheet record
+        timesheet.delete()
+        return JsonResponse({'success': True, 'message': 'Timesheet deleted successfully.'})
+    except Exception as e:
+        logger.error(f"Error deleting timesheet {timesheet_id}: {str(e)}")
+        return JsonResponse({'success': False, 'message': 'Error deleting timesheet.'}, status=500)
 
 @login_required
 def consultant_profile(request, consultant_id):
