@@ -169,6 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const monthSelect = document.getElementById('month-select');
   const modeUploadRadio = document.getElementById('mode-upload');
   const modeManualRadio = document.getElementById('mode-manual');
+  const mode = "{{ mode }}";  // Pass mode from Django template to JS
   const uploadForm = document.getElementById('upload-form');
   const fileInput = document.getElementById('timesheet-file');
   const fileDropArea = document.getElementById('file-drop-area');
@@ -314,6 +315,33 @@ document.addEventListener('DOMContentLoaded', () => {
   function createRow(entry = {}) {
     const tr = document.createElement('tr');
 
+    if (mode === 'upload') {
+      // Non-editable row with plain text cells
+      const dateTd = document.createElement('td');
+      dateTd.textContent = entry.date || '';
+      tr.appendChild(dateTd);
+
+      const startTd = document.createElement('td');
+      startTd.textContent = entry.start_time || '';
+      tr.appendChild(startTd);
+
+      const endTd = document.createElement('td');
+      endTd.textContent = entry.end_time || '';
+      tr.appendChild(endTd);
+
+      const taskTd = document.createElement('td');
+      taskTd.textContent = entry.task_name || '';
+      tr.appendChild(taskTd);
+
+      const actionsTd = document.createElement('td');
+      actionsTd.className = 'text-center';
+      // No delete button in upload mode
+      tr.appendChild(actionsTd);
+
+      return tr;
+    }
+
+    // Manual mode: editable inputs and delete button
     // Date
     const dateTd = document.createElement('td');
     const dateInput = document.createElement('input');
