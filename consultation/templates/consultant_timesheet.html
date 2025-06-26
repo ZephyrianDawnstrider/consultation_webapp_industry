@@ -398,6 +398,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function loadEntries() {
     tbody.innerHTML = '';
+    if (!monthSelect.value) {
+      // No month selected, do not display any timesheet entries
+      return;
+    }
     timesheetEntries.forEach(entry => {
       const row = createRow(entry);
       tbody.appendChild(row);
