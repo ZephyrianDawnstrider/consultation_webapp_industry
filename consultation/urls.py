@@ -11,6 +11,7 @@ urlpatterns = [
     path('consultant_invoice/', views.consultant_invoice, name='consultant_invoice'),
     path('upload_timesheet/<int:consultant_id>/', views.upload_timesheet, name='upload_timesheet'),
     path('save_timesheet_entries/', views.save_timesheet_entries, name='save_timesheet_entries'),
+    path('delete_timesheet/<int:timesheet_id>/', views.delete_timesheet, name='delete_timesheet'),
     path('send_otp/', views.send_otp, name='send_otp'),
     path('verify_otp/', views.verify_otp, name='verify_otp'),
     path('change_password/', views.change_password, name='change_password'),
