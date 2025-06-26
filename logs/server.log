@@ -17778,3 +17778,86 @@ django.db.utils.OperationalError: no such column: custom_admin_user.first_name
 [2025-06-24 09:56:23,137] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34551
 [2025-06-24 10:20:56,081] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
 [2025-06-24 10:20:58,801] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 11:57:57,636] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-24 11:58:00,617] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 12:01:09,669] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-24 12:01:10,956] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 12:12:17,398] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34551
+[2025-06-24 12:12:21,055] INFO django.server "GET /media/agreements/openart-image_WM8SVq19_1749100402842_raw.pdf HTTP/1.1" 304 0
+[2025-06-24 12:13:39,178] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=27 HTTP/1.1" 200 31516
+[2025-06-24 12:14:15,521] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=29 HTTP/1.1" 200 31424
+[2025-06-24 12:14:22,052] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=26 HTTP/1.1" 200 34551
+[2025-06-24 12:32:56,015] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-24 12:32:57,618] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 12:33:32,259] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-24 12:33:33,455] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 12:33:45,616] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-24 12:33:46,892] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 12:33:56,935] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-24 12:33:59,244] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 12:34:39,024] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-24 12:34:40,763] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 12:35:36,812] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-24 12:35:38,752] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 12:36:08,385] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-24 12:36:09,688] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 12:36:17,789] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-24 12:36:19,421] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 12:36:39,365] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-24 12:36:41,060] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 12:36:59,360] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-24 12:37:01,037] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 12:37:11,027] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-24 12:37:12,300] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 12:37:54,157] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-24 12:37:55,910] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 12:38:14,941] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-24 12:38:16,125] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 12:38:51,822] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-24 12:38:53,478] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 12:39:13,683] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-24 12:39:15,125] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 12:39:20,111] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-24 12:39:21,851] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 12:39:41,260] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-24 12:39:43,138] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 12:41:34,126] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-24 12:41:36,022] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 12:42:00,394] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-24 12:42:01,573] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 12:42:06,011] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-24 12:42:07,917] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 12:50:00,012] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-24 12:50:01,285] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 12:58:30,399] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-24 12:58:31,752] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 12:58:55,698] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-24 12:58:57,035] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 13:02:58,310] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-24 13:03:00,144] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-24 13:04:16,035] INFO django.server "GET /auth/consultant_profile/4/?timesheet_id=26 HTTP/1.1" 200 34551
+[2025-06-24 14:35:58,972] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 31936
+[2025-06-24 14:36:03,193] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-06&mode=upload HTTP/1.1" 200 31939
+[2025-06-26 10:26:22,392] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-26 10:26:27,888] INFO django.server "GET / HTTP/1.1" 200 38710
+[2025-06-26 10:26:30,215] WARNING django.request Not Found: /favicon.ico
+[2025-06-26 10:26:30,216] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-26 10:26:45,705] INFO django.server "GET / HTTP/1.1" 200 38710
+[2025-06-26 10:26:51,860] WARNING django.request Not Found: /favicon.ico
+[2025-06-26 10:26:51,861] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-26 10:27:01,995] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-26 10:27:02,044] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19262
+[2025-06-26 10:27:05,031] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37601
+[2025-06-26 10:27:05,092] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-26 10:27:05,312] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-26 10:27:08,307] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 34551
+[2025-06-26 10:27:13,789] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-26 10:27:13,923] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 26472
+[2025-06-26 10:27:16,442] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 31936
+[2025-06-26 10:29:41,830] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 32852
+[2025-06-26 10:29:52,424] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-06&mode=manual HTTP/1.1" 200 33257
+[2025-06-26 10:29:54,037] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-06&mode=upload HTTP/1.1" 200 32855
+[2025-06-26 10:29:55,669] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-06&mode=manual HTTP/1.1" 200 33257
+[2025-06-26 10:29:56,853] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-06&mode=upload HTTP/1.1" 200 32855
+[2025-06-26 10:29:58,344] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-06&mode=manual HTTP/1.1" 200 33257
+[2025-06-26 10:30:00,057] INFO django.server "GET /consultation/consultant_timesheet/?month=2025-06&mode=upload HTTP/1.1" 200 32855
