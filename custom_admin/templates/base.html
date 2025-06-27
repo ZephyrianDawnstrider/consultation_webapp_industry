@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,20 +21,10 @@
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <!-- CHL Softech Branding CSS -->
+    <link href="{% static 'custom_admin/css/branding.css' %}" rel="stylesheet" />
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        .vitigo-primary {
-            background-color: #1b5f9f;
-        }
-        .vitigo-secondary {
-            background-color: #80d0fa;
-        }
-        .wood-bg {
-            background-color: #eee5d7;
-        }
         /* Toast Notification Styles */
         .toast-container {
             position: fixed;
@@ -44,6 +35,8 @@
         .toast {
             opacity: 0;
             transition: opacity 0.3s ease-in-out;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(243, 112, 33, 0.5);
         }
         .toast.show {
             opacity: 1;
@@ -124,6 +117,8 @@
         {% endif %}
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+    <!-- CHL Softech Branding JS -->
+    <script src="{% static 'custom_admin/js/branding.js' %}"></script>
     {% block extra_js %}{% endblock %}
 </body>
 </html>
