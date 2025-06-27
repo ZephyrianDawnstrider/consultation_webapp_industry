@@ -18152,3 +18152,84 @@ django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 251: '
 [2025-06-26 12:12:08,772] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
 [2025-06-26 12:12:09,006] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
 [2025-06-26 12:12:10,898] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 39554
+[2025-06-26 12:28:25,583] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 39554
+[2025-06-26 12:28:37,445] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-26 12:28:39,119] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-26 12:49:40,231] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 39554
+[2025-06-26 12:57:29,223] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 39554
+[2025-06-26 13:15:51,880] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-26 13:15:53,468] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-26 13:16:26,440] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py changed, reloading.
+[2025-06-26 13:16:27,705] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-26 13:16:51,648] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 39554
+[2025-06-26 13:16:54,176] INFO django.server "GET /consultation/consultant_timesheet/?month=06&mode=upload&year=2025&timesheet_id=33 HTTP/1.1" 302 0
+[2025-06-26 13:16:54,193] INFO django.server "GET /auth/login/?next=/consultation/consultant_timesheet/%3Fmonth%3D06%26mode%3Dupload%26year%3D2025%26timesheet_id%3D33 HTTP/1.1" 200 38710
+[2025-06-26 13:16:58,270] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-26 13:16:58,374] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 26472
+[2025-06-26 13:17:00,992] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 37483
+[2025-06-26 13:52:53,036] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37601
+[2025-06-26 13:52:53,138] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-26 13:52:53,477] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-26 13:52:54,918] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 29114
+[2025-06-26 13:52:55,285] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 119
+[2025-06-26 13:52:57,102] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 17072
+[2025-06-26 13:52:58,771] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19262
+[2025-06-26 13:53:01,559] INFO django.server "GET /auth/admin_profile/1/ HTTP/1.1" 200 20421
+[2025-06-26 13:53:07,987] INFO django.server "POST /auth/admin_profile/1/ HTTP/1.1" 302 0
+[2025-06-26 13:53:08,022] INFO django.server "GET /auth/admin_profile/1/ HTTP/1.1" 200 20587
+[2025-06-26 13:53:11,311] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19263
+[2025-06-26 15:18:10,006] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-26 16:03:12,777] INFO django.server "GET / HTTP/1.1" 200 38710
+[2025-06-26 16:03:14,192] WARNING django.request Not Found: /favicon.ico
+[2025-06-26 16:03:14,193] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-26 16:03:29,189] INFO django.server "GET / HTTP/1.1" 200 38710
+[2025-06-26 16:03:31,537] WARNING django.request Not Found: /favicon.ico
+[2025-06-26 16:03:31,542] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-26 16:03:34,953] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-26 16:03:35,145] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 26472
+[2025-06-26 16:03:48,051] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-26 16:03:48,109] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 26472
+[2025-06-26 16:04:20,315] INFO django.server "GET /auth/logout/ HTTP/1.1" 302 0
+[2025-06-26 16:04:20,322] INFO django.server "GET /auth/login/ HTTP/1.1" 200 38710
+[2025-06-26 16:04:29,181] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-26 16:04:29,209] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19263
+[2025-06-26 16:04:33,763] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 17073
+[2025-06-26 16:04:35,121] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 29115
+[2025-06-26 16:04:35,550] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 119
+[2025-06-26 16:04:37,255] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 24240
+[2025-06-26 16:04:39,342] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37602
+[2025-06-26 16:04:39,404] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-26 16:04:39,605] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-26 16:04:41,184] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 17073
+[2025-06-26 16:04:42,433] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 29115
+[2025-06-26 16:04:42,870] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 119
+[2025-06-26 16:04:43,446] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37602
+[2025-06-26 16:04:43,501] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-26 16:04:43,639] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-26 16:04:45,959] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 39555
+[2025-06-27 10:04:02,389] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-27 10:05:01,348] INFO django.server "GET / HTTP/1.1" 200 38710
+[2025-06-27 10:05:04,345] WARNING django.request Not Found: /favicon.ico
+[2025-06-27 10:05:04,347] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-27 10:05:27,839] INFO django.server "GET / HTTP/1.1" 200 38710
+[2025-06-27 10:05:31,883] WARNING django.request Not Found: /favicon.ico
+[2025-06-27 10:05:31,885] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-27 10:05:37,640] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-27 10:05:39,771] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 26472
+[2025-06-27 10:05:51,039] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-27 10:05:51,136] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19263
+[2025-06-27 10:05:55,775] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 26472
+[2025-06-27 10:05:56,949] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 37483
+[2025-06-27 10:06:01,425] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual HTTP/1.1" 200 37885
+[2025-06-27 10:06:04,614] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 37483
+[2025-06-27 10:06:13,718] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 23398
+[2025-06-27 10:06:25,536] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 26316
+[2025-06-27 10:06:28,141] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 26472
+[2025-06-27 10:06:36,199] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 17073
+[2025-06-27 10:06:37,811] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 29115
+[2025-06-27 10:06:38,285] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 119
+[2025-06-27 10:06:39,153] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37602
+[2025-06-27 10:06:39,215] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-27 10:06:39,357] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-27 10:07:24,903] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-27 10:07:41,909] INFO django.server "GET / HTTP/1.1" 200 38710

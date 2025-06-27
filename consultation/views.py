@@ -102,7 +102,7 @@ def consultant_timesheet(request):
 
     today = dt.today().date()
     current_year = today.year
-    year_options = [year for year in range(current_year - 5, current_year + 6)]
+    year_options = [year for year in range(current_year - 10, current_year + 11)]
 
     month_options = [
         {'value': '01', 'name': 'January'},
