@@ -5,8 +5,8 @@
 
 {% block content %}
 <div class="container mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold mb-6">Invoice Management</h1>
-    <div class="bg-white shadow rounded-lg p-6">
+    <h1 class="text-3xl font-bold mb-6 text-black">Invoice Management</h1>
+    <div class="bg-white shadow rounded-lg p-6 text-gray">
         {% if invoices %}
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
@@ -20,13 +20,13 @@
             <tbody class="bg-white divide-y divide-gray-200">
                 {% for invoice in invoices %}
                 <tr>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ invoice.consultant.email }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ invoice.month|date:"F Y" }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-primary-600">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-black">{{ invoice.consultant.email }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-black">{{ invoice.month|date:"F Y" }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-primary-600 text-indigo-600">
                         <a href="{{ invoice.file.url }}" target="_blank" class="hover:underline">{{ invoice.name }}</a>
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm">
-                        <select class="invoice-status-dropdown" data-invoice-id="{{ invoice.id }}">
+                    <td class="px-6 py-4 whitespace-nowrap text-balack">
+                        <select class="invoice-status-dropdown text-black" data-invoice-id="{{ invoice.id }}">
                             {% for value, label in status_choices %}
                                 <option value="{{ value }}" {% if invoice.status == value %}selected{% endif %}>{{ label }}</option>
                             {% endfor %}
