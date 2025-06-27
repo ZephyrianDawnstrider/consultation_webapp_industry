@@ -66,7 +66,7 @@ def consultant_detail(request, consultant_id):
     # Prepare year and month options for selectors
     today = datetime.today()
     current_year = today.year
-    year_options = [year for year in range(current_year - 5, current_year + 6)]
+    year_options = [year for year in range(current_year - 10, current_year + 11)]
     month_options = [
         {'value': '01', 'name': 'January'},
         {'value': '02', 'name': 'February'},
