@@ -1,69 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SecureConsult | Professional Consultation Platform</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CHL Softech | Professional Consultation Platform</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #000000;
+            color: #FFFFFF;
+        }
         .hero-gradient {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2f2f2f 50%, #1a1a1a 100%);
         }
-        .modal {
-            transition: opacity 0.3s ease, visibility 0.3s ease;
+        nav, footer {
+            background-color: #000000;
         }
-        .form-input:focus {
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        nav a, footer a {
+            color: #FFFFFF;
+        }
+        nav a:hover, footer a:hover {
+            color: #F37021;
         }
         .nav-link:hover::after {
             content: '';
             display: block;
             width: 24px;
             height: 2px;
-            background: #0369a1;
+            background: #F37021;
             margin: 4px auto 0;
+        }
+        .btn-primary {
+            background-color: #F37021;
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(243, 112, 33, 0.5);
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #cc5a17;
+        }
+        .btn-secondary {
+            border: 2px solid #F37021;
+            color: #F37021;
+            border-radius: 12px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #F37021;
+            color: white;
+        }
+        .rounded-hexagon {
+            clip-path: polygon(
+                25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%
+            );
+            background-color: #F37021;
+            opacity: 0.1;
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .feature-card, .testimonial-card {
+            background-color: #2F2F2F;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(243, 112, 33, 0.5);
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+        .feature-card::before, .testimonial-card::before {
+            content: "";
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 120px;
+            height: 104px;
+            background: repeating-conic-gradient(#F37021 0deg 60deg, transparent 60deg 120deg);
+            clip-path: polygon(
+                25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%
+            );
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .feature-card > *, .testimonial-card > * {
+            position: relative;
+            z-index: 1;
         }
     </style>
 </head>
-<body class="font-sans antialiased text-gray-800">
+<body>
     <!-- Navigation -->
-    <nav class="bg-white shadow-sm fixed w-full z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center">
-                        <i class="fas fa-shield-alt text-sky-700 text-2xl mr-2"></i>
-                        <span class="text-xl font-bold text-sky-800">SecureConsult</span>
-                    </div>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#features" class="nav-link text-gray-700 hover:text-sky-800 px-3 py-2 text-sm font-medium">Features</a>
-                    <a href="#how-it-works" class="nav-link text-gray-700 hover:text-sky-800 px-3 py-2 text-sm font-medium">How It Works</a>
-                    <a href="#about" class="nav-link text-gray-700 hover:text-sky-800 px-3 py-2 text-sm font-medium">About Us</a>
-                    <a href="#testimonials" class="nav-link text-gray-700 hover:text-sky-800 px-3 py-2 text-sm font-medium">Testimonials</a>
-                </div>
-                <div class="hidden md:flex items-center space-x-4">
-                    <button onclick="openLoginModal()" class="text-sky-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-sky-50 transition duration-300">Login</button>
-                    <button onclick="openBookingModal()" class="bg-sky-600 text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-sky-700 transition duration-300">Book a Session</button>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button id="menu-btn" class="text-gray-500 hover:text-sky-800 focus:outline-none">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
+    <nav class="fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
+            <div class="flex items-center">
+                <img src="/media/logo/logo.png" alt="Company Logo" class="h-12" />
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#features" class="nav-link px-3 py-2 text-sm font-medium">Features</a>
+                <a href="#how-it-works" class="nav-link px-3 py-2 text-sm font-medium">How It Works</a>
+                <a href="#about" class="nav-link px-3 py-2 text-sm font-medium">About Us</a>
+                <a href="#testimonials" class="nav-link px-3 py-2 text-sm font-medium">Testimonials</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-4">
+                <button onclick="openLoginModal()" class="text-orange-500 px-4 py-2 rounded-md text-sm font-medium hover:bg-orange-900 transition duration-300">Login</button>
+                <button onclick="openBookingModal()" class="btn-primary px-6 py-2 text-lg font-semibold">Book a Session</button>
+            </div>
+            <div class="md:hidden flex items-center">
+                <button id="menu-btn" class="text-white hover:text-orange-500 focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
             </div>
         </div>
-        
         <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+        <div id="mobile-menu" class="hidden md:hidden bg-black shadow-lg">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#features" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-sky-800 hover:bg-sky-50">Features</a>
-                <a href="#how-it-works" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-sky-800 hover:bg-sky-50">How It Works</a>
-                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-sky-800 hover:bg-sky-50">About Us</a>
-                <a href="#testimonials" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-sky-800 hover:bg-sky-50">Testimonials</a>
-                <button onclick="openLoginModal()" class="block w-full text-left px-3 py-2 text-base font-medium text-sky-700 hover:bg-sky-50">Login</button>
-                <button onclick="openBookingModal()" class="block w-full text-left px-3 py-2 text-base font-medium text-white bg-sky-600 hover:bg-sky-700">Book a Session</button>
+                <a href="#features" class="block px-3 py-2 text-base font-medium hover:text-orange-500 hover:bg-orange-900">Features</a>
+                <a href="#how-it-works" class="block px-3 py-2 text-base font-medium hover:text-orange-500 hover:bg-orange-900">How It Works</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium hover:text-orange-500 hover:bg-orange-900">About Us</a>
+                <a href="#testimonials" class="block px-3 py-2 text-base font-medium hover:text-orange-500 hover:bg-orange-900">Testimonials</a>
+                <button onclick="openLoginModal()" class="block w-full text-left px-3 py-2 text-base font-medium text-orange-500 hover:bg-orange-900">Login</button>
+                <button onclick="openBookingModal()" class="block w-full text-left px-3 py-2 text-base font-medium text-white bg-orange-500 hover:bg-orange-600">Book a Session</button>
             </div>
         </div>
     </nav>
@@ -72,57 +133,56 @@
     <section class="hero-gradient pt-24 pb-20 md:pt-32 md:pb-28">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="md:flex items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-sky-900 leading-tight mb-6">
-                        Secure Professional Consultation <br>When You Need It
+                <div class="md:w-1/2 mb-10 md:mb-0 relative">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">
+                        Build Your Techworld with CHL Softech
                     </h1>
-                    <p class="text-lg text-sky-700 mb-8 max-w-lg">
+                    <p class="text-lg mb-8 max-w-lg text-gray-300">
                         Connect with certified experts through our encrypted platform for confidential advice tailored to your needs.
                     </p>
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <button onclick="openBookingModal()" class="bg-sky-600 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-sky-700 transition duration-300 text-center">
+                        <button onclick="openBookingModal()" class="btn-primary px-8 py-3 rounded-md text-lg font-semibold text-center">
                             Book a Session
                         </button>
-                        <a href="#about" class="border-2 border-sky-600 text-sky-600 px-8 py-3 rounded-md text-lg font-semibold hover:bg-sky-50 transition duration-300 text-center">
+                        <a href="#about" class="btn-secondary px-8 py-3 rounded-md text-lg font-semibold text-center">
                             Learn More
                         </a>
                     </div>
                     <div class="mt-8 flex items-center">
                         <div class="flex -space-x-2">
-                            <img src="https://randomuser.me/api/portraits/women/12.jpg" class="w-10 h-10 rounded-full border-2 border-white" alt="Client">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-10 h-10 rounded-full border-2 border-white" alt="Client">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-10 h-10 rounded-full border-2 border-white" alt="Client">
+                            <img src="https://randomuser.me/api/portraits/women/12.jpg" class="w-10 h-10 rounded-full border-2 border-black" alt="Client" />
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-10 h-10 rounded-full border-2 border-black" alt="Client" />
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-10 h-10 rounded-full border-2 border-black" alt="Client" />
                         </div>
                         <div class="ml-4">
-                            <p class="text-sm font-medium text-sky-800">Trusted by 5,000+ professionals</p>
+                            <p class="text-sm font-medium text-gray-400">Trusted by 5,000+ professionals</p>
                             <div class="flex">
                                 <i class="fas fa-star text-yellow-400"></i>
                                 <i class="fas fa-star text-yellow-400"></i>
                                 <i class="fas fa-star text-yellow-400"></i>
                                 <i class="fas fa-star text-yellow-400"></i>
                                 <i class="fas fa-star text-yellow-400"></i>
-                                <span class="text-sky-700 ml-2">4.9/5</span>
+                                <span class="text-gray-400 ml-2">4.9/5</span>
                             </div>
                         </div>
                     </div>
+                    <div class="rounded-hexagon w-32 h-28 absolute top-0 right-0"></div>
                 </div>
-                <div class="md:w-1/2 flex justify-center">
-                    <div class="relative w-full max-w-md">
-                        <div class="absolute -top-6 -left-6 w-64 h-64 bg-sky-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-                        <div class="absolute -bottom-8 -right-8 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-                        <div class="relative">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
-                                 alt="Secure consultation" 
-                                 class="rounded-xl shadow-xl border-8 border-white">
-                            <div class="absolute -bottom-4 -right-4 bg-white p-3 rounded-lg shadow-md">
-                                <div class="flex items-center">
-                                    <div class="bg-sky-100 p-2 rounded-full mr-2">
-                                        <i class="fas fa-lock text-sky-600"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs font-medium text-gray-500">End-to-end</p>
-                                        <p class="text-sm font-bold text-sky-800">Encrypted</p>
-                                    </div>
+                <div class="md:w-1/2 flex justify-center relative">
+                    <div class="absolute -top-6 -left-6 w-64 h-64 bg-orange-900 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+                    <div class="absolute -bottom-8 -right-8 w-64 h-64 bg-orange-700 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                             alt="Secure consultation" 
+                             class="rounded-xl shadow-xl border-8 border-black" />
+                        <div class="absolute -bottom-4 -right-4 bg-black p-3 rounded-lg shadow-md">
+                            <div class="flex items-center">
+                                <div class="bg-orange-100 p-2 rounded-full mr-2">
+                                    <i class="fas fa-lock text-orange-600"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-medium text-gray-400">End-to-end</p>
+                                    <p class="text-sm font-bold text-orange-500">Encrypted</p>
                                 </div>
                             </div>
                         </div>
@@ -133,59 +193,57 @@
     </section>
 
     <!-- Trust Badges -->
-    <section class="bg-white py-8 border-b">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/IBM_Watson_Logo.svg/1200px-IBM_Watson_Logo.svg.png" class="h-8 opacity-70" alt="IBM">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png" class="h-8 opacity-70" alt="Google">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Microsoft_Azure_Logo.svg/1200px-Microsoft_Azure_Logo.svg.png" class="h-8 opacity-70" alt="Microsoft">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1200px-Amazon_logo.svg.png" class="h-6 opacity-70" alt="Amazon">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/SAP_2011_logo.svg/1200px-SAP_2011_logo.svg.png" class="h-6 opacity-70" alt="SAP">
-            </div>
+    <section class="bg-black py-8 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-center items-center gap-8 md:gap-16">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/IBM_Watson_Logo.svg/1200px-IBM_Watson_Logo.svg.png" class="h-8 opacity-70" alt="IBM" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png" class="h-8 opacity-70" alt="Google" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Microsoft_Azure_Logo.svg/1200px-Microsoft_Azure_Logo.svg.png" class="h-8 opacity-70" alt="Microsoft" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1200px-Amazon_logo.svg.png" class="h-6 opacity-70" alt="Amazon" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/SAP_2011_logo.svg/1200px-SAP_2011_logo.svg.png" class="h-6 opacity-70" alt="SAP" />
         </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="py-20 bg-sky-50">
+    <section id="features" class="py-20 bg-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span class="inline-block px-3 py-1 text-sm font-semibold text-sky-700 bg-sky-100 rounded-full mb-4">Why Choose Us</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-sky-900 mb-4">Secure Consultation Features</h2>
-                <p class="text-lg text-sky-700 max-w-2xl mx-auto">
+                <span class="inline-block px-3 py-1 text-sm font-semibold text-orange-500 bg-black rounded-full mb-4">Why Choose Us</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Secure Consultation Features</h2>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto">
                     Our platform is designed with security and convenience in mind for both consultants and clients.
                 </p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Feature 1 -->
-                <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300">
-                    <div class="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fas fa-lock text-sky-600 text-xl"></i>
+                <div class="feature-card">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-lock text-orange-600 text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-sky-900">End-to-End Encryption</h3>
-                    <p class="text-gray-600">
+                    <h3 class="text-xl font-semibold mb-3 text-white">End-to-End Encryption</h3>
+                    <p class="text-gray-400">
                         All communications are secured with military-grade encryption to ensure complete confidentiality.
                     </p>
                 </div>
                 
                 <!-- Feature 2 -->
-                <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300">
-                    <div class="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fas fa-user-shield text-sky-600 text-xl"></i>
+                <div class="feature-card">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-user-shield text-orange-600 text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-sky-900">Verified Professionals</h3>
-                    <p class="text-gray-600">
+                    <h3 class="text-xl font-semibold mb-3 text-white">Verified Professionals</h3>
+                    <p class="text-gray-400">
                         Every consultant undergoes rigorous verification and background checks.
                     </p>
                 </div>
                 
                 <!-- Feature 3 -->
-                <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300">
-                    <div class="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fas fa-file-contract text-sky-600 text-xl"></i>
+                <div class="feature-card">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-file-contract text-orange-600 text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-sky-900">Legal Compliance</h3>
-                    <p class="text-gray-600">
+                    <h3 class="text-xl font-semibold mb-3 text-white">Legal Compliance</h3>
+                    <p class="text-gray-400">
                         Our platform meets all industry regulations including HIPAA and GDPR requirements.
                     </p>
                 </div>
@@ -194,12 +252,12 @@
     </section>
 
     <!-- How It Works Section -->
-    <section id="how-it-works" class="py-20 bg-white">
+    <section id="how-it-works" class="py-20 bg-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span class="inline-block px-3 py-1 text-sm font-semibold text-sky-700 bg-sky-100 rounded-full mb-4">Process</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-sky-900 mb-4">How It Works</h2>
-                <p class="text-lg text-sky-700 max-w-2xl mx-auto">
+                <span class="inline-block px-3 py-1 text-sm font-semibold text-orange-500 bg-black rounded-full mb-4">Process</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">How It Works</h2>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto">
                     Getting expert advice has never been easier. Follow these simple steps.
                 </p>
             </div>
@@ -210,10 +268,10 @@
                     <div class="relative">
                         <!-- Step 1 -->
                         <div class="flex items-start mb-10">
-                            <div class="flex-shrink-0 bg-sky-600 rounded-full w-12 h-12 flex items-center justify-center text-white font-bold text-xl mr-4">1</div>
+                            <div class="flex-shrink-0 bg-orange-600 rounded-full w-12 h-12 flex items-center justify-center text-white font-bold text-xl mr-4">1</div>
                             <div>
-                                <h3 class="text-xl font-semibold mb-2 text-sky-900">Create Your Account</h3>
-                                <p class="text-gray-600">
+                                <h3 class="text-xl font-semibold mb-2 text-white">Create Your Account</h3>
+                                <p class="text-gray-400">
                                     Sign up securely with your email and set up your profile in minutes.
                                 </p>
                             </div>
@@ -221,10 +279,10 @@
                         
                         <!-- Step 2 -->
                         <div class="flex items-start mb-10">
-                            <div class="flex-shrink-0 bg-sky-600 rounded-full w-12 h-12 flex items-center justify-center text-white font-bold text-xl mr-4">2</div>
+                            <div class="flex-shrink-0 bg-orange-600 rounded-full w-12 h-12 flex items-center justify-center text-white font-bold text-xl mr-4">2</div>
                             <div>
-                                <h3 class="text-xl font-semibold mb-2 text-sky-900">Find Your Expert</h3>
-                                <p class="text-gray-600">
+                                <h3 class="text-xl font-semibold mb-2 text-white">Find Your Expert</h3>
+                                <p class="text-gray-400">
                                     Browse our directory of certified professionals by specialty.
                                 </p>
                             </div>
@@ -232,10 +290,10 @@
                         
                         <!-- Step 3 -->
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 bg-sky-600 rounded-full w-12 h-12 flex items-center justify-center text-white font-bold text-xl mr-4">3</div>
+                            <div class="flex-shrink-0 bg-orange-600 rounded-full w-12 h-12 flex items-center justify-center text-white font-bold text-xl mr-4">3</div>
                             <div>
-                                <h3 class="text-xl font-semibold mb-2 text-sky-900">Schedule & Connect</h3>
-                                <p class="text-gray-600">
+                                <h3 class="text-xl font-semibold mb-2 text-white">Schedule & Connect</h3>
+                                <p class="text-gray-400">
                                     Book a session and meet securely via our encrypted video platform.
                                 </p>
                             </div>
@@ -244,63 +302,61 @@
                 </div>
                 
                 <!-- Image -->
-                <div class="md:w-1/2 flex justify-center">
-                    <div class="relative w-full max-w-md">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
-                             alt="How it works" 
-                             class="rounded-xl shadow-md">
-                    </div>
+                <div class="md:w-1/2 flex justify-center relative">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                         alt="How it works" 
+                         class="rounded-xl shadow-md" />
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Us Section -->
-    <section id="about" class="py-20 bg-sky-50">
+    <section id="about" class="py-20 bg-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="md:flex items-center">
                 <div class="md:w-1/2 mb-10 md:mb-0">
-                    <span class="inline-block px-3 py-1 text-sm font-semibold text-sky-700 bg-sky-100 rounded-full mb-4">About Us</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-sky-900 mb-6">Secure Consultation Platform</h2>
-                    <p class="text-gray-600 mb-6">
-                        Founded in 2018, SecureConsult was created to bridge the gap between professionals seeking expert advice and certified consultants, all within a secure and confidential environment.
+                    <span class="inline-block px-3 py-1 text-sm font-semibold text-orange-500 bg-black rounded-full mb-4">About Us</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">CHL Softech</h2>
+                    <p class="text-gray-400 mb-6">
+                        Founded in 2018, CHL Softech was created to bridge the gap between professionals seeking expert advice and certified consultants, all within a secure and confidential environment.
                     </p>
-                    <p class="text-gray-600 mb-8">
+                    <p class="text-gray-400 mb-8">
                         Our mission is to provide a trusted platform where sensitive conversations can happen without compromising privacy or security. We use the latest encryption technologies to ensure all consultations remain confidential.
                     </p>
-                    <button onclick="openBookingModal()" class="bg-sky-600 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-sky-700 transition duration-300">
+                    <button onclick="openBookingModal()" class="btn-primary px-8 py-3 rounded-md text-lg font-semibold">
                         Get Started
                     </button>
                 </div>
                 <div class="md:w-1/2 flex justify-center">
                     <div class="relative w-full max-w-md">
-                        <div class="absolute -top-6 -left-6 w-64 h-64 bg-sky-200 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
-                        <div class="relative bg-white p-6 rounded-xl shadow-md">
+                        <div class="absolute -top-6 -left-6 w-64 h-64 bg-orange-900 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
+                        <div class="relative bg-black p-6 rounded-xl shadow-md">
                             <div class="flex items-center mb-6">
-                                <div class="bg-sky-100 p-3 rounded-full mr-4">
-                                    <i class="fas fa-shield-alt text-sky-600 text-2xl"></i>
+                                <div class="bg-orange-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-cube text-orange-600 text-2xl"></i>
                                 </div>
                                 <div>
-                                    <h3 class="text-xl font-bold text-sky-900">Security First</h3>
-                                    <p class="text-gray-500">Our top priority</p>
+                                    <h3 class="text-xl font-bold text-white">Innovation & Technology</h3>
+                                    <p class="text-gray-500">Driving the future of tech solutions.</p>
                                 </div>
                             </div>
                             <div class="space-y-4">
                                 <div class="flex items-start">
                                     <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                                    <p class="text-gray-600">256-bit end-to-end encryption</p>
+                                    <p class="text-gray-400">Cutting-edge software development</p>
                                 </div>
                                 <div class="flex items-start">
                                     <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                                    <p class="text-gray-600">HIPAA & GDPR compliant</p>
+                                    <p class="text-gray-400">Cloud and AI integration</p>
                                 </div>
                                 <div class="flex items-start">
                                     <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                                    <p class="text-gray-600">Regular security audits</p>
+                                    <p class="text-gray-400">Agile and DevOps practices</p>
                                 </div>
                                 <div class="flex items-start">
                                     <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                                    <p class="text-gray-600">Two-factor authentication</p>
+                                    <p class="text-gray-400">Customer-centric approach</p>
                                 </div>
                             </div>
                         </div>
@@ -311,26 +367,26 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-white">
+    <section id="testimonials" class="py-20 bg-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span class="inline-block px-3 py-1 text-sm font-semibold text-sky-700 bg-sky-100 rounded-full mb-4">Testimonials</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-sky-900 mb-4">What Our Clients Say</h2>
-                <p class="text-lg text-sky-700 max-w-2xl mx-auto">
+                <span class="inline-block px-3 py-1 text-sm font-semibold text-orange-500 bg-black rounded-full mb-4">Testimonials</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">What Our Clients Say</h2>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto">
                     Don't just take our word for it. Here's what our clients have to say.
                 </p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Testimonial 1 -->
-                <div class="bg-sky-50 p-8 rounded-xl">
+                <div class="testimonial-card">
                     <div class="flex items-center mb-6">
                         <img src="https://randomuser.me/api/portraits/women/63.jpg" 
                              alt="Client" 
-                             class="w-12 h-12 rounded-full object-cover mr-4">
+                             class="w-12 h-12 rounded-full object-cover mr-4" />
                         <div>
-                            <h4 class="font-semibold text-sky-900">Jennifer K.</h4>
-                            <p class="text-gray-500 text-sm">Small Business Owner</p>
+                            <h4 class="font-semibold text-white">Jennifer K.</h4>
+                            <p class="text-gray-400 text-sm">Small Business Owner</p>
                         </div>
                     </div>
                     <div class="flex mb-4">
@@ -340,20 +396,20 @@
                         <i class="fas fa-star text-yellow-400"></i>
                         <i class="fas fa-star text-yellow-400"></i>
                     </div>
-                    <p class="text-gray-600">
-                        "The legal consultation I received through SecureConsult saved my business from a potential lawsuit. The platform was easy to use and I felt completely secure discussing sensitive matters."
+                    <p class="text-gray-400">
+                        "The legal consultation I received through CHL Softech saved my business from a potential lawsuit. The platform was easy to use and I felt completely secure discussing sensitive matters."
                     </p>
                 </div>
                 
                 <!-- Testimonial 2 -->
-                <div class="bg-sky-50 p-8 rounded-xl">
+                <div class="testimonial-card">
                     <div class="flex items-center mb-6">
                         <img src="https://randomuser.me/api/portraits/men/46.jpg" 
                              alt="Client" 
-                             class="w-12 h-12 rounded-full object-cover mr-4">
+                             class="w-12 h-12 rounded-full object-cover mr-4" />
                         <div>
-                            <h4 class="font-semibold text-sky-900">Michael T.</h4>
-                            <p class="text-gray-500 text-sm">Startup Founder</p>
+                            <h4 class="font-semibold text-white">Michael T.</h4>
+                            <p class="text-gray-400 text-sm">Startup Founder</p>
                         </div>
                     </div>
                     <div class="flex mb-4">
@@ -363,20 +419,20 @@
                         <i class="fas fa-star text-yellow-400"></i>
                         <i class="fas fa-star text-yellow-400"></i>
                     </div>
-                    <p class="text-gray-600">
-                        "As a startup founder, I needed strategic advice but was concerned about confidentiality. SecureConsult gave me access to top-tier consultants with complete peace of mind about security."
+                    <p class="text-gray-400">
+                        "As a startup founder, I needed strategic advice but was concerned about confidentiality. CHL Softech gave me access to top-tier consultants with complete peace of mind about security."
                     </p>
                 </div>
                 
                 <!-- Testimonial 3 -->
-                <div class="bg-sky-50 p-8 rounded-xl">
+                <div class="testimonial-card">
                     <div class="flex items-center mb-6">
                         <img src="https://randomuser.me/api/portraits/women/28.jpg" 
                              alt="Client" 
-                             class="w-12 h-12 rounded-full object-cover mr-4">
+                             class="w-12 h-12 rounded-full object-cover mr-4" />
                         <div>
-                            <h4 class="font-semibold text-sky-900">Amanda S.</h4>
-                            <p class="text-gray-500 text-sm">Marketing Director</p>
+                            <h4 class="font-semibold text-white">Amanda S.</h4>
+                            <p class="text-gray-400 text-sm">Marketing Director</p>
                         </div>
                     </div>
                     <div class="flex mb-4">
@@ -386,7 +442,7 @@
                         <i class="fas fa-star text-yellow-400"></i>
                         <i class="fas fa-star-half-alt text-yellow-400"></i>
                     </div>
-                    <p class="text-gray-600">
+                    <p class="text-gray-400">
                         "The financial consultant I worked with provided invaluable advice that helped restructure our company's budget. The video quality was excellent and the documents sharing feature worked flawlessly."
                     </p>
                 </div>
@@ -395,17 +451,17 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 bg-sky-700">
+    <section class="py-20 bg-orange-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Get Expert Advice?</h2>
-            <p class="text-lg text-sky-100 mb-8 max-w-2xl mx-auto">
-                Join thousands of professionals who trust SecureConsult for their confidential consultation needs.
+            <p class="text-lg text-orange-200 mb-8 max-w-2xl mx-auto">
+                Join thousands of professionals who trust CHL Softech for their confidential consultation needs.
             </p>
             <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <button onclick="openBookingModal()" class="bg-white text-sky-700 px-8 py-3 rounded-md text-lg font-semibold hover:bg-gray-100 transition duration-300">
+                <button onclick="openBookingModal()" class="btn-primary px-8 py-3 rounded-md text-lg font-semibold">
                     Book a Session
                 </button>
-                <button onclick="openLoginModal()" class="border-2 border-white text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-sky-800 transition duration-300">
+                <button onclick="openLoginModal()" class="btn-secondary px-8 py-3 rounded-md text-lg font-semibold">
                     Get Started
                 </button>
             </div>
@@ -413,70 +469,60 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-sky-900 text-white pt-16 pb-8">
+    <footer class="bg-black text-white pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-                <!-- Column 1 -->
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">SecureConsult</h3>
-                    <p class="text-sky-300 mb-4">
-                        The secure platform for professional consultations.
+                    <h3 class="text-lg font-semibold mb-4">CHL Softech</h3>
+                    <p class="text-orange-300 mb-4">
+                        The trusted platform for professional consultations.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-sky-300 hover:text-white">
+                        <a href="#" class="text-orange-300 hover:text-white">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="text-sky-300 hover:text-white">
+                        <a href="#" class="text-orange-300 hover:text-white">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="text-sky-300 hover:text-white">
+                        <a href="#" class="text-orange-300 hover:text-white">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
                 </div>
-                
-                <!-- Column 2 -->
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Company</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-sky-300 hover:text-white">About Us</a></li>
-                        <li><a href="#" class="text-sky-300 hover:text-white">Careers</a></li>
-                        <li><a href="#" class="text-sky-300 hover:text-white">Press</a></li>
-                        <li><a href="#" class="text-sky-300 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-orange-300 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-orange-300 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-orange-300 hover:text-white">Press</a></li>
+                        <li><a href="#" class="text-orange-300 hover:text-white">Blog</a></li>
                     </ul>
                 </div>
-                
-                <!-- Column 3 -->
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Resources</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-sky-300 hover:text-white">Help Center</a></li>
-                        <li><a href="#" class="text-sky-300 hover:text-white">Community</a></li>
-                        <li><a href="#" class="text-sky-300 hover:text-white">Webinars</a></li>
-                        <li><a href="#" class="text-sky-300 hover:text-white">Consultant Resources</a></li>
+                        <li><a href="#" class="text-orange-300 hover:text-white">Help Center</a></li>
+                        <li><a href="#" class="text-orange-300 hover:text-white">Community</a></li>
+                        <li><a href="#" class="text-orange-300 hover:text-white">Webinars</a></li>
+                        <li><a href="#" class="text-orange-300 hover:text-white">Consultant Resources</a></li>
                     </ul>
                 </div>
-                
-                <!-- Column 4 -->
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Legal</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-sky-300 hover:text-white">Terms of Service</a></li>
-                        <li><a href="#" class="text-sky-300 hover:text-white">Privacy Policy</a></li>
-                        <li><a href="#" class="text-sky-300 hover:text-white">Cookie Policy</a></li>
-                        <li><a href="#" class="text-sky-300 hover:text-white">GDPR Compliance</a></li>
+                        <li><a href="#" class="text-orange-300 hover:text-white">Terms of Service</a></li>
+                        <li><a href="#" class="text-orange-300 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-orange-300 hover:text-white">Cookie Policy</a></li>
+                        <li><a href="#" class="text-orange-300 hover:text-white">GDPR Compliance</a></li>
                     </ul>
                 </div>
             </div>
-            
-            <div class="border-t border-sky-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-sky-300 mb-4 md:mb-0">
-                    &copy; 2023 SecureConsult. All rights reserved.
-                </p>
+            <div class="border-t border-orange-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-orange-300 mb-4 md:mb-0">&copy; 2023 CHL Softech. All rights reserved.</p>
                 <div class="flex space-x-6">
-                    <a href="#" class="text-sky-300 hover:text-white">Terms</a>
-                    <a href="#" class="text-sky-300 hover:text-white">Privacy</a>
-                    <a href="#" class="text-sky-300 hover:text-white">Cookies</a>
+                    <a href="#" class="text-orange-300 hover:text-white">Terms</a>
+                    <a href="#" class="text-orange-300 hover:text-white">Privacy</a>
+                    <a href="#" class="text-orange-300 hover:text-white">Cookies</a>
                 </div>
             </div>
         </div>
@@ -484,30 +530,30 @@
 
     <!-- Booking Modal -->
     <div id="booking-modal" class="modal fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50 opacity-0 invisible transition-opacity duration-300">
-        <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 overflow-hidden">
-            <div class="flex justify-between items-center border-b px-6 py-4">
-                <h3 class="text-lg font-semibold text-sky-900">Book a Consultation</h3>
-                <button onclick="closeBookingModal()" class="text-gray-500 hover:text-gray-700">
+        <div class="bg-[#2F2F2F] rounded-lg shadow-xl max-w-md w-full mx-4 overflow-hidden">
+            <div class="flex justify-between items-center border-b border-gray-700 px-6 py-4">
+                <h3 class="text-lg font-semibold text-white">Book a Consultation</h3>
+                <button onclick="closeBookingModal()" class="text-gray-400 hover:text-white">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <div class="p-6">
                 <form>
                     <div class="mb-4">
-                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                        <input type="text" id="name" class="form-input w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500">
+                        <label for="name" class="block text-sm font-medium text-white mb-1">Full Name</label>
+                        <input type="text" id="name" class="form-input w-full px-4 py-2 rounded-md bg-[#1a1a1a] text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500" />
                     </div>
                     <div class="mb-4">
-                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                        <input type="email" id="email" class="form-input w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500">
+                        <label for="email" class="block text-sm font-medium text-white mb-1">Email Address</label>
+                        <input type="email" id="email" class="form-input w-full px-4 py-2 rounded-md bg-[#1a1a1a] text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500" />
                     </div>
                     <div class="mb-4">
-                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                        <input type="tel" id="phone" class="form-input w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500">
+                        <label for="phone" class="block text-sm font-medium text-white mb-1">Phone Number</label>
+                        <input type="tel" id="phone" class="form-input w-full px-4 py-2 rounded-md bg-[#1a1a1a] text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500" />
                     </div>
                     <div class="mb-6">
-                        <label for="consultation-field" class="block text-sm font-medium text-gray-700 mb-1">Consultation Field</label>
-                        <select id="consultation-field" class="form-input w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500">
+                        <label for="consultation-field" class="block text-sm font-medium text-white mb-1">Consultation Field</label>
+                        <select id="consultation-field" class="form-input w-full px-4 py-2 rounded-md bg-[#1a1a1a] text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500">
                             <option value="">Select a field</option>
                             <option value="legal">Legal</option>
                             <option value="financial">Financial</option>
@@ -518,9 +564,7 @@
                             <option value="other">Other</option>
                         </select>
                     </div>
-                    <button type="submit" class="w-full bg-sky-600 text-white py-2 px-4 rounded-md hover:bg-sky-700 transition duration-300 font-medium">
-                        Submit Request
-                    </button>
+                    <button type="submit" class="btn-primary w-full py-2 text-lg font-semibold">Submit Request</button>
                 </form>
             </div>
         </div>
@@ -528,10 +572,10 @@
 
     <!-- Login Modal -->
     <div id="login-modal" class="modal fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50 opacity-0 invisible transition-opacity duration-300">
-        <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 overflow-hidden">
-            <div class="flex justify-between items-center border-b px-6 py-4">
-                <h3 class="text-lg font-semibold text-sky-900">Login to Your Account</h3>
-                <button onclick="closeLoginModal()" class="text-gray-500 hover:text-gray-700">
+        <div class="bg-[#2F2F2F] rounded-lg shadow-xl max-w-md w-full mx-4 overflow-hidden">
+            <div class="flex justify-between items-center border-b border-gray-700 px-6 py-4">
+                <h3 class="text-lg font-semibold text-white">Login to Your Account</h3>
+                <button onclick="closeLoginModal()" class="text-gray-400 hover:text-white">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
@@ -539,58 +583,22 @@
                 <form action="/auth/login/" method="POST">
                     {% csrf_token %}
                     <div class="mb-4">
-                        <label for="login-email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                        <input type="email" id="login-email" name="email" class="form-input w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500">
+                        <label for="login-email" class="block text-sm font-medium text-white mb-1">Email Address</label>
+                        <input type="email" id="login-email" name="email" class="form-input w-full px-4 py-2 rounded-md bg-[#1a1a1a] text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500" />
                     </div>
                     <div class="mb-6">
-                        <label for="login-password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-                        <input type="password" id="login-password" name="password" class="form-input w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500">
+                        <label for="login-password" class="block text-sm font-medium text-white mb-1">Password</label>
+                        <input type="password" id="login-password" name="password" class="form-input w-full px-4 py-2 rounded-md bg-[#1a1a1a] text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500" />
                     </div>
                     <div class="flex items-center justify-between mb-6">
                         <div class="flex items-center">
-                            <input id="remember-me" type="checkbox" class="h-4 w-4 text-sky-600 focus:ring-sky-500 border-gray-300 rounded">
-                            <label for="remember-me" class="ml-2 block text-sm text-gray-700">
-                                Remember me
-                            </label>
+                            <input id="remember-me" type="checkbox" class="h-4 w-4 text-orange-600 focus:ring-orange-500 border-gray-300 rounded" />
+                            <label for="remember-me" class="ml-2 block text-white text-sm">Remember me</label>
                         </div>
-                        <a href="#" class="text-sm text-sky-600 hover:text-sky-700">
-                            Forgot password?
-                        </a>
+                        <a href="#" class="text-orange-500 hover:text-orange-600 text-sm">Forgot password?</a>
                     </div>
-                    <button type="submit" class="w-full bg-sky-600 text-white py-2 px-4 rounded-md hover:bg-sky-700 transition duration-300 font-medium">
-                        Login
-                    </button>
+                    <button type="submit" class="btn-primary w-full py-2 text-lg font-semibold">Login</button>
                 </form>
-                <div class="mt-6">
-                    <div class="relative">
-                        <div class="absolute inset-0 flex items-center">
-                            <div class="w-full border-t border-gray-300"></div>
-                        </div>
-                        <div class="relative flex justify-center text-sm">
-                            <span class="px-2 bg-white text-gray-500">
-                                Or continue with
-                            </span>
-                        </div>
-                    </div>
-                    <div class="mt-6 grid grid-cols-2 gap-3">
-                        <a href="#" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
-                            <i class="fab fa-google text-red-500 mr-2"></i>
-                            Google
-                        </a>
-                        <a href="#" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
-                            <i class="fab fa-microsoft text-blue-500 mr-2"></i>
-                            Microsoft
-                        </a>
-                    </div>
-                </div>
-                <div class="mt-6 text-center">
-                    <p class="text-sm text-gray-600">
-                        Don't have an account? 
-                        <a href="#" class="text-sky-600 hover:text-sky-700 font-medium">
-                            Sign up
-                        </a>
-                    </p>
-                </div>
             </div>
         </div>
     </div>
@@ -606,32 +614,46 @@
         
         // Booking modal functions
         function openBookingModal() {
-            document.getElementById('booking-modal').classList.remove('invisible', 'opacity-0');
-            document.body.style.overflow = 'hidden';
+            const modal = document.getElementById('booking-modal');
+            if (modal) {
+                modal.classList.remove('invisible', 'opacity-0');
+                document.body.style.overflow = 'hidden';
+            }
         }
         
         function closeBookingModal() {
-            document.getElementById('booking-modal').classList.add('invisible', 'opacity-0');
-            document.body.style.overflow = 'auto';
+            const modal = document.getElementById('booking-modal');
+            if (modal) {
+                modal.classList.add('invisible', 'opacity-0');
+                document.body.style.overflow = 'auto';
+            }
         }
         
         // Login modal functions
         function openLoginModal() {
-            document.getElementById('login-modal').classList.remove('invisible', 'opacity-0');
-            document.body.style.overflow = 'hidden';
+            const modal = document.getElementById('login-modal');
+            if (modal) {
+                modal.classList.remove('invisible', 'opacity-0');
+                document.body.style.overflow = 'hidden';
+            }
         }
         
         function closeLoginModal() {
-            document.getElementById('login-modal').classList.add('invisible', 'opacity-0');
-            document.body.style.overflow = 'auto';
+            const modal = document.getElementById('login-modal');
+            if (modal) {
+                modal.classList.add('invisible', 'opacity-0');
+                document.body.style.overflow = 'auto';
+            }
         }
         
         // Close modals when clicking outside
         window.addEventListener('click', (e) => {
-            if (e.target === document.getElementById('booking-modal')) {
+            const bookingModal = document.getElementById('booking-modal');
+            const loginModal = document.getElementById('login-modal');
+            if (bookingModal && e.target === bookingModal) {
                 closeBookingModal();
             }
-            if (e.target === document.getElementById('login-modal')) {
+            if (loginModal && e.target === loginModal) {
                 closeLoginModal();
             }
         });
@@ -651,7 +673,9 @@
                     });
                     
                     // Close mobile menu if open
-                    mobileMenu.classList.add('hidden');
+                    if (mobileMenu) {
+                        mobileMenu.classList.add('hidden');
+                    }
                 }
             });
         });

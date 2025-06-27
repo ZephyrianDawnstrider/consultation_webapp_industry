@@ -18233,3 +18233,286 @@ django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 251: '
 [2025-06-27 10:06:39,357] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
 [2025-06-27 10:07:24,903] INFO django.utils.autoreload Watching for file changes with StatReloader
 [2025-06-27 10:07:41,909] INFO django.server "GET / HTTP/1.1" 200 38710
+[2025-06-27 11:11:12,874] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-27 11:11:20,207] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 37483
+[2025-06-27 11:11:23,376] INFO django.server "GET /auth/consultant_profile/12/ HTTP/1.1" 200 28480
+[2025-06-27 11:11:27,491] INFO django.server "GET /auth/logout/ HTTP/1.1" 302 0
+[2025-06-27 11:11:27,505] INFO django.server "GET /auth/login/ HTTP/1.1" 200 38710
+[2025-06-27 11:11:38,558] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-27 11:11:38,702] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 24103
+[2025-06-27 11:11:43,838] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 20205
+[2025-06-27 11:11:44,685] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 31170
+[2025-06-27 11:11:47,654] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 31170
+[2025-06-27 11:11:57,870] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=05&mode=upload HTTP/1.1" 200 31170
+[2025-06-27 11:12:03,972] INFO django.server "POST /consultation/upload_timesheet/12/ HTTP/1.1" 200 103
+[2025-06-27 11:12:04,022] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=05&mode=upload HTTP/1.1" 200 36312
+[2025-06-27 11:12:08,321] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 32358
+[2025-06-27 11:12:09,482] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual HTTP/1.1" 200 32760
+[2025-06-27 11:14:22,829] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual HTTP/1.1" 200 32800
+[2025-06-27 11:14:27,402] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual HTTP/1.1" 200 32800
+[2025-06-27 11:14:58,576] INFO django.server "POST /consultation/save_timesheet_entries/ HTTP/1.1" 200 89
+[2025-06-27 11:14:58,628] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual&timesheet_id=35 HTTP/1.1" 200 33581
+[2025-06-27 11:15:36,130] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual&timesheet_id=35 HTTP/1.1" 200 33588
+[2025-06-27 11:15:54,297] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual&timesheet_id=35 HTTP/1.1" 200 33595
+[2025-06-27 11:16:13,586] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual&timesheet_id=35 HTTP/1.1" 200 33581
+[2025-06-27 11:16:43,838] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-27 11:16:43,839] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-27 11:17:48,751] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual&timesheet_id=35 HTTP/1.1" 200 33581
+[2025-06-27 11:17:48,882] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-27 11:17:48,882] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-27 11:18:03,083] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual&timesheet_id=35 HTTP/1.1" 200 33581
+[2025-06-27 11:18:26,388] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual&timesheet_id=35 HTTP/1.1" 200 33593
+[2025-06-27 11:19:01,452] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual&timesheet_id=35 HTTP/1.1" 200 33617
+[2025-06-27 11:19:11,896] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual&timesheet_id=35 HTTP/1.1" 200 33593
+[2025-06-27 11:20:01,103] INFO django.server "GET /auth/logout/ HTTP/1.1" 302 0
+[2025-06-27 11:20:01,116] INFO django.server "GET /auth/login/ HTTP/1.1" 200 38710
+[2025-06-27 11:20:07,714] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual&timesheet_id=35 HTTP/1.1" 302 0
+[2025-06-27 11:20:07,721] INFO django.server "GET /auth/login/?next=/consultation/consultant_timesheet/%3Fyear%3D2025%26month%3D06%26mode%3Dmanual%26timesheet_id%3D35 HTTP/1.1" 200 38710
+[2025-06-27 11:20:26,927] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-27 11:20:26,983] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 23968
+[2025-06-27 11:20:32,058] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 20205
+[2025-06-27 11:20:32,929] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33203
+[2025-06-27 11:20:37,735] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33203
+[2025-06-27 11:20:58,716] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33206
+[2025-06-27 11:21:33,485] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33219
+[2025-06-27 11:21:41,532] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33219
+[2025-06-27 11:21:46,436] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33234
+[2025-06-27 11:22:18,168] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-27 11:22:18,168] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-27 11:23:23,224] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33252
+[2025-06-27 11:23:39,745] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-27 11:23:39,746] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-27 11:24:15,609] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33256
+[2025-06-27 11:24:23,990] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual HTTP/1.1" 200 33658
+[2025-06-27 11:24:26,028] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 33256
+[2025-06-27 11:28:37,140] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 33256
+[2025-06-27 11:28:45,826] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 33256
+[2025-06-27 11:29:03,833] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 33159
+[2025-06-27 11:29:14,984] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33159
+[2025-06-27 11:29:15,717] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 20205
+[2025-06-27 11:29:17,461] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 25808
+[2025-06-27 11:29:18,481] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 20205
+[2025-06-27 11:29:19,875] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33159
+[2025-06-27 11:29:44,639] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33224
+[2025-06-27 11:29:58,977] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33213
+[2025-06-27 11:31:09,493] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33213
+[2025-06-27 11:31:25,736] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33213
+[2025-06-27 11:31:29,463] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33213
+[2025-06-27 11:31:30,635] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33213
+[2025-06-27 11:31:32,676] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33213
+[2025-06-27 11:31:33,452] WARNING django.request Not Found: /favicon.ico
+[2025-06-27 11:31:33,453] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-27 11:32:01,744] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33213
+[2025-06-27 11:33:00,238] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33194
+[2025-06-27 11:33:46,669] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33206
+[2025-06-27 11:34:18,776] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33242
+[2025-06-27 11:34:37,985] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33266
+[2025-06-27 11:41:39,108] INFO django.server "GET /auth/consultant_profile/12/ HTTP/1.1" 200 35458
+[2025-06-27 11:41:45,942] INFO django.server "GET /auth/consultant_profile/12/?timesheet_id=34 HTTP/1.1" 200 38653
+[2025-06-27 11:41:52,598] INFO django.server "GET /auth/consultant_profile/12/?timesheet_id=35 HTTP/1.1" 200 35458
+[2025-06-27 11:42:22,552] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual HTTP/1.1" 200 33668
+[2025-06-27 11:52:47,432] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual HTTP/1.1" 200 33668
+[2025-06-27 11:52:56,886] INFO django.server "GET /auth/consultant_profile/12/?timesheet_id=35 HTTP/1.1" 200 35601
+[2025-06-27 11:52:56,942] WARNING django.server "GET /static/custom_admin/images/company_logo.png HTTP/1.1" 404 1867
+[2025-06-27 11:54:32,114] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19406
+[2025-06-27 11:54:32,190] WARNING django.server "GET /static/custom_admin/images/company_logo.png HTTP/1.1" 404 1867
+[2025-06-27 11:54:33,796] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 17216
+[2025-06-27 11:54:33,870] WARNING django.server "GET /static/custom_admin/images/company_logo.png HTTP/1.1" 404 1867
+[2025-06-27 11:54:34,916] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 29258
+[2025-06-27 11:54:34,973] WARNING django.server "GET /static/custom_admin/images/company_logo.png HTTP/1.1" 404 1867
+[2025-06-27 11:54:35,276] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 119
+[2025-06-27 11:54:35,883] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 24383
+[2025-06-27 11:54:35,928] WARNING django.server "GET /static/custom_admin/images/company_logo.png HTTP/1.1" 404 1867
+[2025-06-27 11:54:36,702] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37745
+[2025-06-27 11:54:36,827] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-27 11:54:36,827] WARNING django.server "GET /static/custom_admin/images/company_logo.png HTTP/1.1" 404 1867
+[2025-06-27 11:54:36,967] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-27 11:54:38,020] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19406
+[2025-06-27 11:54:38,074] WARNING django.server "GET /static/custom_admin/images/company_logo.png HTTP/1.1" 404 1867
+[2025-06-27 11:55:04,702] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19623
+[2025-06-27 11:55:04,752] WARNING django.server "GET /static/custom_admin/images/company_logo.png HTTP/1.1" 404 1867
+[2025-06-27 11:55:04,865] WARNING django.server "GET /static/custom_admin/images/company_logo.png HTTP/1.1" 404 1867
+[2025-06-27 11:57:01,281] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19592
+[2025-06-27 11:57:01,364] WARNING django.request Not Found: /auth/admin_dashboard/logo/logo.png
+[2025-06-27 11:57:01,365] WARNING django.server "GET /auth/admin_dashboard/logo/logo.png HTTP/1.1" 404 7823
+[2025-06-27 11:57:01,393] WARNING django.server "GET /static/custom_admin/images/company_logo.png HTTP/1.1" 404 1867
+[2025-06-27 11:58:46,605] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19450
+[2025-06-27 11:58:46,669] WARNING django.request Not Found: /auth/admin_dashboard/logo/logo.png
+[2025-06-27 11:58:46,669] WARNING django.server "GET /auth/admin_dashboard/logo/logo.png HTTP/1.1" 404 7823
+[2025-06-27 11:59:30,180] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19467
+[2025-06-27 11:59:30,236] WARNING django.server "GET /static/logo/logo.png HTTP/1.1" 404 1798
+[2025-06-27 11:59:33,062] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19467
+[2025-06-27 11:59:33,103] WARNING django.server "GET /static/logo/logo.png HTTP/1.1" 404 1798
+[2025-06-27 11:59:37,407] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-27 11:59:37,408] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-27 12:00:51,199] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19457
+[2025-06-27 12:00:51,264] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-06-27 12:03:17,527] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19457
+[2025-06-27 12:03:17,569] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
+[2025-06-27 12:03:19,214] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19457
+[2025-06-27 12:09:06,702] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19457
+[2025-06-27 12:09:06,751] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
+[2025-06-27 12:09:15,878] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 17267
+[2025-06-27 12:09:17,731] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19457
+[2025-06-27 12:09:35,704] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual HTTP/1.1" 200 33693
+[2025-06-27 12:09:38,579] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 23993
+[2025-06-27 12:11:31,624] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 17267
+[2025-06-27 12:11:31,776] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
+[2025-06-27 12:11:42,465] INFO django.server "GET /auth/admin_profile/1/ HTTP/1.1" 200 20669
+[2025-06-27 12:11:57,623] WARNING django.request Forbidden: /consultation/send_otp/
+[2025-06-27 12:11:57,624] WARNING django.server "POST /consultation/send_otp/ HTTP/1.1" 403 45
+[2025-06-27 12:12:06,055] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 19457
+[2025-06-27 12:13:22,914] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 17267
+[2025-06-27 12:13:22,972] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
+[2025-06-27 12:13:23,971] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 17267
+[2025-06-27 12:13:30,969] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 23993
+[2025-06-27 12:13:34,213] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 25833
+[2025-06-27 12:13:35,170] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 25833
+[2025-06-27 12:13:37,722] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 20230
+[2025-06-27 12:13:38,573] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33291
+[2025-06-27 12:15:47,878] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 20230
+[2025-06-27 12:15:49,250] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33291
+[2025-06-27 12:17:30,679] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 18004
+[2025-06-27 12:17:30,722] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
+[2025-06-27 12:18:30,272] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 18073
+[2025-06-27 12:20:09,358] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 18004
+[2025-06-27 12:20:09,405] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
+[2025-06-27 12:20:42,399] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33291
+[2025-06-27 12:21:00,908] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 18077
+[2025-06-27 12:22:46,713] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20194
+[2025-06-27 12:22:46,792] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
+[2025-06-27 12:22:49,202] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 18004
+[2025-06-27 12:22:51,087] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 30046
+[2025-06-27 12:22:51,620] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 119
+[2025-06-27 12:22:52,705] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 38533
+[2025-06-27 12:22:52,788] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-27 12:22:52,935] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-27 12:22:53,806] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 25171
+[2025-06-27 12:22:56,000] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20194
+[2025-06-27 12:23:43,588] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20345
+[2025-06-27 12:23:44,990] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20345
+[2025-06-27 12:23:49,332] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 18155
+[2025-06-27 12:23:50,524] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 30197
+[2025-06-27 12:23:50,882] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 119
+[2025-06-27 12:23:51,873] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 38684
+[2025-06-27 12:23:51,928] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-27 12:23:52,080] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-27 12:23:53,177] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 25322
+[2025-06-27 12:23:55,992] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20345
+[2025-06-27 12:25:54,743] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 18155
+[2025-06-27 12:25:54,847] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
+[2025-06-27 12:26:56,249] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 18264
+[2025-06-27 12:30:14,395] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 18264
+[2025-06-27 12:30:14,462] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
+[2025-06-27 12:31:30,740] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 18357
+[2025-06-27 12:31:33,183] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20438
+[2025-06-27 12:31:34,249] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20438
+[2025-06-27 12:32:03,069] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20527
+[2025-06-27 12:32:04,931] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20527
+[2025-06-27 12:32:30,960] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33468
+[2025-06-27 12:32:37,313] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 24170
+[2025-06-27 12:33:03,758] INFO django.server "GET /auth/admin_profile/1/ HTTP/1.1" 200 22666
+[2025-06-27 12:34:39,497] INFO django.server "GET /auth/logout/ HTTP/1.1" 302 0
+[2025-06-27 12:34:39,512] INFO django.server "GET /auth/login/ HTTP/1.1" 200 38710
+[2025-06-27 12:41:05,500] INFO django.server "GET /auth/login/ HTTP/1.1" 200 36660
+[2025-06-27 12:43:32,858] INFO django.server "GET /auth/login/ HTTP/1.1" 200 32216
+[2025-06-27 12:43:56,950] INFO django.server "GET /auth/login/ HTTP/1.1" 200 32216
+[2025-06-27 12:45:53,343] INFO django.server "GET /auth/login/ HTTP/1.1" 200 32221
+[2025-06-27 12:45:53,392] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
+[2025-06-27 12:45:59,034] INFO django.server "GET /auth/login/ HTTP/1.1" 200 32147
+[2025-06-27 12:47:28,831] INFO django.server "GET /auth/login/ HTTP/1.1" 200 32651
+[2025-06-27 12:49:08,540] INFO django.server "GET /auth/login/ HTTP/1.1" 200 33786
+[2025-06-27 12:49:33,949] INFO django.server "GET /auth/login/ HTTP/1.1" 200 38185
+[2025-06-27 12:49:46,215] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-27 12:49:46,252] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 26674
+[2025-06-27 12:50:01,631] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-27 12:50:01,652] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20637
+[2025-06-27 12:56:20,866] ERROR django.request Internal Server Error: /auth/admin_dashboard/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 502, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py", line 474, in admin_dashboard
+    return render(request, 'admin_dashboard.html', context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        template_name,
+        ^^^^^^^^^^^^^^
+        skip=history,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 504, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 565, in invalid_block_tag
+    raise self.error(
+    ...<3 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 24: 'static'. Did you forget to register or load this tag?
+[2025-06-27 12:56:20,897] ERROR django.server "GET /auth/admin_dashboard/ HTTP/1.1" 500 188634
+[2025-06-27 13:34:43,281] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20298
+[2025-06-27 13:34:43,385] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 3978
+[2025-06-27 13:34:43,386] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
+[2025-06-27 13:34:43,432] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 1804
+[2025-06-27 13:35:26,496] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20298
+[2025-06-27 13:36:20,021] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-27 13:36:20,022] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-27 13:37:01,100] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20144
+[2025-06-27 13:39:43,956] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 33266
+[2025-06-27 13:40:35,082] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20188
+[2025-06-27 13:40:35,139] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
+[2025-06-27 13:40:35,168] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
