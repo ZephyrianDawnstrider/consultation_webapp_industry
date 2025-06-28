@@ -9,7 +9,7 @@
     {% if user.is_staff %}
     <form id="consultant-edit-form" method="post" action="{% url 'custom_admin:edit_consultant' consultant.id %}" enctype="multipart/form-data" class="bg-white rounded-lg shadow p-6 mb-8">
         {% csrf_token %}
-        <h2 class="text-xl font-semibold mb-4">Basic Information</h2>
+        <h2 class="text-xl font-semibold mb-4 text-black">Basic Information</h2>
         <p class="text-sm text-gray-500 mb-4">Fields marked with <span class="text-red-600 font-bold">*</span> are mandatory.</p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <!-- Existing form fields unchanged -->
@@ -124,7 +124,7 @@
 
     <!-- Timesheet Data Section -->
     <div class="bg-white rounded-lg shadow p-6 mt-10">
-        <h2 class="text-xl font-semibold mb-4">Timesheet data </h2>
+        <h2 class="text-xl font-semibold mb-4 text-black">Timesheet data </h2>
         {% if timesheets %}
         <form method="get" id="timesheet-select-form" class="mb-4">
             <label for="timesheet-select" class="block font-medium text-gray-700 mb-2 text-black">Select Timesheet to Edit Entries:</label>

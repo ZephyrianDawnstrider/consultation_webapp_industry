@@ -12,96 +12,118 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- FullCalendar CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css" rel="stylesheet" />
+    <!-- Flowbite CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
 
-    <!-- Flowbite CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- CHL Softech Branding CSS -->
+    <link href="{% static 'custom_admin/css/branding.css' %}" rel="stylesheet" />
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        /* Toast Notification Styles */
+        html, body {
+            height: 100vh;
+            margin: 0;
+        }
+        .toast-container {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            z-index: 50;
+        }
+        .toast {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(243, 112, 33, 0.5);
+        }
+        .toast.show {
+            opacity: 1;
+        }
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
-            background-color: gradient(to right, #000000,rgb(255, 98, 0));
             min-height: 100vh;
-            display: flex;
-            overflow: auto;
+            {% block body_style %}display: flex; overflow: auto;{% endblock %}
+            background: linear-gradient(to right, #000000, rgb(255, 98, 0));
             color: white;
-        }
-        /* Sidebar Styling */
-        .sidebar {
-            background-color:gradient(to right, #000000,rgb(255, 98, 0));
-            color: white;
-            width: 16rem; /* 64 */
-            flex-shrink: 0;
-            display: flex;
-            flex-direction: column;
-            transition: all 0.3s ease;
-        }
-        /* Main Content Area */
-        .main-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            overflow: auto;
-            background-color:gradient(to right, #000000,rgb(255, 98, 0));
-        }
-        /* Navbar Styling */
-        header {
-            background-color:gradient(to right, #000000,rgb(255, 98, 0));
-            box-shadow: 0 1px 3px rgba(243, 112, 33, 0.5);
-            padding: 1rem 1.5rem;
-            flex-shrink: 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #F37021;
-        }
-        main {
-            flex: 1;
-            overflow-y: auto;
-            padding: 1.5rem;
-        }
-
-        /* Fix button transparency conflicts between Tailwind and Bootstrap */
-        .btn, .btn-danger, .btn-primary, .btn-sm {
-            background-color: initial !important;
-            opacity: 1 !important;
-            border: 1px solid transparent !important;
-        }
-        .btn-danger {
-            background-color: #dc3545 !important; /* Bootstrap danger red */
-            color: white !important;
-        }
-        .btn-primary {
-            background-color: #007bff !important; /* Bootstrap primary blue */
-            color: white !important;
-        }
-        .btn-sm {
-            padding: 0.25rem 0.5rem !important;
-            font-size: 0.875rem !important;
-            border-radius: 0.2rem !important;
-        }
-        /* Ensure Tailwind buttons have solid backgrounds */
-        button[class*="bg-"] {
-            opacity: 1 !important;
         }
     </style>
+    {% block extra_css %}{% endblock %}
+    {% block extra_head %}{% endblock %}
 </head>
-<body>
+<body class="min-h-screen {% block body_class %}flex overflow-auto{% endblock %}">
     {% include 'includes/sidebar.html' %}
     <div class="flex-1 flex flex-col min-h-screen overflow-auto">
         {% include 'includes/navbar.html' %}
-        <main>
+        <main class="flex-1 overflow-y-auto p-6 bg-gradient-to-r from-black to-orange text-white">
             {% block content %}{% endblock %}
         </main>
     </div>
-    {% block extra_js %}
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container"></div>
+
+    <!-- Flowbite Script -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
-    {% endblock %}
+
+    <!-- Toast Notification Script -->
+    <script>
+        function showToast(message, type = 'info') {
+            const container = document.querySelector('.toast-container');
+            const toast = document.createElement('div');
+            
+            // Set background color based on message type
+            let bgColor = '';
+            let textColor = 'text-white';
+            switch(type) {
+                case 'error':
+                    bgColor = 'bg-red-500';
+                    break;
+                case 'success':
+                    bgColor = 'bg-green-500';
+                    break;
+                case 'warning':
+                    bgColor = 'bg-yellow-500';
+                    break;
+                default:
+                    bgColor = 'bg-blue-500';
+            }
+
+            toast.className = `toast ${bgColor} ${textColor} p-4 rounded-lg shadow-lg mb-3 flex items-center`;
+            toast.innerHTML = `
+                <div class="mr-2">${message}</div>
+                <button onclick="this.parentElement.remove()" class="ml-auto">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+
+            container.appendChild(toast);
+            
+            // Show animation
+            setTimeout(() => toast.classList.add('show'), 10);
+
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 300);
+            }, 5000);
+        }
+
+        // Handle Django messages
+        {% if messages %}
+            {% for message in messages %}
+                showToast("{{ message }}", "{{ message.tags }}");
+            {% endfor %}
+        {% endif %}
+    </script>
+    <!-- CHL Softech Branding JS -->
+    <script src="{% static 'custom_admin/js/branding.js' %}"></script>
+    {% block extra_js %}{% endblock %}
 </body>
 </html>
