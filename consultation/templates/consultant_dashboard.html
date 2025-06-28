@@ -2,336 +2,103 @@
 {% load static %}
 {% block title %}Consultant Dashboard{% endblock %}
 {% block extra_css %}
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
 {% endblock %}
 {% block content %}
-        <div id="mainContent" class="flex-1 flex flex-col overflow-hidden transition-all duration-300 ease-in-out md:ml-64">
-            <main class="flex-1 overflow-y-auto p-6 bg-gray-50">
-                <div class="flex flex-col gap-6">
-                    <!-- Summary Cards -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                        <div class="bg-white rounded-lg shadow-lg p-6 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <p class="text-gray-600 text-sm font-medium">Total Consultations</p>
-                                    <h3 class="text-xl font-semibold text-gray-900 mt-1">{{ total_consultations }}</h3>
-                                    <p class="text-green-500 text-xs mt-1">+5 from last month</p>
-                                </div>
-                                <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center">
-                                    <i class="fas fa-calendar-check text-indigo-600 text-xl"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg shadow-lg p-6 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <p class="text-gray-600 text-sm font-medium">Upcoming Consultations</p>
-                                    <h3 class="text-xl font-semibold text-gray-900 mt-1">{{ upcoming_consultations }}</h3>
-                                    <p class="text-blue-500 text-xs mt-1">Next 7 days</p>
-                                </div>
-                                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
-                                    <i class="fas fa-clock text-blue-600 text-xl"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="{{ timesheet_upload_url }}" class="block bg-white rounded-lg shadow-lg p-6 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <p class="text-gray-600 text-sm font-medium">Timesheet Status</p>
-                                    <h3 class="text-xl font-semibold text-gray-900 mt-1">{% if timesheet_uploaded %}Uploaded{% else %}Not Uploaded{% endif %}</h3>
-                                    {% if not timesheet_uploaded %}
-                                    <p class="text-yellow-500 text-xs mt-1">Due in {{ days_left_in_month }} days</p>
-                                    {% endif %}
-                                </div>
-                                <div class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center">
-                                    <i class="fas fa-file-alt text-yellow-600 text-xl"></i>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="{% url 'consultation:consultant_invoice' %}" class="block bg-white rounded-lg shadow-lg p-6 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <p class="text-gray-600 text-sm font-medium">Invoice Status</p>
-                                    <h3 class="text-xl font-semibold text-gray-900 mt-1">{{ invoice_status }}</h3>
-                                    {% if not invoice_uploaded %}
-                                    <p class="text-purple-500 text-xs mt-1">Submitted recently</p>
-                                    {% endif %}
-                                </div>
-                                <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
-                                    <i class="fas fa-file-invoice-dollar text-purple-600 text-xl"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    {% comment %} <!-- Calendar Section -->
-                    <div class="bg-white rounded-lg shadow-lg p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h2 class="text-lg font-semibold text-gray-900">Consultation Calendar</h2>
-                            <div class="flex space-x-2">
-                                <button class="px-3 py-1 bg-indigo-600 text-white rounded-md text-sm hover:bg-indigo-700">
-                                    <i class="fas fa-plus mr-1"></i> Add Event
-                                </button>
-                            </div>
-                        </div>
-                        <div id="calendar" class="h-[350px] mt-2 mb-6"></div>
-                    </div> {% endcomment %}
-
-                    <!-- Invoice History Table -->
-                    <div class="bg-white rounded-xl shadow-md p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h2 class="text-xl font-semibold text-gray-800">Invoice History</h2>
-                            <a href="{% url 'consultation:consultant_invoice' %}" class="px-3 py-1 bg-indigo-600 text-white rounded-md text-sm hover:bg-indigo-700 inline-flex items-center">
-                                <i class="fas fa-file-upload mr-1"></i> Upload New
-                            </a>
-                        </div>
-                        <div class="overflow-x-auto">
-                            <table class="min-w-full divide-y divide-gray-200">
-                                <thead class="bg-gray-50">
-                                    <tr>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Month</th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Upload Date</th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="bg-white divide-y divide-gray-200">
-                                    {% for invoice in invoice_history %}
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm font-medium text-gray-900">{{ invoice.month|date:"F Y" }}</div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-500">{{ invoice.uploaded_at|date:"F d, Y" }}</div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full
-                                                {% if invoice.status == 'approved' %}bg-green-100 text-green-800
-                                                {% elif invoice.status == 'pending' %}bg-yellow-100 text-yellow-800
-                                                {% elif invoice.status == 'rejected' %}bg-red-100 text-red-800
-                                                {% else %}bg-gray-100 text-gray-800{% endif %}">
-                                                {{ invoice.status|capfirst }}
-                                            </span>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-indigo-600 hover:text-indigo-900">
-                                            <a href="{{ invoice.file.url }}" target="_blank"><i class="fas fa-eye mr-1"></i> View</a>
-                                        </td>
-                                    </tr>
-                                    {% empty %}
-                                    <tr>
-                                        <td colspan="4" class="px-6 py-4 text-center text-gray-500">No invoices found.</td>
-                                    </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="mt-4 flex items-center justify-between">
-                            <div class="text-sm text-gray-500">Showing {{ invoice_history|length }} entries</div>
-                            <div class="flex space-x-2">
-                                <button class="px-3 py-1 bg-gray-200 text-gray-700 rounded-md text-sm hover:bg-gray-300 disabled:opacity-50" disabled>Previous</button>
-                                <button class="px-3 py-1 bg-indigo-600 text-white rounded-md text-sm hover:bg-indigo-700">Next</button>
-                            </div>
-                        </div>
-                    </div>
+<div class="main-content flex-1 overflow-y-auto p-6 bg-gradient-to-r from-black to-orange text-white">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Total Consultations Widget -->
+        <div class="bg-gray-900 rounded-lg shadow-lg p-6">
+            <div class="flex items-center">
+                <div class="p-3 rounded-full bg-orange-100 text-orange-600">
+                    <i class="fas fa-calendar-check text-2xl"></i>
                 </div>
-            </main>
+                <div class="ml-4">
+                    <h3 class="text-orange-400 font-medium">Total Consultations</h3>
+                    <p class="text-3xl font-bold text-white">{{ total_consultations }}</p>
+                </div>
+            </div>
+        </div>
+        <!-- Upcoming Consultations Widget -->
+        <div class="bg-gray-900 rounded-lg shadow-lg p-6">
+            <div class="flex items-center">
+                <div class="p-3 rounded-full bg-orange-100 text-orange-600">
+                    <i class="fas fa-clock text-2xl"></i>
+                </div>
+                <div class="ml-4">
+                    <h3 class="text-orange-400 font-medium">Upcoming Consultations</h3>
+                    <p class="text-3xl font-bold text-white">{{ upcoming_consultations }}</p>
+                </div>
+            </div>
+        </div>
+        <!-- Timesheet Status Widget -->
+        <div class="bg-gray-900 rounded-lg shadow-lg p-6">
+            <div class="flex items-center">
+                <div class="p-3 rounded-full bg-orange-100 text-orange-600">
+                    <i class="fas fa-file-alt text-2xl"></i>
+                </div>
+                <div class="ml-4">
+                    <h3 class="text-orange-400 font-medium">Timesheet Status</h3>
+                    <p class="text-3xl font-bold text-white">{% if timesheet_uploaded %}Uploaded{% else %}Not Uploaded{% endif %}</p>
+                    {% if not timesheet_uploaded %}
+                    <p class="text-yellow-500 text-xs mt-1">Due in {{ days_left_in_month }} days</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <!-- Invoice Status Widget -->
+        <div class="bg-gray-900 rounded-lg shadow-lg p-6">
+            <div class="flex items-center">
+                <div class="p-3 rounded-full bg-orange-100 text-orange-600">
+                    <i class="fas fa-file-invoice-dollar text-2xl"></i>
+                </div>
+                <div class="ml-4">
+                    <h3 class="text-orange-400 font-medium">Invoice Status</h3>
+                    <p class="text-3xl font-bold text-white">{{ invoice_status }}</p>
+                    {% if not invoice_uploaded %}
+                    <p class="text-purple-500 text-xs mt-1">Submitted recently</p>
+                    {% endif %}
+                </div>
+            </div>
         </div>
     </div>
+    <!-- Invoice History Table -->
+    <div class="mt-8 bg-gray-900 rounded-lg shadow-lg overflow-hidden">
+        <div class="px-6 py-4 border-b border-gray-700">
+            <h2 class="text-lg font-semibold text-white">Invoice History</h2>
+        </div>
+        <div class="divide-y divide-gray-700">
+            <div class="px-6 py-4 flex items-center">
+                <div class="flex-shrink-0">
+                    <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                </div>
+                <div class="ml-4">
+                    <p class="text-sm font-medium text-white">Invoice generated</p>
+                    <p class="text-sm text-gray-400">Invoice #INV-2023-102 for $1,250.00</p>
+                </div>
+                <div class="ml-auto text-sm text-gray-400">1 day ago</div>
+            </div>
+            <div class="px-6 py-3 bg-gray-900 text-right">
+                <a href="{% url 'consultation:consultant_invoice' %}" class="text-sm font-medium text-orange-500 hover:text-orange-400">View all</a>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 {% block extra_js %}
 <script>
-    // Hamburger menu toggle for mobile
-    const hamburgerBtn = document.getElementById('hamburgerBtn');
-    const sidebar = document.querySelector('.sidebar');
-    const mainContent = document.getElementById('mainContent');
-
-    hamburgerBtn.addEventListener('click', () => {
-        sidebar.classList.toggle('-translate-x-full');
-    });
-
-    // Sidebar toggle for desktop
-    document.getElementById('toggleSidebar').addEventListener('click', function() {
-        sidebar.classList.toggle('w-64');
-        sidebar.classList.toggle('w-16');
-        mainContent.classList.toggle('md:ml-64');
-        mainContent.classList.toggle('md:ml-16');
-    });
-
-    // Toggle profile dropdown
-    document.getElementById('profileDropdown').addEventListener('click', function() {
-        document.getElementById('dropdownMenu').classList.toggle('hidden');
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(event) {
-        if (!event.target.closest('#profileDropdown')) {
-            document.getElementById('dropdownMenu').classList.add('hidden');
+    // Toggle sidebar
+    const toggleSidebar = document.getElementById('toggleSidebar');
+    const sidebar = document.getElementById('sidebar');
+    
+    toggleSidebar.addEventListener('click', () => {
+        sidebar.classList.toggle('collapsed');
+        if (sidebar.classList.contains('collapsed')) {
+            toggleSidebar.innerHTML = '<i class="fas fa-chevron-right"></i><span class="sidebar-text ml-2">Expand</span>';
+        } else {
+            toggleSidebar.innerHTML = '<i class="fas fa-chevron-left"></i><span class="sidebar-text ml-2">Collapse</span>';
         }
     });
-
-document.addEventListener('DOMContentLoaded', () => {
-  const timesheetEntries = JSON.parse(document.getElementById('timesheet-entries').textContent);
-  const timesheetId = document.getElementById('timesheet-select').value;
-  const tbody = document.getElementById('timesheet-entries-body');
-  const addRowBtn = document.getElementById('add-row-button');
-  const saveBtn = document.getElementById('save-entries-button');
-  const saveSuccessMsg = document.getElementById('save-success-message');
-  const saveErrorMsg = document.getElementById('save-error-message');
-  const saveErrorText = document.getElementById('save-error-text');
-
-  function createCell(content, type = 'text') {
-    const td = document.createElement('td');
-    if (type === 'text') {
-      const input = document.createElement('input');
-      input.type = 'text';
-      input.className = 'w-full border border-gray-300 rounded px-2 py-1';
-      input.value = content || '';
-      td.appendChild(input);
-    } else {
-      td.textContent = content;
-    }
-    return td;
-  }
-
-  function createRow(entry = {}) {
-    const tr = document.createElement('tr');
-
-    // Date
-    const dateTd = document.createElement('td');
-    const dateInput = document.createElement('input');
-    dateInput.type = 'date';
-    dateInput.className = 'w-full border border-gray-300 rounded px-2 py-1';
-    dateInput.value = entry.date || '';
-    dateTd.appendChild(dateInput);
-    tr.appendChild(dateTd);
-
-    // Start Time
-    const startTd = document.createElement('td');
-    const startInput = document.createElement('input');
-    startInput.type = 'time';
-    startInput.className = 'w-full border border-gray-300 rounded px-2 py-1';
-    startInput.value = entry.start_time || '';
-    startTd.appendChild(startInput);
-    tr.appendChild(startTd);
-
-    // End Time
-    const endTd = document.createElement('td');
-    const endInput = document.createElement('input');
-    endInput.type = 'time';
-    endInput.className = 'w-full border border-gray-300 rounded px-2 py-1';
-    endInput.value = entry.end_time || '';
-    endTd.appendChild(endInput);
-    tr.appendChild(endTd);
-
-    // Task Name
-    const taskTd = document.createElement('td');
-    const taskInput = document.createElement('input');
-    taskInput.type = 'text';
-    taskInput.className = 'w-full border border-gray-300 rounded px-2 py-1';
-    taskInput.value = entry.task_name || '';
-    taskTd.appendChild(taskInput);
-    tr.appendChild(taskTd);
-
-    // Description
-    const descTd = document.createElement('td');
-    const descInput = document.createElement('input');
-    descInput.type = 'text';
-    descInput.className = 'w-full border border-gray-300 rounded px-2 py-1';
-    descInput.value = entry.description || '';
-    descTd.appendChild(descInput);
-    tr.appendChild(descTd);
-
-    // Actions
-    const actionsTd = document.createElement('td');
-    actionsTd.className = 'text-center';
-    const delBtn = document.createElement('button');
-    delBtn.type = 'button';
-    delBtn.textContent = 'Delete';
-    delBtn.className = 'bg-red-600 text-white px-2 py-1 rounded hover:bg-red-700';
-    delBtn.addEventListener('click', () => {
-      tr.remove();
-    });
-    actionsTd.appendChild(delBtn);
-    tr.appendChild(actionsTd);
-
-    return tr;
-  }
-
-  function loadEntries() {
-    tbody.innerHTML = '';
-    timesheetEntries.forEach(entry => {
-      const row = createRow(entry);
-      tbody.appendChild(row);
-    });
-  }
-
-  addRowBtn.addEventListener('click', () => {
-    const newRow = createRow();
-    tbody.appendChild(newRow);
-  });
-
-  saveBtn.addEventListener('click', async () => {
-    saveSuccessMsg.classList.add('hidden');
-    saveErrorMsg.classList.add('hidden');
-
-    const rows = Array.from(tbody.querySelectorAll('tr'));
-    const entries = rows.map(row => {
-      const inputs = row.querySelectorAll('input');
-      return {
-        date: inputs[0].value,
-        start_time: inputs[1].value,
-        end_time: inputs[2].value,
-        task_name: inputs[3].value,
-        description: inputs[4].value,
-      };
-    });
-
-    try {
-      const response = await fetch('/custom_admin/save_timesheet_entries/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-CSRFToken': getCookie('csrftoken'),
-        },
-        body: JSON.stringify({
-          timesheet_id: timesheetId,
-          entries: entries,
-        }),
-      });
-      const data = await response.json();
-      if (data.success) {
-        saveSuccessMsg.classList.remove('hidden');
-      } else {
-        saveErrorText.textContent = data.message || 'Error saving timesheet entries.';
-        saveErrorMsg.classList.remove('hidden');
-      }
-    } catch (error) {
-      saveErrorText.textContent = 'Network error. Please try again.';
-      saveErrorMsg.classList.remove('hidden');
-    }
-  });
-
-  // CSRF helper
-  function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-      const cookies = document.cookie.split(';');
-      for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim();
-        if (cookie.substring(0, name.length + 1) === (name + '=')) {
-          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-          break;
-        }
-      }
-    }
-    return cookieValue;
-  }
-
-  loadEntries();
-});
-
 </script>
 {% endblock %}
