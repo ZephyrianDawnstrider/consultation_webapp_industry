@@ -247,3 +247,12 @@
 [2025-06-30 11:00:59,952] INFO general.views Login attempt for email: ayushchaturvedi405@gmail.com
 [2025-06-30 11:00:59,956] INFO general.views User found: ayushchaturvedi405@gmail.com with role consultant
 [2025-06-30 11:00:59,985] INFO general.views Consultant user ayushchaturvedi405@gmail.com logged in successfully.
+[2025-06-30 15:08:36,092] INFO general.views Login attempt for email: admin_test@gmail.com
+[2025-06-30 15:08:36,103] INFO general.views User found: admin_test@gmail.com with role admin
+[2025-06-30 15:08:37,329] INFO general.views Admin user admin_test@gmail.com authenticated successfully.
+[2025-06-30 15:09:30,169] INFO general.views Login attempt for email: pranav@indiaisus.com
+[2025-06-30 15:09:30,175] INFO general.views User found: pranav@indiaisus.com with role consultant
+[2025-06-30 15:09:30,247] INFO general.views Consultant user pranav@indiaisus.com logged in successfully.
+[2025-06-30 15:14:47,288] INFO general.views Login attempt for email: ayushchaturvedi405@gmail.com
+[2025-06-30 15:14:47,295] INFO general.views User found: ayushchaturvedi405@gmail.com with role consultant
+[2025-06-30 15:14:47,330] INFO general.views Consultant user ayushchaturvedi405@gmail.com logged in successfully.
