@@ -1,110 +1,70 @@
+
 # Consultation Web Application
 
 ## Overview
-This is a Django-based web application designed to manage consultation services. It provides a platform for consultants to manage their profiles, timesheets, invoices, and session bookings. The application also includes a custom admin interface for managing consultants, skills, invoices, and overall system administration.
+This Django-based web application is designed to efficiently manage consultation services by providing a robust platform for both consultants and administrators. It facilitates seamless management of consultant profiles, timesheets, invoices, and session bookings, while offering administrators comprehensive tools for consultant oversight, skill management, invoice processing, and system administration.
 
 ## Features
 
 ### Consultant Portal
-- Dashboard displaying consultations, invoices, and calendar events.
-- Upload, view, and manage timesheets (CSV format).
-- Upload and track invoices.
-- Manage personal profile including banking details and skills.
-- Password management with OTP verification and email notifications.
-- Agreement document upload and scrapping functionality.
+- Interactive dashboard displaying consultations, invoices, and calendar events.
+- Upload and manage timesheets in Excel and CSV formats with automatic processing.
+- Upload, track, and manage invoices with status updates.
+- Manage personal profiles including banking details and skill sets.
+- Secure password management with OTP verification and email notifications.
+- Upload and manage agreement documents with scrapping functionality.
 
 ### Admin Portal
-- Dashboard with key metrics (total consultants, pending invoices, approved sessions).
-- Consultant management: add, edit, delete consultants with email notifications.
-- Skill management with create, update, and soft delete functionality.
-- Invoice management with status updates.
-- Consultant registration approval and status management.
-- Password reset for consultants with email notifications.
+- Comprehensive dashboard with key metrics such as total consultants, pending invoices, and approved sessions.
+- Consultant management including adding, editing, deleting, and approving registrations.
+- Skill management with create, update, and soft delete capabilities.
+- Invoice management with status tracking and automated notifications.
+- Secure password reset functionality for consultants with email alerts.
 
 ## Technology Stack
-- Python 3.x
-- Django 5.0.14
-- Django REST Framework
-- SQLite (default, can be configured for other databases)
-- Pandas and OpenPyXL for Excel and CSV processing
-- Cryptography for password encryption
-- Gunicorn for deployment
-- Email notifications via SMTP (Gmail configured by default)
+- Python 3.x, Django 5.0.14, Django REST Framework
+- SQLite (default), Pandas, OpenPyXL, Cryptography
+- Gunicorn for deployment, SMTP email notifications
 
-## Installation
-
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   cd consultaion_webapp
-   ```
-
-2. Create and activate a virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Apply migrations:
-   ```bash
-   python manage.py migrate
-   ```
-
-5. Create a superuser (optional, for admin access):
-   ```bash
-   python manage.py createsuperuser
-   ```
-
-6. Run the development server:
-   ```bash
-   python manage.py runserver
-   ```
-
-7. Access the application at `http://127.0.0.1:8000/`
+## Installation & Setup
+1. Clone the repository and navigate to the project directory.
+2. Create and activate a virtual environment.
+3. Install dependencies from requirements.txt.
+4. Apply database migrations.
+5. Create a superuser for admin access.
+6. Run the development server.
+7. Access the app at `https://consultaion-webapp.onrender.com`.
 
 ## Configuration
-
-- **Database:** Default is SQLite. To use another database, update `DATABASES` in `consultaion_webapp/settings.py`.
-- **Email:** SMTP settings are configured for Gmail by default. Update `EMAIL_HOST_USER` and `EMAIL_HOST_PASSWORD` in `settings.py` for your email account.
-- **Media Files:** Uploaded files are stored in the `media/` directory by default. Cloud storage options (AWS S3, GCP, Azure) can be configured via environment variables.
-- **Logging:** Logs are stored in the `logs/` directory with separate files for general, backend, errors, and server logs.
+- Database settings in `consultaion_webapp/settings.py`.
+- Email SMTP settings for notifications.
+- Media files stored in `media/` directory.
+- Logs stored in `logs/` directory.
 
 ## Usage
 
 ### Consultant Portal
-- Login as a consultant to access the dashboard.
-- Upload timesheets in Excel format; they are converted to CSV automatically.
-- View and manage invoices.
-- Update profile information and manage password with OTP verification.
-- View upcoming session bookings and calendar events.
+- Login to access dashboard.
+- Upload and manage timesheets and invoices.
+- Update profile and banking details.
+- Change password securely with OTP.
+- View upcoming sessions and calendar events.
 
 ### Admin Portal
-- Login as an admin to access the dashboard.
-- Manage consultants: add new consultants, edit details, reset passwords, and delete accounts.
-- Manage skills used by consultants.
-- Review and update invoice statuses.
-- Approve or reject consultant registrations and timesheets.
+- Login to access admin dashboard.
+- Manage consultants, skills, and invoices.
+- Approve or reject registrations and timesheets.
+- Reset consultant passwords securely.
 
 ## Testing
-- Tests are located in the `consultation/tests.py` and `custom_admin/tests.py` files.
-- Run tests using:
-  ```bash
-  python manage.py test
-  ```
+- Tests located in `consultation/tests.py` and `custom_admin/tests.py`.
+- Run tests with `python manage.py test`.
 
 ## Contributing
-- Fork the repository and create a feature branch.
-- Follow PEP8 coding standards.
-- Write tests for new features or bug fixes.
-- Submit a pull request with a clear description of changes.
-
-## License
-This project is licensed under the MIT License.
+- Fork and create feature branches.
+- Follow PEP8 standards.
+- Write tests for new features.
+- Submit pull requests with clear descriptions.
 
 ## Contact
-For questions or support, contact the project maintainer at `chaturvedi1ayush@gmail.com`.
+For support, contact `chaturvedi1ayush@gmail.com`.
