@@ -1545,3 +1545,15 @@ django.template.exceptions.TemplateSyntaxError: Invalid filter: 'add_class'
 [2025-06-30 12:22:09,367] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 33336
 [2025-06-30 12:22:10,453] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 26526
 [2025-06-30 12:22:11,776] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 44665
+[2025-06-30 12:42:45,664] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 44665
+[2025-06-30 12:43:08,968] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 12:43:08,969] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 12:50:23,589] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 26518
+[2025-06-30 12:50:24,483] WARNING django.request Not Found: /favicon.ico
+[2025-06-30 12:50:24,485] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-30 12:50:31,988] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 26518
+[2025-06-30 12:50:32,038] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-06-30 12:50:32,038] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-06-30 12:50:32,048] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-06-30 12:50:33,244] WARNING django.request Not Found: /favicon.ico
+[2025-06-30 12:50:33,245] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
