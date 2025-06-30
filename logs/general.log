@@ -262,3 +262,6 @@
 [2025-06-30 17:01:04,917] INFO general.views Login attempt for email: admin_test@gmail.com
 [2025-06-30 17:01:04,919] INFO general.views User found: admin_test@gmail.com with role admin
 [2025-06-30 17:01:05,291] INFO general.views Admin user admin_test@gmail.com authenticated successfully.
+[2025-06-30 18:16:09,515] INFO general.views Login attempt for email: admin_test@gmail.com
+[2025-06-30 18:16:09,528] INFO general.views User found: admin_test@gmail.com with role admin
+[2025-06-30 18:16:11,040] INFO general.views Admin user admin_test@gmail.com authenticated successfully.
