@@ -1,0 +1,284 @@
+{% extends "consultant_base.html" %}
+
+{% block title %}Consultant Profile{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Consultant Profile</h2>
+    <div class="card shadow-sm p-4">
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <h5>Profile Information</h5>
+                <p><strong>Name:</strong> {{ consultant.get_full_name }}</p>
+                <p><strong>Email:</strong> {{ consultant.email }}</p>
+            </div>
+            <div class="col-md-6">
+                <h5>Password</h5>
+                <div class="input-group mb-3">
+                    <input type="password" id="passwordField" class="form-control" value="{{ decrypted_password|default:'********' }}" readonly>
+                    <button class="btn btn-outline-secondary" type="button" id="togglePasswordBtn" aria-label="Toggle password visibility">
+                        <i class="bi bi-eye" id="togglePasswordIcon"></i>
+                    </button>
+                </div>
+                <button class="btn btn-link p-0" id="editPasswordBtn">Edit Password</button>
+            </div>
+        </div>
+        <hr>
+        <div id="otpSection" class="mb-4" style="display:none;">
+            <h5>Verify OTP</h5>
+            <div class="input-group mb-3">
+                <input type="text" id="otpInput" class="form-control" placeholder="Enter OTP">
+                <button class="btn btn-primary" id="verifyOtpBtn">Verify OTP</button>
+            </div>
+            <div id="otpMessage" class="text-danger"></div>
+        </div>
+        <div id="changePasswordSection" style="display:none;">
+            <h5>Change Password</h5>
+            <form id="changePasswordForm" novalidate>
+                <div class="mb-3">
+                    <label for="newPassword" class="form-label">New Password</label>
+                    <input type="password" id="newPassword" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirm New Password</label>
+                    <input type="password" id="confirmPassword" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-success">Save New Password</button>
+                <button type="button" class="btn btn-secondary ms-2" id="cancelChangePasswordBtn">Cancel</button>
+            </form>
+            <div id="changePasswordMessage" class="mt-2"></div>
+        </div>
+        <hr>
+        <h5>Edit Profile</h5>
+<form method="post" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+    <div class="row">
+        {% for field in form %}
+            <div class="col-md-6 mb-3">
+                <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                {% if field.name == 'skills' %}
+                    <div class="d-flex flex-wrap" style="gap: 10px;">
+                        {% for checkbox in field %}
+                            <div style="width: 18%;">
+                                {{ checkbox.tag }} {{ checkbox.choice_label }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ field }}
+                {% endif %}
+                {% if field.help_text %}
+                    <div class="form-text">{{ field.help_text }}</div>
+                {% endif %}
+                {% for error in field.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+    <button type="submit" class="btn btn-primary">Save Profile</button>
+</form>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const togglePasswordBtn = document.getElementById('togglePasswordBtn');
+    const passwordField = document.getElementById('passwordField');
+    const togglePasswordIcon = document.getElementById('togglePasswordIcon');
+    const editPasswordBtn = document.getElementById('editPasswordBtn');
+    const otpSection = document.getElementById('otpSection');
+    const otpInput = document.getElementById('otpInput');
+    const verifyOtpBtn = document.getElementById('verifyOtpBtn');
+const otpMessage = document.getElementById('otpMessage');
+const changePasswordSection = document.getElementById('changePasswordSection');
+const changePasswordForm = document.getElementById('changePasswordForm');
+const newPassword = document.getElementById('newPassword');
+const confirmPassword = document.getElementById('confirmPassword');
+const changePasswordMessage = document.getElementById('changePasswordMessage');
+const cancelChangePasswordBtn = document.getElementById('cancelChangePasswordBtn');
+
+let passwordVisible = false;
+let otpVerified = false;
+
+togglePasswordBtn.addEventListener('click', function() {
+    console.log('Toggle password button clicked');
+    if (!passwordVisible) {
+        console.log('Password currently hidden, fetching decrypted password');
+        // Fetch decrypted password via AJAX
+        fetch("{% url 'consultation:consultant_profile' consultant.id %}", {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(response => {
+            console.log('Received response for decrypted password fetch');
+            return response.json();
+        })
+        .then(data => {
+            console.log('Decrypted password data:', data);
+            if (data.decrypted_password) {
+                passwordField.type = 'text';
+                passwordField.value = data.decrypted_password;
+                togglePasswordIcon.classList.remove('bi-eye');
+                togglePasswordIcon.classList.add('bi-eye-slash');
+                passwordVisible = true;
+            } else {
+                console.warn('No decrypted_password in response data');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching decrypted password:', error);
+        });
+    } else {
+        console.log('Password currently visible, hiding password');
+        passwordField.type = 'password';
+        passwordField.value = '********';
+        togglePasswordIcon.classList.remove('bi-eye-slash');
+        togglePasswordIcon.classList.add('bi-eye');
+        passwordVisible = false;
+    }
+});
+
+    editPasswordBtn.addEventListener('click', function() {
+        otpSection.style.display = 'block';
+        changePasswordSection.style.display = 'none';
+otpMessage.textContent = '';
+otpInput.value = '';
+otpVerified = false;
+});
+
+verifyOtpBtn.addEventListener('click', function() {
+    const otp = otpInput.value.trim();
+    if (!otp) {
+        otpMessage.textContent = 'Please enter the OTP.';
+        otpMessage.classList.remove('text-success');
+        otpMessage.classList.add('text-danger');
+        return;
+    }
+    otpMessage.textContent = '';
+    fetch("{% url 'consultation:verify_otp' %}", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': '{{ csrf_token }}',
+        },
+        body: JSON.stringify({ otp: otp }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            otpSection.style.display = 'none';
+            changePasswordSection.style.display = 'block';
+            otpVerified = true;
+            otpMessage.textContent = 'OTP verified successfully.';
+            otpMessage.classList.remove('text-danger');
+            otpMessage.classList.add('text-success');
+        } else {
+            otpMessage.textContent = data.message || 'Invalid OTP.';
+            otpMessage.classList.remove('text-success');
+            otpMessage.classList.add('text-danger');
+        }
+    })
+    .catch(error => {
+        otpMessage.textContent = 'Error verifying OTP.';
+        otpMessage.classList.remove('text-success');
+        otpMessage.classList.add('text-danger');
+        console.error('Error:', error);
+    });
+});
+
+    verifyOtpBtn.addEventListener('click', function() {
+        const otp = otpInput.value.trim();
+        if (!otp) {
+            otpMessage.textContent = 'Please enter the OTP.';
+            return;
+        }
+        otpMessage.textContent = '';
+        fetch("{% url 'consultation:verify_otp' %}", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}',
+            },
+            body: JSON.stringify({ otp: otp }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                otpSection.style.display = 'none';
+                changePasswordSection.style.display = 'block';
+                otpVerified = true;
+                changePasswordMessage.textContent = '';
+            } else {
+                otpMessage.textContent = data.message || 'Invalid OTP.';
+            }
+        })
+        .catch(error => {
+            otpMessage.textContent = 'Error verifying OTP.';
+            console.error('Error:', error);
+        });
+    });
+
+    changePasswordForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        if (!otpVerified) {
+            changePasswordMessage.textContent = 'Please verify OTP first.';
+            return;
+        }
+        if (newPassword.value !== confirmPassword.value) {
+            changePasswordMessage.textContent = 'Passwords do not match.';
+            return;
+        }
+changePasswordMessage.textContent = '';
+fetch("{% url 'consultation:change_password' %}", {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': '{{ csrf_token }}',
+    },
+    body: JSON.stringify({ new_password: newPassword.value }),
+})
+.then(response => response.json())
+.then(data => {
+    if (data.success) {
+        changePasswordMessage.classList.remove('text-danger');
+        changePasswordMessage.classList.add('text-success');
+        changePasswordMessage.textContent = data.message || 'Password changed successfully.';
+        // Reset form and hide change password section
+        changePasswordForm.reset();
+        changePasswordSection.style.display = 'none';
+        otpVerified = false;
+        // Reset password field to masked
+        passwordField.type = 'password';
+        passwordField.value = '********';
+        togglePasswordIcon.classList.remove('bi-eye-slash');
+        togglePasswordIcon.classList.add('bi-eye');
+        passwordVisible = false;
+    } else {
+        changePasswordMessage.classList.remove('text-success');
+        changePasswordMessage.classList.add('text-danger');
+        changePasswordMessage.textContent = data.message || 'Failed to change password.';
+    }
+})
+.catch(error => {
+    changePasswordMessage.classList.remove('text-success');
+    changePasswordMessage.classList.add('text-danger');
+    changePasswordMessage.textContent = 'Error changing password.';
+    console.error('Error:', error);
+});
+    });
+
+    cancelChangePasswordBtn.addEventListener('click', function() {
+        changePasswordSection.style.display = 'none';
+        otpSection.style.display = 'none';
+        changePasswordMessage.textContent = '';
+        otpMessage.textContent = '';
+        otpInput.value = '';
+        changePasswordForm.reset();
+        otpVerified = false;
+    });
+});
+</script>
+{% endblock %}
