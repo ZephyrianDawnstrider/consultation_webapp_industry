@@ -1,905 +1,3 @@
-[2025-06-27 15:25:24,794] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 39745
-[2025-06-27 15:25:24,841] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:25:24,930] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:25:40,201] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 39744
-[2025-06-27 15:25:40,267] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:25:40,328] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:26:30,430] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 39752
-[2025-06-27 15:26:30,482] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:26:30,504] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:26:39,543] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 39752
-[2025-06-27 15:26:39,599] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:26:39,625] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:26:51,880] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 39772
-[2025-06-27 15:26:51,931] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:26:51,947] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:27:01,993] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 39772
-[2025-06-27 15:27:02,045] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:27:02,061] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:27:03,461] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 39772
-[2025-06-27 15:27:03,518] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:27:03,536] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:27:18,552] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 39772
-[2025-06-27 15:27:18,614] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:27:18,695] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:27:20,447] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 39772
-[2025-06-27 15:27:20,506] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:27:20,575] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:27:30,683] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 39772
-[2025-06-27 15:27:30,732] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:27:30,757] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:27:41,218] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 39772
-[2025-06-27 15:27:41,262] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:27:41,280] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:27:49,322] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 39772
-[2025-06-27 15:27:49,385] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:27:49,407] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:27:50,651] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 39772
-[2025-06-27 15:27:50,700] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:27:50,718] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:27:59,298] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 39772
-[2025-06-27 15:27:59,344] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:27:59,361] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:28:20,627] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 39772
-[2025-06-27 15:28:20,673] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:28:20,689] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:28:44,533] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 39772
-[2025-06-27 15:28:44,588] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:28:44,659] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:30:20,160] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 39892
-[2025-06-27 15:30:20,216] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:30:20,237] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:30:46,052] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 39772
-[2025-06-27 15:30:46,104] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:30:46,125] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:31:00,102] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 39825
-[2025-06-27 15:31:00,147] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:31:00,238] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:31:22,854] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 39772
-[2025-06-27 15:31:22,915] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:31:22,938] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:31:40,864] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 39772
-[2025-06-27 15:31:40,910] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:31:40,926] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:32:28,863] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 39896
-[2025-06-27 15:32:28,924] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:32:28,945] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:32:31,497] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 39896
-[2025-06-27 15:32:31,559] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:32:31,577] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:33:32,251] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 40065
-[2025-06-27 15:33:32,324] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:33:32,390] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:34:04,321] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 27992
-[2025-06-27 15:34:04,380] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:34:04,409] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:35:56,131] INFO django.server "GET / HTTP/1.1" 200 38185
-[2025-06-27 15:35:56,244] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
-[2025-06-27 15:36:52,023] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 27992
-[2025-06-27 15:36:52,104] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:36:52,141] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:44:44,881] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 27992
-[2025-06-27 15:44:44,976] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
-[2025-06-27 15:44:44,981] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:44:45,038] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:47:46,596] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 27992
-[2025-06-27 15:47:46,743] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:47:46,785] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:47:49,124] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 27992
-[2025-06-27 15:47:49,198] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:47:49,265] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:47:50,438] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 27992
-[2025-06-27 15:47:50,515] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:47:50,592] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:47:57,485] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:47:57,542] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
-[2025-06-27 15:47:57,547] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
-[2025-06-27 15:48:16,832] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 27957
-[2025-06-27 15:48:16,911] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:48:16,953] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:49:28,681] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 27992
-[2025-06-27 15:49:28,751] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:49:28,808] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:49:54,485] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28072
-[2025-06-27 15:49:54,542] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:49:54,616] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:50:05,524] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 27999
-[2025-06-27 15:50:05,578] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:50:05,595] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:52:09,219] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:52:09,264] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
-[2025-06-27 15:52:09,264] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
-[2025-06-27 15:52:38,744] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 27992
-[2025-06-27 15:52:38,955] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
-[2025-06-27 15:52:38,956] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:52:38,957] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
-[2025-06-27 15:52:39,016] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:53:42,215] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 27992
-[2025-06-27 15:53:42,286] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
-[2025-06-27 15:53:42,287] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
-[2025-06-27 15:53:42,304] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 15:53:42,412] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:56:03,600] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 27992
-[2025-06-27 15:56:03,673] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
-[2025-06-27 15:56:03,674] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
-[2025-06-27 15:56:03,692] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 175
-[2025-06-27 15:56:03,837] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 15:56:07,751] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 27992
-[2025-06-27 15:56:07,823] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:02:57,582] ERROR django.request Internal Server Error: /consultation/consultant_profile/12/
-Traceback (most recent call last):
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
-    return view_func(request, *args, **kwargs)
-  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py", line 400, in consultant_profile
-    return render(request, 'consultant_profile.html', context)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
-    content = loader.render_to_string(template_name, context, request, using=using)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
-    template = get_template(template_name, using=using)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 15, in get_template
-    return engine.get_template(template_name)
-           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
-    return Template(self.engine.get_template(template_name), self)
-                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
-    template, origin = self.find_template(template_name)
-                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
-    template = loader.get_template(name, skip=skip)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
-    template = super().get_template(template_name, skip)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
-    return Template(
-        contents,
-    ...<2 lines>...
-        self.engine,
-    )
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
-    self.nodelist = self.compile_nodelist()
-                    ~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
-    return parser.parse()
-           ~~~~~~~~~~~~^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
-    raise self.error(token, e)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
-    compiled_result = compile_func(self, token)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
-    nodelist = parser.parse()
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
-    raise self.error(token, e)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
-    compiled_result = compile_func(self, token)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
-    nodelist = parser.parse(("endblock",))
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
-    raise self.error(token, e)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
-    compiled_result = compile_func(self, token)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 961, in do_if
-    nodelist = parser.parse(("elif", "else", "endif"))
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 481, in parse
-    raise self.error(token, e)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 479, in parse
-    filter_expression = self.compile_filter(token.contents)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 597, in compile_filter
-    return FilterExpression(token, self)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 693, in __init__
-    filter_func = parser.find_filter(filter_name)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 603, in find_filter
-    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
-django.template.exceptions.TemplateSyntaxError: Invalid filter: 'add_class'
-[2025-06-27 16:02:57,594] ERROR django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 500 287687
-[2025-06-27 16:03:39,996] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28083
-[2025-06-27 16:03:40,081] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:03:40,102] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:04:27,930] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28083
-[2025-06-27 16:04:27,989] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:04:28,074] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:16:31,495] INFO django.utils.autoreload Watching for file changes with StatReloader
-[2025-06-27 16:16:50,631] INFO django.server "GET / HTTP/1.1" 200 38185
-[2025-06-27 16:16:50,683] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
-[2025-06-27 16:16:52,192] WARNING django.request Not Found: /favicon.ico
-[2025-06-27 16:16:52,193] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
-[2025-06-27 16:17:05,609] INFO django.server "GET / HTTP/1.1" 200 38185
-[2025-06-27 16:17:05,902] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
-[2025-06-27 16:17:07,358] WARNING django.request Not Found: /favicon.ico
-[2025-06-27 16:17:07,359] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
-[2025-06-27 16:17:22,330] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
-[2025-06-27 16:17:23,013] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 19328
-[2025-06-27 16:17:23,191] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:17:23,317] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:17:40,605] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
-[2025-06-27 16:17:40,674] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20861
-[2025-06-27 16:17:40,783] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:17:41,046] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:17:44,424] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 19579
-[2025-06-27 16:17:44,493] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:17:44,499] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:17:46,009] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 30680
-[2025-06-27 16:17:46,083] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:17:46,085] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:17:46,675] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 119
-[2025-06-27 16:17:47,127] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 39484
-[2025-06-27 16:17:47,219] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:17:47,219] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
-[2025-06-27 16:17:47,220] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:17:47,383] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
-[2025-06-27 16:17:50,423] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 25927
-[2025-06-27 16:17:50,492] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:17:50,504] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:17:52,344] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 39484
-[2025-06-27 16:17:52,444] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
-[2025-06-27 16:17:52,446] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:17:52,452] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:17:52,676] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
-[2025-06-27 16:18:49,901] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 27982
-[2025-06-27 16:18:49,984] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:18:50,010] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:19:00,595] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 27982
-[2025-06-27 16:19:00,649] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:19:00,670] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:20:33,620] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 27982
-[2025-06-27 16:20:33,678] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:20:33,765] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:20:35,223] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28083
-[2025-06-27 16:20:35,275] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:20:35,337] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:22:30,354] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28083
-[2025-06-27 16:22:30,411] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:22:30,492] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:22:36,824] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28083
-[2025-06-27 16:22:36,884] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:22:36,906] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:22:38,998] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:22:39,019] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
-[2025-06-27 16:22:39,020] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
-[2025-06-27 16:24:15,365] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28083
-[2025-06-27 16:24:15,458] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:24:15,514] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 390
-[2025-06-27 16:24:18,000] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
-[2025-06-27 16:24:18,034] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
-[2025-06-27 16:24:18,035] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
-[2025-06-27 16:24:28,377] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28083
-[2025-06-27 16:24:28,455] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
-[2025-06-27 16:24:28,457] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
-[2025-06-27 16:24:28,459] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
-[2025-06-27 16:24:28,547] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 283
-[2025-06-27 16:24:35,767] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28083
-[2025-06-27 16:24:35,830] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
-[2025-06-27 16:24:35,831] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
-[2025-06-27 16:24:35,833] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
-[2025-06-27 16:24:35,866] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
-[2025-06-27 16:25:14,209] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28083
-[2025-06-27 16:25:14,262] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
-[2025-06-27 16:25:14,285] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
-[2025-06-27 16:25:15,376] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28083
-[2025-06-27 16:25:28,296] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28083
-[2025-06-27 16:25:28,345] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
-[2025-06-27 16:25:28,415] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
-[2025-06-27 16:25:32,071] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28083
-[2025-06-27 16:25:38,261] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28083
-[2025-06-27 16:25:38,312] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
-[2025-06-27 16:25:38,330] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
-[2025-06-27 16:25:42,400] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 19347
-[2025-06-27 16:25:42,472] INFO django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 200 62
-[2025-06-27 16:25:44,616] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 40084
-[2025-06-27 16:25:44,677] INFO django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 304 0
-[2025-06-27 16:25:45,671] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 23131
-[2025-06-27 16:25:45,781] INFO django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 304 0
-[2025-06-27 16:25:45,838] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
-[2025-06-27 16:25:46,693] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28102
-[2025-06-27 16:25:46,751] INFO django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 304 0
-[2025-06-27 16:25:53,368] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28102
-[2025-06-27 16:25:53,426] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
-[2025-06-27 16:25:53,426] INFO django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 304 0
-[2025-06-27 16:26:07,332] INFO django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 304 0
-[2025-06-27 16:26:07,334] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
-[2025-06-27 16:26:07,374] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
-[2025-06-27 16:26:07,375] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
-[2025-06-27 16:28:42,938] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28011
-[2025-06-27 16:28:43,006] WARNING django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 404 1846
-[2025-06-27 16:28:43,006] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:28:43,073] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:28:46,221] WARNING django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 404 1846
-[2025-06-27 16:28:46,222] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:28:46,249] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
-[2025-06-27 16:28:46,252] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
-[2025-06-27 16:29:03,699] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28011
-[2025-06-27 16:29:03,760] WARNING django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 404 1846
-[2025-06-27 16:29:03,768] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:29:03,838] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:31:10,780] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28227
-[2025-06-27 16:31:10,868] WARNING django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 404 1846
-[2025-06-27 16:31:10,868] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:31:10,962] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:36:18,305] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 33203
-[2025-06-27 16:36:18,380] WARNING django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 404 1846
-[2025-06-27 16:36:18,381] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:36:18,404] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:36:19,041] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 33203
-[2025-06-27 16:36:19,133] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:36:19,134] WARNING django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 404 1846
-[2025-06-27 16:36:19,195] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:36:20,303] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 33203
-[2025-06-27 16:36:20,372] WARNING django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 404 1846
-[2025-06-27 16:36:20,372] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:36:20,393] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:36:24,545] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 33203
-[2025-06-27 16:36:24,684] WARNING django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 404 1846
-[2025-06-27 16:36:24,688] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:36:25,018] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:36:25,498] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 23131
-[2025-06-27 16:36:25,594] WARNING django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 404 1846
-[2025-06-27 16:36:25,595] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:36:25,692] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:36:28,214] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 33203
-[2025-06-27 16:36:28,289] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:36:28,290] WARNING django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 404 1846
-[2025-06-27 16:36:28,323] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:36:31,680] WARNING django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 404 1846
-[2025-06-27 16:36:31,686] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:36:31,730] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
-[2025-06-27 16:36:31,731] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
-[2025-06-27 16:36:45,942] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 40084
-[2025-06-27 16:36:46,054] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
-[2025-06-27 16:36:46,055] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
-[2025-06-27 16:36:46,078] WARNING django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 404 1846
-[2025-06-27 16:36:46,080] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:36:46,180] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:37:33,952] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:37:33,952] WARNING django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 404 1846
-[2025-06-27 16:37:33,970] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
-[2025-06-27 16:37:33,971] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
-[2025-06-27 16:40:46,822] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 40084
-[2025-06-27 16:40:46,915] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
-[2025-06-27 16:40:46,920] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
-[2025-06-27 16:40:46,923] WARNING django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 404 1846
-[2025-06-27 16:40:46,931] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:40:46,955] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:41:36,489] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 33203
-[2025-06-27 16:41:36,599] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
-[2025-06-27 16:41:36,602] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
-[2025-06-27 16:41:36,628] WARNING django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 404 1846
-[2025-06-27 16:41:36,631] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
-[2025-06-27 16:41:36,698] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
-[2025-06-27 16:42:29,067] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultaion_webapp\settings.py changed, reloading.
-[2025-06-27 16:42:31,333] INFO django.utils.autoreload Watching for file changes with StatReloader
-[2025-06-27 16:45:42,566] INFO django.utils.autoreload Watching for file changes with StatReloader
-[2025-06-27 16:45:52,591] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 19347
-[2025-06-27 16:45:52,675] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
-[2025-06-27 16:45:52,746] INFO django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 200 127
-[2025-06-27 16:45:52,753] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
-[2025-06-27 16:45:52,772] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
-[2025-06-27 16:45:56,918] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 40084
-[2025-06-27 16:45:57,991] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 23131
-[2025-06-27 16:45:59,289] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 19347
-[2025-06-27 16:47:33,971] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 19347
-[2025-06-27 16:47:34,025] INFO django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 304 0
-[2025-06-27 16:47:34,025] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
-[2025-06-27 16:47:34,110] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
-[2025-06-27 16:47:35,196] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 19347
-[2025-06-27 16:48:08,553] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 23131
-[2025-06-27 16:48:13,721] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 33203
-[2025-06-27 16:48:35,314] INFO django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 304 0
-[2025-06-27 16:48:35,314] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
-[2025-06-27 16:48:35,367] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
-[2025-06-27 16:48:35,368] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
-[2025-06-27 16:52:02,743] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 33234
-[2025-06-27 16:52:02,823] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
-[2025-06-27 16:52:02,882] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
-[2025-06-27 16:52:04,560] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 33234
-[2025-06-27 16:52:05,567] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 33234
-[2025-06-27 16:52:06,351] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 33234
-[2025-06-27 16:52:06,837] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 33234
-[2025-06-27 16:52:32,269] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 21821
-[2025-06-27 16:52:34,903] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 25579
-[2025-06-27 16:52:36,583] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 32611
-[2025-06-27 16:53:09,234] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 25579
-[2025-06-27 16:53:13,037] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 25579
-[2025-06-27 16:58:43,584] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 26446
-[2025-06-27 16:58:43,637] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
-[2025-06-27 16:58:43,659] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
-[2025-06-27 17:01:27,226] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 17121
-[2025-06-27 17:01:27,289] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
-[2025-06-27 17:01:27,308] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
-[2025-06-27 17:01:34,777] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 33263
-[2025-06-27 17:10:59,002] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 39484
-[2025-06-27 17:10:59,154] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
-[2025-06-27 17:10:59,157] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
-[2025-06-27 17:10:59,167] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
-[2025-06-27 17:10:59,217] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
-[2025-06-27 17:10:59,578] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
-[2025-06-27 17:13:58,085] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 19579
-[2025-06-27 17:14:00,406] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 30680
-[2025-06-27 17:14:01,270] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 119
-[2025-06-27 17:14:01,663] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 39484
-[2025-06-27 17:14:01,772] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
-[2025-06-27 17:14:01,775] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
-[2025-06-27 17:14:02,089] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
-[2025-06-27 17:14:04,136] INFO django.server "GET /auth/consultant_profile/11/ HTTP/1.1" 200 30189
-[2025-06-27 17:14:04,199] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
-[2025-06-27 17:14:13,329] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 41471
-[2025-06-27 17:14:57,702] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 41482
-[2025-06-27 17:15:19,011] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 41493
-[2025-06-27 17:18:31,388] WARNING django.request Not Found: /favicon.ico
-[2025-06-27 17:18:31,390] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
-[2025-06-27 17:19:38,805] INFO django.utils.autoreload Watching for file changes with StatReloader
-[2025-06-27 17:20:44,579] ERROR django.request Internal Server Error: /consultation/consultant_dashboard/
-Traceback (most recent call last):
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
-    return view_func(request, *args, **kwargs)
-  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py", line 94, in consultant_dashboard
-    return render(request, 'consultant_dashboard.html', context)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
-    content = loader.render_to_string(template_name, context, request, using=using)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
-    return template.render(context, request)
-           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 61, in render
-    return self.template.render(context)
-           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
-    return self._render(context)
-           ~~~~~~~~~~~~^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
-    return self.nodelist.render(context)
-           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
-    return SafeString("".join([node.render_annotated(context) for node in self]))
-                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
-    return self.render(context)
-           ~~~~~~~~~~~^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 134, in render
-    compiled_parent = self.get_parent(context)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
-    return self.find_template(parent, context)
-           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
-    template, origin = context.template.engine.find_template(
-                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
-        template_name,
-        ^^^^^^^^^^^^^^
-        skip=history,
-        ^^^^^^^^^^^^^
-    )
-    ^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
-    template = loader.get_template(name, skip=skip)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
-    template = super().get_template(template_name, skip)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
-    return Template(
-        contents,
-    ...<2 lines>...
-        self.engine,
-    )
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
-    self.nodelist = self.compile_nodelist()
-                    ~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
-    return parser.parse()
-           ~~~~~~~~~~~~^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
-    raise self.error(token, e)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
-    compiled_result = compile_func(self, token)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
-    nodelist = parser.parse(("endblock",))
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
-    raise self.error(token, e)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
-    compiled_result = compile_func(self, token)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 228, in do_block
-    raise TemplateSyntaxError(
-        "'%s' tag with name '%s' appears more than once" % (bits[0], block_name)
-    )
-django.template.exceptions.TemplateSyntaxError: 'block' tag with name 'extra_js' appears more than once
-[2025-06-27 17:20:44,600] ERROR django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 500 205954
-[2025-06-27 17:21:08,055] ERROR django.request Internal Server Error: /consultation/consultant_dashboard/
-Traceback (most recent call last):
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
-    return view_func(request, *args, **kwargs)
-  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py", line 94, in consultant_dashboard
-    return render(request, 'consultant_dashboard.html', context)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
-    content = loader.render_to_string(template_name, context, request, using=using)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
-    return template.render(context, request)
-           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 61, in render
-    return self.template.render(context)
-           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
-    return self._render(context)
-           ~~~~~~~~~~~~^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
-    return self.nodelist.render(context)
-           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
-    return SafeString("".join([node.render_annotated(context) for node in self]))
-                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
-    return self.render(context)
-           ~~~~~~~~~~~^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 134, in render
-    compiled_parent = self.get_parent(context)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
-    return self.find_template(parent, context)
-           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
-    template, origin = context.template.engine.find_template(
-                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
-        template_name,
-        ^^^^^^^^^^^^^^
-        skip=history,
-        ^^^^^^^^^^^^^
-    )
-    ^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
-    template = loader.get_template(name, skip=skip)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
-    template = super().get_template(template_name, skip)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
-    return Template(
-        contents,
-    ...<2 lines>...
-        self.engine,
-    )
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
-    self.nodelist = self.compile_nodelist()
-                    ~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
-    return parser.parse()
-           ~~~~~~~~~~~~^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
-    raise self.error(token, e)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
-    compiled_result = compile_func(self, token)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
-    nodelist = parser.parse(("endblock",))
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
-    raise self.error(token, e)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
-    compiled_result = compile_func(self, token)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 228, in do_block
-    raise TemplateSyntaxError(
-        "'%s' tag with name '%s' appears more than once" % (bits[0], block_name)
-    )
-django.template.exceptions.TemplateSyntaxError: 'block' tag with name 'extra_js' appears more than once
-[2025-06-27 17:21:08,058] ERROR django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 500 206695
-[2025-06-27 17:21:17,050] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 15070
-[2025-06-27 17:21:17,145] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
-[2025-06-27 17:21:17,147] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
-[2025-06-27 17:21:33,345] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 17121
-[2025-06-27 17:21:33,410] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
-[2025-06-27 17:21:41,248] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 17121
-[2025-06-27 17:21:42,137] ERROR django.request Internal Server Error: /consultation/consultant_profile/12/
-Traceback (most recent call last):
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
-    return view_func(request, *args, **kwargs)
-  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py", line 400, in consultant_profile
-    return render(request, 'consultant_profile.html', context)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
-    content = loader.render_to_string(template_name, context, request, using=using)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
-    template = get_template(template_name, using=using)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 15, in get_template
-    return engine.get_template(template_name)
-           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
-    return Template(self.engine.get_template(template_name), self)
-                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
-    template, origin = self.find_template(template_name)
-                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
-    template = loader.get_template(name, skip=skip)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
-    template = super().get_template(template_name, skip)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
-    return Template(
-        contents,
-    ...<2 lines>...
-        self.engine,
-    )
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
-    self.nodelist = self.compile_nodelist()
-                    ~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
-    return parser.parse()
-           ~~~~~~~~~~~~^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
-    raise self.error(token, e)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
-    compiled_result = compile_func(self, token)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
-    nodelist = parser.parse()
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
-    raise self.error(token, e)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
-    compiled_result = compile_func(self, token)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
-    nodelist = parser.parse(("endblock",))
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 515, in parse
-    self.unclosed_block_tag(parse_until)
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 578, in unclosed_block_tag
-    raise self.error(token, msg)
-django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 5: 'block'. Looking for one of: endblock.
-[2025-06-27 17:21:42,143] ERROR django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 500 172362
-[2025-06-27 17:22:44,850] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28071
-[2025-06-27 17:25:56,527] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28059
-[2025-06-27 17:25:56,588] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
-[2025-06-27 17:25:56,604] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
-[2025-06-27 17:29:15,310] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28071
-[2025-06-27 17:32:28,222] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28071
-[2025-06-27 17:32:28,281] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
-[2025-06-27 17:32:28,340] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
-[2025-06-27 17:43:31,706] ERROR django.request Internal Server Error: /consultation/consultant_profile/12/
-Traceback (most recent call last):
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
-    return view_func(request, *args, **kwargs)
-  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py", line 400, in consultant_profile
-    return render(request, 'consultant_profile.html', context)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
-    content = loader.render_to_string(template_name, context, request, using=using)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
-    template = get_template(template_name, using=using)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 15, in get_template
-    return engine.get_template(template_name)
-           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
-    return Template(self.engine.get_template(template_name), self)
-                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
-    template, origin = self.find_template(template_name)
-                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
-    template = loader.get_template(name, skip=skip)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
-    template = super().get_template(template_name, skip)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
-    return Template(
-        contents,
-    ...<2 lines>...
-        self.engine,
-    )
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
-    self.nodelist = self.compile_nodelist()
-                    ~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
-    return parser.parse()
-           ~~~~~~~~~~~~^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
-    raise self.error(token, e)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
-    compiled_result = compile_func(self, token)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
-    nodelist = parser.parse()
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
-    raise self.error(token, e)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
-    compiled_result = compile_func(self, token)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
-    nodelist = parser.parse(("endblock",))
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 515, in parse
-    self.unclosed_block_tag(parse_until)
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 578, in unclosed_block_tag
-    raise self.error(token, msg)
-django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 297: 'block'. Looking for one of: endblock.
-[2025-06-27 17:43:31,715] ERROR django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 500 190391
-[2025-06-27 17:44:34,260] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28071
-[2025-06-27 17:44:34,341] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
-[2025-06-27 17:44:34,372] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
-[2025-06-27 17:45:25,889] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28071
-[2025-06-27 17:45:31,968] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28071
-[2025-06-27 17:46:08,168] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 40132
-[2025-06-27 17:46:20,901] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 23179
-[2025-06-27 17:46:22,004] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28071
-[2025-06-27 17:46:44,848] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28088
-[2025-06-27 17:46:46,126] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 28088
-[2025-06-27 17:47:26,425] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
-[2025-06-27 17:47:26,426] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
-[2025-06-27 17:49:20,885] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 25591
-[2025-06-27 17:49:27,614] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 25591
-[2025-06-27 17:51:53,318] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 25591
-[2025-06-27 17:51:53,376] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
-[2025-06-27 17:51:53,393] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
-[2025-06-27 17:51:54,146] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 25591
-[2025-06-27 17:51:54,533] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 25591
-[2025-06-27 17:51:54,787] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 25591
-[2025-06-27 17:52:03,203] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 25591
-[2025-06-27 17:52:03,338] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
-[2025-06-27 17:52:03,343] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
-[2025-06-27 17:52:03,351] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
-[2025-06-27 17:52:03,949] WARNING django.request Not Found: /favicon.ico
-[2025-06-27 17:52:03,950] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
-[2025-06-27 17:52:08,451] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
-[2025-06-27 17:52:08,452] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
-[2025-06-27 17:55:25,748] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 25591
-[2025-06-27 17:55:27,038] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 25591
-[2025-06-27 17:55:28,156] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 25591
-[2025-06-27 17:55:28,729] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 25591
-[2025-06-27 17:55:29,385] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 25591
-[2025-06-27 17:55:35,627] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 25591
-[2025-06-27 17:55:36,802] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 25591
-[2025-06-27 17:57:59,681] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 25614
-[2025-06-27 17:59:00,336] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 25695
-[2025-06-27 17:59:35,564] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 25716
-[2025-06-27 17:59:35,614] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
-[2025-06-27 17:59:35,625] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
-[2025-06-27 17:59:45,173] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 25716
-[2025-06-27 17:59:50,258] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 40257
-[2025-06-27 17:59:52,033] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 17234
-[2025-06-27 17:59:55,144] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 23304
-[2025-06-27 17:59:57,220] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 40257
-[2025-06-27 18:00:01,938] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 23304
-[2025-06-27 18:00:04,440] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 17234
-[2025-06-27 18:00:06,425] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 25716
-[2025-06-27 18:02:55,698] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 25716
-[2025-06-27 18:03:35,846] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 25965
-[2025-06-27 18:10:57,669] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 17234
-[2025-06-27 18:10:57,734] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
-[2025-06-27 18:10:57,756] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
-[2025-06-27 18:11:00,158] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 40257
-[2025-06-27 18:11:02,573] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 23304
-[2025-06-28 09:30:39,032] INFO django.utils.autoreload Watching for file changes with StatReloader
-[2025-06-28 09:30:50,413] INFO django.server "GET / HTTP/1.1" 200 38185
-[2025-06-28 09:30:50,575] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
-[2025-06-28 09:30:51,870] WARNING django.request Not Found: /favicon.ico
-[2025-06-28 09:30:51,870] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
-[2025-06-28 09:31:04,745] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
-[2025-06-28 09:31:04,910] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 17244
-[2025-06-28 09:31:04,974] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
-[2025-06-28 09:31:05,011] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
-[2025-06-28 09:31:34,250] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 44600
-[2025-06-28 09:31:49,976] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 26496
-[2025-06-28 09:31:56,447] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 17244
-[2025-06-28 09:32:00,750] ERROR django.request Internal Server Error: /consultation/consultant_profile/4/
-Traceback (most recent call last):
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
-    return view_func(request, *args, **kwargs)
-  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py", line 400, in consultant_profile
-    return render(request, 'consultant_profile.html', context)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
-    content = loader.render_to_string(template_name, context, request, using=using)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
-    template = get_template(template_name, using=using)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 19, in get_template
-    raise TemplateDoesNotExist(template_name, chain=chain)
-django.template.exceptions.TemplateDoesNotExist: consultant_profile.html
-[2025-06-28 09:32:00,760] ERROR django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 500 97582
-[2025-06-28 09:35:31,863] ERROR django.request Internal Server Error: /consultation/consultant_profile/4/
-Traceback (most recent call last):
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
-    return view_func(request, *args, **kwargs)
-  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py", line 400, in consultant_profile
-    return render(request, 'consultant_profile.html', context)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
-    content = loader.render_to_string(template_name, context, request, using=using)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
-    template = get_template(template_name, using=using)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 19, in get_template
-    raise TemplateDoesNotExist(template_name, chain=chain)
-django.template.exceptions.TemplateDoesNotExist: consultant_profile.html
-[2025-06-28 09:35:31,866] ERROR django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 500 97719
-[2025-06-28 09:36:37,816] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 17142
-[2025-06-28 09:36:48,693] INFO django.server "GET /media/agreements/openart-image_WM8SVq19_1749100402842_raw.pdf HTTP/1.1" 304 0
-[2025-06-28 09:36:55,444] INFO django.server "GET / HTTP/1.1" 200 38185
-[2025-06-28 09:37:04,376] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
-[2025-06-28 09:37:04,397] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 17244
-[2025-06-28 09:37:08,192] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 17142
-[2025-06-28 09:37:31,489] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 17809
-[2025-06-28 09:37:35,970] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 17809
-[2025-06-28 09:42:04,595] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 25661
-[2025-06-28 09:42:13,047] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 25661
-[2025-06-28 09:42:13,846] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 25661
-[2025-06-28 09:42:14,255] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 25661
-[2025-06-28 09:42:17,860] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 25661
-[2025-06-28 09:46:09,224] ERROR django.request Internal Server Error: /consultation/consultant_profile/4/
-Traceback (most recent call last):
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
-    return view_func(request, *args, **kwargs)
-  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\views.py", line 400, in consultant_profile
-    return render(request, 'consultant_profile.html', context)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
-    content = loader.render_to_string(template_name, context, request, using=using)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
-    template = get_template(template_name, using=using)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 15, in get_template
-    return engine.get_template(template_name)
-           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
-    return Template(self.engine.get_template(template_name), self)
-                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
-    template, origin = self.find_template(template_name)
-                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
-    template = loader.get_template(name, skip=skip)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
-    template = super().get_template(template_name, skip)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
-    return Template(
-        contents,
-    ...<2 lines>...
-        self.engine,
-    )
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
-    self.nodelist = self.compile_nodelist()
-                    ~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
-    return parser.parse()
-           ~~~~~~~~~~~~^^
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
-    raise self.error(token, e)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
-    compiled_result = compile_func(self, token)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
-    nodelist = parser.parse()
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
-    raise self.error(token, e)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
-    compiled_result = compile_func(self, token)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
-    nodelist = parser.parse(("endblock",))
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
-    raise self.error(token, e)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
-    compiled_result = compile_func(self, token)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 861, in do_for
-    nodelist_loop = parser.parse(
-        (
-    ...<2 lines>...
-        )
-    )
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 481, in parse
-    raise self.error(token, e)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 479, in parse
-    filter_expression = self.compile_filter(token.contents)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 597, in compile_filter
-    return FilterExpression(token, self)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 693, in __init__
-    filter_func = parser.find_filter(filter_name)
-  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 603, in find_filter
-    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
-django.template.exceptions.TemplateSyntaxError: Invalid filter: 'add_class'
 [2025-06-28 09:46:09,232] ERROR django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 500 251544
 [2025-06-28 09:46:28,259] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 28254
 [2025-06-28 09:49:22,917] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultation\forms.py changed, reloading.
@@ -1882,3 +980,97 @@ django.template.exceptions.TemplateSyntaxError: Invalid filter: 'add_class'
 [2025-06-30 16:00:40,918] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
 [2025-06-30 16:00:40,953] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
 [2025-06-30 16:00:41,086] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-06-30 16:10:19,239] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20861
+[2025-06-30 16:10:19,305] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
+[2025-06-30 16:10:19,338] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
+[2025-06-30 16:10:32,609] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 16:10:32,610] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 16:11:23,199] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 39523
+[2025-06-30 16:11:23,249] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-30 16:11:23,503] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-30 16:11:27,854] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 25927
+[2025-06-30 16:11:41,105] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 44665
+[2025-06-30 16:11:41,196] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-06-30 16:11:41,226] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-06-30 16:12:11,040] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 33336
+[2025-06-30 16:12:26,855] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 26518
+[2025-06-30 16:13:03,236] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 44665
+[2025-06-30 16:13:07,859] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual HTTP/1.1" 200 45067
+[2025-06-30 16:13:11,697] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 17244
+[2025-06-30 16:13:24,139] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 44665
+[2025-06-30 16:13:26,807] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 26518
+[2025-06-30 16:13:31,780] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 44665
+[2025-06-30 16:13:40,998] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 26518
+[2025-06-30 16:13:41,058] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
+[2025-06-30 16:13:41,077] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
+[2025-06-30 16:13:51,703] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 44665
+[2025-06-30 16:46:27,104] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 33336
+[2025-06-30 16:46:27,229] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
+[2025-06-30 16:46:27,288] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
+[2025-06-30 17:00:08,137] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-30 17:00:27,722] INFO django.server "GET / HTTP/1.1" 200 38185
+[2025-06-30 17:00:41,463] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-30 17:00:41,497] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 17244
+[2025-06-30 17:00:41,555] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
+[2025-06-30 17:00:41,592] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
+[2025-06-30 17:00:43,728] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 17244
+[2025-06-30 17:00:45,061] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 44665
+[2025-06-30 17:00:46,464] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 26518
+[2025-06-30 17:00:47,545] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 33336
+[2025-06-30 17:00:53,041] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 33336
+[2025-06-30 17:00:54,224] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 26518
+[2025-06-30 17:00:55,326] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 44665
+[2025-06-30 17:00:57,377] INFO django.server "GET /auth/logout/ HTTP/1.1" 302 0
+[2025-06-30 17:00:57,385] INFO django.server "GET /auth/login/ HTTP/1.1" 200 38185
+[2025-06-30 17:01:05,325] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-30 17:01:05,342] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20861
+[2025-06-30 17:01:07,336] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 25927
+[2025-06-30 17:01:10,507] WARNING django.request Not Found: /custom_admin/update_invoice_status/1/
+[2025-06-30 17:01:10,508] WARNING django.server "POST /custom_admin/update_invoice_status/1/ HTTP/1.1" 404 2937
+[2025-06-30 17:11:24,670] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\urls.py changed, reloading.
+[2025-06-30 17:11:24,715] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\urls.py changed, reloading.
+[2025-06-30 17:11:27,734] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-30 17:11:28,986] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-30 17:12:03,283] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 25927
+[2025-06-30 17:12:03,336] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
+[2025-06-30 17:12:03,350] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
+[2025-06-30 17:12:08,164] WARNING django.request Not Found: /custom_admin/update_invoice_status/1/
+[2025-06-30 17:12:08,165] WARNING django.server "POST /custom_admin/update_invoice_status/1/ HTTP/1.1" 404 2937
+[2025-06-30 17:12:12,045] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 25927
+[2025-06-30 17:12:15,797] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 25927
+[2025-06-30 17:12:15,941] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-06-30 17:12:15,943] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-06-30 17:12:15,997] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-06-30 17:12:16,664] WARNING django.request Not Found: /favicon.ico
+[2025-06-30 17:12:16,665] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-30 17:12:20,849] WARNING django.request Not Found: /custom_admin/update_invoice_status/1/
+[2025-06-30 17:12:20,850] WARNING django.server "POST /custom_admin/update_invoice_status/1/ HTTP/1.1" 404 2937
+[2025-06-30 17:13:07,307] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 17:13:07,308] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 17:13:50,998] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 25919
+[2025-06-30 17:13:51,072] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-06-30 17:13:51,075] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 17:13:51,076] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 17:13:51,079] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-06-30 17:13:51,201] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-06-30 17:13:52,258] WARNING django.request Not Found: /favicon.ico
+[2025-06-30 17:13:52,260] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-30 17:13:59,853] INFO django.server "POST /auth/update_invoice_status/1/ HTTP/1.1" 200 68
+[2025-06-30 17:14:04,956] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 25919
+[2025-06-30 17:14:05,004] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-06-30 17:14:05,004] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-06-30 17:14:05,036] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-06-30 17:14:05,899] WARNING django.request Not Found: /favicon.ico
+[2025-06-30 17:14:05,900] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-30 17:14:09,124] INFO django.server "GET /consultation/consultant_profile/4/ HTTP/1.1" 200 33336
+[2025-06-30 17:14:09,348] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-06-30 17:14:09,348] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-06-30 17:14:09,487] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-06-30 17:14:10,779] WARNING django.request Not Found: /favicon.ico
+[2025-06-30 17:14:10,780] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-30 17:14:12,226] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 26513
+[2025-06-30 17:14:35,606] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 25919
+[2025-06-30 17:14:35,656] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-06-30 17:14:35,656] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-06-30 17:14:35,760] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-06-30 17:14:36,423] WARNING django.request Not Found: /favicon.ico
