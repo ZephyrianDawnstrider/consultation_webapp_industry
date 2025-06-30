@@ -1077,3 +1077,32 @@
 [2025-06-30 17:14:36,424] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
 [2025-06-30 17:59:03,884] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
 [2025-06-30 17:59:08,930] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-30 18:07:24,814] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-30 18:07:27,305] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-30 18:09:43,693] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-30 18:09:47,719] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-30 18:11:04,917] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-30 18:11:10,641] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-30 18:12:29,888] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-30 18:12:33,187] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-30 18:16:00,561] INFO django.server "GET / HTTP/1.1" 200 38185
+[2025-06-30 18:16:01,909] WARNING django.request Not Found: /favicon.ico
+[2025-06-30 18:16:01,910] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-30 18:16:11,140] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-30 18:16:11,255] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20861
+[2025-06-30 18:16:11,339] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
+[2025-06-30 18:16:11,368] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
+[2025-06-30 18:16:13,110] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 19636
+[2025-06-30 18:16:16,539] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 39523
+[2025-06-30 18:16:16,614] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-30 18:16:16,740] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-30 18:16:20,319] INFO django.server "POST /auth/delete_consultant/16/ HTTP/1.1" 302 0
+[2025-06-30 18:16:20,360] INFO django.server "GET /auth/consultant_management/ HTTP/1.1" 200 36459
+[2025-06-30 18:16:20,416] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-30 18:16:20,539] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-30 18:16:23,518] INFO django.server "POST /auth/delete_consultant/11/ HTTP/1.1" 302 0
+[2025-06-30 18:16:23,547] INFO django.server "GET /auth/consultant_management/ HTTP/1.1" 200 33337
+[2025-06-30 18:16:23,653] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-30 18:16:23,794] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-30 18:16:25,130] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 19636
+[2025-06-30 18:16:53,241] INFO django.server "POST /auth/add_consultant/ HTTP/1.1" 200 77
