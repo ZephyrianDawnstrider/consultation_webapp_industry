@@ -217,3 +217,27 @@
 [2025-06-30 10:00:48,611] INFO general.views Login attempt for email: ayushchaturvedi405@gmail.com
 [2025-06-30 10:00:48,642] INFO general.views User found: ayushchaturvedi405@gmail.com with role consultant
 [2025-06-30 10:00:48,676] INFO general.views Consultant user ayushchaturvedi405@gmail.com logged in successfully.
+[2025-06-30 10:06:13,139] INFO general.views Login attempt for email: admin_test@gmail.com
+[2025-06-30 10:06:13,142] INFO general.views User found: admin_test@gmail.com with role admin
+[2025-06-30 10:06:13,512] INFO general.views Admin user admin_test@gmail.com authenticated successfully.
+[2025-06-30 10:12:17,975] INFO general.views Login attempt for email: ayushchaturvedi405@gmail.com
+[2025-06-30 10:12:17,980] INFO general.views User found: ayushchaturvedi405@gmail.com with role consultant
+[2025-06-30 10:12:18,015] INFO general.views Consultant user ayushchaturvedi405@gmail.com logged in successfully.
+[2025-06-30 10:19:49,402] INFO general.views Login attempt for email: admin_test@gmail.com
+[2025-06-30 10:19:49,408] INFO general.views User found: admin_test@gmail.com with role admin
+[2025-06-30 10:19:50,902] INFO general.views Admin user admin_test@gmail.com authenticated successfully.
+[2025-06-30 10:21:47,966] INFO general.views Login attempt for email: ayushchaturvedi405@gmail.com
+[2025-06-30 10:21:47,970] INFO general.views User found: ayushchaturvedi405@gmail.com with role consultant
+[2025-06-30 10:21:47,992] INFO general.views Consultant user ayushchaturvedi405@gmail.com logged in successfully.
+[2025-06-30 10:29:46,251] INFO general.views Login attempt for email: admin_test@gmail.com
+[2025-06-30 10:29:46,254] INFO general.views User found: admin_test@gmail.com with role admin
+[2025-06-30 10:29:46,873] INFO general.views Admin user admin_test@gmail.com authenticated successfully.
+[2025-06-30 10:36:52,787] INFO general.views Login attempt for email: ayushchaturvedi405@gmail.com
+[2025-06-30 10:36:52,793] INFO general.views User found: ayushchaturvedi405@gmail.com with role consultant
+[2025-06-30 10:36:52,817] INFO general.views Consultant user ayushchaturvedi405@gmail.com logged in successfully.
+[2025-06-30 10:37:29,527] INFO general.views Login attempt for email: ayushchaturvedi405@gmail.com
+[2025-06-30 10:37:29,531] INFO general.views User found: ayushchaturvedi405@gmail.com with role consultant
+[2025-06-30 10:37:29,554] INFO general.views Consultant user ayushchaturvedi405@gmail.com logged in successfully.
+[2025-06-30 10:42:34,260] INFO general.views Login attempt for email: ayushchaturvedi405@gmail.com
+[2025-06-30 10:42:34,263] INFO general.views User found: ayushchaturvedi405@gmail.com with role consultant
+[2025-06-30 10:42:34,297] INFO general.views Consultant user ayushchaturvedi405@gmail.com logged in successfully.
