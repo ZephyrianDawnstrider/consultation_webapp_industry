@@ -12,6 +12,7 @@ This module contains all the views for the custom admin interface including:
 import json
 import logging
 import random
+import string
 import re
 from datetime import datetime
 

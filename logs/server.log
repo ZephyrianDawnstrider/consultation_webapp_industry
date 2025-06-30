@@ -1075,3 +1075,5 @@
 [2025-06-30 17:14:35,760] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
 [2025-06-30 17:14:36,423] WARNING django.request Not Found: /favicon.ico
 [2025-06-30 17:14:36,424] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-30 17:59:03,884] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\custom_admin\views.py changed, reloading.
+[2025-06-30 17:59:08,930] INFO django.utils.autoreload Watching for file changes with StatReloader
