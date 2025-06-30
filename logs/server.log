@@ -1670,3 +1670,215 @@ django.template.exceptions.TemplateSyntaxError: Invalid filter: 'add_class'
 [2025-06-30 13:37:36,041] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
 [2025-06-30 13:37:36,197] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
 [2025-06-30 13:37:38,863] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 41493
+[2025-06-30 14:36:21,596] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 17241
+[2025-06-30 14:36:22,286] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 17241
+[2025-06-30 14:37:39,018] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 26518
+[2025-06-30 14:37:50,779] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 17241
+[2025-06-30 14:39:00,244] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 44665
+[2025-06-30 14:39:51,793] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual HTTP/1.1" 200 45067
+[2025-06-30 14:40:38,224] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual HTTP/1.1" 200 45067
+[2025-06-30 14:40:41,056] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 44548
+[2025-06-30 14:40:48,327] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 44548
+[2025-06-30 14:40:50,036] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual HTTP/1.1" 200 44950
+[2025-06-30 14:40:56,382] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=upload HTTP/1.1" 200 44548
+[2025-06-30 14:41:02,454] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual HTTP/1.1" 200 44950
+[2025-06-30 14:50:36,927] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual HTTP/1.1" 200 45067
+[2025-06-30 15:04:16,850] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual HTTP/1.1" 200 45067
+[2025-06-30 15:04:19,341] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 15:04:19,342] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 15:08:23,885] INFO django.server "GET /auth/logout/ HTTP/1.1" 302 0
+[2025-06-30 15:08:23,897] INFO django.server "GET /auth/login/ HTTP/1.1" 200 38185
+[2025-06-30 15:08:37,401] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-30 15:08:37,450] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20861
+[2025-06-30 15:08:44,020] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 19596
+[2025-06-30 15:08:56,655] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 30685
+[2025-06-30 15:08:57,037] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 119
+[2025-06-30 15:08:57,759] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 39523
+[2025-06-30 15:08:57,820] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-30 15:08:57,957] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-30 15:09:25,140] INFO django.server "GET /auth/logout/ HTTP/1.1" 302 0
+[2025-06-30 15:09:25,158] INFO django.server "GET /auth/login/ HTTP/1.1" 200 38185
+[2025-06-30 15:09:30,291] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-30 15:09:30,352] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 18461
+[2025-06-30 15:09:40,595] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 34005
+[2025-06-30 15:10:27,989] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 41552
+[2025-06-30 15:10:38,947] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=06&mode=manual HTTP/1.1" 200 41954
+[2025-06-30 15:10:55,662] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 41493
+[2025-06-30 15:11:24,325] INFO django.server "GET /media/timesheets/timesheets/4_2025_06.csv HTTP/1.1" 200 1084
+[2025-06-30 15:11:43,158] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 39523
+[2025-06-30 15:11:43,227] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-30 15:11:43,409] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-30 15:11:47,179] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 41493
+[2025-06-30 15:11:53,047] INFO django.server "GET /auth/change_consultant_status/4/ HTTP/1.1" 200 200
+[2025-06-30 15:12:01,675] INFO django.server "GET /auth/consultant_profile/4/ HTTP/1.1" 200 41493
+[2025-06-30 15:12:20,509] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 30685
+[2025-06-30 15:12:20,856] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 119
+[2025-06-30 15:12:29,605] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 34005
+[2025-06-30 15:12:55,070] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 25927
+[2025-06-30 15:13:01,619] INFO django.server "GET /media/invoices/openart-image_WM8SVq19_1749100402842_raw.pdf HTTP/1.1" 304 0
+[2025-06-30 15:13:20,345] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 39523
+[2025-06-30 15:13:20,425] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-30 15:13:20,603] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-30 15:14:16,335] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 34005
+[2025-06-30 15:14:38,970] INFO django.server "GET /consultation/consultant_profile/12/ HTTP/1.1" 200 34005
+[2025-06-30 15:14:42,409] INFO django.server "GET /auth/logout/ HTTP/1.1" 302 0
+[2025-06-30 15:14:42,422] INFO django.server "GET /auth/login/ HTTP/1.1" 200 38185
+[2025-06-30 15:14:47,349] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-06-30 15:14:47,423] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 18471
+[2025-06-30 15:19:02,017] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 15:19:02,021] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 15:19:07,680] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 15:19:07,682] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 15:19:44,489] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 15:19:44,491] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 15:27:32,301] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 17244
+[2025-06-30 15:31:16,969] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 17263
+[2025-06-30 15:31:17,039] INFO django.server "GET /static/custom_admin/css/tailwind.css HTTP/1.1" 200 390
+[2025-06-30 15:31:17,040] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-06-30 15:31:17,046] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
+[2025-06-30 15:31:17,149] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
+[2025-06-30 15:31:17,852] WARNING django.request Not Found: /favicon.ico
+[2025-06-30 15:31:17,852] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-30 15:31:19,331] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
+[2025-06-30 15:31:19,356] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 15:31:19,357] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 15:31:19,849] WARNING django.request Not Found: /sm/92969b0cf9ba6ee29441249cb3a52cc7cfd5cbf31c251cde128c9e4d543ad4d2.map
+[2025-06-30 15:31:19,851] WARNING django.server "GET /sm/92969b0cf9ba6ee29441249cb3a52cc7cfd5cbf31c251cde128c9e4d543ad4d2.map HTTP/1.1" 404 3038
+[2025-06-30 15:33:05,512] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 17244
+[2025-06-30 15:33:05,560] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 15:33:05,561] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 15:33:05,568] WARNING django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 404 1846
+[2025-06-30 15:33:05,582] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-06-30 15:33:05,604] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
+[2025-06-30 15:33:06,820] WARNING django.request Not Found: /favicon.ico
+[2025-06-30 15:33:06,820] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-30 15:35:44,757] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 39523
+[2025-06-30 15:35:44,843] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-30 15:35:45,116] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-06-30 15:35:46,479] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 15:35:46,480] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 15:35:58,838] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20861
+[2025-06-30 15:35:58,894] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 15:35:58,895] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 15:36:04,411] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20861
+[2025-06-30 15:36:04,460] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 15:36:04,461] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 15:36:04,479] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-06-30 15:36:04,480] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 48
+[2025-06-30 15:36:04,605] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
+[2025-06-30 15:36:05,702] WARNING django.request Not Found: /favicon.ico
+[2025-06-30 15:36:05,704] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-30 15:36:14,673] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20861
+[2025-06-30 15:36:14,721] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 15:36:14,722] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 15:36:14,740] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
+[2025-06-30 15:36:14,747] WARNING django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 404 1840
+[2025-06-30 15:36:17,477] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20861
+[2025-06-30 15:36:17,526] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 15:36:17,527] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 15:36:17,555] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-06-30 15:36:17,556] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 48
+[2025-06-30 15:36:17,692] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 0
+[2025-06-30 15:36:18,710] WARNING django.request Not Found: /favicon.ico
+[2025-06-30 15:36:18,712] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-30 15:36:30,951] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20861
+[2025-06-30 15:36:31,002] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 15:36:31,003] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 15:36:31,006] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
+[2025-06-30 15:36:31,010] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 82
+[2025-06-30 15:36:31,795] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20861
+[2025-06-30 15:36:32,016] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 15:36:32,018] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 15:36:32,029] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 48
+[2025-06-30 15:36:32,030] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-06-30 15:36:32,112] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 82
+[2025-06-30 15:36:32,929] WARNING django.request Not Found: /favicon.ico
+[2025-06-30 15:36:32,930] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-30 15:38:17,896] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 18941
+[2025-06-30 15:38:17,947] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
+[2025-06-30 15:38:17,952] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 15:38:17,953] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
+[2025-06-30 15:38:17,954] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 15:39:05,298] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 18941
+[2025-06-30 15:39:05,345] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 15:39:05,346] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 15:39:05,367] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 48
+[2025-06-30 15:39:05,367] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-06-30 15:39:05,510] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 82
+[2025-06-30 15:39:06,581] WARNING django.request Not Found: /favicon.ico
+[2025-06-30 15:39:06,583] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-30 15:39:17,959] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 18941
+[2025-06-30 15:39:18,027] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 15:39:18,029] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 15:39:18,047] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 48
+[2025-06-30 15:39:18,056] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-06-30 15:39:18,173] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 82
+[2025-06-30 15:39:19,181] WARNING django.request Not Found: /favicon.ico
+[2025-06-30 15:39:19,182] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-30 15:41:11,314] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 18941
+[2025-06-30 15:41:11,360] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 15:41:11,361] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 15:41:11,391] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-06-30 15:41:11,392] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 48
+[2025-06-30 15:41:11,535] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 82
+[2025-06-30 15:41:12,389] WARNING django.request Not Found: /favicon.ico
+[2025-06-30 15:41:12,390] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-30 15:42:23,423] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
+[2025-06-30 15:42:23,444] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 15:42:23,445] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 15:42:24,182] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 18941
+[2025-06-30 15:42:24,237] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 15:42:24,238] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 15:42:24,296] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 48
+[2025-06-30 15:42:24,296] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-06-30 15:42:24,437] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 82
+[2025-06-30 15:42:25,245] WARNING django.request Not Found: /favicon.ico
+[2025-06-30 15:42:25,246] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-30 15:43:35,150] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 18941
+[2025-06-30 15:43:35,201] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 15:43:35,202] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 15:43:35,226] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-06-30 15:43:35,227] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 48
+[2025-06-30 15:43:35,361] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 82
+[2025-06-30 15:43:36,660] WARNING django.request Not Found: /favicon.ico
+[2025-06-30 15:43:36,660] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-30 15:43:40,819] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultaion_webapp\urls.py changed, reloading.
+[2025-06-30 15:43:44,803] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-30 15:43:58,032] WARNING django.request Not Found: /auth/admin_dashboard/
+[2025-06-30 15:43:58,033] WARNING django.server "GET /auth/admin_dashboard/ HTTP/1.1" 404 4713
+[2025-06-30 15:43:58,084] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 15:43:58,085] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4794
+[2025-06-30 15:43:58,650] INFO django.server "GET /favicon.ico HTTP/1.1" 200 47
+[2025-06-30 15:44:04,544] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultaion_webapp\urls.py changed, reloading.
+[2025-06-30 15:44:07,120] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-30 15:44:20,223] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultaion_webapp\consultaion_webapp\urls.py changed, reloading.
+[2025-06-30 15:44:22,568] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-06-30 15:44:28,021] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 18941
+[2025-06-30 15:44:28,055] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 15:44:28,056] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 15:44:28,167] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 48
+[2025-06-30 15:44:28,176] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-06-30 15:44:28,222] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 82
+[2025-06-30 15:44:29,198] WARNING django.request Not Found: /favicon.ico
+[2025-06-30 15:44:29,199] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-30 15:46:39,248] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 18941
+[2025-06-30 15:46:39,301] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 15:46:39,302] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 15:46:39,313] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 48
+[2025-06-30 15:46:39,316] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-06-30 15:46:39,451] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 82
+[2025-06-30 15:46:40,467] WARNING django.request Not Found: /favicon.ico
+[2025-06-30 15:46:40,468] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-30 15:50:14,548] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 18941
+[2025-06-30 15:50:14,602] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 15:50:14,603] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 15:50:14,619] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 48
+[2025-06-30 15:50:14,619] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-06-30 15:50:14,782] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 82
+[2025-06-30 15:50:15,823] WARNING django.request Not Found: /favicon.ico
+[2025-06-30 15:50:15,823] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-06-30 16:00:40,766] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20861
+[2025-06-30 16:00:40,917] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-06-30 16:00:40,918] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-06-30 16:00:40,953] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-06-30 16:00:41,086] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
