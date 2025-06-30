@@ -6,9 +6,9 @@
 <div class="container mt-4">
     {% comment %} <h2 class="mb-4">Consultant Profile</h2> {% endcomment %}
     <div class="card shadow-sm p-4">
-        <div class="row mb-4">
-            <div class="col-md-6">
-                <h2 class="h2 bold">Profile Information</h2>
+        <div class="row mb-3">
+            <h2 class="h2 bold">Profile Information</h2>
+            <div class="col-md-6 ">
                 <div class="mb-3">
                     <label for="{{ form.name.id_for_label }}" class="form-label"><strong>Name:</strong></label>
                     {{ form.name }}
@@ -21,7 +21,7 @@
                 </div>
                 <p><strong>Email:</strong> {{ consultant.email }}</p>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 ">
                 <h5>Password</h5>
                 <div class="input-group mb-3">
                     <input type="password" id="passwordField" class="form-control" value="{{ decrypted_password|default:'********' }}" readonly>
@@ -59,10 +59,11 @@
         </div>
         <hr>
         <h2 class="h2 bold">Edit Profile</h2>
-<form method="post" enctype="multipart/form-data" novalidate>
+    <form method="post" enctype="multipart/form-data" novalidate>
     {% csrf_token %}
     <div class="row">
         {% for field in form %}
+            {% if field.name != 'status' and field.name != 'agreement_document' %}
             <div class="col-md-6 mb-3">
                 <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
                 {% if field.name == 'skills' %}
@@ -83,10 +84,79 @@
                     <div class="text-danger">{{ error }}</div>
                 {% endfor %}
             </div>
+            {% endif %}
         {% endfor %}
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Status</label>
+            <div>
+            {% if form.instance.status == 'to_be_reviewed' %}
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800 shadow-sm">To Be Reviewed</span>
+            {% elif form.instance.status == 'rejected' %}
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800 shadow-sm">Rejected</span>
+            {% elif form.instance.status == 'approved' %}
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 shadow-sm">Approved</span>
+            {% else %}
+                <span>{{ form.instance.status }}</span>
+            {% endif %}
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label" for="id_agreement_document">Agreement Document</label>
+            {% if form.instance.agreement_document %}
+                <div class="d-flex align-items-center" id="agreementDocumentSection">
+                    <a href="{{ form.instance.agreement_document.url }}" target="_blank" class="me-3">View Agreement</a>
+                    <button type="button" class="btn btn-sm btn-danger solid-btn" id="removeAgreementBtn" style="background-color: #dc3545 !important; color: white !important; border-color: #dc3545 !important;">Remove</button>
+                </div>
+            {% else %}
+                {{ form.agreement_document }}
+            {% endif %}
+            {% if form.agreement_document.help_text %}
+                <div class="form-text">{{ form.agreement_document.help_text }}</div>
+            {% endif %}
+            {% for error in form.agreement_document.errors %}
+                <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary">Save Profile</button>
+    <button type="submit" class="btn btn-primary solid-btn" style="background-color: #0d6efd !important; color: white !important; border-color: #0d6efd !important;">Save Profile</button>
 </form>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const removeAgreementBtn = document.getElementById('removeAgreementBtn');
+    if (removeAgreementBtn) {
+        removeAgreementBtn.addEventListener('click', function() {
+            if (!confirm('Are you sure you want to remove the agreement document?')) {
+                return;
+            }
+            fetch("{% url 'consultation:consultant_profile' form.instance.user.id %}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}',
+                },
+                body: JSON.stringify({ scrap_agreement: true }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const agreementSection = document.getElementById('agreementDocumentSection');
+                    if (agreementSection) {
+                        agreementSection.remove();
+                    }
+                    alert('Agreement document removed successfully.');
+                } else {
+                    alert('Failed to remove agreement document.');
+                }
+            })
+            .catch(error => {
+                alert('Error removing agreement document.');
+                console.error('Error:', error);
+            });
+        });
+    }
+});
+</script>
     </div>
 </div>
 
@@ -151,12 +221,42 @@ togglePasswordBtn.addEventListener('click', function() {
 });
 
     editPasswordBtn.addEventListener('click', function() {
-        otpSection.style.display = 'block';
-        changePasswordSection.style.display = 'none';
-otpMessage.textContent = '';
-otpInput.value = '';
-otpVerified = false;
-});
+        otpMessage.textContent = '';
+        otpInput.value = '';
+        otpVerified = false;
+
+        // Call send_otp endpoint to send OTP email
+        fetch("{% url 'consultation:send_otp' %}", {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                otpSection.style.display = 'block';
+                changePasswordSection.style.display = 'none';
+                otpMessage.textContent = data.message || 'OTP sent successfully.';
+                otpMessage.classList.remove('text-danger');
+                otpMessage.classList.add('text-success');
+            } else {
+                otpMessage.textContent = data.message || 'Failed to send OTP.';
+                otpMessage.classList.remove('text-success');
+                otpMessage.classList.add('text-danger');
+                otpSection.style.display = 'none';
+                changePasswordSection.style.display = 'none';
+            }
+        })
+        .catch(error => {
+            otpMessage.textContent = 'Error sending OTP.';
+            otpMessage.classList.remove('text-success');
+            otpMessage.classList.add('text-danger');
+            otpSection.style.display = 'none';
+            changePasswordSection.style.display = 'none';
+            console.error('Error:', error);
+        });
+    });
 
 verifyOtpBtn.addEventListener('click', function() {
     const otp = otpInput.value.trim();
@@ -202,6 +302,8 @@ verifyOtpBtn.addEventListener('click', function() {
         const otp = otpInput.value.trim();
         if (!otp) {
             otpMessage.textContent = 'Please enter the OTP.';
+            otpMessage.classList.remove('text-success');
+            otpMessage.classList.add('text-danger');
             return;
         }
         otpMessage.textContent = '';
@@ -219,13 +321,19 @@ verifyOtpBtn.addEventListener('click', function() {
                 otpSection.style.display = 'none';
                 changePasswordSection.style.display = 'block';
                 otpVerified = true;
-                changePasswordMessage.textContent = '';
+                otpMessage.textContent = 'OTP verified successfully.';
+                otpMessage.classList.remove('text-danger');
+                otpMessage.classList.add('text-success');
             } else {
                 otpMessage.textContent = data.message || 'Invalid OTP.';
+                otpMessage.classList.remove('text-success');
+                otpMessage.classList.add('text-danger');
             }
         })
         .catch(error => {
             otpMessage.textContent = 'Error verifying OTP.';
+            otpMessage.classList.remove('text-success');
+            otpMessage.classList.add('text-danger');
             console.error('Error:', error);
         });
     });
@@ -289,5 +397,19 @@ fetch("{% url 'consultation:change_password' %}", {
         otpVerified = false;
     });
 });
+<style>
+/* Make buttons have solid background color by default */
+.solid-btn {
+    background-color: #0d6efd !important; /* Bootstrap primary blue */
+    color: white !important;
+    border-color: #0d6efd !important;
+}
+
+.solid-btn:hover, .solid-btn:focus {
+    background-color: #0b5ed7 !important; /* Darker blue on hover */
+    border-color: #0a58ca !important;
+    color: white !important;
+}
+</style>
 </script>
 {% endblock %}
