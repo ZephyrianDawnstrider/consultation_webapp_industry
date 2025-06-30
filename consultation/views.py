@@ -373,7 +373,35 @@ def consultant_profile(request, consultant_id):
         if 'scrap_agreement' in request.POST:
             return _handle_scrap_agreement(request, consultant)
         
-        return _handle_profile_update(request, consultant, consultant_id)
+        # Handle profile update including updating User's first_name and last_name
+        form = ConsultantProfileForm(request.POST, request.FILES, instance=consultant.consultant_profile if hasattr(consultant, 'consultant_profile') else None)
+        if form.is_valid():
+            # Save ConsultantProfile form
+            profile = form.save(commit=False)
+            profile.user = consultant
+            profile.save()
+            form.save_m2m()
+
+            # Update User's first_name and last_name from form's 'name' field
+            full_name = form.cleaned_data.get('name', '').strip()
+            if full_name:
+                name_parts = full_name.split()
+                if len(name_parts) == 1:
+                    consultant.first_name = name_parts[0]
+                    consultant.last_name = ''
+                else:
+                    consultant.first_name = name_parts[0]
+                    consultant.last_name = ' '.join(name_parts[1:])
+                consultant.save()
+
+            return redirect('consultation:consultant_profile', consultant_id=consultant_id)
+        else:
+            context = {
+                'consultant': consultant,
+                'form': form,
+                'current_page': 'Consultant Profile'
+            }
+            return render(request, 'consultant_profile.html', context)
 
     try:
         profile = ConsultantProfile.objects.prefetch_related('skills').get(user=consultant)

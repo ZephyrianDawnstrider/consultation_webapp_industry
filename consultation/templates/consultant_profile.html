@@ -4,12 +4,21 @@
 
 {% block content %}
 <div class="container mt-4">
-    <h2 class="mb-4">Consultant Profile</h2>
+    {% comment %} <h2 class="mb-4">Consultant Profile</h2> {% endcomment %}
     <div class="card shadow-sm p-4">
         <div class="row mb-4">
             <div class="col-md-6">
-                <h5>Profile Information</h5>
-                <p><strong>Name:</strong> {{ consultant.get_full_name }}</p>
+                <h2 class="h2 bold">Profile Information</h2>
+                <div class="mb-3">
+                    <label for="{{ form.name.id_for_label }}" class="form-label"><strong>Name:</strong></label>
+                    {{ form.name }}
+                    {% if form.name.help_text %}
+                        <div class="form-text">{{ form.name.help_text }}</div>
+                    {% endif %}
+                    {% for error in form.name.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                </div>
                 <p><strong>Email:</strong> {{ consultant.email }}</p>
             </div>
             <div class="col-md-6">
@@ -49,7 +58,7 @@
             <div id="changePasswordMessage" class="mt-2"></div>
         </div>
         <hr>
-        <h5>Edit Profile</h5>
+        <h2 class="h2 bold">Edit Profile</h2>
 <form method="post" enctype="multipart/form-data" novalidate>
     {% csrf_token %}
     <div class="row">
