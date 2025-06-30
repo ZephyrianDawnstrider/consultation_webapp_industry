@@ -391,6 +391,10 @@ def consultant_profile(request, consultant_id):
         except Exception as e:
             logger.error(f"Error decrypting password for user {consultant.email}: {str(e)}")
 
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        # Return JSON response with decrypted password for AJAX requests
+        return JsonResponse({'decrypted_password': decrypted_password})
+
     context = {
         'consultant': consultant,
         'form': form,
@@ -457,6 +461,10 @@ def send_otp(request):
         user = request.user
         if user.role != 'consultant':
             return JsonResponse({'success': False, 'message': 'Unauthorized'}, status=403)
+        if user.id in otp_storage:
+            # OTP already sent and not yet verified
+            logger.info(f"OTP already sent to user {user.email}, not sending again")
+            return JsonResponse({'success': True, 'message': 'OTP already sent'})
         otp = ''.join(random.choices(string.digits, k=6))
         otp_storage[user.id] = otp
         # Send OTP via email
