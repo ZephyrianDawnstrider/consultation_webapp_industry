@@ -31,6 +31,8 @@ ALLOWED_HOSTS = ['consultaion-webapp.onrender.com','*']
 # Application definition
 
 INSTALLED_APPS = [
+    'django_celery_beat',
+    'django_celery_results',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
