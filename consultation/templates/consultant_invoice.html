@@ -42,7 +42,7 @@
                 <i class="fas fa-file-invoice-dollar mr-4 text-white"></i>
                 Monthly Invoice Upload
             </h1>
-            <div class="text-base text-gray-700">
+            <div class="text-base text-white-700">
                 Welcome, <span class="font-semibold">{{ request.user.get_full_name|default:request.user.email }}</span>
             </div>
         </div>
@@ -78,7 +78,7 @@
         </div>
 
         <!-- Upload Card -->
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden mb-10">
+        <div class="bg-blue-50 shadow-lg rounded-lg overflow-hidden mb-10">
             <div class="px-8 py-6 border-b border-gray-200">
                 <h3 class="text-xl font-semibold text-gray-900">
                     Upload Your Invoice
@@ -93,7 +93,7 @@
                             Select Month
                         </label>
                         <div class="mt-2 relative rounded-md shadow-sm">
-                            <select id="monthSelect" name="month" required class="block w-full pl-4 pr-10 py-3 text-base border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 sm:text-base rounded-md border">
+                            <select id="monthSelect" name="month" required class=" bg-blue-50 block w-full pl-4 pr-10 py-3 text-base border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 sm:text-base rounded-md border text-black">
                                 <option value="">-- Select Month --</option>
                                 <option value="January">January</option>
                                 <option value="February">February</option>
@@ -151,7 +151,7 @@
         </div>
 
         <!-- Uploaded Invoices Table -->
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="bg-blue-50 shadow-lg rounded-lg overflow-hidden">
             <div class="px-8 py-6 border-b border-gray-200">
                 <h3 class="text-xl font-semibold text-gray-900">
                     Uploaded Invoices
@@ -160,7 +160,7 @@
             <div class="p-8 overflow-x-auto">
                 {% if invoices %}
                     <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50">
+                        <thead class="bg-blue-50">
                             <tr>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Month
@@ -173,7 +173,7 @@
                                 </th>
                             </tr>
                         </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
+                        <tbody class="bg-blue-50 divide-y divide-gray-200">
                             {% for invoice in invoices %}
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">

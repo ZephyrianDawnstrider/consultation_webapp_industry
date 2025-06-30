@@ -7,5 +7,6 @@ pandas
 psycopg2-binary
 whitenoise
 django-celery-beat
+django-celery-results
 celery
 redis
