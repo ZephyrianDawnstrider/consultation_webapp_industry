@@ -10,7 +10,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y --no-ins
     && curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
     && curl https://packages.microsoft.com/config/debian/11/prod.list > /etc/apt/sources.list.d/mssql-release.list \
     && apt-get update \
-    && apt-get -o Dpkg::Options::="--force-overwrite" install -y msodbcsql17 \
+    && ACCEPT_EULA=Y apt-get -o Dpkg::Options::="--force-overwrite" install -y msodbcsql17 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
