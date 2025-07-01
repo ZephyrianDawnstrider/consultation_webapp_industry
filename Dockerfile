@@ -2,7 +2,7 @@
 FROM python:3.11-slim
 
 # Install dependencies for ODBC Driver 17 for SQL Server
-RUN apt-get update && apt-get install -y \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y --no-install-recommends \
     curl \
     gnupg2 \
     apt-transport-https \
@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
     && curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
     && curl https://packages.microsoft.com/config/debian/11/prod.list > /etc/apt/sources.list.d/mssql-release.list \
     && apt-get update \
-    && ACCEPT_EULA=Y apt-get install -y msodbcsql17 \
+    && apt-get -o Dpkg::Options::="--force-overwrite" install -y msodbcsql17 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
