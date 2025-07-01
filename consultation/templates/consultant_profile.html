@@ -3,6 +3,11 @@
 {% block title %}Consultant Profile{% endblock %}
 
 {% block content %}
+<head>
+    <!-- Other CSS files and meta tags... -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <!-- Other CSS files and meta tags... -->
+</head>
 <div class="container mt-4">
     {% comment %} <h2 class="mb-4">Consultant Profile</h2> {% endcomment %}
     <div class="card shadow-sm p-4">
@@ -23,12 +28,12 @@
             </div>
             <div class="col-md-6 ">
                 <h5>Password</h5>
-                <div class="input-group mb-3">
-                    <input type="password" id="passwordField" class="form-control" value="{{ decrypted_password|default:'********' }}" readonly>
-                    <button class="btn btn-outline-secondary" type="button" id="togglePasswordBtn" aria-label="Toggle password visibility">
-                        <i class="bi bi-eye" id="togglePasswordIcon"></i>
-                    </button>
-                </div>
+                    <div class="input-group mb-3">
+                        <input type="password" id="passwordField" class="form-control" value="{{ decrypted_password|default:'********' }}" readonly>
+                        <button class="btn btn-outline-secondary " type="button" id="togglePasswordBtn" aria-label="Toggle password visibility">
+                            <i class="bi bi-eye" id="togglePasswordIcon"></i>
+                        </button>
+                    </div>
                 <button class="btn btn-link p-0" id="editPasswordBtn">Edit Password</button>
             </div>
         </div>
@@ -52,8 +57,8 @@
                     <label for="confirmPassword" class="form-label">Confirm New Password</label>
                     <input type="password" id="confirmPassword" class="form-control" required>
                 </div>
-                <button type="submit" class="btn btn-success">Save New Password</button>
-                <button type="button" class="btn btn-secondary ms-2" id="cancelChangePasswordBtn">Cancel</button>
+                <button type="submit" class="btn btn-success, solid-btn">Save New Password</button>
+                <button type="button" class="btn btn-secondary ms-2, solid-btn" id="cancelChangePasswordBtn">Cancel</button>
             </form>
             <div id="changePasswordMessage" class="mt-2"></div>
         </div>
@@ -122,6 +127,22 @@
 </form>
 
 <script>
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const removeAgreementBtn = document.getElementById('removeAgreementBtn');
     if (removeAgreementBtn) {
@@ -133,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-CSRFToken': '{{ csrf_token }}',
+                    'X-CSRFToken': getCookie('csrftoken'),
                 },
                 body: JSON.stringify({ scrap_agreement: true }),
             })
@@ -189,7 +210,8 @@ togglePasswordBtn.addEventListener('click', function() {
             method: 'GET',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest'
-            }
+            },
+            credentials: 'include'
         })
         .then(response => {
             console.log('Received response for decrypted password fetch');
@@ -229,8 +251,9 @@ togglePasswordBtn.addEventListener('click', function() {
         fetch("{% url 'consultation:send_otp' %}", {
             method: 'POST',
             headers: {
-                'X-CSRFToken': '{{ csrf_token }}',
+                'X-CSRFToken': getCookie('csrftoken'),
             },
+            credentials: 'include'
         })
         .then(response => response.json())
         .then(data => {
@@ -267,14 +290,15 @@ verifyOtpBtn.addEventListener('click', function() {
         return;
     }
     otpMessage.textContent = '';
-    fetch("{% url 'consultation:verify_otp' %}", {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRFToken': '{{ csrf_token }}',
-        },
-        body: JSON.stringify({ otp: otp }),
-    })
+        fetch("{% url 'consultation:verify_otp' %}", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken'),
+            },
+            body: JSON.stringify({ otp: otp }),
+            credentials: 'include'
+        })
     .then(response => response.json())
     .then(data => {
         if (data.success) {
@@ -311,7 +335,7 @@ verifyOtpBtn.addEventListener('click', function() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRFToken': '{{ csrf_token }}',
+                'X-CSRFToken': getCookie('csrftoken'),
             },
             body: JSON.stringify({ otp: otp }),
         })
@@ -349,14 +373,15 @@ verifyOtpBtn.addEventListener('click', function() {
             return;
         }
 changePasswordMessage.textContent = '';
-fetch("{% url 'consultation:change_password' %}", {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-        'X-CSRFToken': '{{ csrf_token }}',
-    },
-    body: JSON.stringify({ new_password: newPassword.value }),
-})
+        fetch("{% url 'consultation:change_password' %}", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken'),
+            },
+            body: JSON.stringify({ new_password: newPassword.value }),
+            credentials: 'include'
+        })
 .then(response => response.json())
 .then(data => {
     if (data.success) {
@@ -397,7 +422,7 @@ fetch("{% url 'consultation:change_password' %}", {
         otpVerified = false;
     });
 });
-<style>
+{% comment %} <style>
 /* Make buttons have solid background color by default */
 .solid-btn {
     background-color: #0d6efd !important; /* Bootstrap primary blue */
@@ -410,6 +435,6 @@ fetch("{% url 'consultation:change_password' %}", {
     border-color: #0a58ca !important;
     color: white !important;
 }
-</style>
+</style> {% endcomment %}
 </script>
 {% endblock %}
