@@ -79,10 +79,19 @@ WSGI_APPLICATION = 'consultaion_webapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+import os
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'mssql',
+        'NAME': os.getenv('MSSQL_DB_NAME', 'softechconsultant'),
+        'USER': os.getenv('MSSQL_DB_USER', 'sofcunsuser'),
+        'PASSWORD': os.getenv('MSSQL_DB_PASSWORD', 'REDACTED'),
+        'HOST': os.getenv('MSSQL_DB_HOST', 'REDACTED'),
+        'PORT': os.getenv('MSSQL_DB_PORT', ''),
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',
+        },
     }
 }
 

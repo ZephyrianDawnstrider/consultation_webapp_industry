@@ -10,3 +10,4 @@ django-celery-beat
 django-celery-results
 celery
 redis
+mssql-django
