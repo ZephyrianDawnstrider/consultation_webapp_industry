@@ -1,0 +1,166 @@
+<<<<<<<
+\mynames{Lim/Lian\bibnamedelima Tze,
+  Wong/Lian\bibnamedelima Tze,
+  Lim/Tracy,
+  Lim/L.\bibnamedelimi T.}
+=======
+\mynames{Chaturvedi/Ayush}
+>>>>>>>
+
+<<<<<<<
+\leftheader{%
+  {\LARGE\bfseries\sffamily Your Name Here, Ph.D.}
+
+  \makefield{\faEnvelope[regular]}{\href{mailto:example@gmail.com}{\texttt{example@gmail.com}}}
+  % fontawesome5 doesn't have the X icon so we use
+  % the simpleicons package here instead; but some 
+  % font size adjustment might be needed
+  \makefield{{\scriptsize\simpleicon{x}}}{\!\href{https://x.com/overleaf_example}{\texttt{@overleaf\_example}}}
+  \makefield{\faLinkedin}
+  {\href{http://www.linkedin.com/in/example/}{\texttt{example}}}
+
+  %% Next line
+  \makefield{\faGlobe}{\url{http://example.example.org/}}
+  % You can use a tabular here if you want to line up the fields.
+}
+=======
+\leftheader{%
+  {\LARGE\bfseries\sffamily Ayush Chaturvedi}
+
+  \makefield{\faEnvelope[regular]}{\href{mailto:ayushchaturvedi405@gmail.com}{\texttt{ayushchaturvedi405@gmail.com}}}
+  % fontawesome5 doesn't have the X icon so we use
+  % the simpleicons package here instead; but some 
+  % font size adjustment might be needed
+  \makefield{{\scriptsize\simpleicon{x}}}{\!\href{https://x.com/ayushchaturvedi}{\texttt{@ayushchaturvedi}}}
+  \makefield{\faLinkedin}
+  {\href{https://www.linkedin.com/in/ayush-chaturvedi-b23a8a219/}{\texttt{ayush-chaturvedi-b23a8a219}}}
+
+  %% Next line
+  \makefield{\faGlobe}{\url{http://example.example.org/}}
+  % You can use a tabular here if you want to line up the fields.
+}
+>>>>>>>
+
+<<<<<<<
+\makeheaders[c]
+
+\makerubric{employment}
+\makerubric{education}
+
+% If you're not a researcher nor an academic, you probably don't have any publications; delete this line.
+%% Sometimes when a section can't be nicely modelled with the \entry[]... mechanism; hack our own and use \input NOT \makerubric
+\input{publications}
+
+\makerubric{skills}
+\makerubric{misc}
+
+\makerubric{referee}
+% \input{referee-full}
+
+\end{document}
+=======
+\makeheaders[c]
+
+\section*{Summary}
+A passionate B.Tech student deeply interested in robotics, technology and software development. I organize several robotics competitions. Through these events, I promote innovation and hands-on learning. My experience includes software development and projects in logistics and aerospace technology. At Rodella Aerospace Labs, I created several surveillance drones for security applications during my internship. A key co-founder of a major e-commerce platform that lets customers extensively customize sneakers. Acting as a Literary Club member and college festival anchor improved my communication skills and community engagement. A technologist in training dedicated to using AI, machine learning and software development to promote innovation.
+
+\makerubric{employment}
+\begin{rubric}{Employment}
+  \entry
+    {February 2025 -- Present}
+    {Software Developer}
+    {CHL Softech, Noida, Uttar Pradesh, India}
+    {Working on all software needs.}
+  \entry
+    {June 2024 -- February 2025}
+    {Software Developer}
+    {Linkers India Logistics Pvt. Ltd., New Delhi, Delhi, India}
+    {Developed AI-based software for operation, sales and other projects.}
+  \entry
+    {June 2023 -- August 2023}
+    {Intern}
+    {Rodella Aerospace Labs, India}
+    {Developed surveillance drones for security services, including the Indian armed forces. Gained expertise in drone design, production, and testing under industry specialists. Contributed to brainstorming sessions for surveillance-specific drone concepts. Worked on aerodynamics, onboard sensors, and security-focused drone components. Hands-on experience with prototype construction, test flights, and data analysis. Developed a strong understanding of military drone technology and national security applications.}
+  \entry
+    {September 2020 -- February 2022}
+    {Co-Founder}
+    {Sole Hustlers, New Delhi, Delhi, India}
+    {Created an e-commerce platform enabling customers to customize their sneakers utilizing our web services with delivery of products at their doorstep.}
+\end{rubric}
+
+\makerubric{education}
+\begin{rubric}{Education}
+  \entry
+    {October 2021 -- June 2025}
+    {Bachelor of Technology - BTech, Electrical, Electronic and Communications Engineering Technology/Technician}
+    {Noida Institute of Engineering \& Technology}
+    {}
+  \entry
+    {April 2019 -- June 2021}
+    {Senior Secondary Schooling, Engineering Science}
+    {Mayo International School - India}
+    {}
+  \entry
+    {April 2012 -- March 2019}
+    {High School Diploma, Junior High/Intermediate/Middle School Education and Teaching}
+    {Ryan International School}
+    {}
+\end{rubric}
+
+\makerubric{skills}
+\begin{rubric}{Skills}
+  \entry
+    {}
+    {SQL Server Management Studio}
+    {}
+  \entry
+    {}
+    {HTML}
+    {}
+  \entry
+    {}
+    {Cascading Style Sheets (CSS)}
+    {}
+\end{rubric}
+
+\makerubric{misc}
+\begin{rubric}{Languages}
+  \entry
+    {}
+    {Hindi (Native or Bilingual)}
+    {}
+  \entry
+    {}
+    {English (Professional Working)}
+    {}
+\end{rubric}
+
+\makerubric{misc}
+\begin{rubric}{Certifications}
+  \entry
+    {}
+    {5G for Everyone}
+    {}
+  \entry
+    {}
+    {Machine Learning with Python}
+    {}
+  \entry
+    {}
+    {Python Basics}
+    {}
+  \entry
+    {}
+    {AI Workflow: Machine Learning, Visual Recognition and NLP}
+    {}
+  \entry
+    {}
+    {The Arduino Platform and C Programming}
+    {}
+\end{rubric}
+
+\makerubric{referee}
+% \input{referee-full}
+
+\end{document}
+>>>>>>>
