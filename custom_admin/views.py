@@ -44,25 +44,17 @@ from datetime import datetime, timedelta
 # Django imports
 
 @login_required
-def consultant_detail(request, consultant_id):
+def timesheet(request):
     """
-    View to render consultant detail page with timesheet data and history.
+    View to render the timesheet page where user can select consultant, year, and month,
+    and view/edit/save timesheet entries.
     """
     from consultation.models import ConsultantProfile
     from custom_admin.utils import decrypt_password
     import csv
     from io import StringIO
 
-    consultant = get_object_or_404(User, id=consultant_id, role='consultant')
-
-    # Get consultant profile
-    try:
-        profile = ConsultantProfile.objects.get(user=consultant)
-    except ConsultantProfile.DoesNotExist:
-        profile = None
-
-    # Get timesheets for consultant
-    timesheets = Timesheet.objects.filter(consultant=consultant).order_by('-month')
+    consultants = User.objects.filter(role='consultant').select_related('consultant_profile').order_by('consultant_profile__name')
 
     # Prepare year and month options for selectors
     today = datetime.today()
@@ -83,82 +75,78 @@ def consultant_detail(request, consultant_id):
         {'value': '12', 'name': 'December'},
     ]
 
-    # Get selected year and month from request GET params or default to current
+    # Get selected consultant, year and month from request GET params
+    consultant_id = request.GET.get('consultant_id')
     selected_year_str = request.GET.get('year') or str(current_year)
     selected_month_str = request.GET.get('month') or today.strftime('%m')
 
-    # Determine selected timesheet based on selected year and month
+    selected_consultant = None
+    timesheets = []
     selected_timesheet = None
-    try:
-        selected_month = datetime.strptime(f"{selected_year_str}-{selected_month_str}", '%Y-%m').date()
-        selected_timesheet = timesheets.filter(month__year=selected_month.year, month__month=selected_month.month).first()
-    except ValueError:
-        selected_timesheet = timesheets.first()
-
-    # Read timesheet entries from CSV file for selected timesheet
     timesheet_entries = []
-    if selected_timesheet:
+
+    if consultant_id:
         try:
-            with selected_timesheet.file.open('r') as csv_file:
-                csv_data = csv_file.read()
-            f = StringIO(csv_data)
-            reader = csv.DictReader(f)
-            for row in reader:
-                normalized_row = {k.strip().lower(): v for k, v in row.items()}
-                task_name_keys = ['task name', 'task_name', 'task', 'name']
-                task_name_value = ''
-                for key in task_name_keys:
-                    if key in normalized_row:
-                        task_name_value = normalized_row[key]
-                        break
-                # Convert date to ISO format yyyy-mm-dd for HTML date input compatibility
-                raw_date = normalized_row.get('date')
-                iso_date = None
-                if raw_date:
-                    try:
-                        # Try parsing common date formats
-                        parsed_date = None
-                        for fmt in ('%d-%m-%Y', '%Y-%m-%d', '%m/%d/%Y'):
-                            try:
-                                parsed_date = datetime.strptime(raw_date, fmt).date()
+            selected_consultant = User.objects.get(id=consultant_id, role='consultant')
+            timesheets = Timesheet.objects.filter(consultant=selected_consultant).order_by('-month')
+
+            try:
+                selected_month = datetime.strptime(f"{selected_year_str}-{selected_month_str}", '%Y-%m').date()
+                selected_timesheet = timesheets.filter(month__year=selected_month.year, month__month=selected_month.month).first()
+            except ValueError:
+                selected_timesheet = timesheets.first()
+
+            if selected_timesheet:
+                try:
+                    with selected_timesheet.file.open('r') as csv_file:
+                        csv_data = csv_file.read()
+                    f = StringIO(csv_data)
+                    reader = csv.DictReader(f)
+                    for row in reader:
+                        normalized_row = {k.strip().lower(): v for k, v in row.items()}
+                        task_name_keys = ['task name', 'task_name', 'task', 'name']
+                        task_name_value = ''
+                        for key in task_name_keys:
+                            if key in normalized_row:
+                                task_name_value = normalized_row[key]
                                 break
-                            except ValueError:
-                                continue
-                        if parsed_date:
-                            iso_date = parsed_date.isoformat()
+                        raw_date = normalized_row.get('date')
+                        iso_date = None
+                        if raw_date:
+                            try:
+                                parsed_date = None
+                                for fmt in ('%d-%m-%Y', '%Y-%m-%d', '%m/%d/%Y'):
+                                    try:
+                                        parsed_date = datetime.strptime(raw_date, fmt).date()
+                                        break
+                                    except ValueError:
+                                        continue
+                                if parsed_date:
+                                    iso_date = parsed_date.isoformat()
+                                else:
+                                    iso_date = raw_date
+                            except Exception:
+                                iso_date = raw_date
                         else:
-                            iso_date = raw_date  # fallback to raw if parsing fails
-                    except Exception:
-                        iso_date = raw_date
-                else:
-                    iso_date = ''
+                            iso_date = ''
 
-                entry = {
-                    'date': iso_date,
-                    'start_time': normalized_row.get('start time'),
-                    'end_time': normalized_row.get('end time'),
-                    'hours_worked': normalized_row.get('hours worked'),
-                    'task_name': task_name_value,
-                    'description': normalized_row.get('description'),
-                }
-                timesheet_entries.append(entry)
-        except Exception as e:
-            logger.error(f"Error reading timesheet CSV file: {str(e)}")
-
-    # Decrypt password for display
-    decrypted_password = ''
-    try:
-        if consultant.encrypted_password:
-            decrypted_password = decrypt_password(consultant.encrypted_password)
-        else:
-            decrypted_password = '[Password not set]'
-    except Exception as e:
-        logger.error(f"Error decrypting password for user {consultant.email}: {str(e)}")
-        decrypted_password = '[Error decrypting password]'
+                        entry = {
+                            'date': iso_date,
+                            'start_time': normalized_row.get('start time'),
+                            'end_time': normalized_row.get('end time'),
+                            'hours_worked': normalized_row.get('hours worked'),
+                            'task_name': task_name_value,
+                            'description': normalized_row.get('description'),
+                        }
+                        timesheet_entries.append(entry)
+                except Exception as e:
+                    logger.error(f"Error reading timesheet CSV file: {str(e)}")
+        except User.DoesNotExist:
+            selected_consultant = None
 
     context = {
-        'consultant': consultant,
-        'profile': profile,
+        'consultants': consultants,
+        'selected_consultant': selected_consultant,
         'timesheets': timesheets,
         'timesheet_entries': timesheet_entries,
         'selected_timesheet': selected_timesheet,
@@ -166,9 +154,8 @@ def consultant_detail(request, consultant_id):
         'selected_month': selected_month_str,
         'year_options': year_options,
         'month_options': month_options,
-        'decrypted_password': decrypted_password,
     }
-    return render(request, 'consultant_detail.html', context)
+    return render(request, 'timesheet.html', context)
 
 @login_required
 @csrf_exempt

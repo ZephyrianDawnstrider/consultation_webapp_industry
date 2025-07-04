@@ -27,4 +27,5 @@ urlpatterns = [
     path('api/consultant_autofill/', views.consultant_autofill, name='consultant_autofill'),
     path('', include(router.urls)),
     path('admin_profile/<int:admin_id>/', views.admin_profile, name='admin_profile'),
+    path('timesheet/', views.timesheet, name='timesheet'),
 ]
