@@ -15,7 +15,7 @@
 12. [Extension & Customization](#extension--customization)
 13. [Debugging & Monitoring](#debugging--monitoring)
 14. [Contributing Guidelines](#contributing-guidelines)
-15. [Future Roadmap](#future-roadmap)
+15. [Future Roadmap](#future-roadm
 
 ---
 
