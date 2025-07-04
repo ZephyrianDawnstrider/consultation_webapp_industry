@@ -1516,3 +1516,124 @@
 [2025-07-04 10:51:14,050] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 20860
 [2025-07-04 10:51:14,110] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
 [2025-07-04 10:51:14,158] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-04 15:16:34,247] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-04 15:16:41,930] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 27796
+[2025-07-04 15:16:41,989] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
+[2025-07-04 15:16:41,989] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
+[2025-07-04 15:16:42,013] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
+[2025-07-04 15:16:43,662] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 27796
+[2025-07-04 15:16:43,806] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-04 15:16:43,809] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-04 15:16:43,815] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-04 15:16:44,590] WARNING django.request Not Found: /favicon.ico
+[2025-07-04 15:16:44,591] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-04 15:16:46,448] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 28806
+[2025-07-04 15:16:47,780] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 40295
+[2025-07-04 15:16:47,838] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-04 15:16:47,969] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-04 15:16:48,938] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 37620
+[2025-07-04 15:16:49,509] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 49
+[2025-07-04 15:16:50,365] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 26571
+[2025-07-04 15:16:56,604] WARNING django.request Not Found: /custom_admin/consultant_profile/6/
+[2025-07-04 15:16:56,605] WARNING django.server "GET /custom_admin/consultant_profile/6/?year=2025&month=07 HTTP/1.1" 404 2950
+[2025-07-04 15:19:03,181] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-04 15:19:06,251] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-04 15:19:11,110] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-04 15:19:14,301] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-04 15:19:25,265] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-04 15:19:27,271] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-04 15:20:34,184] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-04 15:20:36,686] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-04 15:22:37,637] ERROR django.request Internal Server Error: /auth/add_consultant/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py", line 599, in add_consultant
+    return render(request, 'add_consultant.html', {'current_page': 'Add Consultant'})
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 210, in render
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 173, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 479, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'timesheet' not found. 'timesheet' is not a valid view function or pattern name.
+[2025-07-04 15:22:37,642] ERROR django.server "GET /auth/add_consultant/ HTTP/1.1" 500 178424
+[2025-07-04 15:22:57,094] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\urls.py changed, reloading.
+[2025-07-04 15:22:58,799] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-04 15:24:58,751] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-04 15:25:00,555] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-04 15:27:38,103] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-04 15:27:39,546] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-04 15:27:47,837] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-04 15:27:49,624] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-04 15:28:40,760] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 22227
+[2025-07-04 15:28:40,891] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-04 15:28:40,891] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-04 15:28:40,928] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-04 15:28:41,939] WARNING django.request Not Found: /favicon.ico
+[2025-07-04 15:28:41,940] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-04 15:28:43,856] INFO django.server "GET /auth/timesheet/ HTTP/1.1" 200 26306
+[2025-07-04 15:28:46,206] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 35951
+[2025-07-04 15:28:46,252] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-04 15:28:46,412] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-04 15:28:50,092] INFO django.server "GET /auth/consultant_profile/6/ HTTP/1.1" 200 23652
+[2025-07-04 15:47:44,259] INFO django.server "GET /auth/timesheet/ HTTP/1.1" 200 26306
+[2025-07-04 15:47:48,395] INFO django.server "GET /auth/timesheet/?consultant_id=6&year=2025&month=07 HTTP/1.1" 200 26374
+[2025-07-04 15:55:56,039] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 35951
+[2025-07-04 15:55:56,108] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-04 15:55:56,350] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-04 15:55:58,676] INFO django.server "GET /auth/consultant_profile/6/ HTTP/1.1" 200 23652

@@ -106,6 +106,12 @@
                 <i class="fas fa-file-invoice-dollar"></i>
                 <span class="sidebar-text ml-3">Invoice Management</span>
             </a>
+
+            <!-- Timesheet Sidebar Menu -->
+            <a href="{% url 'custom_admin:timesheet' %}" class="menu-item flex items-center px-4 py-3 mt-2 rounded-lg mx-2 {% if current_page == 'Timesheet' %}active-menu{% else %}hover:bg-gray-700{% endif %}">
+                <i class="fas fa-clock"></i>
+                <span class="sidebar-text ml-3 font-semibold">Timesheet</span>
+            </a>
         </nav>
     </div>
     
@@ -116,6 +122,57 @@
         </button>
     </div>
 </div>
+
+<script>
+    // Toggle sidebar
+    const toggleSidebar = document.getElementById('toggleSidebar');
+    const sidebar = document.getElementById('sidebar');
+    
+    if (toggleSidebar && sidebar) {
+        toggleSidebar.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            if (sidebar.classList.contains('collapsed')) {
+                toggleSidebar.innerHTML = '<i class="fas fa-chevron-right"></i><span class="sidebar-text ml-2">Expand</span>';
+            } else {
+                toggleSidebar.innerHTML = '<i class="fas fa-chevron-left"></i><span class="sidebar-text ml-2">Collapse</span>';
+            }
+        });
+    }
+
+    // Timesheet menu toggle
+    const timesheetMenuToggle = document.getElementById('timesheetMenuToggle');
+    const timesheetDropdown = document.getElementById('timesheetDropdown');
+    const timesheetMenuIcon = document.getElementById('timesheetMenuIcon');
+
+    if (timesheetMenuToggle && timesheetDropdown && timesheetMenuIcon) {
+        timesheetMenuToggle.addEventListener('click', () => {
+            const isHidden = timesheetDropdown.classList.contains('hidden');
+            if (isHidden) {
+                timesheetDropdown.classList.remove('hidden');
+                timesheetMenuIcon.style.transform = 'rotate(180deg)';
+            } else {
+                timesheetDropdown.classList.add('hidden');
+                timesheetMenuIcon.style.transform = 'rotate(0deg)';
+            }
+        });
+    }
+
+    // Load timesheet button click handler
+    const loadTimesheetBtn = document.getElementById('loadTimesheetBtn');
+    if (loadTimesheetBtn) {
+        loadTimesheetBtn.addEventListener('click', () => {
+            const consultantId = document.getElementById('consultantSelect').value;
+            const year = document.getElementById('yearSelect').value;
+            const month = document.getElementById('monthSelect').value;
+            if (!consultantId) {
+                alert('Please select a consultant.');
+                return;
+            }
+            // Redirect to consultant detail page with selected year and month as query params
+            window.location.href = `/custom_admin/consultant_profile/${consultantId}/?year=${year}&month=${month}`;
+        });
+    }
+</script>
 
 <script>
     // Toggle sidebar
