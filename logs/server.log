@@ -775,3 +775,457 @@ django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 73: 's
 [2025-07-08 11:16:27,021] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 26182
 [2025-07-08 11:16:29,933] INFO django.server "POST /auth/update_invoice_status/3/ HTTP/1.1" 200 68
 [2025-07-08 11:16:33,741] INFO django.server "POST /auth/update_invoice_status/3/ HTTP/1.1" 200 68
+[2025-07-08 11:18:01,843] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 35286
+[2025-07-08 11:18:01,904] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-08 11:18:02,126] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-08 11:18:03,813] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 22787
+[2025-07-08 11:18:09,995] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 25420
+[2025-07-08 11:18:10,072] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-08 11:18:10,082] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-08 11:18:10,101] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-08 11:18:10,210] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-08 11:18:10,211] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-07-08 11:18:11,609] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 11:18:11,610] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 11:22:37,485] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 25639
+[2025-07-08 11:22:37,577] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-08 11:22:37,577] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-08 11:22:37,601] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-08 11:22:39,311] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 11:22:39,312] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 11:22:49,998] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultation\views.py changed, reloading.
+[2025-07-08 11:22:52,473] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-08 11:22:58,839] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 25639
+[2025-07-08 11:22:58,954] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-08 11:22:58,957] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-08 11:22:58,964] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-08 11:22:59,865] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 11:22:59,866] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 11:24:02,786] ERROR django.request Internal Server Error: /consultation/consultant_invoice/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultation\views.py", line 648, in consultant_invoice
+    return render(request, 'consultant_invoice.html', context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 326, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 479, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'edit_invoice' not found. 'edit_invoice' is not a valid view function or pattern name.
+[2025-07-08 11:24:02,792] ERROR django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 500 197074
+[2025-07-08 11:24:03,210] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 11:24:03,211] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 11:24:17,937] ERROR django.request Internal Server Error: /consultation/consultant_invoice/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultation\views.py", line 648, in consultant_invoice
+    return render(request, 'consultant_invoice.html', context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 326, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 479, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'edit_invoice' not found. 'edit_invoice' is not a valid view function or pattern name.
+[2025-07-08 11:24:17,941] ERROR django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 500 197074
+[2025-07-08 11:24:18,532] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 11:24:18,532] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 11:24:30,204] ERROR django.request Internal Server Error: /consultation/consultant_invoice/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultation\views.py", line 648, in consultant_invoice
+    return render(request, 'consultant_invoice.html', context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 326, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 479, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'edit_invoice' not found. 'edit_invoice' is not a valid view function or pattern name.
+[2025-07-08 11:24:30,208] ERROR django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 500 197074
+[2025-07-08 11:24:30,551] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 11:24:30,552] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 11:24:52,524] ERROR django.request Internal Server Error: /consultation/consultant_invoice/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultation\views.py", line 648, in consultant_invoice
+    return render(request, 'consultant_invoice.html', context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 326, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 479, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'edit_invoice' not found. 'edit_invoice' is not a valid view function or pattern name.
+[2025-07-08 11:24:52,529] ERROR django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 500 197470
+[2025-07-08 11:24:52,937] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 11:24:52,938] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 11:25:07,518] ERROR django.request Internal Server Error: /consultation/consultant_invoice/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultation\views.py", line 648, in consultant_invoice
+    return render(request, 'consultant_invoice.html', context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 326, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 242, in render
+    nodelist.append(node.render_annotated(context))
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 479, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\urls\resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'edit_invoice' not found. 'edit_invoice' is not a valid view function or pattern name.
+[2025-07-08 11:25:07,522] ERROR django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 500 197470
+[2025-07-08 11:25:07,875] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 11:25:07,875] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 11:26:13,278] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultation\urls.py changed, reloading.
+[2025-07-08 11:26:15,022] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-08 11:26:29,862] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 26668
+[2025-07-08 11:26:29,992] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-08 11:26:29,992] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-08 11:26:30,000] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-08 11:26:30,106] INFO django.server "GET /static/consultation/js/consultant_invoice.js HTTP/1.1" 200 1549
+[2025-07-08 11:26:31,053] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 11:26:31,054] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 11:26:38,976] INFO django.server "POST /consultation/invoice/edit/3/ HTTP/1.1" 200 60
+[2025-07-08 11:26:44,424] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 26600
+[2025-07-08 11:26:44,469] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-08 11:26:44,469] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-08 11:26:44,510] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-08 11:26:44,518] INFO django.server "GET /static/consultation/js/consultant_invoice.js HTTP/1.1" 200 1549
+[2025-07-08 11:26:45,084] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 11:26:45,085] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 11:26:50,206] INFO django.server "POST /consultation/invoice/edit/3/ HTTP/1.1" 200 60
+[2025-07-08 11:27:43,207] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 26668
+[2025-07-08 11:27:43,274] INFO django.server "GET /static/consultation/js/consultant_invoice.js HTTP/1.1" 304 0
+[2025-07-08 11:27:48,909] INFO django.server "POST /consultation/invoice/delete/3/ HTTP/1.1" 200 60
+[2025-07-08 11:27:50,495] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 23420
+[2025-07-08 11:28:03,211] INFO django.server "POST /consultation/consultant_invoice/ HTTP/1.1" 200 26795
+[2025-07-08 11:28:16,981] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 26668
+[2025-07-08 11:28:17,067] INFO django.server "GET /static/consultation/js/consultant_invoice.js HTTP/1.1" 200 2143
+[2025-07-08 11:28:18,168] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 26668
+[2025-07-08 11:28:18,216] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-08 11:28:18,217] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-08 11:28:18,224] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-08 11:28:18,310] INFO django.server "GET /static/consultation/js/consultant_invoice.js HTTP/1.1" 200 2143
+[2025-07-08 11:28:18,892] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 11:28:18,892] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 11:28:29,000] INFO django.server "POST /consultation/invoice/edit/4/ HTTP/1.1" 200 60
+[2025-07-08 11:28:30,381] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 26600
+[2025-07-08 11:28:30,454] INFO django.server "GET /static/consultation/js/consultant_invoice.js HTTP/1.1" 304 0
+[2025-07-08 11:28:36,772] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 26600
+[2025-07-08 11:28:36,843] INFO django.server "GET /static/consultation/js/consultant_invoice.js HTTP/1.1" 304 0
+[2025-07-08 11:28:41,567] INFO django.server "POST /consultation/invoice/edit/4/ HTTP/1.1" 200 60
+[2025-07-08 11:28:42,602] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 26668
+[2025-07-08 11:28:42,706] INFO django.server "GET /static/consultation/js/consultant_invoice.js HTTP/1.1" 304 0
+[2025-07-08 11:28:43,687] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 26668
+[2025-07-08 11:28:59,651] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 26668
+[2025-07-08 11:28:59,699] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-08 11:28:59,700] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-08 11:28:59,709] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-08 11:28:59,825] INFO django.server "GET /static/consultation/js/consultant_invoice.js HTTP/1.1" 200 2143
+[2025-07-08 11:29:00,533] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 11:29:00,533] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858

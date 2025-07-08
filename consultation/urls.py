@@ -15,4 +15,6 @@ urlpatterns = [
     path('send_otp/', views.send_otp, name='send_otp'),
     path('verify_otp/', views.verify_otp, name='verify_otp'),
     path('change_password/', views.change_password, name='change_password'),
+    path('invoice/edit/<int:invoice_id>/', views.edit_invoice, name='edit_invoice'),
+    path('invoice/delete/<int:invoice_id>/', views.delete_invoice, name='delete_invoice'),
 ]
