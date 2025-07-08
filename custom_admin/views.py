@@ -1163,6 +1163,51 @@ def admin_invoices(request):
 @login_required
 @csrf_exempt
 @require_POST
+def edit_invoice(request, invoice_id):
+    """
+    Edit invoice file by replacing the existing file
+    """
+    try:
+        invoice = Invoice.objects.get(id=invoice_id)
+    except Invoice.DoesNotExist:
+        return JsonResponse({'success': False, 'message': 'Invoice not found.'}, status=404)
+
+    if 'invoice_file' not in request.FILES:
+        return JsonResponse({'success': False, 'message': 'No file uploaded.'}, status=400)
+
+    invoice_file = request.FILES['invoice_file']
+    invoice.file.delete(save=False)  # Delete old file
+    invoice.file = invoice_file
+    invoice.save()
+
+    # Return new file name and URL for UI update
+    return JsonResponse({
+        'success': True,
+        'message': 'Invoice updated successfully.',
+        'file_name': invoice.name,
+        'file_url': invoice.file.url,
+    })
+
+@login_required
+@csrf_exempt
+@require_POST
+def delete_invoice(request, invoice_id):
+    """
+    Delete an invoice
+    """
+    try:
+        invoice = Invoice.objects.get(id=invoice_id)
+    except Invoice.DoesNotExist:
+        return JsonResponse({'success': False, 'message': 'Invoice not found.'}, status=404)
+
+    invoice.file.delete(save=False)
+    invoice.delete()
+
+    return JsonResponse({'success': True, 'message': 'Invoice deleted successfully.'})
+
+@login_required
+@csrf_exempt
+@require_POST
 def update_invoice_status(request, invoice_id):
     """
     View to update the status of an invoice via AJAX POST request.
