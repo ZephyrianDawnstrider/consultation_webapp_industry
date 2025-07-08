@@ -1148,16 +1148,31 @@ class SkillViewSet(viewsets.ModelViewSet):
 
 from custom_admin.constants import INVOICE_STATUS_CHOICES
 
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 @login_required
 def admin_invoices(request):
     """
-    Display invoice management interface with list of invoices
+    Display invoice management interface with list of invoices with pagination
     """
-    invoices = Invoice.objects.select_related('consultant').order_by('-month')
+    invoices_list = Invoice.objects.select_related('consultant').order_by('-month')
+    
+    # Pagination
+    page = request.GET.get('page', 1)
+    paginator = Paginator(invoices_list, 10)  # Show 10 invoices per page
+    
+    try:
+        invoices = paginator.page(page)
+    except PageNotAnInteger:
+        invoices = paginator.page(1)
+    except EmptyPage:
+        invoices = paginator.page(paginator.num_pages)
+    
     return render(request, 'admin_invoices.html', {
         'current_page': 'Invoice Management',
         'invoices': invoices,
         'status_choices': INVOICE_STATUS_CHOICES,
+        'paginator': paginator,
     })
 
 @login_required
