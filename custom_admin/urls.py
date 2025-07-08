@@ -25,6 +25,8 @@ urlpatterns = [
     path('update_invoice_status/<int:invoice_id>/', views.update_invoice_status, name='update_invoice_status'),
     path('save_timesheet_entries/', views.save_timesheet_entries, name='save_timesheet_entries'),
     path('api/consultant_autofill/', views.consultant_autofill, name='consultant_autofill'),
+    path('invoice/edit/<int:invoice_id>/', views.edit_invoice, name='edit_invoice'),
+    path('invoice/delete/<int:invoice_id>/', views.delete_invoice, name='delete_invoice'),
     path('', include(router.urls)),
     path('admin_profile/<int:admin_id>/', views.admin_profile, name='admin_profile'),
     path('timesheet/', views.timesheet, name='timesheet'),

@@ -1258,3 +1258,148 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'edit_invoice' not found. 'ed
 [2025-07-08 11:36:02,212] INFO django.server "GET /static/consultation/js/consultant_invoice.js HTTP/1.1" 200 2143
 [2025-07-08 11:36:03,205] WARNING django.request Not Found: /favicon.ico
 [2025-07-08 11:36:03,206] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 11:55:32,981] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 32512
+[2025-07-08 11:55:33,045] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
+[2025-07-08 11:55:33,045] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
+[2025-07-08 11:55:33,070] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
+[2025-07-08 11:55:33,485] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 49
+[2025-07-08 11:55:33,710] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 11:55:33,711] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 11:55:36,122] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 26182
+[2025-07-08 12:04:34,161] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 26668
+[2025-07-08 12:04:34,208] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
+[2025-07-08 12:04:34,213] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
+[2025-07-08 12:04:34,230] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
+[2025-07-08 12:04:34,238] INFO django.server "GET /static/consultation/js/consultant_invoice.js HTTP/1.1" 304 0
+[2025-07-08 12:33:56,362] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-08 12:34:00,122] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-08 12:35:16,839] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\urls.py changed, reloading.
+[2025-07-08 12:35:21,435] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-08 12:36:52,485] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27193
+[2025-07-08 12:36:52,717] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-08 12:36:52,736] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-08 12:36:52,787] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-08 12:36:53,842] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 12:36:53,843] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 12:37:11,610] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27193
+[2025-07-08 12:37:18,215] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27193
+[2025-07-08 12:37:20,733] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-08 12:37:20,734] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-07-08 12:38:12,764] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27185
+[2025-07-08 12:38:12,835] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-08 12:38:12,838] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-07-08 12:38:12,839] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-08 12:38:12,841] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-08 12:38:12,972] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-08 12:38:14,059] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 12:38:14,060] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 12:38:56,980] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27251
+[2025-07-08 12:38:57,047] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-08 12:38:57,048] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-07-08 12:38:57,086] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-08 12:38:57,089] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-08 12:38:57,265] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-08 12:38:57,270] INFO django.server "GET /static/custom_admin/js/admin_invoices.js HTTP/1.1" 200 2143
+[2025-07-08 12:38:58,375] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 12:38:58,376] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 12:39:03,739] INFO django.server "POST /auth/invoice/edit/5/ HTTP/1.1" 200 61
+[2025-07-08 12:39:05,654] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27212
+[2025-07-08 12:39:05,813] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-08 12:39:05,813] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-07-08 12:39:07,914] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27212
+[2025-07-08 12:39:07,972] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-08 12:39:07,972] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-07-08 12:39:09,175] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27212
+[2025-07-08 12:39:09,220] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-08 12:39:09,220] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-07-08 12:39:09,242] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-08 12:39:09,242] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-08 12:39:09,389] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-08 12:39:09,389] INFO django.server "GET /static/custom_admin/js/admin_invoices.js HTTP/1.1" 200 2143
+[2025-07-08 12:39:10,283] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 12:39:10,284] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 12:39:12,740] INFO django.server "GET /media/invoices/Anti_CV_1.pdf HTTP/1.1" 200 65680
+[2025-07-08 12:39:23,384] INFO django.server "POST /auth/invoice/edit/5/ HTTP/1.1" 200 61
+[2025-07-08 12:39:24,671] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27251
+[2025-07-08 12:39:24,736] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-08 12:39:24,737] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-07-08 12:39:27,382] INFO django.server "GET /media/invoices/openart-image_WM8SVq19_1749100402842_raw_GNCLvjO.pdf HTTP/1.1" 200 125573
+[2025-07-08 12:42:26,320] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27524
+[2025-07-08 12:42:26,377] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-08 12:42:26,378] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-07-08 12:42:26,401] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-08 12:42:26,402] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-08 12:42:26,631] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-08 12:42:26,656] INFO django.server "GET /static/custom_admin/js/admin_invoices.js HTTP/1.1" 200 2143
+[2025-07-08 12:42:27,638] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 12:42:27,639] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 12:42:33,460] INFO django.server "POST /auth/invoice/edit/5/ HTTP/1.1" 200 61
+[2025-07-08 12:42:35,288] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27485
+[2025-07-08 12:42:35,354] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-08 12:42:35,374] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-07-08 12:42:37,385] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27485
+[2025-07-08 12:42:37,508] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-08 12:42:37,513] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-08 12:42:37,526] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-08 12:42:37,533] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-07-08 12:42:37,735] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-08 12:42:37,736] INFO django.server "GET /static/custom_admin/js/admin_invoices.js HTTP/1.1" 200 2143
+[2025-07-08 12:42:38,704] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 12:42:38,705] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 12:42:43,105] INFO django.server "POST /auth/invoice/edit/5/ HTTP/1.1" 200 61
+[2025-07-08 12:42:44,039] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27524
+[2025-07-08 12:42:44,119] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-08 12:42:44,120] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-07-08 12:43:10,145] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27524
+[2025-07-08 12:43:10,208] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-08 12:43:10,210] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-08 12:43:10,360] INFO django.server "GET /static/custom_admin/js/admin_invoices.js HTTP/1.1" 200 2822
+[2025-07-08 12:43:10,361] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-08 12:43:11,291] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 12:43:11,292] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 12:43:16,275] INFO django.server "POST /auth/invoice/edit/5/ HTTP/1.1" 200 61
+[2025-07-08 12:43:20,650] WARNING django.request Not Found: /media/invoices/openart-image_WM8SVq19_1749100402842_raw_GLv82ih.pdf
+[2025-07-08 12:43:20,656] WARNING django.server "GET /media/invoices/openart-image_WM8SVq19_1749100402842_raw_GLv82ih.pdf HTTP/1.1" 404 3323
+[2025-07-08 12:43:25,046] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-08 12:43:28,835] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-08 12:43:31,259] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27485
+[2025-07-08 12:43:31,398] INFO django.server "GET /static/custom_admin/js/admin_invoices.js HTTP/1.1" 304 0
+[2025-07-08 12:43:31,637] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27485
+[2025-07-08 12:43:31,754] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-08 12:43:31,756] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-08 12:43:31,766] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-08 12:43:31,771] INFO django.server "GET /static/custom_admin/js/admin_invoices.js HTTP/1.1" 200 2822
+[2025-07-08 12:43:32,724] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 12:43:32,725] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 12:43:37,472] INFO django.server "POST /auth/invoice/edit/5/ HTTP/1.1" 200 206
+[2025-07-08 12:43:43,871] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27524
+[2025-07-08 12:43:43,931] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-08 12:43:43,931] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-08 12:43:44,131] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-08 12:43:44,142] INFO django.server "GET /static/custom_admin/js/admin_invoices.js HTTP/1.1" 200 2822
+[2025-07-08 12:43:44,817] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 12:43:44,819] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 12:43:47,123] INFO django.server "GET /media/invoices/openart-image_WM8SVq19_1749100402842_raw_EayrunX.pdf HTTP/1.1" 200 125573
+[2025-07-08 12:43:54,977] INFO django.server "POST /auth/invoice/edit/5/ HTTP/1.1" 200 167
+[2025-07-08 12:43:58,042] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27485
+[2025-07-08 12:43:58,094] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-08 12:43:58,095] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-08 12:43:58,171] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-08 12:43:58,176] INFO django.server "GET /static/custom_admin/js/admin_invoices.js HTTP/1.1" 200 2822
+[2025-07-08 12:43:58,776] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 12:43:58,776] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 12:43:59,320] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27485
+[2025-07-08 12:44:02,962] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-08 12:44:02,963] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-07-08 12:44:05,888] INFO django.server "GET /media/invoices/Anti_CV_1.pdf HTTP/1.1" 200 65680
+[2025-07-08 12:44:15,988] INFO django.server "POST /auth/invoice/edit/5/ HTTP/1.1" 200 206
+[2025-07-08 12:44:19,377] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27524
+[2025-07-08 12:44:19,428] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-08 12:44:19,429] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-07-08 12:44:19,452] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-08 12:44:19,452] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-08 12:44:19,525] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-08 12:44:19,619] INFO django.server "GET /static/custom_admin/js/admin_invoices.js HTTP/1.1" 200 2822
+[2025-07-08 12:44:20,518] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 12:44:20,519] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 12:44:21,031] INFO django.server "GET /media/invoices/openart-image_WM8SVq19_1749100402842_raw_GCpI65Y.pdf HTTP/1.1" 200 125573
