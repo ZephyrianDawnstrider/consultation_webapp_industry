@@ -1229,3 +1229,32 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'edit_invoice' not found. 'ed
 [2025-07-08 11:28:59,825] INFO django.server "GET /static/consultation/js/consultant_invoice.js HTTP/1.1" 200 2143
 [2025-07-08 11:29:00,533] WARNING django.request Not Found: /favicon.ico
 [2025-07-08 11:29:00,533] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 11:30:32,907] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 22787
+[2025-07-08 11:30:32,955] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-08 11:30:32,956] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-08 11:30:33,019] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-08 11:30:34,010] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 11:30:34,011] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 11:30:35,489] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 26182
+[2025-07-08 11:30:37,216] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 26182
+[2025-07-08 11:30:37,264] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-08 11:30:37,264] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-08 11:30:37,340] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-08 11:30:37,752] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 11:30:37,753] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-08 11:30:50,608] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 22787
+[2025-07-08 11:30:56,104] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 21576
+[2025-07-08 11:30:57,972] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 32512
+[2025-07-08 11:30:58,391] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 49
+[2025-07-08 11:30:59,784] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 35286
+[2025-07-08 11:30:59,849] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-08 11:30:59,976] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-08 11:31:06,177] INFO django.server "GET /auth/change_consultant_status/6/ HTTP/1.1" 200 206
+[2025-07-08 11:31:10,492] INFO django.server "GET /auth/consultant_profile/6/ HTTP/1.1" 200 22987
+[2025-07-08 11:36:02,046] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 26668
+[2025-07-08 11:36:02,083] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-08 11:36:02,085] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-08 11:36:02,094] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-08 11:36:02,212] INFO django.server "GET /static/consultation/js/consultant_invoice.js HTTP/1.1" 200 2143
+[2025-07-08 11:36:03,205] WARNING django.request Not Found: /favicon.ico
+[2025-07-08 11:36:03,206] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
