@@ -646,3 +646,56 @@ def consultant_invoice(request):
         'invoices': invoices,
     }
     return render(request, 'consultant_invoice.html', context)
+
+@login_required
+@require_POST
+def edit_invoice(request, invoice_id):
+    """View to handle editing (replacing) an existing invoice file."""
+    user = request.user
+    if user.role != 'consultant':
+        return JsonResponse({'success': False, 'message': 'Access denied'}, status=403)
+
+    invoice = get_object_or_404(Invoice, id=invoice_id, consultant=user)
+
+    new_file = request.FILES.get('invoice_file')
+    if not new_file:
+        return JsonResponse({'success': False, 'message': 'No file uploaded'}, status=400)
+
+    try:
+        # Delete old file
+        if invoice.file and invoice.file.name:
+            invoice.file.delete(save=False)
+
+        # Update invoice with new file
+        invoice.file = new_file
+        invoice.name = new_file.name
+        invoice.status = 'awaiting_review'
+        invoice.save()
+
+        return JsonResponse({'success': True, 'message': 'Invoice updated successfully'})
+    except Exception as e:
+        logger.error(f"Error updating invoice {invoice_id}: {str(e)}")
+        return JsonResponse({'success': False, 'message': 'Error updating invoice'}, status=500)
+
+
+@login_required
+@require_POST
+def delete_invoice(request, invoice_id):
+    """View to handle deleting an invoice and its file."""
+    user = request.user
+    if user.role != 'consultant':
+        return JsonResponse({'success': False, 'message': 'Access denied'}, status=403)
+
+    invoice = get_object_or_404(Invoice, id=invoice_id, consultant=user)
+
+    try:
+        # Delete file from storage
+        if invoice.file and invoice.file.name:
+            invoice.file.delete(save=False)
+        # Delete invoice record
+        invoice.delete()
+
+        return JsonResponse({'success': True, 'message': 'Invoice deleted successfully'})
+    except Exception as e:
+        logger.error(f"Error deleting invoice {invoice_id}: {str(e)}")
+        return JsonResponse({'success': False, 'message': 'Error deleting invoice'}, status=500)
