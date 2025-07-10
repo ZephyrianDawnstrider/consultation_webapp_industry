@@ -1,5 +1,6 @@
 {% extends 'consultant_base.html'%}
 {% load static %}
+{% load invoice_extras %}
 {% block title %}Consultant Dashboard{% endblock %}
 {% block extra_css %}
 {% endblock %}
@@ -53,7 +54,7 @@
                 </div>
                 <div class="ml-4">
                     <h3 class="text-orange-400 font-medium">Invoice Status</h3>
-                    <p class="text-3xl font-bold text-white">{{ invoice_status }}</p>
+                    <p class="text-3xl font-bold text-white">{{ invoice_status|snake_case_to_title }}</p>
                     {% if not invoice_uploaded %}
                     <p class="text-purple-500 text-xs mt-1">Submitted recently</p>
                     {% endif %}
