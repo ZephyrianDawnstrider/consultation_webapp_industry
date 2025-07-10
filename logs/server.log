@@ -1669,3 +1669,82 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'edit_invoice' not found. 'ed
 [2025-07-10 15:50:17,092] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
 [2025-07-10 15:50:17,457] WARNING django.request Not Found: /favicon.ico
 [2025-07-10 15:50:17,459] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-10 16:05:51,744] INFO django.server "GET /auth/consultant_profile/6/ HTTP/1.1" 200 23963
+[2025-07-10 16:05:52,407] WARNING django.request Not Found: /favicon.ico
+[2025-07-10 16:05:52,407] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-10 16:05:54,168] INFO django.server "GET /auth/timesheet/ HTTP/1.1" 200 18851
+[2025-07-10 16:05:54,230] INFO django.server "GET /static/custom_admin/js/timesheet.js HTTP/1.1" 200 6787
+[2025-07-10 16:05:55,482] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 30091
+[2025-07-10 16:05:55,539] INFO django.server "GET /static/custom_admin/js/admin_invoices.js HTTP/1.1" 304 0
+[2025-07-10 16:05:58,345] WARNING django.request Not Found: /media/invoices/openart-image_WM8SVq19_1749100402842_raw_mutnwJH.pdf
+[2025-07-10 16:05:58,347] WARNING django.server "GET /media/invoices/openart-image_WM8SVq19_1749100402842_raw_mutnwJH.pdf HTTP/1.1" 404 3323
+[2025-07-10 16:15:01,407] INFO django.server "GET / HTTP/1.1" 200 38185
+[2025-07-10 16:15:12,158] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-10 16:15:12,283] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 22787
+[2025-07-10 16:15:16,499] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37225
+[2025-07-10 16:15:16,570] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-10 16:15:16,660] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-10 16:15:19,339] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 30091
+[2025-07-10 16:15:20,722] WARNING django.request Not Found: /media/invoices/openart-image_WM8SVq19_1749100402842_raw_mutnwJH.pdf
+[2025-07-10 16:15:20,723] WARNING django.server "GET /media/invoices/openart-image_WM8SVq19_1749100402842_raw_mutnwJH.pdf HTTP/1.1" 404 3323
+[2025-07-10 16:15:32,715] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-10 16:15:32,719] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-07-10 16:15:40,773] WARNING django.request Not Found: /media/invoices/openart-image_WM8SVq19_1749100402842_raw_mutnwJH.pdf
+[2025-07-10 16:15:40,774] WARNING django.server "GET /media/invoices/openart-image_WM8SVq19_1749100402842_raw_mutnwJH.pdf HTTP/1.1" 404 3323
+[2025-07-10 16:15:45,035] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-10 16:15:45,035] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-07-10 16:27:20,208] WARNING django.request Not Found: /media/invoices/openart-image_WM8SVq19_1749100402842_raw_mutnwJH.pdf
+[2025-07-10 16:27:20,210] WARNING django.server "GET /media/invoices/openart-image_WM8SVq19_1749100402842_raw_mutnwJH.pdf HTTP/1.1" 404 3323
+[2025-07-10 16:27:20,258] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-10 16:27:20,259] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-07-10 16:27:20,448] WARNING django.request Not Found: /favicon.ico
+[2025-07-10 16:27:20,449] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-10 16:28:16,566] WARNING django.request Not Found: /media/invoices/openart-image_WM8SVq19_1749100402842_raw_mutnwJH.pdf
+[2025-07-10 16:28:16,567] WARNING django.server "GET /media/invoices/openart-image_WM8SVq19_1749100402842_raw_mutnwJH.pdf HTTP/1.1" 404 3323
+[2025-07-10 16:30:12,055] WARNING django.request Not Found: /media/invoices/openart-image_WM8SVq19_1749100402842_raw_mutnwJH.pdf
+[2025-07-10 16:30:12,056] WARNING django.server "GET /media/invoices/openart-image_WM8SVq19_1749100402842_raw_mutnwJH.pdf HTTP/1.1" 404 3323
+[2025-07-10 16:30:12,163] WARNING django.request Not Found: /favicon.ico
+[2025-07-10 16:30:12,164] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-10 16:30:16,353] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 24112
+[2025-07-10 16:30:16,408] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-10 16:30:16,409] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-10 16:30:16,532] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-10 16:30:16,541] INFO django.server "GET /static/custom_admin/js/admin_invoices.js HTTP/1.1" 200 2822
+[2025-07-10 16:30:17,442] WARNING django.request Not Found: /favicon.ico
+[2025-07-10 16:30:17,443] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-10 16:30:23,887] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37225
+[2025-07-10 16:30:23,955] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-10 16:30:24,132] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-10 16:30:25,821] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37225
+[2025-07-10 16:30:25,872] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-10 16:30:25,874] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-10 16:30:25,876] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-10 16:30:25,955] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-10 16:30:26,164] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-10 16:30:26,374] WARNING django.request Not Found: /favicon.ico
+[2025-07-10 16:30:26,375] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-10 16:30:27,353] INFO django.server "GET /auth/timesheet/ HTTP/1.1" 200 18851
+[2025-07-10 16:30:32,427] INFO django.server "GET /auth/timesheet/?consultant_id=12&year=2025&month=07 HTTP/1.1" 200 23949
+[2025-07-10 16:30:35,938] INFO django.server "GET /auth/timesheet/?consultant_id=6&year=2025&month=07 HTTP/1.1" 200 20877
+[2025-07-10 16:30:42,380] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 23412
+[2025-07-10 16:30:42,496] INFO django.server "GET /static/consultation/js/consultant_invoice.js HTTP/1.1" 304 0
+[2025-07-10 16:30:43,289] WARNING django.request Not Found: /favicon.ico
+[2025-07-10 16:30:43,290] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-10 16:30:44,823] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 23412
+[2025-07-10 16:30:44,868] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-10 16:30:44,870] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-10 16:30:44,878] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-10 16:30:45,093] INFO django.server "GET /static/consultation/js/consultant_invoice.js HTTP/1.1" 200 2143
+[2025-07-10 16:30:45,851] WARNING django.request Not Found: /favicon.ico
+[2025-07-10 16:30:45,851] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-10 16:30:56,225] INFO django.server "POST /consultation/consultant_invoice/ HTTP/1.1" 200 26787
+[2025-07-10 16:30:59,943] INFO django.server "GET /media/invoices/openart-image_WM8SVq19_1749100402842_raw_L1a1vuH.pdf HTTP/1.1" 200 125573
+[2025-07-10 16:31:08,792] INFO django.server "GET /auth/timesheet/?consultant_id=6&year=2025&month=07 HTTP/1.1" 200 20877
+[2025-07-10 16:31:08,845] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-10 16:31:08,846] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-10 16:31:08,939] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-10 16:31:08,946] INFO django.server "GET /static/custom_admin/js/timesheet.js HTTP/1.1" 200 6787
+[2025-07-10 16:31:09,795] WARNING django.request Not Found: /favicon.ico
+[2025-07-10 16:31:09,796] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-10 16:31:10,085] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27514
+[2025-07-10 16:31:12,200] INFO django.server "GET /media/invoices/openart-image_WM8SVq19_1749100402842_raw_L1a1vuH.pdf HTTP/1.1" 200 125573
