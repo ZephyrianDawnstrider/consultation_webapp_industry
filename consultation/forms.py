@@ -42,6 +42,11 @@ class ConsultantProfileForm(forms.ModelForm):
             'cost_per_hour': forms.NumberInput(attrs={'placeholder': 'e.g. 50.00', 'class': 'form-control shadow-sm'}),
         }
     
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if self.instance and self.instance.status and str(self.instance.status).lower() == 'approved':
+            self.fields['cost_per_hour'].disabled = True
+    
     def clean_agreement_document(self):
         agreement = self.cleaned_data.get('agreement_document')
         if agreement:
@@ -51,3 +56,11 @@ class ConsultantProfileForm(forms.ModelForm):
             # if hasattr(agreement, 'content_type') and agreement.content_type != 'application/pdf':
             #     raise forms.ValidationError("Uploaded file is not a valid PDF.")
         return agreement
+
+    def clean_cost_per_hour(self):
+        cost_per_hour = self.cleaned_data.get('cost_per_hour')
+        if self.instance and self.instance.status and str(self.instance.status).lower() == 'approved':
+            # Prevent changing cost_per_hour if status is approved
+            if self.instance.cost_per_hour != cost_per_hour:
+                raise forms.ValidationError("Cost per hour cannot be changed after approval.")
+        return cost_per_hour

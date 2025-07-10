@@ -191,6 +191,20 @@ def save_timesheet_entries(request):
     from django.http import JsonResponse
     from django.core.files.base import ContentFile
 
+    def has_duplicate_time_entries(entries):
+        seen = set()
+        for entry in entries:
+            date = entry.get('date')
+            start_time = entry.get('start_time')
+            end_time = entry.get('end_time')
+            if not date or not start_time or not end_time:
+                continue
+            key = (date, start_time, end_time)
+            if key in seen:
+                return True
+            seen.add(key)
+        return False
+
     user = request.user
     try:
         data = json.loads(request.body)
@@ -203,6 +217,11 @@ def save_timesheet_entries(request):
         if entries is None:
             logger.error("Missing entries in request data")
             return JsonResponse({'success': False, 'message': 'Missing entries.'})
+
+        # Check for duplicate time entries for the same day
+        if has_duplicate_time_entries(entries):
+            logger.error("Duplicate time duration entries found for the same day")
+            return JsonResponse({'success': False, 'message': 'Duplicate time duration entries for the same day are not allowed.'})
 
         if timesheet_id:
             timesheet = Timesheet.objects.get(id=timesheet_id, consultant=user)
@@ -301,6 +320,26 @@ def upload_timesheet(request, consultant_id):
             temp_file_path = default_storage.path(temp_path)
 
             df = pd.read_excel(temp_file_path)
+
+            # Check for duplicate time duration entries for the same day in the Excel data
+            def has_duplicate_time_entries_df(df):
+                seen = set()
+                for _, row in df.iterrows():
+                    date = str(row.get('Date') or row.get('date'))
+                    start_time = str(row.get('Start Time') or row.get('start_time'))
+                    end_time = str(row.get('End Time') or row.get('end_time'))
+                    if not date or not start_time or not end_time:
+                        continue
+                    key = (date, start_time, end_time)
+                    if key in seen:
+                        return True
+                    seen.add(key)
+                return False
+
+            if has_duplicate_time_entries_df(df):
+                default_storage.delete(temp_path)
+                logger.error("Duplicate time duration entries found in uploaded Excel file")
+                return JsonResponse({'success': False, 'message': 'Duplicate time duration entries for the same day are not allowed in the uploaded file.'})
 
             csv_buffer = BytesIO()
             df.to_csv(csv_buffer, index=False)
@@ -408,6 +447,9 @@ def consultant_profile(request, consultant_id):
     except ConsultantProfile.DoesNotExist:
         profile = ConsultantProfile(user=consultant)
     
+    # Reload profile from DB to get latest status before rendering form
+    profile.refresh_from_db()
+    
     form = ConsultantProfileForm(instance=profile)
     logger.info(f"Rendering consultant profile page for user {consultant.email}")
 
@@ -423,11 +465,16 @@ def consultant_profile(request, consultant_id):
         # Return JSON response with decrypted password for AJAX requests
         return JsonResponse({'decrypted_password': decrypted_password})
 
+    is_approved_status = False
+    if profile.status and 'approved' in str(profile.status).lower():
+        is_approved_status = True
+
     context = {
         'consultant': consultant,
         'form': form,
         'current_page': 'Consultant Profile',
         'decrypted_password': decrypted_password,
+        'is_approved_status': is_approved_status,
     }
     return render(request, 'consultant_profile.html', context)
 

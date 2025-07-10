@@ -66,7 +66,8 @@
         <h2 class="h2 bold">Edit Profile</h2>
     <form method="post" enctype="multipart/form-data" novalidate>
     {% csrf_token %}
-    <div class="row">
+        <div class="row">
+        {% comment %} <p>Status debug: {{ form.instance.status|stringformat:"s" }}</p> {% endcomment %}
         {% for field in form %}
             {% if field.name != 'status' and field.name != 'agreement_document' %}
             <div class="col-md-6 mb-3">
@@ -79,6 +80,9 @@
                             </div>
                         {% endfor %}
                     </div>
+                {% elif field.name == 'cost_per_hour' and is_approved_status %}
+                    <input type="number" class="form-control shadow-sm" placeholder="e.g. 50.00" value="{{ field.value }}" disabled>
+                    <input type="hidden" name="{{ field.name }}" value="{{ field.value }}">
                 {% else %}
                     {{ field }}
                 {% endif %}
@@ -94,11 +98,11 @@
         <div class="col-md-6 mb-3">
             <label class="form-label">Status</label>
             <div>
-            {% if form.instance.status == 'to_be_reviewed' %}
+            {% if form.instance.status and form.instance.status|stringformat:"s"|lower == 'to_be_reviewed' %}
                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800 shadow-sm">To Be Reviewed</span>
-            {% elif form.instance.status == 'rejected' %}
+            {% elif form.instance.status and form.instance.status|stringformat:"s"|lower == 'rejected' %}
                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800 shadow-sm">Rejected</span>
-            {% elif form.instance.status == 'approved' %}
+            {% elif form.instance.status and form.instance.status|stringformat:"s"|lower == 'approved' %}
                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 shadow-sm">Approved</span>
             {% else %}
                 <span>{{ form.instance.status }}</span>
