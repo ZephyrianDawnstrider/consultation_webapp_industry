@@ -164,6 +164,8 @@ def consultant_timesheet(request):
                     'description': normalized_row.get('description'),
                 }
                 timesheet_entries.append(entry)
+            # Sort timesheet entries by date ascending
+            timesheet_entries.sort(key=lambda x: x['date'] if x['date'] else '')
             logger.info(f"Loaded {len(timesheet_entries)} timesheet entries")
         except Exception as e:
             logger.error(f"Error reading timesheet CSV file: {str(e)}")
@@ -320,6 +322,9 @@ def upload_timesheet(request, consultant_id):
             temp_file_path = default_storage.path(temp_path)
 
             df = pd.read_excel(temp_file_path)
+
+            # Remove blank rows from the dataframe
+            df.dropna(how='all', inplace=True)
 
             # Check for duplicate time duration entries for the same day in the Excel data
             def has_duplicate_time_entries_df(df):
