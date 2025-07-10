@@ -1644,3 +1644,28 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'edit_invoice' not found. 'ed
 [2025-07-10 13:21:11,542] INFO django.utils.autoreload Watching for file changes with StatReloader
 [2025-07-10 13:36:50,029] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
 [2025-07-10 13:36:53,758] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-10 15:37:14,302] INFO django.server "GET /auth/consultant_profile/12/ HTTP/1.1" 200 23949
+[2025-07-10 15:37:14,451] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-10 15:37:14,453] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-10 15:37:14,490] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-10 15:37:15,975] WARNING django.request Not Found: /favicon.ico
+[2025-07-10 15:37:15,976] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-10 15:43:37,390] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-10 15:43:41,447] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-10 15:46:40,152] INFO django.server "GET /auth/consultant_profile/12/ HTTP/1.1" 200 23949
+[2025-07-10 15:46:40,268] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-10 15:46:40,270] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-10 15:46:40,308] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-10 15:46:41,304] WARNING django.request Not Found: /favicon.ico
+[2025-07-10 15:46:41,305] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-10 15:46:42,731] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 38334
+[2025-07-10 15:46:42,800] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-10 15:46:42,952] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-10 15:50:16,667] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37225
+[2025-07-10 15:50:16,724] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-10 15:50:16,724] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-10 15:50:16,730] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-10 15:50:16,792] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-10 15:50:17,092] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-10 15:50:17,457] WARNING django.request Not Found: /favicon.ico
+[2025-07-10 15:50:17,459] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858

@@ -482,15 +482,28 @@ def admin_dashboard(request):
 # CONSULTANT MANAGEMENT VIEWS
 # =============================================================================
 
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 @login_required
 def consultant_management(request):
     """
-    Display list of all consultants with their profiles
+    Display list of all consultants with their profiles, with pagination
     """
-    consultants = User.objects.filter(role='consultant').select_related('consultant_profile')
+    consultants_list = User.objects.filter(role='consultant').select_related('consultant_profile').order_by('consultant_profile__name')
+    
+    page = request.GET.get('page', 1)
+    paginator = Paginator(consultants_list, 10)  # Show 10 consultants per page
+    
+    try:
+        consultants = paginator.page(page)
+    except PageNotAnInteger:
+        consultants = paginator.page(1)
+    except EmptyPage:
+        consultants = paginator.page(paginator.num_pages)
     
     context = {
         'consultants': consultants,
+        'paginator': paginator,
         'current_page': 'Consultant Management',
     }
     return render(request, 'consultant_managment.html', context)

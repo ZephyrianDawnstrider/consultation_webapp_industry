@@ -271,24 +271,42 @@
     </div>
     
     <!-- Pagination -->
+    {% if paginator.num_pages > 1 %}
     <div class="flex items-center justify-between mt-4">
         <div class="text-sm text-black-500">
-            Showing <span class="font-medium">1</span> to <span class="font-medium">5</span> of <span class="font-medium">24</span> consultants
+            Showing <span class="font-medium">{{ consultants.start_index }}</span> to <span class="font-medium">{{ consultants.end_index }}</span> of <span class="font-medium">{{ paginator.count }}</span> consultants
         </div>
         <div class="flex space-x-1">
-            <button class="px-3 py-1 rounded-md bg-black-200 text-black-700 hover:bg-black-300">
+            {% if consultants.has_previous %}
+            <a href="?page={{ consultants.previous_page_number }}" class="px-3 py-1 rounded-md bg-black-200 text-black-700 hover:bg-black-300" aria-label="Previous">
                 <i class="fas fa-angle-left"></i>
-            </button>
-            <button class="px-3 py-1 rounded-md bg-blue-600 text-white">1</button>
-            <button class="px-3 py-1 rounded-md bg-black-200 text-black-700 hover:bg-black-300">2</button>
-            <button class="px-3 py-1 rounded-md bg-black-200 text-black-700 hover:bg-black-300">3</button>
-            <span class="px-3 py-1">...</span>
-            <button class="px-3 py-1 rounded-md bg-black-200 text-black-700 hover:bg-black-300">5</button>
-            <button class="px-3 py-1 rounded-md bg-black-200 text-black-700 hover:bg-black-300">
+            </a>
+            {% else %}
+            <span class="px-3 py-1 rounded-md bg-black-100 text-black-400 cursor-not-allowed" aria-disabled="true">
+                <i class="fas fa-angle-left"></i>
+            </span>
+            {% endif %}
+
+            {% for num in paginator.page_range %}
+                {% if num == consultants.number %}
+                    <span class="px-3 py-1 rounded-md bg-blue-600 text-white">{{ num }}</span>
+                {% elif num > consultants.number|add:'-3' and num < consultants.number|add:'3' %}
+                    <a href="?page={{ num }}" class="px-3 py-1 rounded-md bg-black-200 text-black-700 hover:bg-black-300">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if consultants.has_next %}
+            <a href="?page={{ consultants.next_page_number }}" class="px-3 py-1 rounded-md bg-black-200 text-black-700 hover:bg-black-300" aria-label="Next">
                 <i class="fas fa-angle-right"></i>
-            </button>
+            </a>
+            {% else %}
+            <span class="px-3 py-1 rounded-md bg-black-100 text-black-400 cursor-not-allowed" aria-disabled="true">
+                <i class="fas fa-angle-right"></i>
+            </span>
+            {% endif %}
         </div>
     </div>
+    {% endif %}
 </div>
 
 <!-- Change Status Modal -->
