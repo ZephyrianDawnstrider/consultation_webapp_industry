@@ -1636,3 +1636,9 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'edit_invoice' not found. 'ed
 [2025-07-10 13:01:55,341] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
 [2025-07-10 13:01:55,701] WARNING django.request Not Found: /favicon.ico
 [2025-07-10 13:01:55,702] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-10 13:09:51,162] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultation\views.py changed, reloading.
+[2025-07-10 13:09:53,962] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-10 13:20:11,178] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultation\views.py changed, reloading.
+[2025-07-10 13:20:13,614] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-10 13:21:09,171] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultation\views.py changed, reloading.
+[2025-07-10 13:21:11,542] INFO django.utils.autoreload Watching for file changes with StatReloader
