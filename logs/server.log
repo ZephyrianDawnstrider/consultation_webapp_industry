@@ -1642,3 +1642,5 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'edit_invoice' not found. 'ed
 [2025-07-10 13:20:13,614] INFO django.utils.autoreload Watching for file changes with StatReloader
 [2025-07-10 13:21:09,171] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultation\views.py changed, reloading.
 [2025-07-10 13:21:11,542] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-10 13:36:50,029] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-10 13:36:53,758] INFO django.utils.autoreload Watching for file changes with StatReloader
