@@ -28,6 +28,9 @@ class Timesheet(models.Model):
     status = models.CharField(max_length=20, choices=TIMESHEET_STATUS_CHOICES, default='awaiting_review')
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        unique_together = ('consultant', 'month')
+
     def __str__(self):
         return f"Timesheet for {self.consultant.email} - {self.month.strftime('%B %Y')}"
 

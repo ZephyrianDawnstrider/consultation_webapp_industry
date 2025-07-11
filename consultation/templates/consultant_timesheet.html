@@ -500,6 +500,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
       const data = await response.json();
+      console.log('Upload response:', data);
       if (data.success) {
         successMessage.classList.remove('hidden');
         uploadForm.reset();
@@ -509,6 +510,49 @@ document.addEventListener('DOMContentLoaded', () => {
         uploadButton.textContent = 'Upload Timesheet';
         // Reload page to show updated timesheet
         reloadPage();
+      } else if (data.duplicate) {
+        console.log('Duplicate detected, asking for confirmation');
+        // Show confirmation popup for replacing existing timesheet
+        let userConfirmed = false;
+        if (typeof confirm === 'function') {
+          userConfirmed = confirm(data.message);
+        } else {
+          alert(data.message);
+          userConfirmed = true; // fallback to true if confirm not available
+        }
+        if (userConfirmed) {
+          // User confirmed replacement, resend with replace_confirmed=true
+          formData.append('replace_confirmed', 'true');
+          const retryResponse = await fetch(uploadForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest'
+            }
+          });
+          const retryData = await retryResponse.json();
+          console.log('Retry upload response:', retryData);
+          if (retryData.success) {
+            successMessage.classList.remove('hidden');
+            uploadForm.reset();
+            fileInfo.textContent = '';
+            fileInfo.classList.add('hidden');
+            uploadButton.disabled = true;
+            uploadButton.textContent = 'Upload Timesheet';
+            reloadPage();
+          } else {
+            errorText.textContent = retryData.message || 'Error uploading timesheet.';
+            errorMessage.classList.remove('hidden');
+            uploadButton.disabled = false;
+            uploadButton.textContent = 'Upload Timesheet';
+          }
+        } else {
+          // User declined replacement, discard upload
+          errorText.textContent = 'Upload cancelled by user.';
+          errorMessage.classList.remove('hidden');
+          uploadButton.disabled = false;
+          uploadButton.textContent = 'Upload Timesheet';
+        }
       } else {
         errorText.textContent = data.message || 'Error uploading timesheet.';
         errorMessage.classList.remove('hidden');

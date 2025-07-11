@@ -359,11 +359,34 @@ def upload_timesheet(request, consultant_id):
 
             default_storage.delete(temp_path)
 
-            timesheet = Timesheet.objects.create(
-                consultant=consultant,
-                month=month,
-                file=csv_path,
-            )
+            existing_timesheet = Timesheet.objects.filter(consultant=consultant, month=month).first()
+            replace_confirmed = request.POST.get('replace_confirmed', 'false').lower() == 'true'
+            user_is_owner = request.user == consultant
+            if existing_timesheet:
+                if user_is_owner:
+                    # Automatically replace if user is owner
+                    existing_timesheet.file = csv_path
+                    existing_timesheet.save()
+                    timesheet = existing_timesheet
+                else:
+                    if not replace_confirmed:
+                        # Inform frontend that a timesheet already exists and ask for confirmation
+                        default_storage.delete(csv_path)
+                        return JsonResponse({
+                            'success': False,
+                            'message': 'A timesheet for this month already exists. Do you want to replace it?',
+                            'duplicate': True
+                        })
+                    else:
+                        existing_timesheet.file = csv_path
+                        existing_timesheet.save()
+                        timesheet = existing_timesheet
+            else:
+                timesheet = Timesheet.objects.create(
+                    consultant=consultant,
+                    month=month,
+                    file=csv_path,
+                )
 
             logger.info(f"Timesheet uploaded and converted to CSV successfully by user {request.user.id} for month {year_str}-{month_str}")
             return JsonResponse({
@@ -676,16 +699,29 @@ def consultant_invoice(request):
 
             if month_date:
                 try:
-                    # Save invoice
-                    invoice = Invoice.objects.create(
-                        consultant=user,
-                        month=month_date,
-                        file=invoice_file,
-                        name=invoice_file.name,
-                        status='awaiting_review'
-                    )
-                    messages.success(request, 'Invoice uploaded successfully and awaiting review.')
-                    logger.info(f"Invoice saved successfully for user {user.id}")
+                    # Check if invoice for this month already exists for the user
+                    existing_invoice = Invoice.objects.filter(consultant=user, month=month_date).first()
+                    if existing_invoice:
+                        # Replace existing invoice file and update fields
+                        if existing_invoice.file and existing_invoice.file.name:
+                            existing_invoice.file.delete(save=False)
+                        existing_invoice.file = invoice_file
+                        existing_invoice.name = invoice_file.name
+                        existing_invoice.status = 'awaiting_review'
+                        existing_invoice.save()
+                        messages.success(request, 'Existing invoice replaced successfully and awaiting review.')
+                        logger.info(f"Invoice replaced successfully for user {user.id}")
+                    else:
+                        # Create new invoice
+                        invoice = Invoice.objects.create(
+                            consultant=user,
+                            month=month_date,
+                            file=invoice_file,
+                            name=invoice_file.name,
+                            status='awaiting_review'
+                        )
+                        messages.success(request, 'Invoice uploaded successfully and awaiting review.')
+                        logger.info(f"Invoice saved successfully for user {user.id}")
                 except Exception as e:
                     logger.error(f"Error saving invoice: {str(e)}")
                     messages.error(request, f'Error saving invoice: {str(e)}')
