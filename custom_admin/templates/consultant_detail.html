@@ -111,7 +111,7 @@
             <div>
                 <label for="id_agreement_document" class="block font-medium text-black">Agreement Document</label>
                 {% if consultant.consultant_profile.agreement_document %}
-                <a href="{{ consultant.consultant_profile.agreement_document.url }}" target="_blank" class="ml-3 text-indigo-600">View Document</a>
+                <a href="{{ consultant.consultant_profile.agreement_document.url }}" target="_blank" class="ml-3 text-indigo-600 test-bold">View Document</a>
                 <button type="button" class="btn btn-danger btn-sm ml-3 bg-red-600" id="scrap-agreement-btn">Remove</button>
                 {% else %}
                 <p>No agreement uploaded.</p>
