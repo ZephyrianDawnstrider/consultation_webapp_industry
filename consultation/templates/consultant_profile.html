@@ -113,7 +113,7 @@
             <label class="form-label" for="id_agreement_document">Agreement Document</label>
             {% if form.instance.agreement_document %}
                 <div class="d-flex align-items-center" id="agreementDocumentSection">
-                    <a href="{{ form.instance.agreement_document.url }}" target="_blank" class="me-3">View Agreement</a>
+                    <a href="{{ form.instance.agreement_document.url }}" target="_blank" class="me-3 text-indigo-600 text-bold">View Agreement</a>
                     <button type="button" class="btn btn-sm btn-danger solid-btn" id="removeAgreementBtn" style="background-color: #dc3545 !important; color: white !important; border-color: #dc3545 !important;">Remove</button>
                 </div>
             {% else %}
