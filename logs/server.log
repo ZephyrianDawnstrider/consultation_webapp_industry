@@ -1748,3 +1748,102 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'edit_invoice' not found. 'ed
 [2025-07-10 16:31:09,796] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
 [2025-07-10 16:31:10,085] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27514
 [2025-07-10 16:31:12,200] INFO django.server "GET /media/invoices/openart-image_WM8SVq19_1749100402842_raw_L1a1vuH.pdf HTTP/1.1" 200 125573
+[2025-07-10 16:36:13,726] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-10 16:37:50,072] INFO django.server "GET / HTTP/1.1" 200 38185
+[2025-07-10 16:37:50,978] WARNING django.request Not Found: /favicon.ico
+[2025-07-10 16:37:50,978] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-10 16:37:56,568] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-10 16:37:56,752] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 22787
+[2025-07-10 16:37:59,788] INFO django.server "GET / HTTP/1.1" 200 38185
+[2025-07-10 16:38:00,718] WARNING django.request Not Found: /favicon.ico
+[2025-07-10 16:38:00,719] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-10 16:38:02,934] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-10 16:38:03,119] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 17241
+[2025-07-10 16:49:56,659] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37225
+[2025-07-10 16:49:56,729] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-10 16:49:56,923] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-10 16:49:59,735] INFO django.server "GET /auth/consultant_profile/6/ HTTP/1.1" 200 23963
+[2025-07-10 16:56:50,326] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37225
+[2025-07-10 16:56:50,382] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-10 16:56:50,615] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-10 16:56:53,030] INFO django.server "GET /auth/consultant_profile/12/ HTTP/1.1" 200 23949
+[2025-07-10 16:57:51,176] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 32512
+[2025-07-10 16:57:51,663] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 93
+[2025-07-10 16:58:02,985] INFO django.server "GET /auth/timesheet/ HTTP/1.1" 200 18851
+[2025-07-10 16:58:08,946] INFO django.server "GET /auth/timesheet/?consultant_id=12&year=2025&month=07 HTTP/1.1" 200 23949
+[2025-07-10 17:11:34,096] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 32512
+[2025-07-10 17:11:34,650] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 93
+[2025-07-10 17:12:33,472] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37225
+[2025-07-10 17:12:33,525] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-10 17:12:33,682] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-10 17:12:39,172] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27514
+[2025-07-10 17:12:40,867] INFO django.server "GET /auth/timesheet/ HTTP/1.1" 200 18851
+[2025-07-10 17:12:42,581] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27514
+[2025-07-10 17:13:46,694] INFO django.server "GET /auth/consultation_list/ HTTP/1.1" 200 37225
+[2025-07-10 17:13:46,760] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-10 17:13:46,980] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-10 17:13:53,163] INFO django.server "GET /auth/consultant_profile/6/ HTTP/1.1" 200 23963
+[2025-07-11 14:49:50,731] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-11 14:49:59,189] INFO django.server "GET / HTTP/1.1" 200 38185
+[2025-07-11 14:50:00,567] WARNING django.request Not Found: /favicon.ico
+[2025-07-11 14:50:00,568] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-11 14:50:07,797] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-11 14:50:08,070] INFO django.server "GET /consultation/consultant_dashboard/ HTTP/1.1" 200 17240
+[2025-07-11 14:50:11,602] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 23420
+[2025-07-11 14:50:11,734] INFO django.server "GET /static/consultation/js/consultant_invoice.js HTTP/1.1" 200 2143
+[2025-07-11 14:50:16,021] INFO django.server "GET /consultation/consultant_timesheet/ HTTP/1.1" 200 39934
+[2025-07-11 14:50:30,116] INFO django.server "POST /consultation/upload_timesheet/6/ HTTP/1.1" 200 103
+[2025-07-11 14:50:30,290] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=07&mode=upload HTTP/1.1" 200 43591
+[2025-07-11 14:51:31,418] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultation\views.py changed, reloading.
+[2025-07-11 14:51:35,021] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-11 14:51:46,919] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=07&mode=upload HTTP/1.1" 200 43591
+[2025-07-11 14:51:47,046] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-11 14:51:47,050] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-11 14:51:47,061] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-11 14:51:47,889] WARNING django.request Not Found: /favicon.ico
+[2025-07-11 14:51:47,890] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-11 14:51:56,668] INFO django.server "POST /consultation/upload_timesheet/6/ HTTP/1.1" 200 103
+[2025-07-11 14:51:57,253] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=07&mode=upload HTTP/1.1" 200 43591
+[2025-07-11 14:53:24,857] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=07&mode=upload HTTP/1.1" 200 45043
+[2025-07-11 14:53:24,924] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-11 14:53:24,924] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-11 14:53:24,939] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-11 14:53:25,840] WARNING django.request Not Found: /favicon.ico
+[2025-07-11 14:53:25,841] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-11 14:53:31,766] INFO django.server "POST /consultation/upload_timesheet/6/ HTTP/1.1" 200 103
+[2025-07-11 14:53:31,950] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=07&mode=upload HTTP/1.1" 200 45043
+[2025-07-11 14:56:58,132] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=07&mode=upload HTTP/1.1" 200 45472
+[2025-07-11 14:56:58,178] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-11 14:56:58,179] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-11 14:56:58,189] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-11 14:56:59,352] WARNING django.request Not Found: /favicon.ico
+[2025-07-11 14:56:59,353] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-11 14:57:49,751] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=07&mode=upload HTTP/1.1" 200 45472
+[2025-07-11 14:57:49,792] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-11 14:57:49,792] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-11 14:57:49,843] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-11 14:57:50,406] WARNING django.request Not Found: /favicon.ico
+[2025-07-11 14:57:50,406] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-11 14:57:57,454] INFO django.server "POST /consultation/upload_timesheet/6/ HTTP/1.1" 200 103
+[2025-07-11 14:57:57,636] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=07&mode=upload HTTP/1.1" 200 45472
+[2025-07-11 14:59:31,817] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultation\views.py changed, reloading.
+[2025-07-11 14:59:34,439] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-11 14:59:38,451] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=07&mode=upload HTTP/1.1" 200 45472
+[2025-07-11 14:59:38,772] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-11 14:59:38,777] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-11 14:59:38,804] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-11 14:59:39,552] WARNING django.request Not Found: /favicon.ico
+[2025-07-11 14:59:39,554] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-11 14:59:47,723] INFO django.server "POST /consultation/upload_timesheet/6/ HTTP/1.1" 200 103
+[2025-07-11 14:59:47,894] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=07&mode=upload HTTP/1.1" 200 45472
+[2025-07-11 15:03:41,693] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultation\views.py changed, reloading.
+[2025-07-11 15:03:43,801] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-11 15:03:47,063] INFO django.server "GET /consultation/consultant_timesheet/?year=2025&month=07&mode=upload HTTP/1.1" 200 45472
+[2025-07-11 15:03:47,196] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-11 15:03:47,202] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-11 15:03:47,207] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-11 15:03:47,934] WARNING django.request Not Found: /favicon.ico
+[2025-07-11 15:03:47,935] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-11 15:03:48,483] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 23420
+[2025-07-11 15:04:00,891] INFO django.server "POST /consultation/consultant_invoice/ HTTP/1.1" 200 26801
+[2025-07-11 15:04:14,091] INFO django.server "POST /consultation/consultant_invoice/ HTTP/1.1" 200 26810

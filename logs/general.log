@@ -340,3 +340,12 @@
 [2025-07-10 16:15:11,579] INFO general.views Login attempt for email: admin_test@gmail.com
 [2025-07-10 16:15:11,734] INFO general.views User found: admin_test@gmail.com with role admin
 [2025-07-10 16:15:12,069] INFO general.views Admin user admin_test@gmail.com authenticated successfully.
+[2025-07-10 16:37:55,962] INFO general.views Login attempt for email: admin_test@gmail.com
+[2025-07-10 16:37:56,103] INFO general.views User found: admin_test@gmail.com with role admin
+[2025-07-10 16:37:56,451] INFO general.views Admin user admin_test@gmail.com authenticated successfully.
+[2025-07-10 16:38:02,760] INFO general.views Login attempt for email: anantika@chlsoftech.com
+[2025-07-10 16:38:02,826] INFO general.views User found: anantika@chlsoftech.com with role consultant
+[2025-07-10 16:38:02,879] INFO general.views Consultant user anantika@chlsoftech.com logged in successfully.
+[2025-07-11 14:50:07,394] INFO general.views Login attempt for email: ayushchaturvedi405@gmail.com
+[2025-07-11 14:50:07,574] INFO general.views User found: ayushchaturvedi405@gmail.com with role consultant
+[2025-07-11 14:50:07,677] INFO general.views Consultant user ayushchaturvedi405@gmail.com logged in successfully.
