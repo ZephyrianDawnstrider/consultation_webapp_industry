@@ -1847,3 +1847,87 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'edit_invoice' not found. 'ed
 [2025-07-11 15:03:48,483] INFO django.server "GET /consultation/consultant_invoice/ HTTP/1.1" 200 23420
 [2025-07-11 15:04:00,891] INFO django.server "POST /consultation/consultant_invoice/ HTTP/1.1" 200 26801
 [2025-07-11 15:04:14,091] INFO django.server "POST /consultation/consultant_invoice/ HTTP/1.1" 200 26810
+[2025-07-11 16:15:30,239] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 21577
+[2025-07-11 16:15:32,043] WARNING django.request Not Found: /favicon.ico
+[2025-07-11 16:15:32,044] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-11 16:16:17,754] INFO django.server "GET / HTTP/1.1" 200 38185
+[2025-07-11 16:16:23,451] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-11 16:16:23,570] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 22787
+[2025-07-11 16:16:25,630] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 32512
+[2025-07-11 16:16:26,070] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 123
+[2025-07-11 16:18:15,586] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 32509
+[2025-07-11 16:18:15,640] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-11 16:18:15,640] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-11 16:18:15,842] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-11 16:18:16,672] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 123
+[2025-07-11 16:18:16,698] WARNING django.request Not Found: /favicon.ico
+[2025-07-11 16:18:16,699] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-11 16:18:44,441] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 32501
+[2025-07-11 16:18:44,502] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-11 16:18:44,502] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-11 16:18:44,587] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-11 16:18:45,117] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 123
+[2025-07-11 16:18:45,171] WARNING django.request Not Found: /favicon.ico
+[2025-07-11 16:18:45,172] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-11 16:22:05,746] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 32453
+[2025-07-11 16:22:05,783] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-11 16:22:05,784] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-11 16:22:05,912] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-11 16:22:06,503] WARNING django.request Not Found: /favicon.ico
+[2025-07-11 16:22:06,504] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-11 16:22:49,139] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 32449
+[2025-07-11 16:22:49,194] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-11 16:22:49,194] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-11 16:22:49,325] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-11 16:22:49,986] WARNING django.request Not Found: /favicon.ico
+[2025-07-11 16:22:49,987] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-11 16:27:25,201] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-11 16:27:28,213] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-11 16:28:00,514] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 32453
+[2025-07-11 16:28:00,636] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-11 16:28:00,637] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-11 16:28:00,691] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-11 16:28:01,733] WARNING django.request Not Found: /favicon.ico
+[2025-07-11 16:28:01,734] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-11 16:28:20,089] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-11 16:28:22,529] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-11 16:28:57,083] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 32512
+[2025-07-11 16:28:57,261] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-11 16:28:57,261] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-11 16:28:57,293] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-11 16:28:57,700] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 123
+[2025-07-11 16:28:57,823] WARNING django.request Not Found: /favicon.ico
+[2025-07-11 16:28:57,824] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-11 16:31:15,495] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 32176
+[2025-07-11 16:31:15,549] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-11 16:31:15,549] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-11 16:31:15,662] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-11 16:31:19,847] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 32176
+[2025-07-11 16:31:19,920] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-11 16:31:19,921] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-11 16:31:20,008] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-11 16:31:20,639] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 123
+[2025-07-11 16:31:20,936] WARNING django.request Not Found: /favicon.ico
+[2025-07-11 16:31:20,938] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-11 16:32:42,450] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 32554
+[2025-07-11 16:32:42,503] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-11 16:32:42,503] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-11 16:32:42,650] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-11 16:32:59,107] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 32554
+[2025-07-11 16:32:59,192] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-11 16:32:59,192] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-11 16:32:59,311] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-11 16:33:14,699] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 123
+[2025-07-11 16:33:15,009] WARNING django.request Not Found: /favicon.ico
+[2025-07-11 16:33:15,010] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
+[2025-07-11 16:33:34,061] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-11 16:33:34,062] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-07-11 16:37:10,003] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 32514
+[2025-07-11 16:37:10,065] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-11 16:37:10,065] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-11 16:37:10,160] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-11 16:37:10,160] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2969
+[2025-07-11 16:37:10,282] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-11 16:37:11,697] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 123
+[2025-07-11 16:37:12,014] WARNING django.request Not Found: /favicon.ico
+[2025-07-11 16:37:12,015] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2858
