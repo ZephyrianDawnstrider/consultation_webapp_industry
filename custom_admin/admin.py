@@ -3,7 +3,7 @@ from django import forms
 from django.core.mail import send_mail
 from django.utils.crypto import get_random_string
 from .models import User, Skill, Invoice
-from consultation.models import ConsultantProfile
+from consultant.models import ConsultantProfile
 from cryptography.fernet import Fernet
 
 FERNET_KEY = Fernet.generate_key()
@@ -47,7 +47,7 @@ admin.site.register(User)
 admin.site.register(Skill)
 admin.site.register(ConsultantProfile)
 
-from consultation.models import Timesheet
+from consultant.models import Timesheet
 
 @admin.register(Timesheet)
 class TimesheetAdmin(admin.ModelAdmin):

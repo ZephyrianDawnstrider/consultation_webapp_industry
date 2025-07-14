@@ -101,11 +101,11 @@ class ConsultantStatus(models.Model):
 
 # Removed ConsultantProfile model from custom_admin/models.py as per user request.
 
-from consultation.models import Timesheet as ConsultationTimesheet, Invoice as ConsultationInvoice
+from consultant.models import Timesheet as consultantTimesheet, Invoice as consultantInvoice
 
 class Timesheet(models.Model):
     consultant = models.ForeignKey('User', on_delete=models.CASCADE, limit_choices_to={'role': 'consultant'})
-    consultation_timesheet = models.ForeignKey(ConsultationTimesheet, on_delete=models.CASCADE, related_name='custom_admin_timesheets', null=True, blank=True)
+    consultant_timesheet = models.ForeignKey(consultantTimesheet, on_delete=models.CASCADE, related_name='custom_admin_timesheets', null=True, blank=True)
     month = models.DateField()
     file = models.FileField(upload_to='timesheets/')
     status = models.CharField(max_length=20, choices=TIMESHEET_STATUS_CHOICES, default='awaiting_review')
@@ -114,12 +114,12 @@ class Timesheet(models.Model):
     def __str__(self):
         return f"Timesheet for {self.consultant.email} - {self.month.strftime('%B %Y')}"
 
-from consultation.models import Timesheet as ConsultationTimesheet, Invoice as ConsultationInvoice
+from consultant.models import Timesheet as consultantTimesheet, Invoice as consultantInvoice
 
 class Invoice(models.Model):
     STATUS_CHOICES = INVOICE_STATUS_CHOICES
     consultant = models.ForeignKey('User', on_delete=models.CASCADE, limit_choices_to={'role': 'consultant'})
-    consultation_invoice = models.ForeignKey(ConsultationInvoice, on_delete=models.CASCADE, related_name='custom_admin_invoices', null=True, blank=True)
+    consultant_invoice = models.ForeignKey(consultantInvoice, on_delete=models.CASCADE, related_name='custom_admin_invoices', null=True, blank=True)
     name = models.CharField(max_length=255)
     month = models.DateField()
     file = models.FileField(upload_to='invoices/')
@@ -133,7 +133,7 @@ class SessionBooking(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField()
     phone = models.CharField(max_length=20)
-    consultation_field = models.CharField(max_length=255)
+    consultant_field = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

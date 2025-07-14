@@ -181,8 +181,12 @@
         <h1 class="text-3xl font-bold text-white-800">Consultant Management</h1>
         <div class="flex space-x-4">
             <div class="relative">
-                <input type="text" placeholder="Search consultants..." class="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                <i class="fas fa-search absolute left-3 top-3 text-black"></i>
+                <form id="searchForm" method="get" action="{% url 'custom_admin:consultant_management' %}">
+                    <input type="text" name="search" placeholder="Search consultants..." value="{{ search_query }}" class="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <button type="submit" class="absolute right-0 top-0 mt-2 mr-2 text-black">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
             </div>
             <button id="addConsultantBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center transition-colors">
                 <i class="fas fa-user-plus mr-2"></i>
@@ -278,7 +282,7 @@
         </div>
         <div class="flex space-x-1">
             {% if consultants.has_previous %}
-            <a href="?page={{ consultants.previous_page_number }}" class="px-3 py-1 rounded-md bg-black-200 text-black-700 hover:bg-black-300" aria-label="Previous">
+            <a href="?page={{ consultants.previous_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}" class="px-3 py-1 rounded-md bg-black-200 text-black-700 hover:bg-black-300" aria-label="Previous">
                 <i class="fas fa-angle-left"></i>
             </a>
             {% else %}
@@ -291,12 +295,12 @@
                 {% if num == consultants.number %}
                     <span class="px-3 py-1 rounded-md bg-blue-600 text-white">{{ num }}</span>
                 {% elif num > consultants.number|add:'-3' and num < consultants.number|add:'3' %}
-                    <a href="?page={{ num }}" class="px-3 py-1 rounded-md bg-black-200 text-black-700 hover:bg-black-300">{{ num }}</a>
+                    <a href="?page={{ num }}{% if search_query %}&search={{ search_query }}{% endif %}" class="px-3 py-1 rounded-md bg-black-200 text-black-700 hover:bg-black-300">{{ num }}</a>
                 {% endif %}
             {% endfor %}
 
             {% if consultants.has_next %}
-            <a href="?page={{ consultants.next_page_number }}" class="px-3 py-1 rounded-md bg-black-200 text-black-700 hover:bg-black-300" aria-label="Next">
+            <a href="?page={{ consultants.next_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}" class="px-3 py-1 rounded-md bg-black-200 text-black-700 hover:bg-black-300" aria-label="Next">
                 <i class="fas fa-angle-right"></i>
             </a>
             {% else %}

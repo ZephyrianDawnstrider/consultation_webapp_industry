@@ -6,6 +6,10 @@ from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.views.decorators.http import require_http_methods
+from django.http import JsonResponse
+from django.core.mail import send_mail
+from general.forms import consultantBookingForm
 
 logger = logging.getLogger(__name__)
 User = get_user_model()
@@ -48,7 +52,7 @@ def login_view(request):
             if user.check_consultant_password(password):
                 login(request, user)
                 logger.info(f"Consultant user {email} logged in successfully.")
-                return redirect('consultation:consultant_dashboard')
+                return redirect('consultant:consultant_dashboard')
             else:
                 logger.warning(f"Consultant user {email} failed password check.")
                 messages.error(request, 'Invalid email or password')
@@ -61,3 +65,36 @@ def login_view(request):
     
     # GET request - show login form
     return render(request, 'landingpage.html')
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def book_consultant(request):
+    form = consultantBookingForm(request.POST)
+    if form.is_valid():
+        booking = form.save(commit=False)
+        consultant_field = booking.consultant_field
+        if consultant_field == 'Other' and booking.other_consultant_field:
+            consultant_field = booking.other_consultant_field
+        booking.save()
+
+        # Send booking details to admin email
+        admin_email = "1ayushchaturvedi@gmail.com"
+        subject = 'New Consultant Booking'
+        message = f"""
+New consultant booking details:
+
+Name: {booking.name}
+Email: {booking.email}
+Phone: {booking.phone}
+Consultant Field: {consultant_field}
+"""
+        send_mail(subject, message, admin_email, [admin_email])
+
+        # Send confirmation email to user
+        user_subject = "Booking Confirmation"
+        user_message = f"Dear {booking.name},\n\nThank you for booking a consultation with us. We have received your inquiry and will get back to you shortly.\n\nBest regards,\nCHL Softech Team"
+        send_mail(user_subject, user_message, admin_email, [booking.email])
+
+        return JsonResponse({'success': True, 'message': 'Booking submitted successfully.'})
+    else:
+        return JsonResponse({'success': False, 'errors': form.errors})

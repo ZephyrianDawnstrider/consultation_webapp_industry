@@ -1,4 +1,4 @@
-# Consultation Platform - Developer Guide
+# consultant Platform - Developer Guide
 
 ## Table of Contents
 1. [Project Architecture](#project-architecture)
@@ -86,7 +86,7 @@ docker --version  # Optional but recommended
 ```bash
 # 1. Clone Repository
 git clone <repository-url>
-cd consultation_platform
+cd consultant_platform
 
 # 2. Create Virtual Environment
 python -m venv venv
@@ -111,7 +111,7 @@ ALLOWED_HOSTS=localhost,127.0.0.1
 
 # Database Configuration
 DATABASE_URL=sqlite:///db.sqlite3
-# For PostgreSQL: postgresql://user:password@localhost:5432/consultation_db
+# For PostgreSQL: postgresql://user:password@localhost:5432/consultant_db
 
 # Email Configuration (Development)
 EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
@@ -174,7 +174,7 @@ celery -A consultaion_webapp beat --loglevel=info
 ### Project Organization
 
 ```
-consultation_platform/
+consultant_platform/
 ├── consultaion_webapp/          # Main Django project
 │   ├── __init__.py
 │   ├── settings.py             # Django settings
@@ -183,7 +183,7 @@ consultation_platform/
 │   ├── asgi.py                 # ASGI application
 │   ├── celery.py               # Celery configuration
 │   └── celery_tasks.py         # Shared Celery tasks
-├── consultation/               # Consultant-facing app
+├── consultant/               # Consultant-facing app
 ├── custom_admin/              # Admin interface app
 ├── general/                   # Public pages app
 ├── requirements.txt           # Python dependencies
@@ -250,7 +250,7 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    'consultation',
+    'consultant',
     'custom_admin',
     'general',
 ]
@@ -338,7 +338,7 @@ LOGGING = {
             'level': 'INFO',
             'propagate': True,
         },
-        'consultation': {
+        'consultant': {
             'handlers': ['file', 'error_file'],
             'level': 'DEBUG',
             'propagate': True,
@@ -367,7 +367,7 @@ urlpatterns = [
     path('admin/', include('custom_admin.urls')),
     
     # App URLs
-    path('consultation/', include('consultation.urls')),
+    path('consultant/', include('consultant.urls')),
     path('', include('general.urls')),
     
     # API URLs (if implementing REST API)

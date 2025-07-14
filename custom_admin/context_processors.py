@@ -1,5 +1,5 @@
 from custom_admin.models import User
-from consultation.models import ConsultantProfile
+from consultant.models import ConsultantProfile
 from datetime import datetime
 
 def timesheet_sidebar_context(request):

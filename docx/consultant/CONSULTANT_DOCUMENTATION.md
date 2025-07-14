@@ -1,4 +1,4 @@
-# Consultation Platform - Consultant Guide
+# consultant Platform - Consultant Guide
 
 ## Table of Contents
 1. [Welcome to the Platform](#welcome-to-the-platform)
@@ -18,8 +18,8 @@
 
 ## Welcome to the Platform
 
-### What is the Consultation Platform?
-The Consultation Platform is your comprehensive workspace for managing your consulting business. It provides all the tools you need to:
+### What is the consultant Platform?
+The consultant Platform is your comprehensive workspace for managing your consulting business. It provides all the tools you need to:
 - Manage your professional profile
 - Track your work hours
 - Generate and submit invoices
@@ -47,7 +47,7 @@ The Consultation Platform is your comprehensive workspace for managing your cons
 ### Account Access
 Once your account is approved by the administrator:
 1. You'll receive a welcome email with login credentials
-2. Access the platform at: `http://platform-url.com/consultation/`
+2. Access the platform at: `http://platform-url.com/consultant/`
 3. Use your provided username and password
 4. Complete your profile setup
 
@@ -66,7 +66,7 @@ Once your account is approved by the administrator:
 
 ### Self-Registration (If Enabled)
 
-**Step 1: Initial Registration (`/consultation/register/`)**
+**Step 1: Initial Registration (`/consultant/register/`)**
 1. Navigate to the registration page
 2. Fill out the registration form:
    - **Personal Information**
@@ -113,14 +113,14 @@ If your account was created by an administrator:
 
 ## Dashboard Overview
 
-### Main Dashboard (`/consultation/dashboard/`)
+### Main Dashboard (`/consultant/dashboard/`)
 
 Your dashboard is your command center, providing a comprehensive view of your consulting activities.
 
 #### Dashboard Sections
 
 **1. Quick Stats Panel**
-- **Active Projects**: Current ongoing consultations
+- **Active Projects**: Current ongoing consultants
 - **Hours This Month**: Total billable hours logged
 - **Pending Invoices**: Invoices awaiting approval/payment
 - **Upcoming Deadlines**: Important dates and milestones
@@ -156,7 +156,7 @@ Your dashboard is your command center, providing a comprehensive view of your co
 
 ## Profile Management
 
-### Accessing Your Profile (`/consultation/profile/`)
+### Accessing Your Profile (`/consultant/profile/`)
 
 Your profile is your professional showcase and the foundation of your consultant identity on the platform.
 
@@ -239,7 +239,7 @@ Your profile information is used for:
 
 ## Timesheet Management
 
-### Understanding Timesheets (`/consultation/timesheet/`)
+### Understanding Timesheets (`/consultant/timesheet/`)
 
 Timesheets are the foundation of your billing and project tracking. Accurate timesheet management ensures proper compensation and project accountability.
 
@@ -335,7 +335,7 @@ Date,Start Time,End Time,Project,Task Description,Billable
 
 ## Invoice Generation
 
-### Invoice Management (`/consultation/invoices/`)
+### Invoice Management (`/consultant/invoices/`)
 
 The invoice system streamlines your billing process and ensures timely payment for your consulting services.
 
@@ -547,7 +547,7 @@ While the platform focuses on consultant management, understanding client intera
 **Communication Channels:**
 - Platform messaging system (if available)
 - Email notifications and updates
-- Scheduled consultation calls
+- Scheduled consultant calls
 - Project status updates
 
 **Professional Communication Guidelines:**
@@ -559,7 +559,7 @@ While the platform focuses on consultant management, understanding client intera
 #### Project Management
 
 **Project Lifecycle:**
-1. **Initial Consultation**: Understanding client needs
+1. **Initial consultant**: Understanding client needs
 2. **Proposal Development**: Creating project scope and timeline
 3. **Agreement Execution**: Finalizing contracts and terms
 4. **Project Delivery**: Executing the consulting work

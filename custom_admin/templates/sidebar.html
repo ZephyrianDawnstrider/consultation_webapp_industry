@@ -84,7 +84,7 @@
             </a>
             
             <div class="px-4 mt-6">
-                <div class="text-xs font-semibold tracking-wider sidebar-text uppercase" style="color: #B0B0B0 !important;">Consultation</div>
+                <div class="text-xs font-semibold tracking-wider sidebar-text uppercase" style="color: #B0B0B0 !important;">consultant</div>
             </div>
             
             <a href="{% url 'custom_admin:add_consultant' %}" class="menu-item flex items-center px-4 py-3 mt-2 rounded-lg mx-2 {% if current_page == 'Add Consultant' %}active-menu{% else %}hover:bg-gray-700{% endif %}">
@@ -97,14 +97,19 @@
                 <span class="sidebar-text ml-3">Skill Master</span>
             </a>
             
-            <a href="{% url 'custom_admin:consultation_list' %}" class="menu-item flex items-center px-4 py-3 mt-2 rounded-lg mx-2 {% if current_page == 'Consultation List' %}active-menu{% else %}hover:bg-gray-700{% endif %}">
+            <a href="{% url 'custom_admin:consultant_list' %}" class="menu-item flex items-center px-4 py-3 mt-2 rounded-lg mx-2 {% if current_page == 'consultant List' %}active-menu{% else %}hover:bg-gray-700{% endif %}">
                 <i class="fas fa-list"></i>
-                <span class="sidebar-text ml-3">Consultation List</span>
+                <span class="sidebar-text ml-3">consultant List</span>
             </a>
             
             <a href="{% url 'custom_admin:admin_invoices' %}" class="menu-item flex items-center px-4 py-3 mt-2 rounded-lg mx-2 {% if current_page == 'Invoice Management' %}active-menu{% else %}hover:bg-gray-700{% endif %}">
                 <i class="fas fa-file-invoice-dollar"></i>
                 <span class="sidebar-text ml-3">Invoice Management</span>
+            </a>
+
+            <a href="{% url 'custom_admin:booking_management' %}" class="menu-item flex items-center px-4 py-3 mt-2 rounded-lg mx-2 {% if current_page == 'Booking Management' %}active-menu{% else %}hover:bg-gray-700{% endif %}">
+                <i class="fas fa-calendar-check"></i>
+                <span class="sidebar-text ml-3 font-semibold">Booking Management</span>
             </a>
 
             <!-- Timesheet Sidebar Menu -->

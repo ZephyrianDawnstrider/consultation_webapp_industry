@@ -1,4 +1,4 @@
-# Consultation Platform - Administrator Guide
+# consultant Platform - Administrator Guide
 
 ## Table of Contents
 1. [Admin Overview](#admin-overview)
@@ -19,7 +19,7 @@
 ## Admin Overview
 
 ### What is the Admin Interface?
-The Admin Interface (`custom_admin/`) is a comprehensive management system that allows administrators to oversee all aspects of the consultation platform. It provides complete control over consultants, clients, system settings, and platform operations.
+The Admin Interface (`custom_admin/`) is a comprehensive management system that allows administrators to oversee all aspects of the consultant platform. It provides complete control over consultants, clients, system settings, and platform operations.
 
 ### Admin Responsibilities
 - **Consultant Oversight**: Approve, manage, and monitor consultant profiles
@@ -102,7 +102,7 @@ The consultant management interface displays:
 #### Consultant Status Management
 ```python
 # Consultant statuses available:
-ACTIVE = 'active'           # Can accept consultations
+ACTIVE = 'active'           # Can accept consultants
 INACTIVE = 'inactive'       # Temporarily disabled
 PENDING = 'pending'         # Awaiting approval
 SUSPENDED = 'suspended'     # Administratively disabled
@@ -574,7 +574,7 @@ Remember: Always test changes in a development environment before applying them 
 ## 2. Consultant Documentation
 
 ```markdown:CONSULTANT_DOCUMENTATION.md
-# Consultation Platform - Consultant Guide
+# consultant Platform - Consultant Guide
 
 ## Table of Contents
 1. [Welcome to the Platform](#welcome-to-the-platform)
@@ -594,8 +594,8 @@ Remember: Always test changes in a development environment before applying them 
 
 ## Welcome to the Platform
 
-### What is the Consultation Platform?
-The Consultation Platform is your comprehensive workspace for managing your consulting business. It provides all the tools you need to:
+### What is the consultant Platform?
+The consultant Platform is your comprehensive workspace for managing your consulting business. It provides all the tools you need to:
 - Manage your professional profile
 - Track your work hours
 - Generate and submit invoices
@@ -623,7 +623,7 @@ The Consultation Platform is your comprehensive workspace for managing your cons
 ### Account Access
 Once your account is approved by the administrator:
 1. You'll receive a welcome email with login credentials
-2. Access the platform at: `http://platform-url.com/consultation/`
+2. Access the platform at: `http://platform-url.com/consultant/`
 3. Use your provided username and password
 4. Complete your profile setup
 
