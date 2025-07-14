@@ -1,9 +1,9 @@
 import os
 from celery import Celery
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'consultaion_webapp.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'consultant_webapp.settings')
 
-app = Celery('consultaion_webapp')
+app = Celery('consultant_webapp')
 
 app.config_from_object('django.conf:settings', namespace='CELERY')
 

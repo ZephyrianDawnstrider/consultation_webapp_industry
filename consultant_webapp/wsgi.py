@@ -1,5 +1,5 @@
 """
-WSGI config for consultaion_webapp project.
+WSGI config for consultant_webapp project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'consultaion_webapp.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'consultant_webapp.settings')
 
 application = get_wsgi_application()
