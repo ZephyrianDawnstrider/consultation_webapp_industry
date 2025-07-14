@@ -1,17 +1,17 @@
 services:
   - type: web
-    name: consultaion-webapp
+    name: consultant-webapp
     env: python
     plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn consultaion_webapp.wsgi:application --bind 0.0.0.0:8000
+    startCommand: gunicorn consultant_webapp.wsgi:application --bind 0.0.0.0:8000
     envVars:
       - key: SECRET_KEY
         value: 'django-insecure-(=4utn9oke4(8mn&$2jpaz#x=$#g^%bj^%!v=qw_b%8$1g*0)r'
       - key: DEBUG
         value: 'False'
       - key: ALLOWED_HOSTS
-        value: 'consultaion-webapp.onrender.com'
+        value: 'consultant-webapp.onrender.com'
     autoDeploy: true
     routes:
       - type: web
