@@ -39,7 +39,7 @@ The consultant Platform is a comprehensive Django-based web application designed
 ### Project Structure
 ```
 consultant_platform/
-├── consultaion_webapp/          # Main Django project
+├── consultant_webapp/          # Main Django project
 │   ├── settings.py             # Project settings
 │   ├── urls.py                 # Main URL configuration
 │   ├── celery.py              # Celery configuration
@@ -343,7 +343,7 @@ services:
     name: consultant-platform
     env: python
     buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
-    startCommand: gunicorn consultaion_webapp.wsgi:application
+    startCommand: gunicorn consultant_webapp.wsgi:application
     envVars:
       - key: DEBUG
         value: False
@@ -389,7 +389,7 @@ RUN python manage.py collectstatic --noinput
 
 EXPOSE 8000
 
-CMD ["gunicorn", "consultaion_webapp.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["gunicorn", "consultant_webapp.wsgi:application", "--bind", "0.0.0.0:8000"]
 ```
 
 2. **Docker Compose (Optional)**

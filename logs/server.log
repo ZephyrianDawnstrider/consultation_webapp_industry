@@ -3511,3 +3511,7 @@ django.db.utils.ProgrammingError: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 
 [2025-07-14 17:23:37,171] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
 [2025-07-14 17:26:00,003] INFO django.server "GET / HTTP/1.1" 200 39785
 [2025-07-14 17:26:00,140] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-14 17:38:27,372] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant_webapp\celery.py changed, reloading.
+[2025-07-14 17:38:29,868] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-14 17:38:42,361] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant_webapp\wsgi.py changed, reloading.
+[2025-07-14 17:38:44,849] INFO django.utils.autoreload Watching for file changes with StatReloader

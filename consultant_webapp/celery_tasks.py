@@ -2,7 +2,7 @@ from celery import Celery
 from celery.schedules import crontab
 from django.conf import settings
 
-app = Celery('consultaion_webapp')
+app = Celery('consultant_webapp')
 app.config_from_object('django.conf:settings', namespace='CELERY')
 app.autodiscover_tasks()
 

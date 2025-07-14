@@ -161,10 +161,10 @@ python manage.py runserver
 python manage.py runserver 8080
 
 # Start Celery Worker (separate terminal)
-celery -A consultaion_webapp worker --loglevel=info
+celery -A consultant_webapp worker --loglevel=info
 
 # Start Celery Beat (for scheduled tasks)
-celery -A consultaion_webapp beat --loglevel=info
+celery -A consultant_webapp beat --loglevel=info
 ```
 
 ---
@@ -175,7 +175,7 @@ celery -A consultaion_webapp beat --loglevel=info
 
 ```
 consultant_platform/
-├── consultaion_webapp/          # Main Django project
+├── consultant_webapp/          # Main Django project
 │   ├── __init__.py
 │   ├── settings.py             # Django settings
 │   ├── urls.py                 # Root URL configuration
@@ -219,9 +219,9 @@ app_name/
 
 ### Key Configuration Files
 
-#### Django Settings (`consultaion_webapp/settings.py`)
+#### Django Settings (`consultant_webapp/settings.py`)
 
-```python:consultaion_webapp/settings.py
+```python:consultant_webapp/settings.py
 import os
 from pathlib import Path
 from decouple import config
@@ -270,7 +270,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'consultaion_webapp.urls'
+ROOT_URLCONF = 'consultant_webapp.urls'
 
 # Database Configuration
 DATABASES = {
@@ -352,9 +352,9 @@ LOGGING = {
 }
 ```
 
-#### URL Configuration (`consultaion_webapp/urls.py`)
+#### URL Configuration (`consultant_webapp/urls.py`)
 
-```python:consultaion_webapp/urls.py
+```python:consultant_webapp/urls.py
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
