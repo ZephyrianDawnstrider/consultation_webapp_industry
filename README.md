@@ -1,13 +1,13 @@
 
-# Consultation Web Application
+# consultant Web Application
 
 ## Overview
-This Django-based web application is designed to efficiently manage consultation services by providing a robust platform for both consultants and administrators. It facilitates seamless management of consultant profiles, timesheets, invoices, and session bookings, while offering administrators comprehensive tools for consultant oversight, skill management, invoice processing, and system administration.
+This Django-based web application is designed to efficiently manage consultant services by providing a robust platform for both consultants and administrators. It facilitates seamless management of consultant profiles, timesheets, invoices, and session bookings, while offering administrators comprehensive tools for consultant oversight, skill management, invoice processing, and system administration.
 
 ## Features
 
 ### Consultant Portal
-- Interactive dashboard displaying consultations, invoices, and calendar events.
+- Interactive dashboard displaying consultants, invoices, and calendar events.
 - Upload and manage timesheets in Excel and CSV formats with automatic processing.
 - Upload, track, and manage invoices with status updates.
 - Manage personal profiles including banking details and skill sets.
@@ -57,7 +57,7 @@ This Django-based web application is designed to efficiently manage consultation
 - Reset consultant passwords securely.
 
 ## Testing
-- Tests located in `consultation/tests.py` and `custom_admin/tests.py`.
+- Tests located in `consultant/tests.py` and `custom_admin/tests.py`.
 - Run tests with `python manage.py test`.
 
 ## Contributing

@@ -1,6 +1,6 @@
 from django import forms
 from .models import ConsultantStatus, Skill
-from consultation.models import ConsultantProfile
+from consultant.models import ConsultantProfile
 from django import forms
 from django.contrib.auth import get_user_model
 

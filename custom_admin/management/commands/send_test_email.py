@@ -6,7 +6,7 @@ class Command(BaseCommand):
     help = 'Send a test email to verify email sending configuration'
 
     def handle(self, *args, **kwargs):
-        subject = 'Test Email from Consultation Webapp'
+        subject = 'Test Email from consultant Webapp'
         message = 'This is a test email to verify SMTP email sending configuration.'
         from_email = settings.DEFAULT_FROM_EMAIL if hasattr(settings, 'DEFAULT_FROM_EMAIL') else 'no-reply@example.com'
         recipient_list = [settings.EMAIL_HOST_USER]

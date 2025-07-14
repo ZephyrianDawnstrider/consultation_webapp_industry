@@ -1,4 +1,4 @@
-# Consultation Platform - Complete Documentation
+# consultant Platform - Complete Documentation
 
 ## Table of Contents
 1. [Project Overview](#project-overview)
@@ -18,10 +18,10 @@
 
 ## Project Overview
 
-### What is the Consultation Platform?
-The Consultation Platform is a comprehensive Django-based web application designed to manage consultants, clients, and consultation services. It provides a complete ecosystem for:
+### What is the consultant Platform?
+The consultant Platform is a comprehensive Django-based web application designed to manage consultants, clients, and consultant services. It provides a complete ecosystem for:
 - Consultant registration and profile management
-- Client consultation booking
+- Client consultant booking
 - Invoice generation and management
 - Timesheet tracking
 - Administrative oversight
@@ -29,7 +29,7 @@ The Consultation Platform is a comprehensive Django-based web application design
 
 ### Key Stakeholders
 - **Consultants**: Register, manage profiles, track time, generate invoices
-- **Clients**: Book consultations, view services
+- **Clients**: Book consultants, view services
 - **Administrators**: Manage the entire platform, oversee consultants and operations
 
 ---
@@ -38,14 +38,14 @@ The Consultation Platform is a comprehensive Django-based web application design
 
 ### Project Structure
 ```
-consultation_platform/
+consultant_platform/
 ├── consultaion_webapp/          # Main Django project
 │   ├── settings.py             # Project settings
 │   ├── urls.py                 # Main URL configuration
 │   ├── celery.py              # Celery configuration
 │   ├── celery_tasks.py        # Background tasks
 │   └── media/                 # User uploaded files
-├── consultation/               # Consultant-facing app
+├── consultant/               # Consultant-facing app
 ├── custom_admin/              # Admin interface app
 ├── general/                   # General pages (landing, etc.)
 ├── docs/                      # Documentation files
@@ -78,7 +78,7 @@ consultation_platform/
 1. **Clone the Repository**
 ```bash
 git clone <repository-url>
-cd consultation_platform
+cd consultant_platform
 ```
 
 2. **Create Virtual Environment**
@@ -125,12 +125,12 @@ python manage.py runserver
 
 1. **Build Docker Image**
 ```bash
-docker build -t consultation-platform .
+docker build -t consultant-platform .
 ```
 
 2. **Run Container**
 ```bash
-docker run -p 8000:8000 consultation-platform
+docker run -p 8000:8000 consultant-platform
 ```
 
 ---
@@ -190,7 +190,7 @@ CELERY_BROKER_URL=redis://localhost:6379/0
 - `templates/landingpage.html`: Main landing page
 - `templates/Session_Booking_Form.html`: Booking interface
 
-### 2. Consultation Module (`consultation/`)
+### 2. consultant Module (`consultant/`)
 **Purpose**: Consultant-facing functionality
 
 **Key Features**:
@@ -308,11 +308,11 @@ The platform uses Django's built-in authentication system with session-based aut
 
 #### Consultant Endpoints
 ```
-GET  /consultation/dashboard/          # Consultant dashboard
-POST /consultation/register/           # Consultant registration
-GET  /consultation/profile/            # View/edit profile
-POST /consultation/timesheet/          # Submit timesheet
-GET  /consultation/invoices/           # View invoices
+GET  /consultant/dashboard/          # Consultant dashboard
+POST /consultant/register/           # Consultant registration
+GET  /consultant/profile/            # View/edit profile
+POST /consultant/timesheet/          # Submit timesheet
+GET  /consultant/invoices/           # View invoices
 ```
 
 #### Admin Endpoints
@@ -327,7 +327,7 @@ GET  /admin/invoices/                  # Invoice management
 #### General Endpoints
 ```
 GET  /                                 # Landing page
-POST /book-session/                    # Book consultation session
+POST /book-session/                    # Book consultant session
 ```
 
 ---
@@ -340,7 +340,7 @@ POST /book-session/                    # Book consultation session
 ```yaml
 services:
   - type: web
-    name: consultation-platform
+    name: consultant-platform
     env: python
     buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
     startCommand: gunicorn consultaion_webapp.wsgi:application
@@ -351,13 +351,13 @@ services:
         generateValue: true
       - key: DATABASE_URL
         fromDatabase:
-          name: consultation-db
+          name: consultant-db
           property: connectionString
 
 databases:
-  - name: consultation-db
-    databaseName: consultation_platform
-    user: consultation_user
+  - name: consultant-db
+    databaseName: consultant_platform
+    user: consultant_user
 ```
 
 2. **Environment Variables Setup**
@@ -402,14 +402,14 @@ services:
       - "8000:8000"
     environment:
       - DEBUG=False
-      - DATABASE_URL=postgresql://user:pass@db:5432/consultation
+      - DATABASE_URL=postgresql://user:pass@db:5432/consultant
     depends_on:
       - db
   
   db:
     image: postgres:13
     environment:
-      POSTGRES_DB: consultation
+      POSTGRES_DB: consultant
       POSTGRES_USER: user
       POSTGRES_PASSWORD: pass
     volumes:
@@ -459,7 +459,7 @@ app_name/
 python manage.py test
 
 # Run specific app tests
-python manage.py test consultation
+python manage.py test consultant
 
 # Run with coverage
 coverage run --source='.' manage.py test
@@ -608,7 +608,7 @@ def health_check(request):
 ### General Questions
 
 **Q: What is the purpose of this platform?**
-A: The Consultation Platform manages the entire lifecycle of consultant-client relationships, from registration and booking to invoicing and document management.
+A: The consultant Platform manages the entire lifecycle of consultant-client relationships, from registration and booking to invoicing and document management.
 
 **Q: Who can use this platform?**
 A: Three main user types: Consultants (service providers), Clients (service consumers), and Administrators (platform managers).

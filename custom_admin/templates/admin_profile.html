@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
             otpSection.classList.remove('hidden');
 
             // Send OTP via AJAX POST
-            fetch('/consultation/send_otp/', {
+            fetch('/consultant/send_otp/', {
                 method: 'POST',
                 headers: {
                     'X-CSRFToken': getCookie('csrftoken'),
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            fetch('/consultation/verify_otp/', {
+            fetch('/consultant/verify_otp/', {
                 method: 'POST',
                 headers: {
                     'X-CSRFToken': getCookie('csrftoken'),
@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            fetch('/consultation/change_password/', {
+            fetch('/consultant/change_password/', {
                 method: 'POST',
                 headers: {
                     'X-CSRFToken': getCookie('csrftoken'),
