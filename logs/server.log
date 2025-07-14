@@ -3357,3 +3357,157 @@ django.db.utils.ProgrammingError: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 
 [2025-07-14 15:15:30,186] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
 [2025-07-14 15:15:31,283] WARNING django.request Not Found: /favicon.ico
 [2025-07-14 15:15:31,284] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-14 16:41:23,240] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-14 16:41:34,527] INFO django.server code 400, message Bad request version ('\x1a\x1a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063')
+[2025-07-14 16:41:34,528] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 16:41:34,536] INFO django.server code 400, message Bad request version ('\x00\x02\x01\x00\x00')
+[2025-07-14 16:41:34,536] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 16:41:34,550] INFO django.server code 400, message Bad request version ('W\x8c½\x0fQ\x12\x02§L{bÕ°Æq\x8a\x8dA\x88´\x0e\x11\x16î\x93òÈÇ\x98³Í=\x00')
+[2025-07-14 16:41:34,550] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 16:41:34,567] INFO django.server code 400, message Bad request version ('\x02h2\x08http/1.1\x00#\x00\x00\x003\x04ï\x04íêê\x00\x01\x00\x11ì\x04À\x95k\x97=\x93²G')
+[2025-07-14 16:41:34,568] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 16:47:11,077] INFO django.server code 400, message Bad request version ('p¹\x04äÛ\x9cÿnûð`Æ"U·³í£ü~ø¥\x01½b¦\x8f¶,D{ÂsmxX\x86{<V\x91íÐ«§\x822T±¢JF6éýp\x13r')
+[2025-07-14 16:47:11,077] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 16:47:11,088] INFO django.server code 400, message Bad request version ('¸ÄÑ²\x03')
+[2025-07-14 16:47:11,089] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 16:47:13,475] INFO django.server code 400, message Bad request version ('\x91át\x07ÁD\x99³}²è\x9cd>¤«i\x90øë0\x8a\x00-\x00\x02\x01\x01\x003\x04ï\x04íJJ\x00\x01\x00\x11ì\x04ÀM\x17')
+[2025-07-14 16:47:13,476] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 16:47:13,479] INFO django.server code 400, message Bad request version ('#itK¼8\x0f\x06\x19»õeY«Çc\x06)æ[s2<0Ãú2=9IJÀokbº£c*^HÃ')
+[2025-07-14 16:47:13,479] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 16:47:13,481] INFO django.server code 400, message Bad request version ('\x8cÏ13\x0exÑ$\\\x87ú\x9e(ÚxafùÝ>ÍFû=,\x93[\x8b\x1b¤ÆË{`þfâÙ\x84¡ÕÝ\x00')
+[2025-07-14 16:47:13,482] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 16:47:13,486] INFO django.server code 400, message Bad request version ('\x00\x02\x01\x00\x00+\x00\x07\x06JJ\x03\x04\x03\x03\x00')
+[2025-07-14 16:47:13,486] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 16:47:14,186] INFO django.server code 400, message Bad request version ('YÖ@\x11XÌÄ\x1bL\x84íx|oUADõB\x88\x06lº·NI«6Ê\x88*zà`·"8\x03Ë')
+[2025-07-14 16:47:14,187] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 16:47:14,187] INFO django.server code 400, message Bad request version ('g?±Ú¬¼[LE\x89ô_I\x95,#\x00')
+[2025-07-14 16:47:14,188] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 16:47:14,191] INFO django.server code 400, message Bad request version ('ZZ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063')
+[2025-07-14 16:47:14,191] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 16:47:14,191] INFO django.server code 400, message Bad request version ('éóB')
+[2025-07-14 16:47:14,192] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 16:51:50,657] INFO django.server code 400, message Bad request version ('\x02h2\x08http/1.1\x00-\x00\x02\x01\x01\x00\x1b\x00\x03\x02\x00\x02\x00')
+[2025-07-14 16:51:50,657] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 16:51:50,661] INFO django.server code 400, message Bad request version ('Äóm\x84è\x07F\x10à´v¼9\x84\x15Æ1£R\x82')
+[2025-07-14 16:51:50,662] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 16:51:50,663] INFO django.server code 400, message Bad request version ('jj\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93\x9a\x9a\x00\x00DÍ\x00\x05\x00\x03\x02h2\x00')
+[2025-07-14 16:51:50,664] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 16:51:50,667] INFO django.server code 400, message Bad request version ('@X\x8fàCÿbU')
+[2025-07-14 16:51:50,667] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 16:52:27,046] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-14 16:52:40,101] INFO django.server code 400, message Bad request version ('ç')
+[2025-07-14 16:52:40,102] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 16:52:40,105] INFO django.server code 400, message Bad request version ('\x1a\x1a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06s**\x00\x00\x00\x12\x00\x00\x00\x05\x00\x05\x01\x00\x00\x00\x00\x00\x1b\x00\x03\x02\x00\x02\x00\x17\x00\x00\x003\x04ï\x04í')
+[2025-07-14 16:52:40,106] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 16:56:32,402] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant_webapp\settings.py changed, reloading.
+[2025-07-14 16:56:35,353] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-14 16:56:38,456] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant_webapp\settings.py changed, reloading.
+[2025-07-14 16:56:40,401] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-14 16:56:43,863] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant_webapp\settings.py changed, reloading.
+[2025-07-14 16:56:46,260] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-14 16:57:17,192] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant_webapp\settings.py changed, reloading.
+[2025-07-14 16:57:19,249] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-14 16:57:28,508] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant_webapp\settings.py changed, reloading.
+[2025-07-14 16:57:30,776] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-14 16:57:37,563] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant_webapp\settings.py changed, reloading.
+[2025-07-14 16:57:40,199] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-14 16:57:46,264] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant_webapp\settings.py changed, reloading.
+[2025-07-14 16:57:49,504] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-14 17:00:21,958] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-14 17:00:34,655] INFO django.server code 400, message Bad request version ('£\x91¿\x8buwÀÓ')
+[2025-07-14 17:00:34,656] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 17:00:34,659] INFO django.server code 400, message Bad request version ('\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00\x17\x00\x00\x00')
+[2025-07-14 17:00:34,660] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 17:00:56,315] INFO django.server code 400, message Bad request version ('jj\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06Sºº\x00\x00\x003\x04ï\x04í')
+[2025-07-14 17:00:56,316] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 17:00:56,322] INFO django.server code 400, message Bad request version ('7U\x9b')
+[2025-07-14 17:00:56,324] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 17:01:09,997] INFO django.server "GET / HTTP/1.1" 200 39785
+[2025-07-14 17:01:10,172] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-14 17:01:15,617] WARNING django.request Not Found: /favicon.ico
+[2025-07-14 17:01:15,619] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-14 17:01:33,675] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-14 17:01:33,920] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 23073
+[2025-07-14 17:01:33,955] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-14 17:01:34,005] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-14 17:01:41,044] INFO django.server "GET /auth/consultant_list/ HTTP/1.1" 200 31625
+[2025-07-14 17:01:41,083] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-14 17:01:49,290] INFO django.server "GET /auth/change_consultant_status/2/ HTTP/1.1" 200 206
+[2025-07-14 17:01:56,286] INFO django.server "GET /auth/consultant_profile/2/ HTTP/1.1" 200 24702
+[2025-07-14 17:02:28,436] INFO django.server "GET /auth/consultant_list/ HTTP/1.1" 200 31625
+[2025-07-14 17:02:28,476] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-14 17:02:35,653] INFO django.server "GET /auth/consultant_profile/2/ HTTP/1.1" 200 24702
+[2025-07-14 17:02:46,619] INFO django.server "GET /auth/consultant_list/ HTTP/1.1" 200 31625
+[2025-07-14 17:02:46,655] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-14 17:02:52,685] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 24404
+[2025-07-14 17:02:52,713] INFO django.server "GET /static/custom_admin/js/admin_invoices.js HTTP/1.1" 200 2820
+[2025-07-14 17:02:56,146] INFO django.server "GET /auth/booking_management/ HTTP/1.1" 200 18945
+[2025-07-14 17:03:07,055] INFO django.server "GET / HTTP/1.1" 200 39785
+[2025-07-14 17:06:12,256] INFO django.server "GET /auth/consultant_list/ HTTP/1.1" 200 31625
+[2025-07-14 17:06:12,284] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
+[2025-07-14 17:06:12,289] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
+[2025-07-14 17:06:12,298] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-14 17:06:12,307] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
+[2025-07-14 17:06:19,790] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 24404
+[2025-07-14 17:06:19,819] INFO django.server "GET /static/custom_admin/js/admin_invoices.js HTTP/1.1" 304 0
+[2025-07-14 17:06:22,639] INFO django.server "GET /auth/consultant_list/ HTTP/1.1" 200 31625
+[2025-07-14 17:06:22,673] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-14 17:06:35,581] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-14 17:06:35,785] INFO django.server "GET /consultant/consultant_dashboard/ HTTP/1.1" 200 17218
+[2025-07-14 17:07:00,274] INFO django.server "GET /consultant/consultant_timesheet/ HTTP/1.1" 200 44813
+[2025-07-14 17:07:08,516] INFO django.server "GET /consultant/consultant_timesheet/?year=2025&month=07&mode=manual HTTP/1.1" 200 45215
+[2025-07-14 17:07:19,129] INFO django.server "GET /consultant/consultant_timesheet/?year=2025&month=08&mode=manual HTTP/1.1" 200 41261
+[2025-07-14 17:07:34,063] INFO django.server "GET /consultant/consultant_timesheet/ HTTP/1.1" 200 44813
+[2025-07-14 17:08:37,497] INFO django.server "GET /consultant/consultant_timesheet/?year=2025&month=07&mode=manual HTTP/1.1" 200 45215
+[2025-07-14 17:08:51,835] INFO django.server "GET /consultant/consultant_timesheet/?year=2025&month=07&mode=upload HTTP/1.1" 200 44813
+[2025-07-14 17:08:51,864] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
+[2025-07-14 17:08:51,867] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
+[2025-07-14 17:08:51,868] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
+[2025-07-14 17:08:55,776] INFO django.server "GET /consultant/consultant_timesheet/?year=2025&month=07&mode=manual HTTP/1.1" 200 45215
+[2025-07-14 17:08:59,287] INFO django.server "GET /consultant/consultant_timesheet/?year=2025&month=08&mode=manual HTTP/1.1" 200 41261
+[2025-07-14 17:11:47,636] INFO django.server "GET /consultant/consultant_invoice/ HTTP/1.1" 200 23406
+[2025-07-14 17:11:47,669] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
+[2025-07-14 17:11:47,670] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
+[2025-07-14 17:11:47,680] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
+[2025-07-14 17:11:47,698] WARNING django.server "GET /static/consultant/js/consultant_invoice.js HTTP/1.1" 404 1864
+[2025-07-14 17:12:17,080] INFO django.server "POST /consultant/consultant_invoice/ HTTP/1.1" 200 26775
+[2025-07-14 17:12:17,109] WARNING django.server "GET /static/consultant/js/consultant_invoice.js HTTP/1.1" 404 1864
+[2025-07-14 17:12:29,805] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 27808
+[2025-07-14 17:12:29,851] INFO django.server "GET /static/custom_admin/js/admin_invoices.js HTTP/1.1" 304 0
+[2025-07-14 17:12:40,412] INFO django.server "POST /auth/update_invoice_status/1/ HTTP/1.1" 200 68
+[2025-07-14 17:12:45,401] INFO django.server "POST /auth/update_invoice_status/1/ HTTP/1.1" 200 68
+[2025-07-14 17:13:04,553] INFO django.server "GET /auth/consultant_list/ HTTP/1.1" 200 31626
+[2025-07-14 17:13:04,595] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-14 17:16:42,462] INFO django.server "GET /auth/timesheet/ HTTP/1.1" 200 18834
+[2025-07-14 17:16:42,495] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
+[2025-07-14 17:16:42,506] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
+[2025-07-14 17:16:42,514] INFO django.server "GET /static/custom_admin/js/timesheet.js HTTP/1.1" 200 6787
+[2025-07-14 17:16:42,516] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
+[2025-07-14 17:16:46,485] INFO django.server "GET /auth/timesheet/?consultant_id=2&year=2025&month=07 HTTP/1.1" 200 23932
+[2025-07-14 17:18:14,162] INFO django.server "GET /consultant/consultant_invoice/ HTTP/1.1" 200 26648
+[2025-07-14 17:18:14,207] WARNING django.server "GET /static/consultant/js/consultant_invoice.js HTTP/1.1" 404 1864
+[2025-07-14 17:19:35,566] INFO django.server "GET /consultant/consultant_profile/2/ HTTP/1.1" 200 33816
+[2025-07-14 17:19:41,851] INFO django.server "GET /consultant/consultant_profile/2/ HTTP/1.1" 200 39
+[2025-07-14 17:19:52,155] INFO django.server "POST /consultant/send_otp/ HTTP/1.1" 200 48
+[2025-07-14 17:19:53,249] INFO django.server "POST /consultant/send_otp/ HTTP/1.1" 200 53
+[2025-07-14 17:20:05,250] INFO django.server "GET /auth/consultant_list/ HTTP/1.1" 200 31626
+[2025-07-14 17:20:05,285] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-14 17:20:07,410] INFO django.server "GET /auth/consultant_profile/2/ HTTP/1.1" 200 16392
+[2025-07-14 17:22:50,641] INFO django.server code 400, message Bad request version ('\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00')
+[2025-07-14 17:22:50,641] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 17:22:50,644] INFO django.server code 400, message Bad request version ('\x89\x02')
+[2025-07-14 17:22:50,645] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 17:22:57,644] INFO django.server code 400, message Bad request version ('þ\x14')
+[2025-07-14 17:22:57,645] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 17:22:57,650] INFO django.server code 400, message Bad request version ('\x9e´Dæ&7«S\x0e£ãDOh"«%\x98CPt×Ö7Í7\x83Ù@RÍr\x0636\x02\x9a\x15T')
+[2025-07-14 17:22:57,651] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 17:23:27,203] INFO django.server code 400, message Bad request version ('\x87¥uY\x01')
+[2025-07-14 17:23:27,204] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 17:23:27,210] INFO django.server code 400, message Bad request version ('\x02h2\x08http/1.1\x00+\x00\x07\x06::\x03\x04\x03\x03DÍ\x00\x05\x00\x03\x02h2\x00\x1b\x00\x03\x02\x00\x02\x003\x04ï\x04íjj\x00\x01\x00\x11ì\x04À3Ë\x1aßù\x8eü:\x11|èU+àÉîlz\x81i©¬Ü+Àæ\x12\x9fTÃç:d\x88`')
+[2025-07-14 17:23:27,211] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 17:23:37,165] INFO django.server code 400, message Bad request version ('iþEp\x80ô\x86')
+[2025-07-14 17:23:37,167] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 17:23:37,171] INFO django.server code 400, message Bad request version ('\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00\x12\x00\x00ÿ\x01\x00\x01\x00\x00\x17\x00\x00\x00-\x00\x02\x01\x01\x00')
+[2025-07-14 17:23:37,171] ERROR django.server You're accessing the development server over HTTPS, but it only supports HTTP.
+[2025-07-14 17:26:00,003] INFO django.server "GET / HTTP/1.1" 200 39785
+[2025-07-14 17:26:00,140] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
