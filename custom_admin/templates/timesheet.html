@@ -48,6 +48,7 @@
                     <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
                     <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Start Time</th>
                     <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">End Time</th>
+                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Project Name</th>
                     <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Task Name</th>
                     <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                 </tr>
@@ -63,6 +64,27 @@
     </div>
     <div id="save-feedback" class="mt-2 text-sm"></div>
     <div id="save-loading" class="mt-2 text-sm text-blue-600 hidden">Saving...</div>
+
+    <!-- Project Hours Summary Table -->
+    {% if project_hours_summary %}
+    <h2 class="mt-8 text-xl font-semibold">Project Hours Summary</h2>
+    <table class="min-w-full divide-y divide-gray-200 border border-gray-300 rounded text-black mt-2">
+        <thead class="bg-gray-50 text-black">
+            <tr>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Project Name</th>
+                <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Hours</th>
+            </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-black-200 text-black">
+            {% for project in project_hours_summary %}
+            <tr>
+                <td class="px-4 py-2">{{ project.project_name }}</td>
+                <td class="px-4 py-2">{{ project.total_hours|floatformat:2 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
     {% elif selected_consultant %}
     <p>No timesheet found for the selected period.</p>
     {% endif %}

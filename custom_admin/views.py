@@ -95,71 +95,120 @@ def timesheet(request):
                 selected_timesheet = timesheets.filter(month__year=selected_month.year, month__month=selected_month.month).first()
             except ValueError:
                 selected_timesheet = timesheets.first()
-
-            if selected_timesheet:
-                try:
-                    with selected_timesheet.file.open('r') as csv_file:
-                        csv_data = csv_file.read()
-                    f = StringIO(csv_data)
-                    reader = csv.DictReader(f)
-                    rows_found = False
-                    timesheet_entries = []
-                    for row in reader:
-                        rows_found = True
-                        normalized_row = {k.strip().lower(): v for k, v in row.items()}
-                        task_name_keys = ['task name', 'task_name', 'task', 'name']
-                        task_name_value = ''
-                        for key in task_name_keys:
-                            if key in normalized_row:
-                                task_name_value = normalized_row[key]
-                                break
-                        raw_date = normalized_row.get('date')
-                        iso_date = ''
-                        if raw_date:
-                            try:
-                                parsed_date = None
-                                for fmt in ('%d-%m-%Y', '%Y-%m-%d', '%m/%d/%Y'):
-                                    try:
-                                        parsed_date = datetime.strptime(raw_date, fmt).date()
-                                        break
-                                    except ValueError:
-                                        continue
-                                if parsed_date:
-                                    iso_date = parsed_date.isoformat()
-                                else:
-                                    iso_date = raw_date
-                            except Exception:
-                                iso_date = raw_date
-                        entry = {
-                            'date': iso_date,
-                            'start_time': normalized_row.get('start time') or normalized_row.get('start_time'),
-                            'end_time': normalized_row.get('end time') or normalized_row.get('end_time'),
-                            'task_name': task_name_value,
-                            'description': normalized_row.get('description'),
-                        }
-                        timesheet_entries.append(entry)
-                    if not rows_found:
-                        # Provide default sample data if CSV is empty
-                        timesheet_entries = [
-                            {
-                                'date': datetime.today().date().isoformat(),
-                                'start_time': '09:00',
-                                'end_time': '17:00',
-                                'task_name': 'Sample Task 1',
-                                'description': 'Sample description 1',
-                            },
-                            {
-                                'date': datetime.today().date().isoformat(),
-                                'start_time': '10:00',
-                                'end_time': '18:00',
-                                'task_name': 'Sample Task 2',
-                                'description': 'Sample description 2',
-                            },
-                        ]
-                except Exception as e:
-                    logger.error(f"Error reading timesheet CSV file: {str(e)}")
         except User.DoesNotExist:
             selected_consultant = None
+
+    if selected_timesheet:
+        try:
+            with selected_timesheet.file.open('r') as csv_file:
+                csv_data = csv_file.read()
+            f = StringIO(csv_data)
+            reader = csv.DictReader(f)
+            rows_found = False
+            timesheet_entries = []
+            for row in reader:
+                rows_found = True
+                normalized_row = {k.strip().lower(): v for k, v in row.items()}
+                task_name_keys = ['task name', 'task_name', 'task', 'name']
+                task_name_value = ''
+                for key in task_name_keys:
+                    if key in normalized_row:
+                        task_name_value = normalized_row[key]
+                        break
+                raw_date = normalized_row.get('date')
+                iso_date = ''
+                if raw_date:
+                    try:
+                        parsed_date = None
+                        for fmt in ('%d-%m-%Y', '%Y-%m-%d', '%m/%d/%Y'):
+                            try:
+                                parsed_date = datetime.strptime(raw_date, fmt).date()
+                                break
+                            except ValueError:
+                                continue
+                        if parsed_date:
+                            iso_date = parsed_date.isoformat()
+                        else:
+                            iso_date = raw_date
+                    except Exception:
+                        iso_date = raw_date
+                raw_hours = normalized_row.get('hours worked')
+                start_time_str = normalized_row.get('start time') or normalized_row.get('start_time')
+                end_time_str = normalized_row.get('end time') or normalized_row.get('end_time')
+                hours_worked = 0.0
+                try:
+                    if raw_hours not in (None, ''):
+                        hours_worked = float(raw_hours)
+                    else:
+                        from datetime import datetime as dt
+                        fmt_24 = '%H:%M'
+                        fmt_12 = '%I:%M %p'
+                        def parse_time(t):
+                            for fmt in (fmt_24, fmt_12):
+                                try:
+                                    return dt.strptime(t, fmt)
+                                except Exception:
+                                    continue
+                            return None
+                        start_dt = parse_time(start_time_str) if start_time_str else None
+                        end_dt = parse_time(end_time_str) if end_time_str else None
+                        if start_dt and end_dt:
+                            delta = end_dt - start_dt
+                            hours_worked = delta.total_seconds() / 3600
+                            if hours_worked < 0:
+                                hours_worked += 24
+                except (ValueError, TypeError):
+                    logger.warning(f"Invalid hours_worked value '{raw_hours}' in timesheet CSV, defaulting to 0")
+                    hours_worked = 0.0
+                entry = {
+                    'date': iso_date,
+                    'start_time': start_time_str,
+                    'end_time': end_time_str,
+                    'project_name': normalized_row.get('project name') or normalized_row.get('project_name') or '',
+                    'hours_worked': hours_worked,
+                    'task_name': task_name_value,
+                    'description': normalized_row.get('description'),
+                }
+                timesheet_entries.append(entry)
+            if not rows_found:
+                # Provide default sample data if CSV is empty
+                timesheet_entries = [
+                    {
+                        'date': datetime.today().date().isoformat(),
+                        'start_time': '09:00',
+                        'end_time': '17:00',
+                        'task_name': 'Sample Task 1',
+                        'description': 'Sample description 1',
+                    },
+                    {
+                        'date': datetime.today().date().isoformat(),
+                        'start_time': '10:00',
+                        'end_time': '18:00',
+                        'task_name': 'Sample Task 2',
+                        'description': 'Sample description 2',
+                    },
+                ]
+        except Exception as e:
+            logger.error(f"Error reading timesheet CSV file: {str(e)}")
+        except User.DoesNotExist:
+            selected_consultant = None
+
+    # Calculate total hours per project
+    project_hours_summary = {}
+    for entry in timesheet_entries:
+        project = entry.get('project_name') or ''
+        try:
+            raw_hours = entry.get('hours_worked')
+            if isinstance(raw_hours, str):
+                raw_hours = raw_hours.replace(',', '').strip()
+            hours = float(raw_hours) if raw_hours not in (None, '') else 0
+        except (ValueError, TypeError):
+            logger.warning(f"Invalid hours_worked value '{entry.get('hours_worked')}' for project '{project}', defaulting to 0")
+            hours = 0
+        project_hours_summary[project] = project_hours_summary.get(project, 0) + hours
+
+    # Convert to list of dicts for template
+    project_hours_list = [{'project_name': k, 'total_hours': v} for k, v in project_hours_summary.items() if k]
 
     context = {
         'consultants': consultants,
@@ -171,6 +220,7 @@ def timesheet(request):
         'selected_month': selected_month_str,
         'year_options': year_options,
         'month_options': month_options,
+        'project_hours_summary': project_hours_list,
     }
     return render(request, 'timesheet.html', context)
 

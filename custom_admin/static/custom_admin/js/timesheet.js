@@ -39,6 +39,15 @@ document.addEventListener('DOMContentLoaded', () => {
       endTd.appendChild(endInput);
       tr.appendChild(endTd);
 
+      // Project Name
+      const projectTd = document.createElement('td');
+      const projectInput = document.createElement('input');
+      projectInput.type = 'text';
+      projectInput.className = 'w-full border border-gray-300 rounded px-2 py-1 text-black';
+      projectInput.value = entry.project_name || '';
+      projectTd.appendChild(projectInput);
+      tr.appendChild(projectTd);
+
       // Task Name
       const taskTd = document.createElement('td');
       const taskInput = document.createElement('input');
@@ -108,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
           date: inputs[0].value,
           start_time: inputs[1].value,
           end_time: inputs[2].value,
+          project_name: inputs[4].value,
           task_name: inputs[3].value
         };
       });

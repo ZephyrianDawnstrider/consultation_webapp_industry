@@ -269,6 +269,7 @@
             <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Date</th>
             <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Start Time (in 24 hour format)</th>
             <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">End Time (in 24 hour format)</th>
+            <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Project Name</th>
             <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Task Name</th>
             <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Actions</th>
           </tr>
@@ -289,7 +290,7 @@
   </div>
     <div class="bg-gray-50 rounded-lg shadow p-6 mt-10">
       <h2 class="text-xl font-semibold mb-4">Timesheet History</h2>
-      {% if timesheets %}
+      {% if timesheets %} 
       <table class="min-w-full divide-y divide-gray-200">
         <thead class="bg-gray-50">
           <tr>
@@ -315,6 +316,30 @@
       </table>
       {% else %}
       <p>No timesheets found.</p>
+      {% endif %}
+    </div>
+
+    <div class="bg-gray-50 rounded-lg shadow p-6 mt-10">
+      <h2 class="text-xl font-semibold mb-4">Project Hours Summary</h2>
+      {% if project_hours_summary %}
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Project Name</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Hours</th>
+          </tr>
+        </thead>
+        <tbody class="bg-gray-50 divide-y divide-gray-200">
+          {% for project in project_hours_summary %}
+          <tr>
+            <td class="px-6 py-4 whitespace-nowrap">{{ project.project_name }}</td>
+            <td class="px-6 py-4 whitespace-nowrap">{{ project.total_hours|floatformat:2 }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p>No project hours data available.</p>
       {% endif %}
     </div>
 <script>
@@ -615,42 +640,51 @@ document.addEventListener('DOMContentLoaded', () => {
       return tr;
     }
 
-    // Manual mode: editable inputs and delete button
-    // Date
-    const dateTd = document.createElement('td');
-    const dateInput = document.createElement('input');
-    dateInput.type = 'date';
-    dateInput.className = 'w-full border border-gray-300 rounded px-2 py-1';
-    dateInput.value = entry.date || '';
-    dateTd.appendChild(dateInput);
-    tr.appendChild(dateTd);
+      // Manual mode: editable inputs and delete button
+      // Date
+      const dateTd = document.createElement('td');
+      const dateInput = document.createElement('input');
+      dateInput.type = 'date';
+      dateInput.className = 'w-full border border-gray-300 rounded px-2 py-1';
+      dateInput.value = entry.date || '';
+      dateTd.appendChild(dateInput);
+      tr.appendChild(dateTd);
 
-    // Start Time
-    const startTd = document.createElement('td');
-    const startInput = document.createElement('input');
-    startInput.type = 'time';
-    startInput.className = 'w-full border border-gray-300 rounded px-2 py-1';
-    startInput.value = entry.start_time || '';
-    startTd.appendChild(startInput);
-    tr.appendChild(startTd);
+      // Start Time
+      const startTd = document.createElement('td');
+      const startInput = document.createElement('input');
+      startInput.type = 'time';
+      startInput.className = 'w-full border border-gray-300 rounded px-2 py-1';
+      startInput.value = entry.start_time || '';
+      startTd.appendChild(startInput);
+      tr.appendChild(startTd);
 
-    // End Time
-    const endTd = document.createElement('td');
-    const endInput = document.createElement('input');
-    endInput.type = 'time';
-    endInput.className = 'w-full border border-gray-300 rounded px-2 py-1';
-    endInput.value = entry.end_time || '';
-    endTd.appendChild(endInput);
-    tr.appendChild(endTd);
+      // End Time
+      const endTd = document.createElement('td');
+      const endInput = document.createElement('input');
+      endInput.type = 'time';
+      endInput.className = 'w-full border border-gray-300 rounded px-2 py-1';
+      endInput.value = entry.end_time || '';
+      endTd.appendChild(endInput);
+      tr.appendChild(endTd);
 
-    // Task Name
-    const taskTd = document.createElement('td');
-    const taskInput = document.createElement('input');
-    taskInput.type = 'text';
-    taskInput.className = 'w-full border border-gray-300 rounded px-2 py-1';
-    taskInput.value = entry.task_name || '';
-    taskTd.appendChild(taskInput);
-    tr.appendChild(taskTd);
+      // Project Name
+      const projectTd = document.createElement('td');
+      const projectInput = document.createElement('input');
+      projectInput.type = 'text';
+      projectInput.className = 'w-full border border-gray-300 rounded px-2 py-1';
+      projectInput.value = entry.project_name || '';
+      projectTd.appendChild(projectInput);
+      tr.appendChild(projectTd);
+
+      // Task Name
+      const taskTd = document.createElement('td');
+      const taskInput = document.createElement('input');
+      taskInput.type = 'text';
+      taskInput.className = 'w-full border border-gray-300 rounded px-2 py-1';
+      taskInput.value = entry.task_name || '';
+      taskTd.appendChild(taskInput);
+      tr.appendChild(taskTd);
 
     // Actions
     const actionsTd = document.createElement('td');
@@ -701,7 +735,8 @@ document.addEventListener('DOMContentLoaded', () => {
           date: inputs[0].value,
           start_time: inputs[1].value,
           end_time: inputs[2].value,
-          task_name: inputs[3].value
+          project_name: inputs[3].value,
+          task_name: inputs[4].value
         };
       });
 
