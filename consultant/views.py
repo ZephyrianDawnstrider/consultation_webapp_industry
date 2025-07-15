@@ -155,11 +155,42 @@ def consultant_timesheet(request):
                     if key in normalized_row:
                         task_name_value = normalized_row[key]
                         break
+                raw_hours = normalized_row.get('hours worked')
+                start_time_str = normalized_row.get('start time')
+                end_time_str = normalized_row.get('end time')
+                hours_worked = 0.0
+                try:
+                    if raw_hours not in (None, ''):
+                        hours_worked = float(raw_hours)
+                    else:
+                        # Calculate hours worked from start and end time if possible
+                        from datetime import datetime as dt
+                        fmt_24 = '%H:%M'
+                        fmt_12 = '%I:%M %p'
+                        def parse_time(t):
+                            for fmt in (fmt_24, fmt_12):
+                                try:
+                                    return dt.strptime(t, fmt)
+                                except Exception:
+                                    continue
+                            return None
+                        start_dt = parse_time(start_time_str) if start_time_str else None
+                        end_dt = parse_time(end_time_str) if end_time_str else None
+                        if start_dt and end_dt:
+                            delta = end_dt - start_dt
+                            hours_worked = delta.total_seconds() / 3600
+                            if hours_worked < 0:
+                                # If negative, assume end time is on next day
+                                hours_worked += 24
+                except (ValueError, TypeError):
+                    logger.warning(f"Invalid hours_worked value '{raw_hours}' in timesheet CSV, defaulting to 0")
+                    hours_worked = 0.0
                 entry = {
                     'date': normalized_row.get('date'),
-                    'start_time': normalized_row.get('start time'),
-                    'end_time': normalized_row.get('end time'),
-                    'hours_worked': normalized_row.get('hours worked'),
+                    'start_time': start_time_str,
+                    'end_time': end_time_str,
+                    'project_name': normalized_row.get('project name') or normalized_row.get('project_name') or '',
+                    'hours_worked': hours_worked,
                     'task_name': task_name_value,
                     'description': normalized_row.get('description'),
                 }
@@ -169,6 +200,24 @@ def consultant_timesheet(request):
             logger.info(f"Loaded {len(timesheet_entries)} timesheet entries")
         except Exception as e:
             logger.error(f"Error reading timesheet CSV file: {str(e)}")
+
+    # Calculate total hours per project
+    project_hours_summary = {}
+    for entry in timesheet_entries:
+        project = entry.get('project_name') or ''
+        try:
+            # If hours_worked is a string with comma or other formatting, clean it
+            raw_hours = entry.get('hours_worked')
+            if isinstance(raw_hours, str):
+                raw_hours = raw_hours.replace(',', '').strip()
+            hours = float(raw_hours) if raw_hours not in (None, '') else 0
+        except (ValueError, TypeError):
+            logger.warning(f"Invalid hours_worked value '{entry.get('hours_worked')}' for project '{project}', defaulting to 0")
+            hours = 0
+        project_hours_summary[project] = project_hours_summary.get(project, 0) + hours
+
+    # Convert to list of dicts for template
+    project_hours_list = [{'project_name': k, 'total_hours': v} for k, v in project_hours_summary.items() if k]
 
     context = {
         'current_page': 'Consultant Timesheet',
@@ -180,6 +229,7 @@ def consultant_timesheet(request):
         'mode': mode,
         'selected_year': selected_year_str,
         'selected_month': selected_month_str,
+        'project_hours_summary': project_hours_list,
     }
     return render(request, 'consultant_timesheet.html', context)
 
@@ -225,6 +275,57 @@ def save_timesheet_entries(request):
             logger.error("Duplicate time duration entries found for the same day")
             return JsonResponse({'success': False, 'message': 'Duplicate time duration entries for the same day are not allowed.'})
 
+        # New validation: For same task name on same date, start time of second entry should be > end time of previous entry
+        from datetime import datetime as dt
+
+        def validate_task_time_entries(entries):
+            # Group entries by date and task name
+            grouped = {}
+            for entry in entries:
+                date = entry.get('date')
+                task_name = entry.get('task_name')
+                start_time = entry.get('start_time')
+                end_time = entry.get('end_time')
+                if not date or not task_name or not start_time or not end_time:
+                    continue
+                key = (date, task_name)
+                if key not in grouped:
+                    grouped[key] = []
+                grouped[key].append((start_time, end_time))
+
+            # For each group, sort by start time and check start > previous end
+            for key, times in grouped.items():
+                # Convert times to datetime.time for comparison
+                def parse_time(t):
+                    try:
+                        return dt.strptime(t, '%I:%M %p').time()
+                    except ValueError:
+                        try:
+                            return dt.strptime(t, '%H:%M').time()
+                        except ValueError:
+                            return None
+
+                parsed_times = []
+                for st, et in times:
+                    pst = parse_time(st)
+                    pet = parse_time(et)
+                    if pst is None or pet is None:
+                        continue
+                    parsed_times.append((pst, pet))
+
+                # Sort by start time
+                parsed_times.sort(key=lambda x: x[0])
+
+                for i in range(1, len(parsed_times)):
+                    if parsed_times[i][0] <= parsed_times[i-1][1]:
+                        return False, f"Start time {parsed_times[i][0]} is not after end time {parsed_times[i-1][1]} for task '{key[1]}' on date {key[0]}"
+            return True, ""
+
+        valid, error_msg = validate_task_time_entries(entries)
+        if not valid:
+            logger.error(f"Time validation error: {error_msg}")
+            return JsonResponse({'success': False, 'message': error_msg})
+
         if timesheet_id:
             timesheet = Timesheet.objects.get(id=timesheet_id, consultant=user)
         else:
@@ -252,7 +353,7 @@ def save_timesheet_entries(request):
                 timesheet.file.name = file_path
 
         output = StringIO()
-        fieldnames = ['Date', 'Start Time', 'End Time', 'Hours Worked', 'Task Name', 'Description']
+        fieldnames = ['Date', 'Start Time', 'End Time', 'Project name', 'Hours Worked', 'Task Name', 'Description']
         writer = csv.DictWriter(output, fieldnames=fieldnames)
         writer.writeheader()
 
@@ -261,6 +362,7 @@ def save_timesheet_entries(request):
                 'Date': entry.get('date', ''),
                 'Start Time': entry.get('start_time', ''),
                 'End Time': entry.get('end_time', ''),
+                'Project name': entry.get('project_name', ''),
                 'Hours Worked': entry.get('hours_worked', ''),
                 'Task Name': entry.get('task_name', ''),
                 'Description': entry.get('description', ''),
@@ -333,6 +435,7 @@ def upload_timesheet(request, consultant_id):
                     date = str(row.get('Date') or row.get('date'))
                     start_time = str(row.get('Start Time') or row.get('start_time'))
                     end_time = str(row.get('End Time') or row.get('end_time'))
+                    project_name = str(row.get('Project name') or row.get('project_name') or '')
                     if not date or not start_time or not end_time:
                         continue
                     key = (date, start_time, end_time)
@@ -345,6 +448,55 @@ def upload_timesheet(request, consultant_id):
                 default_storage.delete(temp_path)
                 logger.error("Duplicate time duration entries found in uploaded Excel file")
                 return JsonResponse({'success': False, 'message': 'Duplicate time duration entries for the same day are not allowed in the uploaded file.'})
+
+            # New validation: For same task name on same date, start time of second entry should be > end time of previous entry
+            def validate_task_time_entries_df(df):
+                from datetime import datetime as dt
+
+                grouped = {}
+                for _, row in df.iterrows():
+                    date = str(row.get('Date') or row.get('date'))
+                    project_name = str(row.get('Project name') or row.get('project_name') or '')
+                    task_name = str(row.get('Task Name') or row.get('task_name') or row.get('task') or row.get('name'))
+                    start_time = str(row.get('Start Time') or row.get('start_time'))
+                    end_time = str(row.get('End Time') or row.get('end_time'))
+                    if not date or not task_name or not start_time or not end_time:
+                        continue
+                    key = (date, project_name, task_name)
+                    if key not in grouped:
+                        grouped[key] = []
+                    grouped[key].append((start_time, end_time))
+
+                def parse_time(t):
+                    try:
+                        return dt.strptime(t, '%I:%M %p').time()
+                    except ValueError:
+                        try:
+                            return dt.strptime(t, '%H:%M').time()
+                        except ValueError:
+                            return None
+
+                for key, times in grouped.items():
+                    parsed_times = []
+                    for st, et in times:
+                        pst = parse_time(st)
+                        pet = parse_time(et)
+                        if pst is None or pet is None:
+                            continue
+                        parsed_times.append((pst, pet))
+
+                    parsed_times.sort(key=lambda x: x[0])
+
+                    for i in range(1, len(parsed_times)):
+                        if parsed_times[i][0] <= parsed_times[i-1][1]:
+                            return False, f"Start time {parsed_times[i][0]} is not after end time {parsed_times[i-1][1]} for task '{key[2]}' on date {key[0]}"
+                return True, ""
+
+            valid, error_msg = validate_task_time_entries_df(df)
+            if not valid:
+                default_storage.delete(temp_path)
+                logger.error(f"Time validation error in uploaded Excel file: {error_msg}")
+                return JsonResponse({'success': False, 'message': error_msg})
 
             csv_buffer = BytesIO()
             df.to_csv(csv_buffer, index=False)
