@@ -400,3 +400,18 @@
 [2025-07-15 09:33:14,490] INFO general.views Login attempt for email: ayushchaturvedi405@gmail.com
 [2025-07-15 09:33:14,693] INFO general.views User found: ayushchaturvedi405@gmail.com with role consultant
 [2025-07-15 09:33:14,771] INFO general.views Consultant user ayushchaturvedi405@gmail.com logged in successfully.
+[2025-07-15 10:16:34,098] INFO general.views Login attempt for email: anantika@chlsoftech.com
+[2025-07-15 10:16:34,210] INFO general.views User found: anantika@chlsoftech.com with role consultant
+[2025-07-15 10:16:34,312] WARNING general.views Consultant user anantika@chlsoftech.com failed password check.
+[2025-07-15 10:16:42,333] INFO general.views Login attempt for email: anantika@chlsoftech.com
+[2025-07-15 10:16:42,406] INFO general.views User found: anantika@chlsoftech.com with role consultant
+[2025-07-15 10:16:42,407] WARNING general.views Consultant user anantika@chlsoftech.com failed password check.
+[2025-07-15 10:16:47,728] INFO general.views Login attempt for email: anantika@chlsoftech.com
+[2025-07-15 10:16:47,795] INFO general.views User found: anantika@chlsoftech.com with role consultant
+[2025-07-15 10:16:47,797] WARNING general.views Consultant user anantika@chlsoftech.com failed password check.
+[2025-07-15 10:17:17,135] INFO general.views Login attempt for email: anantika@chlsoftech.com
+[2025-07-15 10:17:17,221] INFO general.views User found: anantika@chlsoftech.com with role consultant
+[2025-07-15 10:17:17,343] INFO general.views Consultant user anantika@chlsoftech.com logged in successfully.
+[2025-07-15 10:52:42,029] INFO general.views Login attempt for email: ayushchaturvedi405@gmail.com
+[2025-07-15 10:52:42,094] INFO general.views User found: ayushchaturvedi405@gmail.com with role consultant
+[2025-07-15 10:52:42,193] INFO general.views Consultant user ayushchaturvedi405@gmail.com logged in successfully.

@@ -1611,3 +1611,18 @@ def booking_detail(request, booking_id):
     }
     return render(request, 'booking_detail.html', context)
 
+@login_required
+@csrf_exempt
+@require_POST
+def delete_booking(request, booking_id):
+    """
+    Delete a booking by ID.
+    """
+    from general.models import consultantBooking
+    try:
+        booking = consultantBooking.objects.get(id=booking_id)
+        booking.delete()
+        return JsonResponse({'success': True, 'message': 'Booking deleted successfully.'})
+    except consultantBooking.DoesNotExist:
+        return JsonResponse({'success': False, 'message': 'Booking not found.'}, status=404)
+
