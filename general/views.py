@@ -9,7 +9,7 @@ from django.contrib.auth import get_user_model
 from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
 from django.core.mail import send_mail
-from general.forms import consultantBookingForm
+from general.forms import ProspectiveConsultantForm
 
 logger = logging.getLogger(__name__)
 User = get_user_model()
@@ -69,32 +69,32 @@ def login_view(request):
 @csrf_exempt
 @require_http_methods(["POST"])
 def book_consultant(request):
-    form = consultantBookingForm(request.POST)
+    form = ProspectiveConsultantForm(request.POST)
     if form.is_valid():
-        booking = form.save(commit=False)
-        consultant_field = booking.consultant_field
-        if consultant_field == 'Other' and booking.other_consultant_field:
-            consultant_field = booking.other_consultant_field
-        booking.save()
+        prospective_consultant = form.save(commit=False)
+        consultant_field = prospective_consultant.consultant_field
+        if consultant_field == 'Other' and prospective_consultant.other_consultant_field:
+            consultant_field = prospective_consultant.other_consultant_field
+        prospective_consultant.save()
 
         # Send booking details to admin email
         admin_email = "1ayushchaturvedi@gmail.com"
-        subject = 'New Consultant Booking'
+        subject = 'New Prospective Consultant Request'
         message = f"""
-New consultant booking details:
+New prospective consultant details:
 
-Name: {booking.name}
-Email: {booking.email}
-Phone: {booking.phone}
+Name: {prospective_consultant.name}
+Email: {prospective_consultant.email}
+Phone: {prospective_consultant.phone}
 Consultant Field: {consultant_field}
 """
         send_mail(subject, message, admin_email, [admin_email])
 
         # Send confirmation email to user
-        user_subject = "Booking Confirmation"
-        user_message = f"Dear {booking.name},\n\nThank you for booking a consultation with us. We have received your inquiry and will get back to you shortly.\n\nBest regards,\nCHL Softech Team"
-        send_mail(user_subject, user_message, admin_email, [booking.email])
+        user_subject = "Request Confirmation"
+        user_message = f"Dear {prospective_consultant.name},\n\nThank you for your interest. We have received your request and will get back to you shortly.\n\nBest regards,\nCHL Softech Team"
+        send_mail(user_subject, user_message, admin_email, [prospective_consultant.email])
 
-        return JsonResponse({'success': True, 'message': 'Booking submitted successfully.'})
+        return JsonResponse({'success': True, 'message': 'Request submitted successfully.'})
     else:
         return JsonResponse({'success': False, 'errors': form.errors})
