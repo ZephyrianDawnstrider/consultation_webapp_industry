@@ -107,15 +107,15 @@
                 <span class="sidebar-text ml-3">Invoice Management</span>
             </a>
 
-            <a href="{% url 'custom_admin:booking_management' %}" class="menu-item flex items-center px-4 py-3 mt-2 rounded-lg mx-2 {% if current_page == 'Booking Management' %}active-menu{% else %}hover:bg-gray-700{% endif %}">
-                <i class="fas fa-calendar-check"></i>
-                <span class="sidebar-text ml-3 font-semibold">Booking Management</span>
-            </a>
-
             <!-- Timesheet Sidebar Menu -->
             <a href="{% url 'custom_admin:timesheet' %}" class="menu-item flex items-center px-4 py-3 mt-2 rounded-lg mx-2 {% if current_page == 'Timesheet' %}active-menu{% else %}hover:bg-gray-700{% endif %}">
                 <i class="fas fa-clock"></i>
                 <span class="sidebar-text ml-3 font-semibold">Timesheet</span>
+            </a>
+
+            <a href="{% url 'custom_admin:booking_management' %}" class="menu-item flex items-center px-4 py-3 mt-2 rounded-lg mx-2 {% if current_page == 'Booking Management' %}active-menu{% else %}hover:bg-gray-700{% endif %}">
+                <i class="fas fa-calendar-check"></i>
+                <span class="sidebar-text ml-3 font-semibold">New Consultant</span>
             </a>
         </nav>
     </div>

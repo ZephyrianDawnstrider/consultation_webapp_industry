@@ -8,11 +8,23 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <!-- Other CSS files and meta tags... -->
 </head>
-<div class="container mt-4">
+<div class="flex flex-col flex-grow max-w-full px-3 py-2">
+  <!-- Header -->
+  <div class="flex justify-between items-center mb-2">
+    <h1 class="text-4xl font-extrabold text-gray-900 flex items-center text-white">
+      <i class="fas fa-user-cog mr-2 text-white"></i>
+        Consultant Profile
+    </h1>
+      <div class="text-base text-white-700">
+        Welcome, <span class="font-semibold text-white">{{ request.user.first_name|default:request.user.first_name }} {{request.user.last_name|default:request.user.last_name }}</span>
+      </div>
+    </h1>
+</div>
+<div class="container mt-2">
     {% comment %} <h2 class="mb-4">Consultant Profile</h2> {% endcomment %}
-    <div class="card shadow-sm p-4">
-        <div class="row mb-3">
-            <h2 class="h2 bold">Profile Information</h2>
+    <div class="card shadow-sm p-2">
+        <div class="row mb-2">
+            <h2 class="h3 bold">Profile Information</h3>
             <div class="col-md-6 ">
                 <div class="mb-3">
                     <label for="{{ form.name.id_for_label }}" class="form-label"><strong>Name:</strong></label>
@@ -26,8 +38,8 @@
                 </div>
                 <p><strong>Email:</strong> {{ consultant.email }}</p>
             </div>
-            <div class="col-md-6 ">
-                <h5>Password</h5>
+            <div class="col-md-6">
+                <label for="{{ form.profile_picture.id_for_label }}" class="form-label"><strong>Password:</strong></label>
                     <div class="input-group mb-3">
                         <input type="password" id="passwordField" class="form-control" value="{{ decrypted_password|default:'********' }}" readonly>
                         <button class="btn btn-outline-secondary " type="button" id="togglePasswordBtn" aria-label="Toggle password visibility">
@@ -63,7 +75,7 @@
             <div id="changePasswordMessage" class="mt-2"></div>
         </div>
         <hr>
-        <h2 class="h2 bold">Edit Profile</h2>
+        <h3 class="h3 bold">Edit Profile</h3>
     <form method="post" enctype="multipart/form-data" novalidate>
     {% csrf_token %}
         <div class="row">

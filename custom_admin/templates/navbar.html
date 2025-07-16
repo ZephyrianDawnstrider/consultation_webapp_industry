@@ -21,9 +21,11 @@
                 </button>
                 <div id="profileDropdown" class="hidden origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-black ring-1 ring-orange-500 ring-opacity-50 focus:outline-none z-10" role="menu" aria-orientation="vertical" aria-labelledby="profileDropdownButton" tabindex="-1">
                     <div class="py-1" role="none">
+                        {% if request.user.id %}
                         <a href="{% url 'custom_admin:admin_profile' request.user.id %}" class="text-orange-500 block px-4 py-2 text-sm hover:bg-orange-600 hover:text-white cursor-pointer" role="menuitem" tabindex="-1" id="menu-item-0">
                             <i class="fas fa-user mr-2"></i> Admin Profile
                         </a>
+                        {% endif %}
                         <a href="{% url 'custom_admin:logout' %}" class="text-orange-500 block px-4 py-2 text-sm hover:bg-orange-600 hover:text-white cursor-pointer" role="menuitem" tabindex="-1" id="menu-item-1">
                             <i class="fas fa-sign-out-alt mr-2"></i> Logout
                         </a>
