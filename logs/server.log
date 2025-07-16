@@ -6191,3 +6191,20 @@ NameError: name 'Q' is not defined
 [2025-07-16 13:41:53,337] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
 [2025-07-16 13:41:53,805] WARNING django.request Not Found: /favicon.ico
 [2025-07-16 13:41:53,806] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-16 13:57:32,601] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-16 13:57:32,603] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-16 13:58:26,287] INFO django.server "GET /auth/consultant_management/?search=ayush HTTP/1.1" 200 31689
+[2025-07-16 13:58:26,357] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-16 13:58:26,358] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-16 13:58:26,366] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-16 13:58:26,516] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-16 13:58:26,733] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-16 13:58:26,734] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-16 13:58:28,047] WARNING django.request Not Found: /favicon.ico
+[2025-07-16 13:58:28,048] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-16 13:59:21,959] INFO django.server "GET /auth/consultant_management/?search=ayush HTTP/1.1" 200 31759
+[2025-07-16 13:59:22,007] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-16 13:59:22,008] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-16 13:59:22,013] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-16 13:59:22,117] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-16 13:59:23,220] WARNING django.request Not Found: /favicon.ico
