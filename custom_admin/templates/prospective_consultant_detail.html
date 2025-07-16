@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Prospective Consultant Detail{% endblock %}
+
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">Prospective Consultant Detail</h1>
+
+<div class="bg-white p-6 rounded shadow-md max-w-lg">
+  <p><strong>Name:</strong> {{ prospective_consultant.name }}</p>
+  <p><strong>Email:</strong> {{ prospective_consultant.email }}</p>
+  <p><strong>Phone:</strong> {{ prospective_consultant.phone }}</p>
+  <p><strong>Consultant Field:</strong> {{ prospective_consultant.consultant_field }}</p>
+  {% if prospective_consultant.other_consultant_field %}
+  <p><strong>Other Consultant Field:</strong> {{ prospective_consultant.other_consultant_field }}</p>
+  {% endif %}
+  <p><strong>Date Submitted:</strong> {{ prospective_consultant.created_at|date:"Y-m-d H:i" }}</p>
+
+  <div class="mt-4">
+    <!-- Empty action placeholder -->
+  </div>
+</div>
+
+<a href="{% url 'custom_admin:prospective_consultants_management' %}" class="inline-block mt-6 text-blue-600 hover:underline">Back to Prospective Consultants Management</a>
+{% endblock %}

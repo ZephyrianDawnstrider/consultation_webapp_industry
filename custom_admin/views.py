@@ -1534,26 +1534,26 @@ def admin_profile(request, admin_id):
     return render(request, 'admin_profile.html', context)
 
 @require_http_methods(["GET", "POST"])
-def consultant_book(request):
+def new_consultant_details(request):
     if request.method == "POST":
         form = consultantBookingForm(request.POST)
         if form.is_valid():
-            booking = form.save()
+            prospective_consultant = form.save()
 
             # Send email notification to original email and all superadmin/admin users
             from django.core.mail import send_mail
             from custom_admin.models import User
 
-            subject = "New consultant Booking Request"
+            subject = "New Prospective Consultant Request"
             message = (
-                f"New consultant booking received:\n\n"
-                f"Name: {booking.name}\n"
-                f"Email: {booking.email}\n"
-                f"Phone: {booking.phone}\n"
-                f"consultant Field: {booking.consultant_field}\n"
+                f"New prospective consultant request received:\n\n"
+                f"Name: {prospective_consultant.name}\n"
+                f"Email: {prospective_consultant.email}\n"
+                f"Phone: {prospective_consultant.phone}\n"
+                f"Consultant Field: {prospective_consultant.consultant_field}\n"
             )
-            if booking.consultant_field == 'Other' and booking.other_consultant_field:
-                message += f"Other consultant Field: {booking.other_consultant_field}\n"
+            if prospective_consultant.consultant_field == 'Other' and prospective_consultant.other_consultant_field:
+                message += f"Other Consultant Field: {prospective_consultant.other_consultant_field}\n"
 
             # Original email used for credentials (assuming settings.DEFAULT_FROM_EMAIL)
             from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', None)
@@ -1577,52 +1577,52 @@ def consultant_book(request):
             if recipient_list:
                 send_mail(subject, message, from_email, recipient_list, fail_silently=False)
 
-            messages.success(request, "Your consultant request has been submitted successfully.")
+            messages.success(request, "Your prospective consultant request has been submitted successfully.")
             return redirect('landing_page')
         else:
             messages.error(request, "Please correct the errors below.")
     else:
         form = consultantBookingForm()
-    return render(request, 'booking_form.html', {'form': form})
+    return render(request, 'new_consultant_details.html', {'form': form})
 
 @login_required
-def booking_management(request):
+def prospective_consultants_management(request):
     """
-    View to list all consultant bookings in the custom admin interface.
+    View to list all prospective consultants in the custom admin interface.
     """
-    from general.models import consultantBooking
-    bookings = consultantBooking.objects.all().order_by('-created_at')
+    from general.models import ProspectiveConsultant
+    prospective_consultants = ProspectiveConsultant.objects.all().order_by('-created_at')
     context = {
-        'bookings': bookings,
-        'current_page': 'Booking Management',
+        'prospective_consultants': prospective_consultants,
+        'current_page': 'Prospective Consultants Management',
     }
-    return render(request, 'booking_management.html', context)
+    return render(request, 'prospective_consultants.html', context)
 
 @login_required
-def booking_detail(request, booking_id):
+def prospective_consultant_detail(request, prospective_consultant_id):
     """
-    View to show detailed information of a single booking.
+    View to show detailed information of a single prospective consultant.
     """
-    from general.models import consultantBooking
-    booking = get_object_or_404(consultantBooking, id=booking_id)
+    from general.models import ProspectiveConsultant
+    prospective_consultant = get_object_or_404(ProspectiveConsultant, id=prospective_consultant_id)
     context = {
-        'booking': booking,
-        'current_page': 'Booking Detail',
+        'prospective_consultant': prospective_consultant,
+        'current_page': 'Prospective Consultant Detail',
     }
-    return render(request, 'booking_detail.html', context)
+    return render(request, 'prospective_consultant_detail.html', context)
 
 @login_required
 @csrf_exempt
 @require_POST
-def delete_booking(request, booking_id):
+def delete_prospective_consultant(request, prospective_consultant_id):
     """
-    Delete a booking by ID.
+    Delete a prospective consultant by ID.
     """
-    from general.models import consultantBooking
+    from general.models import ProspectiveConsultant
     try:
-        booking = consultantBooking.objects.get(id=booking_id)
-        booking.delete()
-        return JsonResponse({'success': True, 'message': 'Booking deleted successfully.'})
-    except consultantBooking.DoesNotExist:
-        return JsonResponse({'success': False, 'message': 'Booking not found.'}, status=404)
+        prospective_consultant = ProspectiveConsultant.objects.get(id=prospective_consultant_id)
+        prospective_consultant.delete()
+        return JsonResponse({'success': True, 'message': 'Prospective consultant deleted successfully.'})
+    except ProspectiveConsultant.DoesNotExist:
+        return JsonResponse({'success': False, 'message': 'Prospective consultant not found.'}, status=404)
 

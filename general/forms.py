@@ -1,9 +1,9 @@
 from django import forms
-from .models import consultantBooking
+from .models import ProspectiveConsultant
 
-class consultantBookingForm(forms.ModelForm):
+class ProspectiveConsultantForm(forms.ModelForm):
     class Meta:
-        model = consultantBooking
+        model = ProspectiveConsultant
         fields = ['name', 'email', 'phone', 'consultant_field', 'other_consultant_field']
 
     def clean(self):

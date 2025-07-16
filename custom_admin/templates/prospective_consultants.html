@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Prospective Consultants Management{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl font-bold mt-6 mb-6 ml-6">Prospective Consultants</h1>
+
+<div class="space-y-4 mx-6">
+  {% for prospective_consultant in prospective_consultants %}
+  <div class="border border-gray-300 rounded shadow-sm">
+    <div class="flex justify-between items-center bg-gray-100 hover:bg-gray-200 cursor-pointer px-6 py-3 rounded-t">
+      <button type="button" class="text-left text-gray-800 flex-1 focus:outline-none focus:ring" onclick="toggleAccordion('accordion-{{ prospective_consultant.id }}')">
+        <span class="font-semibold text-lg">{{ prospective_consultant.name }}</span>
+      </button>
+      <svg id="icon-accordion-{{ prospective_consultant.id }}" class="w-6 h-6 text-gray-600 transform transition-transform cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" onclick="toggleAccordion('accordion-{{ prospective_consultant.id }}')">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+      <button type="button" onclick="deleteProspectiveConsultant(event, {{ prospective_consultant.id }})" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded ml-4">
+        Delete
+      </button>
+    </div>
+    <div id="accordion-{{ prospective_consultant.id }}" class="hidden text-gray-700 px-6 py-4 bg-white rounded-b border border-t-0 border-gray-300">
+      <p class="mb-2"><strong>Email:</strong> {{ prospective_consultant.email }}</p>
+      <p class="mb-2"><strong>Phone:</strong> {{ prospective_consultant.phone }}</p>
+      <p class="mb-2"><strong>Consultant Field:</strong> {{ prospective_consultant.consultant_field }}</p>
+      {% if prospective_consultant.other_consultant_field %}
+      <p class="mb-2"><strong>Other Consultant Field:</strong> {{ prospective_consultant.other_consultant_field }}</p>
+      {% endif %}
+      <p class="mb-2"><strong>Date Submitted:</strong> {{ prospective_consultant.created_at|date:"Y-m-d H:i" }}</p>
+      <div class="mt-4 flex items-center space-x-3">
+        <label for="action-select-{{ prospective_consultant.id }}" class="sr-only">Action</label>
+        <select id="action-select-{{ prospective_consultant.id }}" name="action" class="border border-gray-300 rounded px-3 py-2">
+          <option value="" disabled selected>Select action</option>
+          <!-- Empty options for now -->
+        </select>
+        <button type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-900 font-semibold py-2 px-4 rounded">
+          Apply
+        </button>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <p class="ml-6 text-gray-600">No prospective consultants found.</p>
+  {% endfor %}
+</div>
+
+<script>
+function toggleAccordion(id) {
+  const content = document.getElementById(id);
+  const icon = document.getElementById('icon-accordion-' + id.split('-')[1]);
+  if (content.classList.contains('hidden')) {
+    content.classList.remove('hidden');
+    icon.classList.add('rotate-180');
+  } else {
+    content.classList.add('hidden');
+    icon.classList.remove('rotate-180');
+  }
+}
+
+function deleteProspectiveConsultant(event, bookingId) {
+  event.stopPropagation(); // Prevent accordion toggle when clicking delete
+  if (!confirm("Are you sure you want to delete this prospective consultant?")) {
+    return;
+  }
+
+  fetch(`/custom_admin/delete_prospective_consultant/${bookingId}/`, {
+    method: 'POST',
+    headers: {
+      'X-CSRFToken': getCookie('csrftoken'),
+      'Content-Type': 'application/json',
+    },
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      alert(data.message);
+      // Remove the booking accordion from the DOM
+      const bookingDiv = document.getElementById(`accordion-${bookingId}`).parentElement;
+      if (bookingDiv) {
+        bookingDiv.remove();
+      }
+    } else {
+      alert('Failed to delete prospective consultant: ' + data.message);
+    }
+  })
+  .catch(error => {
+    alert('Error deleting prospective consultant: ' + error);
+  });
+}
+
+// Helper function to get CSRF token cookie
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      // Does this cookie string begin with the name we want?
+      if (cookie.substring(0, name.length + 1) === (name + '=')) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
+</script>
+
+{% endblock %}

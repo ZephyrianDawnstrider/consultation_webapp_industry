@@ -1,6 +1,6 @@
 from django.db import models
 
-class consultantBooking(models.Model):
+class ProspectiveConsultant(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField()
     phone = models.CharField(max_length=20)
