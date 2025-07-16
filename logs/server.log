@@ -6208,3 +6208,21 @@ NameError: name 'Q' is not defined
 [2025-07-16 13:59:22,013] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
 [2025-07-16 13:59:22,117] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
 [2025-07-16 13:59:23,220] WARNING django.request Not Found: /favicon.ico
+[2025-07-16 13:59:23,221] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-16 16:18:15,284] INFO django.server "GET /auth/consultant_management/?search=ayush HTTP/1.1" 200 31759
+[2025-07-16 16:18:15,353] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-16 16:18:15,353] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-16 16:18:15,364] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-16 16:18:15,499] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-16 16:18:16,847] WARNING django.request Not Found: /favicon.ico
+[2025-07-16 16:18:16,848] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-16 16:18:18,516] INFO django.server "GET /auth/consultant_management/?search= HTTP/1.1" 200 34809
+[2025-07-16 16:18:18,719] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-16 16:18:18,958] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-16 16:26:25,491] INFO django.server "GET /auth/logout/ HTTP/1.1" 302 0
+[2025-07-16 16:26:25,530] INFO django.server "GET /auth/login/ HTTP/1.1" 200 40628
+[2025-07-16 16:26:34,651] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-16 16:26:34,667] INFO django.server "GET /auth/login/ HTTP/1.1" 200 40628
+[2025-07-16 16:26:44,346] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-16 16:26:45,104] INFO django.server "GET /consultant/consultant_dashboard/ HTTP/1.1" 200 17336
+[2025-07-16 16:26:47,473] INFO django.server "GET /consultant/consultant_timesheet/ HTTP/1.1" 200 43283
