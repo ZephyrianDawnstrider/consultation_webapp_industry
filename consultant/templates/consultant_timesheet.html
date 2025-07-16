@@ -640,6 +640,10 @@ document.addEventListener('DOMContentLoaded', () => {
       endTd.textContent = entry.end_time || '';
       tr.appendChild(endTd);
 
+      const projectTd = document.createElement('td');
+      projectTd.textContent = entry.project_name || '';
+      tr.appendChild(projectTd);
+
       const taskTd = document.createElement('td');
       taskTd.textContent = entry.task_name || '';
       tr.appendChild(taskTd);
