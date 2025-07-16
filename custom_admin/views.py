@@ -26,7 +26,7 @@ from django.contrib.auth.hashers import make_password
 from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
 from django.db import transaction
-from django.db.models import Count, Prefetch
+from django.db.models import Count, Prefetch, Q
 from django.http import JsonResponse, HttpResponseBadRequest
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.dateparse import parse_date
@@ -35,6 +35,7 @@ from django.views.decorators.http import require_http_methods, require_POST
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from .models import Timesheet
+
 
 from django.core.files.base import ContentFile
 

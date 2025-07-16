@@ -6131,3 +6131,63 @@ AttributeError: 'ProspectiveConsultant' object has no attribute 'linkedin_profil
 [2025-07-16 13:28:14,287] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
 [2025-07-16 13:28:15,810] WARNING django.request Not Found: /favicon.ico
 [2025-07-16 13:28:15,812] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-16 13:29:09,544] INFO django.server "GET /auth/prospective_consultants_management/ HTTP/1.1" 200 20603
+[2025-07-16 13:29:09,595] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-16 13:29:09,595] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-16 13:29:09,701] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-16 13:29:10,919] WARNING django.request Not Found: /favicon.ico
+[2025-07-16 13:29:10,920] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-16 13:39:01,969] INFO django.server "GET /auth/prospective_consultants_management/ HTTP/1.1" 200 20603
+[2025-07-16 13:39:02,039] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-16 13:39:02,039] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-16 13:39:02,145] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-16 13:39:03,352] INFO django.server "GET /auth/consultant_list/ HTTP/1.1" 200 34710
+[2025-07-16 13:39:03,431] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-16 13:39:03,643] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-16 13:39:03,861] WARNING django.request Not Found: /favicon.ico
+[2025-07-16 13:39:03,862] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-16 13:39:08,118] ERROR django.request Internal Server Error: /auth/consultant_management/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py", line 547, in consultant_management
+    Q(consultant_profile__name__icontains=search_query) |
+    ^
+NameError: name 'Q' is not defined
+[2025-07-16 13:39:08,125] ERROR django.server "GET /auth/consultant_management/?search=ayush HTTP/1.1" 500 80008
+[2025-07-16 13:39:24,723] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-16 13:39:29,798] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-16 13:39:38,088] INFO django.server "GET /auth/consultant_management/?search=ayush HTTP/1.1" 200 31672
+[2025-07-16 13:39:38,150] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-16 13:39:39,158] WARNING django.request Not Found: /favicon.ico
+[2025-07-16 13:39:39,161] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-16 13:40:02,768] INFO django.server "GET /auth/consultant_management/?search=ayush HTTP/1.1" 200 31683
+[2025-07-16 13:40:02,836] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-16 13:40:02,918] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-16 13:40:02,918] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-16 13:40:02,981] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-16 13:40:03,567] WARNING django.request Not Found: /favicon.ico
+[2025-07-16 13:40:03,567] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-16 13:41:29,691] INFO django.server "GET /auth/consultant_management/?search=ayush HTTP/1.1" 200 31683
+[2025-07-16 13:41:29,739] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-16 13:41:29,739] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-16 13:41:29,744] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-16 13:41:29,810] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-16 13:41:30,458] WARNING django.request Not Found: /favicon.ico
+[2025-07-16 13:41:30,459] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-16 13:41:34,615] INFO django.server "GET /auth/consultant_management/?search= HTTP/1.1" 200 34733
+[2025-07-16 13:41:34,706] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-16 13:41:34,923] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-16 13:41:39,782] INFO django.server "GET /auth/consultant_management/?search=ayush HTTP/1.1" 200 31683
+[2025-07-16 13:41:39,856] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-16 13:41:53,174] INFO django.server "GET /auth/consultant_management/?search=ayush HTTP/1.1" 200 31687
+[2025-07-16 13:41:53,250] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-16 13:41:53,250] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-16 13:41:53,255] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-16 13:41:53,337] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-16 13:41:53,805] WARNING django.request Not Found: /favicon.ico
+[2025-07-16 13:41:53,806] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
