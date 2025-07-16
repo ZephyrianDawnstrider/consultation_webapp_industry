@@ -30,6 +30,7 @@ urlpatterns = [
     path('new_consultant_details/', views.new_consultant_details, name='new_consultant_details'),
     path('prospective_consultants_management/', views.prospective_consultants_management, name='prospective_consultants_management'),
     path('prospective_consultant_detail/<int:prospective_consultant_id>/', views.prospective_consultant_detail, name='prospective_consultant_detail'),
+    path('delete_prospective_consultant/<int:prospective_consultant_id>/', views.delete_prospective_consultant, name='delete_prospective_consultant'),
     path('', include(router.urls)),
     path('admin_profile/<int:admin_id>/', views.admin_profile, name='admin_profile'),
     path('timesheet/', views.timesheet, name='timesheet'),

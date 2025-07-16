@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from general.views import book_consultant
+from general.views import ProspectiveConsultant
 
 app_name = 'consultant'
 
@@ -18,5 +18,5 @@ urlpatterns = [
     path('change_password/', views.change_password, name='change_password'),
     path('invoice/edit/<int:invoice_id>/', views.edit_invoice, name='edit_invoice'),
     path('invoice/delete/<int:invoice_id>/', views.delete_invoice, name='delete_invoice'),
-    path('book/', book_consultant, name='consultant_book'),
+    path('book/', ProspectiveConsultant, name='consultant_book'),
 ]

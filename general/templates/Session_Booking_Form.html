@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>consultant Booking</title>
+    <title>New Consultant Details</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -24,15 +24,15 @@
 <body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
     <div class="max-w-2xl w-full">
         <!-- Form Container -->
-        <div id="bookingForm" class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
+        <div id="consultantDetailsForm" class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300">
             <!-- Header -->
             <div class="bg-blue-600 py-6 px-8 text-white">
-                <h1 class="text-2xl font-bold">Book Your consultant</h1>
-                <p class="text-blue-100 mt-1">Schedule a session with our experts</p>
+                <h1 class="text-2xl font-bold">New Consultant Details</h1>
+                <p class="text-blue-100 mt-1">Submit your details to become a consultant</p>
             </div>
             
             <!-- Form -->
-            <form id="consultantForm" class="p-8" method="POST" action="/book-consultant/">
+            <form id="consultantForm" class="p-8" method="POST" action="/new_consultant_details/">
                 <div class="space-y-6">
                     <!-- Name Field -->
                     <div>
@@ -73,9 +73,9 @@
                         </div>
                     </div>
                     
-                    <!-- consultant Field Dropdown -->
+                    <!-- Consultant Field Dropdown -->
                     <div>
-                        <label for="consultantField" class="block text-sm font-medium text-gray-700 mb-1">consultant Field</label>
+                        <label for="consultantField" class="block text-sm font-medium text-gray-700 mb-1">Consultant Field</label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <i class="fas fa-briefcase text-gray-400"></i>
@@ -97,19 +97,30 @@
                         </div>
                     </div>
 
-                    <!-- Additional consultant Field for 'Other' -->
+                    <!-- Additional Consultant Field for 'Other' -->
                     <div id="otherconsultantFieldContainer" class="hidden">
                         <label for="otherconsultantField" class="block text-sm font-medium text-gray-700 mb-1">Please specify</label>
                         <input type="text" id="otherconsultantField" name="other_consultant_field"
                             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
                             placeholder="Specify your consultant field">
                     </div>
-                    
+                    <!-- LinkedIn Field -->
+                    <div>
+                        <label for="linkedin" class="block text-sm font-medium text-gray-700 mb-1">LinkedIn Profile</label> 
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fab fa-linkedin text-gray-400"></i>
+                            </div>
+                            <input type="url" id="linkedin" name="linkedin" 
+                                class="pl-10 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                                placeholder="https://www.linkedin.com/in/yourprofile">
+                        </div>
+                    </div>
                     <!-- Submit Button -->
                     <div class="pt-2">
                         <button type="submit"
                             class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition duration-300 transform hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                            Book consultant
+                            Submit Details
                         </button>
                     </div>
                 </div>
@@ -122,11 +133,11 @@
                 <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-white bg-opacity-20 mb-4">
                     <i class="fas fa-check text-xl"></i>
                 </div>
-                <h2 class="text-2xl font-bold mb-2">Booking Confirmed!</h2>
-                <p class="mb-6">Thank you for booking your consultant. We've sent a confirmation to your email.</p>
-                <button id="newBookingBtn"
+                <h2 class="text-2xl font-bold mb-2">Submission Confirmed!</h2>
+                <p class="mb-6">Thank you for submitting your details. We'll get back to you shortly.</p>
+                <button id="newSubmissionBtn"
                     class="bg-white text-blue-600 hover:bg-gray-100 font-medium py-2 px-6 rounded-lg transition">
-                    Book Another Session
+                    Submit Another
                 </button>
             </div>
         </div>
@@ -156,9 +167,9 @@
             consultantField.dispatchEvent(new Event('change'));
 
             const form = document.getElementById('consultantForm');
-            const bookingForm = document.getElementById('bookingForm');
+            const consultantDetailsForm = document.getElementById('consultantDetailsForm');
             const successMessage = document.getElementById('successMessage');
-            const newBookingBtn = document.getElementById('newBookingBtn');
+            const newSubmissionBtn = document.getElementById('newSubmissionBtn');
             
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
@@ -175,7 +186,7 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        bookingForm.classList.add('hidden');
+                        consultantDetailsForm.classList.add('hidden');
                         successMessage.classList.remove('hidden');
                         successMessage.classList.add('fade-in');
                         form.reset();
@@ -189,9 +200,9 @@
                 });
             });
 
-            newBookingBtn.addEventListener('click', function() {
+            newSubmissionBtn.addEventListener('click', function() {
                 successMessage.classList.add('hidden');
-                bookingForm.classList.remove('hidden');
+                consultantDetailsForm.classList.remove('hidden');
             });
 
             function getCookie(name) {

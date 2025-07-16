@@ -18,6 +18,7 @@ from datetime import datetime
 
 # Django imports
 from .forms import ConsultantEditForm
+from general.forms import ProspectiveConsultantForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.decorators import login_required
@@ -1536,7 +1537,7 @@ def admin_profile(request, admin_id):
 @require_http_methods(["GET", "POST"])
 def new_consultant_details(request):
     if request.method == "POST":
-        form = consultantBookingForm(request.POST)
+        form = ProspectiveConsultantForm(request.POST)
         if form.is_valid():
             prospective_consultant = form.save()
 
@@ -1551,6 +1552,7 @@ def new_consultant_details(request):
                 f"Email: {prospective_consultant.email}\n"
                 f"Phone: {prospective_consultant.phone}\n"
                 f"Consultant Field: {prospective_consultant.consultant_field}\n"
+                f"LinkedIn Profile: {prospective_consultant.linkedin}\n"
             )
             if prospective_consultant.consultant_field == 'Other' and prospective_consultant.other_consultant_field:
                 message += f"Other Consultant Field: {prospective_consultant.other_consultant_field}\n"
@@ -1582,18 +1584,31 @@ def new_consultant_details(request):
         else:
             messages.error(request, "Please correct the errors below.")
     else:
-        form = consultantBookingForm()
+        form = ProspectiveConsultantForm()
     return render(request, 'new_consultant_details.html', {'form': form})
 
 @login_required
 def prospective_consultants_management(request):
     """
-    View to list all prospective consultants in the custom admin interface.
+    View to list all prospective consultants in the custom admin interface with pagination.
     """
     from general.models import ProspectiveConsultant
-    prospective_consultants = ProspectiveConsultant.objects.all().order_by('-created_at')
+    from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+    prospective_consultants_list = ProspectiveConsultant.objects.all().order_by('-created_at')
+    page = request.GET.get('page', 1)
+    paginator = Paginator(prospective_consultants_list, 10)  # 10 per page
+
+    try:
+        prospective_consultants = paginator.page(page)
+    except PageNotAnInteger:
+        prospective_consultants = paginator.page(1)
+    except EmptyPage:
+        prospective_consultants = paginator.page(paginator.num_pages)
+
     context = {
         'prospective_consultants': prospective_consultants,
+        'paginator': paginator,
         'current_page': 'Prospective Consultants Management',
     }
     return render(request, 'prospective_consultants.html', context)
