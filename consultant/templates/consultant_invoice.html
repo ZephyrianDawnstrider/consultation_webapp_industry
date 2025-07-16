@@ -35,20 +35,20 @@
 {% endblock %}
 
 {% block content %}
-    <div class="flex flex-col flex-grow max-w-full px-6 py-10 min-h-[calc(100vh-4.5rem)]">
+    <div class="flex flex-col flex-grow max-w-full px-6 py-5 ">
         <!-- Header -->
-        <div class="flex justify-between items-center mb-10">
+        <div class="flex justify-between items-center mb-4">
             <h1 class="text-4xl font-extrabold text-gray-900 flex items-center text-white">
                 <i class="fas fa-file-invoice-dollar mr-4 text-white"></i>
                 Monthly Invoice Upload
             </h1>
             <div class="text-base text-white-700">
-                Welcome, <span class="font-semibold">{{ request.user.get_full_name|default:request.user.email }}</span>
+                Welcome, <span class="font-semibold">{{ request.user.first_name|default:request.user.first_name }} {{request.user.last_name|default:request.user.last_name }}</span>
             </div>
         </div>
 
         <!-- Success Message (hidden by default) -->
-        <div id="success-message" class="hidden mb-8 p-5 rounded-lg bg-green-50 border border-green-300 shadow-sm">
+        <div id="success-message" class="hidden mb-4 p-5 rounded-lg bg-green-50 border border-green-300 shadow-sm">
             <div class="flex items-center space-x-3">
                 <i class="fas fa-check-circle text-green-600 text-2xl"></i>
                 <div>
@@ -63,7 +63,7 @@
         </div>
 
         <!-- Error Message (hidden by default) -->
-        <div id="error-message" class="hidden mb-8 p-5 rounded-lg bg-red-50 border border-red-300 shadow-sm">
+        <div id="error-message" class="hidden mb-4 p-2 rounded-lg bg-red-50 border border-red-300 shadow-sm">
             <div class="flex items-center space-x-3">
                 <i class="fas fa-exclamation-circle text-red-600 text-2xl"></i>
                 <div>
@@ -78,21 +78,21 @@
         </div>
 
         <!-- Upload Card -->
-        <div class="bg-blue-50 shadow-lg rounded-lg overflow-hidden mb-10">
-            <div class="px-8 py-6 border-b border-gray-200">
+        <div class="bg-blue-50 shadow-lg rounded-lg overflow-hidden mb-4">
+            <div class="px-2 py-3 border-b border-gray-200">
                 <h3 class="text-xl font-semibold text-gray-900">
                     Upload Your Invoice
                 </h3>
             </div>
-            <div class="p-8">
-                <form id="invoiceUploadForm" method="post" enctype="multipart/form-data" class="space-y-8">
+            <div class="p-2">
+                <form id="invoiceUploadForm" method="post" enctype="multipart/form-data" class="space-y-2">
                     {% csrf_token %}
                     <!-- Month Selection -->
                     <div>
                         <label for="monthSelect" class="block text-sm font-medium text-gray-700 mb-2">
                             Select Month
                         </label>
-                        <div class="mt-2 relative rounded-md shadow-sm">
+                        <div class="mt-1 relative rounded-md shadow-sm">
                             <select id="monthSelect" name="month" required class=" bg-blue-50 block w-full pl-4 pr-10 py-3 text-base border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 sm:text-base rounded-md border text-black">
                                 <option value="">-- Select Month --</option>
                                 <option value="January">January</option>

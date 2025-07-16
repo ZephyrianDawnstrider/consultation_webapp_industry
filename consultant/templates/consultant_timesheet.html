@@ -197,6 +197,18 @@
 {% endblock %}
 
 {% block content %}
+<div class="flex flex-col flex-grow max-w-full px-6 py-10 min-h-[calc(100vh-4.5rem)]">
+  <!-- Header -->
+  <div class="flex justify-between items-center mb-10">
+    <h1 class="text-4xl font-extrabold text-gray-900 flex items-center text-white">
+      <i class="fas fa-clock mr-4 text-white"></i>
+      Timesheet Upload
+    </h1>
+      <div class="text-base text-white-700">
+        Welcome, <span class="font-semibold text-white">{{ request.user.first_name|default:request.user.first_name }} {{request.user.last_name|default:request.user.last_name }}</span>
+      </div>
+    </h1>
+</div>
 <div class="timesheet-container">
   <h1 class="text-4xl font-extrabold mb-8 text-gray-700 ">Upload Your Timesheet</h1>
 
