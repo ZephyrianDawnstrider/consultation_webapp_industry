@@ -66,9 +66,12 @@ def login_view(request):
     # GET request - show login form
     return render(request, 'landingpage.html')
 
+from django.contrib import messages
+from django.shortcuts import redirect
+
 @csrf_exempt
 @require_http_methods(["POST"])
-def book_consultant(request):
+def ProspectiveConsultant(request):
     form = ProspectiveConsultantForm(request.POST)
     if form.is_valid():
         prospective_consultant = form.save(commit=False)
@@ -87,6 +90,7 @@ Name: {prospective_consultant.name}
 Email: {prospective_consultant.email}
 Phone: {prospective_consultant.phone}
 Consultant Field: {consultant_field}
+Consultant Linkedin: {prospective_consultant.linkedin if hasattr(prospective_consultant, 'linkedin') else 'N/A'}
 """
         send_mail(subject, message, admin_email, [admin_email])
 
@@ -95,6 +99,8 @@ Consultant Field: {consultant_field}
         user_message = f"Dear {prospective_consultant.name},\n\nThank you for your interest. We have received your request and will get back to you shortly.\n\nBest regards,\nCHL Softech Team"
         send_mail(user_subject, user_message, admin_email, [prospective_consultant.email])
 
-        return JsonResponse({'success': True, 'message': 'Request submitted successfully.'})
+        messages.success(request, "Your request has been submitted successfully.")
+        return redirect('general:landingpage')
     else:
-        return JsonResponse({'success': False, 'errors': form.errors})
+        messages.error(request, "There was an error with your submission. Please correct the errors and try again.")
+        return redirect('general:landingpage')

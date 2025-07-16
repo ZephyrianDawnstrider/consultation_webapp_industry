@@ -4,7 +4,13 @@ from .models import ProspectiveConsultant
 class ProspectiveConsultantForm(forms.ModelForm):
     class Meta:
         model = ProspectiveConsultant
-        fields = ['name', 'email', 'phone', 'consultant_field', 'other_consultant_field']
+        fields = ['name', 'email', 'phone', 'consultant_field', 'other_consultant_field', 'linkedin']
+
+    linkedin = forms.URLField(
+        required=False,
+        label='LinkedIn Profile',
+        widget=forms.URLInput(attrs={'placeholder': 'https://www.linkedin.com/in/your-profile'})
+    )
 
     def clean(self):
         cleaned_data = super().clean()

@@ -108,7 +108,7 @@
             </div>
             <div class="hidden md:flex items-center space-x-4">
                 <button onclick="openLoginModal()" class="text-orange-500 px-4 py-2 rounded-md text-sm font-medium hover:bg-orange-900 transition duration-300">Login</button>
-                <button onclick="openBookingModal()" class="btn-primary px-6 py-2 text-lg font-semibold">Become a Consultant</button>
+                <button onclick="openNewConsultantModal()" class="btn-primary px-6 py-2 text-lg font-semibold">Become a Consultant</button>
             </div>
             <div class="md:hidden flex items-center">
                 <button id="menu-btn" class="text-white hover:text-orange-500 focus:outline-none">
@@ -124,7 +124,7 @@
                 <a href="#about" class="block px-3 py-2 text-base font-medium hover:text-orange-500 hover:bg-orange-900">About Us</a>
                 <a href="#testimonials" class="block px-3 py-2 text-base font-medium hover:text-orange-500 hover:bg-orange-900">Testimonials</a>
                 <button onclick="openLoginModal()" class="block w-full text-left px-3 py-2 text-base font-medium text-orange-500 hover:bg-orange-900">Login</button>
-                <button onclick="openBookingModal()" class="block w-full text-left px-3 py-2 text-base font-medium text-white bg-orange-500 hover:bg-orange-600">Become a Consultant</button>
+                <button onclick="openNewConsultantModal()" class="block w-full text-left px-3 py-2 text-base font-medium text-white bg-orange-500 hover:bg-orange-600">Become a Consultant</button>
             </div>
         </div>
     </nav>
@@ -141,7 +141,7 @@
                         Connect with certified experts through our encrypted platform for confidential advice tailored to your needs.
                     </p>
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <button onclick="openBookingModal()" class="btn-primary px-8 py-3 rounded-md text-lg font-semibold text-center">
+                        <button onclick="openNewConsultantModal()" class="btn-primary px-8 py-3 rounded-md text-lg font-semibold text-center">
                             Become a Consultant
                         </button>
                         <a href="#about" class="btn-secondary px-8 py-3 rounded-md text-lg font-semibold text-center">
@@ -324,7 +324,7 @@
                     <p class="text-gray-400 mb-8">
                         Our mission is to provide a trusted platform where sensitive conversations can happen without compromising privacy or security. We use the latest encryption technologies to ensure all consultants remain confidential.
                     </p>
-                    <button onclick="openBookingModal()" class="btn-primary px-8 py-3 rounded-md text-lg font-semibold">
+                    <button onclick="openLoginModal()" class="btn-primary px-8 py-3 rounded-md text-lg font-semibold">
                         Get Started
                     </button>
                 </div>
@@ -458,7 +458,7 @@
                 Join thousands of professionals who trust CHL Softech for their confidential consultant needs.
             </p>
             <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <button onclick="openBookingModal()" class="btn-primary px-8 py-3 rounded-md text-lg font-semibold">
+                <button onclick="openNewConsultantModal()" class="btn-primary px-8 py-3 rounded-md text-lg font-semibold">
                     Become a Consultant
                 </button>
                 <button onclick="openLoginModal()" class="btn-secondary px-8 py-3 rounded-md text-lg font-semibold">
@@ -528,17 +528,17 @@
         </div>
     </footer>
 
-    <!-- Booking Modal -->
-    <div id="booking-modal" class="modal fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50 opacity-0 invisible transition-opacity duration-300">
+<!-- New Consultant Modal -->
+    <div id="new-consultant-modal" class="modal fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50 opacity-0 invisible transition-opacity duration-300">
         <div class="bg-[#2F2F2F] rounded-lg shadow-xl max-w-md w-full mx-4 overflow-hidden">
             <div class="flex justify-between items-center border-b border-gray-700 px-6 py-4">
-                <h3 class="text-lg font-semibold text-white">Book a consultant</h3>
-                <button onclick="closeBookingModal()" class="text-gray-400 hover:text-white">
+                <h3 class="text-lg font-semibold text-white">New Consultant Details</h3>
+                <button onclick="closeNewConsultantModal()" class="text-gray-400 hover:text-white">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <div class="p-6">
-                <form method="POST" action="/consultant/book/">
+<form method="POST" action="/auth/new_consultant_details/">
                     {% csrf_token %}
                     <div class="mb-4">
                         <label for="name" class="block text-sm font-medium text-white mb-1">Full Name</label>
@@ -553,7 +553,7 @@
                         <input type="tel" id="phone" name="phone" required class="form-input w-full px-4 py-2 rounded-md bg-[#1a1a1a] text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500" />
                     </div>
                     <div class="mb-6">
-                        <label for="consultant-field" class="block text-sm font-medium text-white mb-1">consultant Field</label>
+                        <label for="consultant-field" class="block text-sm font-medium text-white mb-1">Consultant Field</label>
                         <select id="consultant-field" name="consultant_field" required class="form-input w-full px-4 py-2 rounded-md bg-[#1a1a1a] text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500">
                             <option value="" disabled selected>Select a field</option>
                             <option value="Business Strategy">Business Strategy</option>
@@ -565,6 +565,17 @@
                             <option value="Other">Other</option>
                         </select>
                     </div>
+                    <div class="mb-6">
+                        <label for="linkedin-profile" class="block text-sm font-medium text-white mb-1">LinkedIn Profile</label>
+                        <input type="url" id="linkedin-profile" name="linkedin" class="form-input w-full px-4 py-2 rounded-md bg-[#1a1a1a] text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="https://www.linkedin.com/in/yourprofile" onblur="prependHttps(this)" />
+                    </div>
+                    <script>
+                        function prependHttps(input) {
+                            if (input.value && !input.value.startsWith('http://') && !input.value.startsWith('https://')) {
+                                input.value = 'https://' + input.value;
+                            }
+                        }
+                    </script>
                     <div id="otherconsultantFieldContainer" class="mb-6 hidden">
                         <label for="other-consultant-field" class="block text-sm font-medium text-white mb-1">Please specify</label>
                         <input type="text" id="other-consultant-field" name="other_consultant_field" class="form-input w-full px-4 py-2 rounded-md bg-[#1a1a1a] text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="Specify your consultant field" />
@@ -617,22 +628,22 @@
             mobileMenu.classList.toggle('hidden');
         });
         
-        // Booking modal functions
-        function openBookingModal() {
-            const modal = document.getElementById('booking-modal');
-            if (modal) {
-                modal.classList.remove('invisible', 'opacity-0');
-                document.body.style.overflow = 'hidden';
-            }
-        }
-        
-        function closeBookingModal() {
-            const modal = document.getElementById('booking-modal');
-            if (modal) {
-                modal.classList.add('invisible', 'opacity-0');
-                document.body.style.overflow = 'auto';
-            }
-        }
+// New Consultant modal functions
+function openNewConsultantModal() {
+    const modal = document.getElementById('new-consultant-modal');
+    if (modal) {
+        modal.classList.remove('invisible', 'opacity-0');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeNewConsultantModal() {
+    const modal = document.getElementById('new-consultant-modal');
+    if (modal) {
+        modal.classList.add('invisible', 'opacity-0');
+        document.body.style.overflow = 'auto';
+    }
+}
         
         // Login modal functions
         function openLoginModal() {
