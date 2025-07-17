@@ -393,6 +393,7 @@ def upload_timesheet(request, consultant_id):
     save the CSV file path in the Timesheet record.
     Accessible by the consultant user themselves or admin users.
     """
+    from custom_admin.models import ActivityLog
     consultant = get_object_or_404(User, id=consultant_id, role='consultant')
 
     if not (request.user == consultant or request.user.is_staff):
@@ -541,6 +542,16 @@ def upload_timesheet(request, consultant_id):
                 )
 
             logger.info(f"Timesheet uploaded and converted to CSV successfully by user {request.user.id} for month {year_str}-{month_str}")
+
+            # Create ActivityLog entry for timesheet upload
+            ActivityLog.objects.create(
+                user=request.user,
+                action_type='timesheet_upload',
+                description=f"{request.user.email} uploaded a timesheet for {month.strftime('%B %Y')}",
+                content_object=timesheet,
+                url=f"/custom_admin/timesheet?consultant_id={consultant.id}&year={month.year}&month={month.strftime('%m')}"
+            )
+
             return JsonResponse({
                 'success': True,
                 'message': 'Timesheet uploaded successfully, converted to CSV, and awaiting review.'
@@ -823,6 +834,7 @@ from custom_admin.models import Invoice
 @login_required
 def consultant_invoice(request):
     """View to handle invoice upload and display uploaded invoices."""
+    from custom_admin.models import ActivityLog
     user = request.user
     if user.role != 'consultant':
         return render(request, 'consultant_invoice.html', {'error': 'Access denied'})
@@ -863,6 +875,15 @@ def consultant_invoice(request):
                         existing_invoice.save()
                         messages.success(request, 'Existing invoice replaced successfully and awaiting review.')
                         logger.info(f"Invoice replaced successfully for user {user.id}")
+
+                        # Create ActivityLog entry for invoice replacement
+                        ActivityLog.objects.create(
+                            user=user,
+                            action_type='invoice_upload',
+                            description=f"{user.email} replaced an invoice for {month_date.strftime('%B %Y')}",
+                            content_object=existing_invoice,
+                            url=f"/custom_admin/admin_invoices/?invoice_id={existing_invoice.id}"
+                        )
                     else:
                         # Create new invoice
                         invoice = Invoice.objects.create(
@@ -874,6 +895,15 @@ def consultant_invoice(request):
                         )
                         messages.success(request, 'Invoice uploaded successfully and awaiting review.')
                         logger.info(f"Invoice saved successfully for user {user.id}")
+
+                        # Create ActivityLog entry for new invoice upload
+                        ActivityLog.objects.create(
+                            user=user,
+                            action_type='invoice_upload',
+                            description=f"{user.email} uploaded a new invoice for {month_date.strftime('%B %Y')}",
+                            content_object=invoice,
+                            url=f"/custom_admin/admin_invoices/?invoice_id={invoice.id}"
+                        )
                 except Exception as e:
                     logger.error(f"Error saving invoice: {str(e)}")
                     messages.error(request, f'Error saving invoice: {str(e)}')

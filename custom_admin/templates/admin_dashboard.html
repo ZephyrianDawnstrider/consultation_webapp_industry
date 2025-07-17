@@ -77,48 +77,67 @@
             <h2 class="text-lg font-semibold text-white">Recent Activity</h2>
         </div>
         <div class="divide-y divide-gray-700">
+            {% for activity in recent_activities %}
             <div class="px-6 py-4 flex items-center">
                 <div class="flex-shrink-0">
                     <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600">
-                        <i class="fas fa-user-plus"></i>
+                        <i class="fas {{ activity.icon }}"></i>
                     </div>
                 </div>
                 <div class="ml-4">
-                    <p class="text-sm font-medium text-white">New consultant added</p>
-                    <p class="text-sm text-gray-400">John Doe joined as a Senior Developer</p>
+                    <p class="text-sm font-medium text-white">{{ activity.description }}</p>
+                    <!-- Optional: add more details if available -->
                 </div>
-                <div class="ml-auto text-sm text-gray-400">2 hours ago</div>
+                <div class="ml-auto text-sm text-gray-400" data-timestamp="{{ activity.timestamp }}">{{ activity.timestamp }}</div>
             </div>
-            <div class="px-6 py-4 flex items-center">
-                <div class="flex-shrink-0">
-                    <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                </div>
-                <div class="ml-4">
-                    <p class="text-sm font-medium text-white">Session approved</p>
-                    <p class="text-sm text-gray-400">consultant #CT-2023-056 approved</p>
-                </div>
-                <div class="ml-auto text-sm text-gray-400">5 hours ago</div>
-            </div>
-            <div class="px-6 py-4 flex items-center">
-                <div class="flex-shrink-0">
-                    <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600">
-                        <i class="fas fa-file-invoice-dollar"></i>
-                    </div>
-                    <div class="ml-4">
-                        <p class="text-sm font-medium text-white">Invoice generated</p>
-                        <p class="text-sm text-gray-400">Invoice #INV-2023-102 for $1,250.00</p>
-                    </div>
-                    <div class="ml-auto text-sm text-gray-400">1 day ago</div>
-                </div>
-            </div>
+            {% empty %}
+            <div class="px-6 py-4 text-gray-400 text-center">No recent activities found.</div>
+            {% endfor %}
         </div>
         <div class="px-6 py-3 bg-gray-900 text-right">
-            <a href="#" class="text-sm font-medium text-orange-500 hover:text-orange-400">View all</a>
+            <a href="{% url 'custom_admin:admin_dashboard' %}" class="text-sm font-medium text-orange-500 hover:text-orange-400">View all</a>
         </div>
     </div>
 </div>
+
+<script>
+    // Set the time_offset_minutes cookie based on user's timezone offset
+    (function setTimeOffsetCookie() {
+        const offset = new Date().getTimezoneOffset(); // in minutes, e.g., -330 for IST
+        document.cookie = `time_offset_minutes=${-offset}; path=/; max-age=31536000`; // 1 year expiry
+    })();
+
+    // Function to get cookie by name
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+    // Function to format timestamp based on cookie offset
+    function formatTimestamp(rawTimestamp, offsetMinutes) {
+        const date = new Date(rawTimestamp);
+        if (isNaN(date)) return rawTimestamp;
+
+        // Apply offset in minutes (subtract offset to correct time)
+        date.setMinutes(date.getMinutes());
+
+        // Format date to desired string, e.g., "12 PM, Jul 16, 2025"
+        const options = { hour: 'numeric', minute: 'numeric', hour12: true, month: 'short', day: 'numeric', year: 'numeric' };
+        return date.toLocaleString(undefined, options);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const offsetStr = getCookie('time_offset_minutes');
+        const offsetMinutes = offsetStr ? parseInt(offsetStr, 10) : 0;
+
+        document.querySelectorAll('[data-timestamp]').forEach(el => {
+            const rawTimestamp = el.getAttribute('data-timestamp');
+            const formatted = formatTimestamp(rawTimestamp, offsetMinutes);
+            el.textContent = formatted;
+        });
+    });
+</script>
 
 <script>
     // Toggle sidebar
