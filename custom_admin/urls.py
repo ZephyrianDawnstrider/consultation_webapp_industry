@@ -12,6 +12,7 @@ urlpatterns = [
     path('reset_password/<int:consultant_id>/', views.reset_consultant_password, name='reset_consultant_password'),
     path('register/<int:user_id>/', views.consultant_registration, name='consultant_registration'),
     path('admin_dashboard/', views.admin_dashboard, name='admin_dashboard'),
+    path('all_activities/', views.all_activities, name='all_activities'),
     path('admin_skills/', views.admin_skills, name='admin_skills'),
     path('admin_invoices/', views.admin_invoices, name='admin_invoices'),
     path('add_consultant/', views.add_consultant, name='add_consultant'),

@@ -577,6 +577,51 @@ def admin_dashboard(request):
         from django.http import HttpResponseServerError
         return HttpResponseServerError("Internal Server Error")
 
+@login_required
+def all_activities(request):
+    """
+    View to display all activities with pagination (20 per page)
+    """
+    from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+    activities_list = ActivityLog.objects.order_by('-timestamp')
+
+    page = request.GET.get('page', 1)
+    paginator = Paginator(activities_list, 20)  # 20 activities per page
+
+    try:
+        activities = paginator.page(page)
+    except PageNotAnInteger:
+        activities = paginator.page(1)
+    except EmptyPage:
+        activities = paginator.page(paginator.num_pages)
+
+    # Prepare activities data for template
+    activities_data = []
+    icon_map = {
+        'prospective_consultant': 'fa-user-plus',
+        'timesheet_upload': 'fa-clock',
+        'invoice_upload': 'fa-file-invoice-dollar',
+        # Add more mappings as needed
+    }
+    for activity in activities:
+        icon = icon_map.get(activity.action_type, 'fa-info-circle')
+        activities_data.append({
+            'icon': icon,
+            'description': activity.description,
+            'url': activity.url,
+            'timestamp': activity.timestamp.isoformat(),
+            'time_ago': (timezone.now() - activity.timestamp).total_seconds(),
+        })
+
+    context = {
+        'activities': activities_data,
+        'page_obj': activities,
+        'paginator': paginator,
+        'current_page': 'All Activities',
+    }
+    return render(request, 'all_activities.html', context)
+
 # =============================================================================
 # CONSULTANT MANAGEMENT VIEWS
 # =============================================================================
