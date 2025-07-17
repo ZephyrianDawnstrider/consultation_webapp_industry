@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="main-content flex-1 overflow-y-auto p-6 bg-black text-white">
+    <h2 class="text-2xl font-semibold mb-6">All Activities</h2>
+    <div class="bg-gray-900 rounded-lg shadow-lg overflow-hidden">
+        <div class="divide-y divide-gray-700">
+            {% for activity in activities %}
+            <a href="{{ activity.url }}" class="block px-6 py-4 flex items-center hover:bg-gray-700 focus:outline-none focus:bg-gray-700 rounded transition-colors duration-200" tabindex="0">
+                <div class="flex-shrink-0">
+                    <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600">
+                        <i class="fas {{ activity.icon }}"></i>
+                    </div>
+                </div>
+                <div class="ml-4">
+                    <p class="text-sm font-medium text-white">{{ activity.description }}</p>
+                </div>
+                <div class="ml-auto text-sm text-gray-400" data-timestamp="{{ activity.timestamp }}">{{ activity.timestamp }}</div>
+            </a>
+            {% empty %}
+            <div class="px-6 py-4 text-gray-400 text-center">No activities found.</div>
+            {% endfor %}
+        </div>
+        <div class="px-6 py-3 bg-gray-900 text-center">
+            <nav class="inline-flex -space-x-px" aria-label="Pagination">
+                {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}" class="px-3 py-1 rounded-l-md border border-gray-700 bg-gray-800 text-white hover:bg-gray-700">Previous</a>
+                {% else %}
+                <span class="px-3 py-1 rounded-l-md border border-gray-700 bg-gray-700 text-gray-500 cursor-not-allowed">Previous</span>
+                {% endif %}
+
+                {% for num in paginator.page_range %}
+                    {% if num == page_obj.number %}
+                        <span aria-current="page" class="px-3 py-1 border border-gray-700 bg-orange-600 text-white">{{ num }}</span>
+                    {% elif num >= page_obj.number|add:'-2' and num <= page_obj.number|add:'2' %}
+                        <a href="?page={{ num }}" class="px-3 py-1 border border-gray-700 bg-gray-800 text-white hover:bg-gray-700">{{ num }}</a>
+                    {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}" class="px-3 py-1 rounded-r-md border border-gray-700 bg-gray-800 text-white hover:bg-gray-700">Next</a>
+                {% else %}
+                <span class="px-3 py-1 rounded-r-md border border-gray-700 bg-gray-700 text-gray-500 cursor-not-allowed">Next</span>
+                {% endif %}
+            </nav>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Set the time_offset_minutes cookie based on user's timezone offset
+    (function setTimeOffsetCookie() {
+        const offset = new Date().getTimezoneOffset();
+        document.cookie = `time_offset_minutes=${-offset}; path=/; max-age=31536000`;
+    })();
+
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+    function formatTimestamp(rawTimestamp, offsetMinutes) {
+        const date = new Date(rawTimestamp);
+        if (isNaN(date)) return rawTimestamp;
+        date.setMinutes(date.getMinutes());
+        const options = { hour: 'numeric', minute: 'numeric', hour12: true, month: 'short', day: 'numeric', year: 'numeric' };
+        return date.toLocaleString(undefined, options);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const offsetStr = getCookie('time_offset_minutes');
+        const offsetMinutes = offsetStr ? parseInt(offsetStr, 10) : 0;
+        document.querySelectorAll('[data-timestamp]').forEach(el => {
+            const rawTimestamp = el.getAttribute('data-timestamp');
+            const formatted = formatTimestamp(rawTimestamp, offsetMinutes);
+            el.textContent = formatted;
+        });
+    });
+</script>
+{% endblock %}

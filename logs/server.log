@@ -7148,3 +7148,21 @@ ValueError: The view custom_admin.views.admin_dashboard didn't return an HttpRes
 [2025-07-17 13:16:31,142] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
 [2025-07-17 13:16:36,296] INFO django.server "POST /consultant/invoice/delete/3/ HTTP/1.1" 200 60
 [2025-07-17 13:16:37,824] INFO django.server "GET /consultant/consultant_invoice/ HTTP/1.1" 200 28020
+[2025-07-17 13:33:42,576] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-17 14:11:42,729] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-17 14:11:48,761] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-17 14:12:01,099] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-17 14:12:04,755] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-17 14:15:12,216] ERROR django.request Internal Server Error: /auth/admin_dashboard/
+[2025-07-17 14:15:12,218] ERROR django.server "GET /auth/admin_dashboard/ HTTP/1.1" 500 21
+[2025-07-17 14:15:12,656] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 14:15:12,657] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 14:15:56,994] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\urls.py changed, reloading.
+[2025-07-17 14:15:59,049] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-17 14:16:02,650] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 27411
+[2025-07-17 14:16:02,768] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 14:16:02,769] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 14:16:02,825] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 14:16:03,660] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 14:16:03,661] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 14:16:07,732] INFO django.server "GET /auth/all_activities/ HTTP/1.1" 200 22931
