@@ -882,7 +882,7 @@ def consultant_invoice(request):
                             action_type='invoice_upload',
                             description=f"{user.email} replaced an invoice for {month_date.strftime('%B %Y')}",
                             content_object=existing_invoice,
-                            url=f"/custom_admin/admin_invoices/?invoice_id={existing_invoice.id}"
+                            url=f"/auth/admin_invoices/?invoice_id={existing_invoice.id}"
                         )
                     else:
                         # Create new invoice
@@ -902,7 +902,7 @@ def consultant_invoice(request):
                             action_type='invoice_upload',
                             description=f"{user.email} uploaded a new invoice for {month_date.strftime('%B %Y')}",
                             content_object=invoice,
-                            url=f"/custom_admin/admin_invoices/?invoice_id={invoice.id}"
+                            url=f"/auth/admin_invoices/?invoice_id={invoice.id}"
                         )
                 except Exception as e:
                     logger.error(f"Error saving invoice: {str(e)}")

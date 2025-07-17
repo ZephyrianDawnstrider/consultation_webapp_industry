@@ -30,6 +30,19 @@ from django.db import transaction
 from django.db.models import Count, Prefetch, Q
 from django.http import JsonResponse, HttpResponseBadRequest
 from django.shortcuts import render, redirect, get_object_or_404
+
+@login_required
+def admin_invoice_detail(request, invoice_id):
+    """
+    View to display details of a single invoice.
+    """
+    from .models import Invoice
+    invoice = get_object_or_404(Invoice, id=invoice_id)
+    context = {
+        'invoice': invoice,
+        'current_page': 'Invoice Detail',
+    }
+    return render(request, 'admin_invoice_detail.html', context)
 from django.utils.dateparse import parse_date
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods, require_POST
@@ -1615,13 +1628,14 @@ def new_consultant_details(request):
             if recipient_list:
                 send_mail(subject, message, from_email, recipient_list, fail_silently=False)
 
+            from django.urls import reverse
             # Create ActivityLog entry for prospective consultant submission
             ActivityLog.objects.create(
                 user=request.user if request.user.is_authenticated else None,
                 action_type='prospective_consultant',
                 description=f"New prospective consultant submitted: {prospective_consultant.name} ({prospective_consultant.email})",
                 content_object=prospective_consultant,
-                url=f"/custom_admin/prospective_consultants/{prospective_consultant.id}/"
+                url=reverse('custom_admin:prospective_consultant_detail', args=[prospective_consultant.id])
             )
 
             messages.success(request, "Your prospective consultant request has been submitted successfully.")

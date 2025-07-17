@@ -6785,3 +6785,138 @@ ValueError: The view custom_admin.views.admin_dashboard didn't return an HttpRes
 [2025-07-17 10:52:04,079] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
 [2025-07-17 10:52:04,551] WARNING django.request Not Found: /favicon.ico
 [2025-07-17 10:52:04,552] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 11:48:51,878] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 25064
+[2025-07-17 11:48:51,927] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 11:48:51,928] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 11:48:52,056] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 11:48:53,083] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 11:48:53,084] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 11:49:02,333] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 25564
+[2025-07-17 11:49:02,380] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 11:49:02,380] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 11:49:02,494] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 11:49:02,861] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 11:49:02,863] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 11:49:04,075] WARNING django.request Not Found: /custom_admin/admin_invoices/
+[2025-07-17 11:49:04,076] WARNING django.server "GET /custom_admin/admin_invoices/?invoice_id=3 HTTP/1.1" 404 2919
+[2025-07-17 11:49:28,635] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 25564
+[2025-07-17 11:49:28,689] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 11:49:28,689] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 11:49:28,758] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 11:49:29,236] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 11:49:29,238] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 11:49:29,752] WARNING django.request Not Found: /custom_admin/admin_invoices/
+[2025-07-17 11:49:29,752] WARNING django.server "GET /custom_admin/admin_invoices/?invoice_id=3 HTTP/1.1" 404 2919
+[2025-07-17 11:52:31,327] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-17 11:52:34,364] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-17 11:52:53,183] WARNING django.request Not Found: /custom_admin/admin_invoices/
+[2025-07-17 11:52:53,185] WARNING django.server "GET /custom_admin/admin_invoices/?invoice_id=3 HTTP/1.1" 404 2919
+[2025-07-17 11:52:53,690] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 11:52:53,691] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 11:53:18,727] WARNING django.request Not Found: /custom_admin/admin_invoices/
+[2025-07-17 11:53:18,728] WARNING django.server "GET /custom_admin/admin_invoices/?invoice_id=3 HTTP/1.1" 404 2919
+[2025-07-17 11:53:18,861] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 11:53:18,862] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 11:53:22,040] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 25564
+[2025-07-17 11:53:22,149] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 11:53:22,149] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 11:53:22,170] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 11:53:22,841] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 11:53:22,842] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 11:53:23,704] WARNING django.request Not Found: /custom_admin/admin_invoices/
+[2025-07-17 11:53:23,705] WARNING django.server "GET /custom_admin/admin_invoices/?invoice_id=3 HTTP/1.1" 404 2919
+[2025-07-17 11:54:45,329] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\views.py changed, reloading.
+[2025-07-17 11:54:47,926] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-17 11:54:50,975] WARNING django.request Not Found: /custom_admin/admin_invoices/
+[2025-07-17 11:54:50,976] WARNING django.server "GET /custom_admin/admin_invoices/?invoice_id=3 HTTP/1.1" 404 2919
+[2025-07-17 11:54:51,506] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 11:54:51,507] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 11:54:53,601] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 25564
+[2025-07-17 11:54:53,706] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 11:54:53,707] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 11:54:53,893] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 11:54:54,305] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 11:54:54,306] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 11:54:54,999] WARNING django.request Not Found: /custom_admin/admin_invoices/
+[2025-07-17 11:54:55,000] WARNING django.server "GET /custom_admin/admin_invoices/?invoice_id=3 HTTP/1.1" 404 2919
+[2025-07-17 11:56:20,616] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 25564
+[2025-07-17 11:56:20,646] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 11:56:20,646] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 11:56:20,864] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 11:56:21,299] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 11:56:21,300] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 11:56:21,915] WARNING django.request Not Found: /custom_admin/admin_invoices/
+[2025-07-17 11:56:21,916] WARNING django.server "GET /custom_admin/admin_invoices/?invoice_id=3 HTTP/1.1" 404 2919
+[2025-07-17 11:56:46,197] WARNING django.request Not Found: /custom_admin/admin_invoices/
+[2025-07-17 11:56:46,198] WARNING django.server "GET /custom_admin/admin_invoices/?invoice_id=3 HTTP/1.1" 404 2919
+[2025-07-17 12:02:46,285] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-17 12:02:48,465] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-17 12:03:05,706] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-17 12:03:07,782] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-17 12:10:43,047] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-17 12:10:45,576] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-17 12:10:58,768] WARNING django.request Not Found: /custom_admin/admin_invoices/
+[2025-07-17 12:10:58,769] WARNING django.server "GET /custom_admin/admin_invoices/?invoice_id=3 HTTP/1.1" 404 2919
+[2025-07-17 12:16:47,197] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 25564
+[2025-07-17 12:16:47,299] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 12:16:47,299] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 12:16:47,369] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 12:16:48,556] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 12:16:48,557] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 12:16:55,584] WARNING django.request Not Found: /custom_admin/admin_invoices/
+[2025-07-17 12:16:55,585] WARNING django.server "GET /custom_admin/admin_invoices/?invoice_id=3 HTTP/1.1" 404 2919
+[2025-07-17 12:19:45,992] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 25556
+[2025-07-17 12:19:46,024] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 12:19:46,024] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 12:19:46,296] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 12:19:47,351] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 12:19:47,352] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 12:19:48,070] INFO django.server "GET /auth/admin_invoices/?invoice_id=3 HTTP/1.1" 200 32972
+[2025-07-17 12:19:48,109] INFO django.server "GET /static/custom_admin/js/admin_invoices.js HTTP/1.1" 304 0
+[2025-07-17 12:19:54,430] WARNING django.request Not Found: /custom_admin/timesheet
+[2025-07-17 12:19:54,432] WARNING django.server "GET /custom_admin/timesheet?consultant_id=2&year=2025&month=05 HTTP/1.1" 404 2931
+[2025-07-17 12:23:42,219] WARNING django.request Not Found: /custom_admin/timesheet
+[2025-07-17 12:23:42,219] WARNING django.server "GET /custom_admin/timesheet?consultant_id=2&year=2025&month=05 HTTP/1.1" 404 2931
+[2025-07-17 12:23:57,967] WARNING django.request Not Found: /custom_admin/timesheet
+[2025-07-17 12:23:57,968] WARNING django.server "GET /custom_admin/timesheet?consultant_id=2&year=2025&month=05 HTTP/1.1" 404 2931
+[2025-07-17 12:25:22,047] WARNING django.request Not Found: /custom_admin/timesheet
+[2025-07-17 12:25:22,048] WARNING django.server "GET /custom_admin/timesheet?consultant_id=2&year=2025&month=05 HTTP/1.1" 404 2931
+[2025-07-17 12:25:22,256] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 12:25:22,257] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 12:25:24,008] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 25540
+[2025-07-17 12:25:24,057] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 12:25:24,057] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 12:25:24,269] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 12:25:24,838] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 12:25:24,839] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 12:25:25,214] INFO django.server "GET /auth/timesheet?consultant_id=2&year=2025&month=05 HTTP/1.1" 301 0
+[2025-07-17 12:25:25,374] INFO django.server "GET /auth/timesheet/?consultant_id=2&year=2025&month=05 HTTP/1.1" 200 20970
+[2025-07-17 12:25:25,414] INFO django.server "GET /static/custom_admin/js/timesheet.js HTTP/1.1" 304 0
+[2025-07-17 12:25:38,842] INFO django.server "GET /auth/timesheet/?consultant_id=2&year=2025&month=05 HTTP/1.1" 200 20970
+[2025-07-17 12:25:45,830] INFO django.server "GET /consultant/consultant_timesheet/ HTTP/1.1" 200 42956
+[2025-07-17 12:25:52,320] INFO django.server "GET /consultant/consultant_timesheet/?year=2025&month=05&mode=upload HTTP/1.1" 200 42956
+[2025-07-17 12:25:59,311] INFO django.server "POST /consultant/delete_timesheet/7/ HTTP/1.1" 200 63
+[2025-07-17 12:26:12,206] INFO django.server "GET /auth/timesheet/?consultant_id=2&year=2025&month=05 HTTP/1.1" 200 19080
+[2025-07-17 12:26:12,263] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 12:26:12,263] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 12:26:12,363] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 12:26:12,368] INFO django.server "GET /static/custom_admin/js/timesheet.js HTTP/1.1" 200 7231
+[2025-07-17 12:26:12,824] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 12:26:12,825] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 12:26:15,137] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 25540
+[2025-07-17 12:26:17,416] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 25540
+[2025-07-17 12:26:17,469] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 12:26:17,469] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 12:26:17,515] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 12:26:18,350] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 12:26:18,351] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 12:26:32,095] INFO django.server "POST /consultant/upload_timesheet/2/ HTTP/1.1" 200 103
+[2025-07-17 12:26:32,284] INFO django.server "GET /consultant/consultant_timesheet/?year=2025&month=05&mode=upload HTTP/1.1" 200 48717
+[2025-07-17 12:26:48,928] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 26480
+[2025-07-17 12:26:48,960] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 12:26:48,961] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 12:26:49,085] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 12:26:49,514] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 12:26:49,515] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 12:26:51,094] WARNING django.request Not Found: /custom_admin/timesheet
+[2025-07-17 12:26:51,095] WARNING django.server "GET /custom_admin/timesheet?consultant_id=2&year=2025&month=05 HTTP/1.1" 404 2931
