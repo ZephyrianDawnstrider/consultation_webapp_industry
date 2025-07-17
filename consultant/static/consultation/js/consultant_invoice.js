@@ -27,9 +27,12 @@ function submitEditInvoiceForm(invoiceId) {
 }
 
 function deleteInvoice(invoiceId) {
+    console.log(`deleteInvoice called with invoiceId: ${invoiceId}`);
     if (!confirm("Are you sure you want to delete this invoice? This action cannot be undone.")) {
+        console.log("User cancelled delete action");
         return;
     }
+    console.log("User confirmed delete action");
 
     fetch(`/consultant/invoice/delete/${invoiceId}/`, {
         method: 'POST',
@@ -38,8 +41,12 @@ function deleteInvoice(invoiceId) {
             'Accept': 'application/json',
         },
     })
-    .then(response => response.json())
+    .then(response => {
+        console.log("Fetch response received", response);
+        return response.json();
+    })
     .then(data => {
+        console.log("Response JSON data:", data);
         if (data.success) {
             alert('Invoice deleted successfully.');
             location.reload();
@@ -48,6 +55,7 @@ function deleteInvoice(invoiceId) {
         }
     })
     .catch(error => {
+        console.error('Error deleting invoice:', error);
         alert('Error deleting invoice: ' + error);
     });
 }

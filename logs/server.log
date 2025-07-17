@@ -7094,3 +7094,57 @@ ValueError: The view custom_admin.views.admin_dashboard didn't return an HttpRes
 [2025-07-17 13:01:59,974] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 21893
 [2025-07-17 13:02:01,845] INFO django.server "GET /auth/prospective_consultants_management/ HTTP/1.1" 200 23755
 [2025-07-17 13:02:12,140] INFO django.server "POST /auth/delete_prospective_consultant/14/ HTTP/1.1" 200 76
+[2025-07-17 13:09:32,260] INFO django.server "GET /consultant/consultant_invoice/ HTTP/1.1" 200 32148
+[2025-07-17 13:09:32,322] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 13:09:32,325] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 13:09:32,334] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 13:09:32,420] WARNING django.server "GET /static/consultant/js/consultant_invoice.js HTTP/1.1" 404 1864
+[2025-07-17 13:09:33,470] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 13:09:33,472] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 13:13:55,251] INFO django.server "GET /consultant/consultant_invoice/ HTTP/1.1" 200 32148
+[2025-07-17 13:13:55,313] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 13:13:55,313] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 13:13:55,323] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 13:13:55,387] WARNING django.server "GET /static/consultant/js/consultant_invoice.js HTTP/1.1" 404 1864
+[2025-07-17 13:13:56,325] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 13:13:56,326] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 13:14:52,938] INFO django.server "GET /consultant/consultant_invoice/ HTTP/1.1" 200 32148
+[2025-07-17 13:14:52,984] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 13:14:52,985] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 13:14:52,991] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 13:14:53,110] WARNING django.server "GET /static/consultant/js/consultant_invoice.js HTTP/1.1" 404 1864
+[2025-07-17 13:14:53,705] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 13:14:53,706] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 13:15:19,205] INFO django.server "GET /consultant/consultant_invoice/ HTTP/1.1" 200 32148
+[2025-07-17 13:15:19,256] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 13:15:19,257] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 13:15:19,342] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 13:15:19,362] WARNING django.server "GET /static/consultant/js/consultant_invoice.js HTTP/1.1" 404 1864
+[2025-07-17 13:15:20,115] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 13:15:20,116] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 13:15:22,409] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 13:15:22,410] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 13:15:52,864] INFO django.server "GET /consultant/consultant_invoice/ HTTP/1.1" 200 32150
+[2025-07-17 13:15:52,926] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 13:15:52,927] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 13:15:52,941] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 13:15:52,951] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 13:15:52,976] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 13:15:53,137] INFO django.server "GET /static/consultation/js/consultant_invoice.js HTTP/1.1" 200 2510
+[2025-07-17 13:15:54,312] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 13:15:54,312] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 13:15:56,999] INFO django.server "POST /consultant/invoice/delete/4/ HTTP/1.1" 200 60
+[2025-07-17 13:15:59,008] INFO django.server "GET /consultant/consultant_invoice/ HTTP/1.1" 200 30085
+[2025-07-17 13:15:59,063] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 13:15:59,064] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 13:16:29,784] INFO django.server "GET /consultant/consultant_invoice/ HTTP/1.1" 200 30085
+[2025-07-17 13:16:29,834] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 13:16:29,835] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 13:16:29,854] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 13:16:29,860] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 13:16:29,927] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 13:16:29,942] INFO django.server "GET /static/consultation/js/consultant_invoice.js HTTP/1.1" 200 2510
+[2025-07-17 13:16:31,141] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 13:16:31,142] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 13:16:36,296] INFO django.server "POST /consultant/invoice/delete/3/ HTTP/1.1" 200 60
+[2025-07-17 13:16:37,824] INFO django.server "GET /consultant/consultant_invoice/ HTTP/1.1" 200 28020
