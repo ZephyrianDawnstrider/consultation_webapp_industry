@@ -544,12 +544,13 @@ def upload_timesheet(request, consultant_id):
             logger.info(f"Timesheet uploaded and converted to CSV successfully by user {request.user.id} for month {year_str}-{month_str}")
 
             # Create ActivityLog entry for timesheet upload
+            from custom_admin.utils import get_activitylog_url
             ActivityLog.objects.create(
                 user=request.user,
                 action_type='timesheet_upload',
                 description=f"{request.user.email} uploaded a timesheet for {month.strftime('%B %Y')}",
                 content_object=timesheet,
-                url=f"/custom_admin/timesheet?consultant_id={consultant.id}&year={month.year}&month={month.strftime('%m')}"
+                url=get_activitylog_url('custom_admin:timesheet', query_params={'consultant_id': consultant.id, 'year': month.year, 'month': month.strftime('%m')})
             )
 
             return JsonResponse({

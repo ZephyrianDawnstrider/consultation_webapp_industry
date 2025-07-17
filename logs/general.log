@@ -442,3 +442,6 @@
 [2025-07-17 10:33:30,974] INFO general.views Login attempt for email: ayushchaturvedi405@gmail.com
 [2025-07-17 10:33:31,082] INFO general.views User found: ayushchaturvedi405@gmail.com with role consultant
 [2025-07-17 10:33:31,261] INFO general.views Consultant user ayushchaturvedi405@gmail.com logged in successfully.
+[2025-07-17 12:40:29,585] INFO general.views Login attempt for email: admin_test@gmail.com
+[2025-07-17 12:40:29,713] INFO general.views User found: admin_test@gmail.com with role admin
+[2025-07-17 12:40:30,620] INFO general.views Admin user admin_test@gmail.com authenticated successfully.

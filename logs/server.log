@@ -6920,3 +6920,177 @@ ValueError: The view custom_admin.views.admin_dashboard didn't return an HttpRes
 [2025-07-17 12:26:49,515] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
 [2025-07-17 12:26:51,094] WARNING django.request Not Found: /custom_admin/timesheet
 [2025-07-17 12:26:51,095] WARNING django.server "GET /custom_admin/timesheet?consultant_id=2&year=2025&month=05 HTTP/1.1" 404 2931
+[2025-07-17 12:29:16,943] WARNING django.request Not Found: /custom_admin/timesheet
+[2025-07-17 12:29:16,943] WARNING django.server "GET /custom_admin/timesheet?consultant_id=2&year=2025&month=05 HTTP/1.1" 404 2931
+[2025-07-17 12:29:17,385] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 12:29:17,386] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 12:29:19,408] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 26480
+[2025-07-17 12:29:19,442] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 12:29:19,442] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 12:29:19,554] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 12:29:20,095] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 12:29:20,095] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 12:29:22,679] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 26480
+[2025-07-17 12:30:14,651] INFO django.server "GET /auth/admin_invoices/?invoice_id=3 HTTP/1.1" 200 32972
+[2025-07-17 12:30:17,445] INFO django.server "GET /auth/timesheet/?consultant_id=2&year=2025&month=05 HTTP/1.1" 200 26864
+[2025-07-17 12:30:20,949] INFO django.server "GET /auth/timesheet/?consultant_id=2&year=2025&month=05 HTTP/1.1" 200 26864
+[2025-07-17 12:30:20,998] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 12:30:20,998] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 12:30:21,064] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 12:30:21,081] INFO django.server "GET /static/custom_admin/js/timesheet.js HTTP/1.1" 200 7231
+[2025-07-17 12:30:21,645] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 12:30:21,646] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 12:35:44,947] WARNING django.request Not Found: /custom_admin/timesheet
+[2025-07-17 12:35:44,948] WARNING django.server "GET /custom_admin/timesheet?consultant_id=2&year=2025&month=05 HTTP/1.1" 404 2931
+[2025-07-17 12:37:52,832] WARNING django.request Not Found: /custom_admin/timesheet
+[2025-07-17 12:37:52,833] WARNING django.server "GET /custom_admin/timesheet?consultant_id=2&year=2025&month=05 HTTP/1.1" 404 2931
+[2025-07-17 12:39:59,801] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant_webapp\urls.py changed, reloading.
+[2025-07-17 12:40:02,008] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-17 12:40:06,374] WARNING django.request Not Found: /auth/admin_dashboard/
+[2025-07-17 12:40:06,375] WARNING django.server "GET /auth/admin_dashboard/ HTTP/1.1" 404 2893
+[2025-07-17 12:40:06,520] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 12:40:06,521] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2863
+[2025-07-17 12:40:09,127] WARNING django.request Not Found: /auth/timesheet/
+[2025-07-17 12:40:09,129] WARNING django.server "GET /auth/timesheet/?consultant_id=2&year=2025&month=05 HTTP/1.1" 404 2918
+[2025-07-17 12:40:09,288] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 12:40:09,289] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2863
+[2025-07-17 12:40:12,348] INFO django.server "GET / HTTP/1.1" 200 40628
+[2025-07-17 12:40:17,984] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant_webapp\urls.py changed, reloading.
+[2025-07-17 12:40:20,854] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-17 12:40:30,798] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-17 12:40:31,191] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 26480
+[2025-07-17 12:40:31,677] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 12:40:31,678] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 12:40:33,643] WARNING django.request Not Found: /custom_admin/timesheet
+[2025-07-17 12:40:33,644] WARNING django.server "GET /custom_admin/timesheet?consultant_id=2&year=2025&month=05 HTTP/1.1" 404 2931
+[2025-07-17 12:41:15,496] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 12:41:15,497] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 12:41:22,568] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 26480
+[2025-07-17 12:41:22,613] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 12:41:22,614] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 12:41:22,704] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 12:41:22,707] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 12:41:22,721] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 12:41:23,928] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 12:41:23,928] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 12:41:25,148] WARNING django.request Not Found: /custom_admin/timesheet
+[2025-07-17 12:41:25,148] WARNING django.server "GET /custom_admin/timesheet?consultant_id=2&year=2025&month=05 HTTP/1.1" 404 2931
+[2025-07-17 12:41:25,245] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 12:41:25,247] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 12:43:23,107] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\views.py changed, reloading.
+[2025-07-17 12:43:26,597] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-17 12:43:28,781] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 12:43:28,782] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 12:43:28,792] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 12:43:28,793] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 12:43:28,814] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 12:43:28,815] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 12:43:30,270] WARNING django.request Not Found: /custom_admin/timesheet
+[2025-07-17 12:43:30,271] WARNING django.server "GET /custom_admin/timesheet?consultant_id=2&year=2025&month=05 HTTP/1.1" 404 2931
+[2025-07-17 12:43:30,423] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 12:43:30,425] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 12:43:31,855] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 12:43:31,859] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 12:43:31,905] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 12:43:31,907] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 12:43:32,724] INFO django.server "GET /auth/admin_invoices/?invoice_id=3 HTTP/1.1" 200 32972
+[2025-07-17 12:43:32,801] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 12:43:32,803] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 12:43:34,429] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 12:43:34,430] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 12:43:34,462] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 12:43:34,463] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 12:43:38,373] WARNING django.request Not Found: /custom_admin/timesheet
+[2025-07-17 12:43:38,374] WARNING django.server "GET /custom_admin/timesheet?consultant_id=2&year=2025&month=05 HTTP/1.1" 404 2931
+[2025-07-17 12:43:38,452] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 12:43:38,453] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 12:45:56,891] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\views.py changed, reloading.
+[2025-07-17 12:45:59,260] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-17 12:46:05,915] WARNING django.request Not Found: /custom_admin/timesheet
+[2025-07-17 12:46:05,916] WARNING django.server "GET /custom_admin/timesheet?consultant_id=2&year=2025&month=05 HTTP/1.1" 404 2931
+[2025-07-17 12:46:05,959] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 12:46:05,960] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 12:46:06,464] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 12:46:06,466] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 12:46:08,098] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 26480
+[2025-07-17 12:46:08,161] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 12:46:08,162] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 12:46:09,655] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 26480
+[2025-07-17 12:46:09,685] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 12:46:09,687] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 12:46:09,776] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 12:46:09,779] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 12:46:09,827] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 12:46:10,599] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 12:46:10,603] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 12:46:11,350] WARNING django.request Not Found: /custom_admin/timesheet
+[2025-07-17 12:46:11,351] WARNING django.server "GET /custom_admin/timesheet?consultant_id=2&year=2025&month=05 HTTP/1.1" 404 2931
+[2025-07-17 12:46:11,430] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 12:46:11,433] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 12:46:12,991] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 12:46:12,992] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 12:46:13,023] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 12:46:13,024] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 12:46:34,420] WARNING django.request Not Found: /custom_admin/timesheet
+[2025-07-17 12:46:34,422] WARNING django.server "GET /custom_admin/timesheet?consultant_id=2&year=2025&month=05 HTTP/1.1" 404 2931
+[2025-07-17 12:46:34,509] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 12:46:34,511] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 12:46:49,607] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\views.py changed, reloading.
+[2025-07-17 12:46:52,478] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-17 12:47:49,506] WARNING django.request Not Found: /custom_admin/timesheet
+[2025-07-17 12:47:49,508] WARNING django.server "GET /custom_admin/timesheet?consultant_id=2&year=2025&month=05 HTTP/1.1" 404 2931
+[2025-07-17 12:47:49,544] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 12:47:49,545] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 12:47:50,010] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 12:47:50,011] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 12:47:51,105] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 12:47:51,106] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 12:58:34,563] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\utils.py changed, reloading.
+[2025-07-17 12:58:37,075] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-17 12:58:42,286] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\utils.py changed, reloading.
+[2025-07-17 12:58:43,931] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-17 12:59:45,163] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\utils.py changed, reloading.
+[2025-07-17 12:59:47,673] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-17 13:00:27,410] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\utils.py changed, reloading.
+[2025-07-17 13:00:29,510] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-17 13:00:49,490] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 26472
+[2025-07-17 13:00:49,537] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 13:00:49,538] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 13:00:49,626] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 13:00:49,631] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 13:00:49,747] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 13:00:50,952] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 13:00:50,953] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 13:00:51,978] INFO django.server "GET /auth/timesheet/?consultant_id=2&year=2025&month=05 HTTP/1.1" 200 26864
+[2025-07-17 13:00:52,051] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-17 13:00:52,052] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-17 13:01:00,093] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\views.py changed, reloading.
+[2025-07-17 13:01:02,683] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-17 13:01:05,243] INFO django.server "GET /consultant/consultant_profile/2/ HTTP/1.1" 200 34580
+[2025-07-17 13:01:08,136] INFO django.server "GET /consultant/consultant_invoice/ HTTP/1.1" 200 30083
+[2025-07-17 13:01:08,222] WARNING django.server "GET /static/consultant/js/consultant_invoice.js HTTP/1.1" 404 1864
+[2025-07-17 13:01:20,066] INFO django.server "GET /consultant/consultant_invoice/ HTTP/1.1" 200 30083
+[2025-07-17 13:01:20,212] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 13:01:20,219] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 13:01:20,227] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 13:01:20,264] WARNING django.server "GET /static/consultant/js/consultant_invoice.js HTTP/1.1" 404 1864
+[2025-07-17 13:01:21,028] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 13:01:21,029] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 13:01:32,935] INFO django.server "POST /consultant/consultant_invoice/ HTTP/1.1" 200 32275
+[2025-07-17 13:01:46,497] INFO django.server "GET /auth/timesheet/?consultant_id=2&year=2025&month=05 HTTP/1.1" 200 26864
+[2025-07-17 13:01:46,541] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-17 13:01:46,541] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-17 13:01:46,640] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-17 13:01:46,645] INFO django.server "GET /static/custom_admin/js/timesheet.js HTTP/1.1" 200 7231
+[2025-07-17 13:01:47,546] WARNING django.request Not Found: /favicon.ico
+[2025-07-17 13:01:47,547] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-17 13:01:48,845] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 27398
+[2025-07-17 13:01:50,094] INFO django.server "GET /auth/admin_invoices/?invoice_id=4 HTTP/1.1" 200 35539
+[2025-07-17 13:01:56,426] INFO django.server "GET /auth/consultant_list/ HTTP/1.1" 200 35419
+[2025-07-17 13:01:56,498] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-17 13:01:56,651] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-17 13:01:58,385] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 33055
+[2025-07-17 13:01:58,940] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 154
+[2025-07-17 13:01:59,974] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 21893
+[2025-07-17 13:02:01,845] INFO django.server "GET /auth/prospective_consultants_management/ HTTP/1.1" 200 23755
+[2025-07-17 13:02:12,140] INFO django.server "POST /auth/delete_prospective_consultant/14/ HTTP/1.1" 200 76
