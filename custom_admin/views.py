@@ -15,6 +15,7 @@ import random
 import string
 import re
 from datetime import datetime
+from django.utils import timezone
 
 # Django imports
 from .forms import ConsultantEditForm
@@ -34,7 +35,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods, require_POST
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
-from .models import Timesheet
+from .models import Timesheet, ActivityLog
 
 
 from django.core.files.base import ContentFile
@@ -517,18 +518,51 @@ def admin_dashboard(request):
     """
     Admin dashboard with key metrics and statistics
     """
-    # Calculate dashboard metrics
-    total_consultants = User.objects.filter(role='consultant').count()
-    pending_invoices = Invoice.objects.filter(status='pending').count()
-    approved_sessions = SessionBooking.objects.count()
+    try:
+        # Calculate dashboard metrics
+        total_consultants = User.objects.filter(role='consultant').count()
+        pending_invoices = Invoice.objects.filter(status='pending').count()
+        approved_sessions = SessionBooking.objects.count()
 
-    context = {
-        'total_consultants': total_consultants,
-        'pending_invoices': pending_invoices,
-        'approved_sessions': approved_sessions,
-        'current_page': 'Dashboard',
-    }
-    return render(request, 'admin_dashboard.html', context)
+        # Fetch recent activities from ActivityLog (last 5) without filtering by user role (for debugging)
+        recent_activities = ActivityLog.objects.order_by('-timestamp')[:5]
+
+        # Debug logging for recent activities count and descriptions
+        logger.info(f"Admin dashboard: Found {recent_activities.count()} recent activities for consultants")
+        for act in recent_activities:
+            logger.info(f"Activity: {act.action_type} - {act.description} - User: {act.user.email if act.user else 'None'}")
+
+        # Prepare recent activities data for template
+        activities_data = []
+        for activity in recent_activities:
+            icon_map = {
+                'prospective_consultant': 'fa-user-plus',
+                'timesheet_upload': 'fa-clock',
+                'invoice_upload': 'fa-file-invoice-dollar',
+                # Add more mappings as needed
+            }
+            icon = icon_map.get(activity.action_type, 'fa-info-circle')
+            activities_data.append({
+            'icon': icon,
+            'description': activity.description,
+            'url': activity.url,
+            # Pass ISO 8601 formatted timestamp for client-side parsing
+            'timestamp': activity.timestamp.isoformat(),
+            'time_ago': (timezone.now() - activity.timestamp).total_seconds(),  # For possible JS formatting
+        })
+
+        context = {
+            'total_consultants': total_consultants,
+            'pending_invoices': pending_invoices,
+            'approved_sessions': approved_sessions,
+            'current_page': 'Dashboard',
+            'recent_activities': activities_data,
+        }
+        return render(request, 'admin_dashboard.html', context)
+    except Exception as e:
+        logger.error(f"Error in admin_dashboard view: {str(e)}")
+        from django.http import HttpResponseServerError
+        return HttpResponseServerError("Internal Server Error")
 
 # =============================================================================
 # CONSULTANT MANAGEMENT VIEWS
@@ -1537,6 +1571,7 @@ def admin_profile(request, admin_id):
 
 @require_http_methods(["GET", "POST"])
 def new_consultant_details(request):
+    from custom_admin.models import ActivityLog
     if request.method == "POST":
         form = ProspectiveConsultantForm(request.POST)
         if form.is_valid():
@@ -1580,13 +1615,22 @@ def new_consultant_details(request):
             if recipient_list:
                 send_mail(subject, message, from_email, recipient_list, fail_silently=False)
 
+            # Create ActivityLog entry for prospective consultant submission
+            ActivityLog.objects.create(
+                user=request.user if request.user.is_authenticated else None,
+                action_type='prospective_consultant',
+                description=f"New prospective consultant submitted: {prospective_consultant.name} ({prospective_consultant.email})",
+                content_object=prospective_consultant,
+                url=f"/custom_admin/prospective_consultants/{prospective_consultant.id}/"
+            )
+
             messages.success(request, "Your prospective consultant request has been submitted successfully.")
             return redirect('landing_page')
         else:
             messages.error(request, "Please correct the errors below.")
     else:
         form = ProspectiveConsultantForm()
-    return render(request, 'new_consultant_details.html', {'form': form})
+    return render(request, 'new_consultant_details.html', {'form': form, 'user': request.user if request.user.is_authenticated else None})
 
 @login_required
 def prospective_consultants_management(request):

@@ -116,24 +116,14 @@
                         <label class="block text-sm font-medium text-gray-700 mb-3">
                             Invoice File
                         </label>
-                        <div class="mt-2 flex justify-center px-8 pt-6 pb-8 border-2 border-gray-300 border-dashed rounded-lg file-upload hover:border-primary-500 transition-colors duration-300">
-                            <div class="space-y-2 text-center">
-                                <div class="flex text-base text-gray-600 items-center justify-center">
-                                    <label for="invoiceFile" class="relative cursor-pointer bg-white rounded-md font-semibold text-primary-600 hover:text-primary-500 focus-within:outline-none">
-                                        <span class="flex items-center">
-                                            <i class="fas fa-upload mr-3 text-lg"></i>
-                                            Upload a file
-                                        </span>
-                                        <input id="invoiceFile" name="invoice_file" type="file" class="sr-only" accept=".pdf" required>
-                                    </label>
-                                    <p class="pl-2">or drag and drop</p>
-                                </div>
-                                <p class="text-sm text-gray-500">
-                                    PDF files only
-                                </p>
-                            </div>
+                        <div id="file-drop-area" class="file-drop-area cursor-pointer mt-2 flex justify-center px-8 pt-6 pb-8 border-2 border-indigo-500 border-dashed rounded-lg hover:bg-indigo-100 hover:border-indigo-600 transition-colors duration-300" tabindex="0" role="button" aria-label="Upload invoice file">
+                            <p class="text-indigo-600 text-lg flex items-center justify-center">
+                                <i class="fas fa-upload mr-3 text-lg"></i>
+                                Click or drag and drop your PDF file here
+                            </p>
+                            <input id="invoiceFile" name="invoice_file" type="file" class="hidden" accept=".pdf" required aria-describedby="file-info">
                         </div>
-                        <div id="file-info" class="hidden mt-3 text-sm text-gray-600">
+                        <div id="file-info" cla ss="hidden mt-3 text-sm text-gray-600">
                             <i class="fas fa-file-pdf mr-2 text-red-600"></i>
                             <span id="file-name"></span> - <span id="file-size"></span>
                         </div>
@@ -226,6 +216,7 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const fileInput = document.getElementById('invoiceFile');
+    const fileDropArea = document.getElementById('file-drop-area');
     const fileInfo = document.getElementById('file-info');
     const fileName = document.getElementById('file-name');
     const fileSize = document.getElementById('file-size');
@@ -238,6 +229,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update displayed month when selection changes
     monthSelect.addEventListener('change', function() {
         uploadButton.disabled = !(monthSelect.value && fileInput.files.length > 0);
+    });
+
+    fileDropArea.addEventListener('click', () => fileInput.click());
+    fileDropArea.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            fileInput.click();
+        }
     });
 
     fileInput.addEventListener('change', function() {
