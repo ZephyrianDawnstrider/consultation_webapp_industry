@@ -78,7 +78,7 @@
         </div>
         <div class="divide-y divide-gray-700">
             {% for activity in recent_activities %}
-            <div class="px-6 py-4 flex items-center">
+            <a href="{{ activity.url }}" class="block px-6 py-4 flex items-center hover:bg-gray-700 focus:outline-none focus:bg-gray-700 rounded transition-colors duration-200" tabindex="0">
                 <div class="flex-shrink-0">
                     <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600">
                         <i class="fas {{ activity.icon }}"></i>
@@ -89,7 +89,7 @@
                     <!-- Optional: add more details if available -->
                 </div>
                 <div class="ml-auto text-sm text-gray-400" data-timestamp="{{ activity.timestamp }}">{{ activity.timestamp }}</div>
-            </div>
+            </a>
             {% empty %}
             <div class="px-6 py-4 text-gray-400 text-center">No recent activities found.</div>
             {% endfor %}

@@ -8,18 +8,17 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         /* Custom styles that can't be done with Tailwind */
-        .file-upload {
-            position: relative;
-            display: inline-block;
-        }
-        .file-upload input[type="file"] {
-            position: absolute;
-            left: 0;
-            top: 0;
-            opacity: 0;
-            width: 100%;
-            height: 100%;
+        .file-drop-area {
+            border: 2px dashed #6366f1; /* Indigo-500 */
+            border-radius: 0.75rem;
+            padding: 2rem;
+            text-align: center;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
             cursor: pointer;
+        }
+        .file-drop-area:hover {
+            background-color: #eef2ff; /* Indigo-100 */
+            border-color: #4f46e5; /* Indigo-600 */
         }
         .toast-message {
             max-width: 600px;
@@ -130,8 +129,8 @@
                     </div>
 
                     <!-- Upload Button -->
-                    <div class="flex justify-end">
-                        <button type="submit" id="upload-button" class="solid-btn inline-flex items-center px-6 py-3 border border-transparent text-base font-semibold rounded-lg shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                    <div>
+                        <button type="submit" id="upload-button" class="w-full bg-indigo-600 text-white py-3 rounded-md font-semibold hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition duration-300" disabled>
                             <i class="fas fa-cloud-upload-alt mr-3 text-lg"></i>
                             Submit Invoice
                         </button>
@@ -214,7 +213,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script src="{% static 'consultant/js/consultant_invoice.js' %}"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     const fileInput = document.getElementById('invoiceFile');
     const fileDropArea = document.getElementById('file-drop-area');
     const fileInfo = document.getElementById('file-info');
@@ -226,10 +225,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const errorMessage = document.getElementById('error-message');
     const errorDetails = document.getElementById('error-details');
 
-    // Update displayed month when selection changes
-    monthSelect.addEventListener('change', function() {
-        uploadButton.disabled = !(monthSelect.value && fileInput.files.length > 0);
-    });
+    function validateUploadForm() {
+        const monthValid = monthSelect.value !== '';
+        const fileValid = fileInput.files.length > 0 && /\.pdf$/i.test(fileInput.files[0].name);
+        uploadButton.disabled = !(monthValid && fileValid);
+    }
+
+    monthSelect.addEventListener('change', validateUploadForm);
 
     fileDropArea.addEventListener('click', () => fileInput.click());
     fileDropArea.addEventListener('keydown', (e) => {
@@ -239,20 +241,65 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    fileInput.addEventListener('change', function() {
-        if (this.files.length > 0) {
-            const file = this.files[0];
+    fileInput.addEventListener('change', () => {
+        if (fileInput.files.length > 0) {
+            const file = fileInput.files[0];
             fileName.textContent = file.name;
             fileSize.textContent = formatFileSize(file.size);
             fileInfo.classList.remove('hidden');
-            uploadButton.disabled = !(monthSelect.value && fileInput.files.length > 0);
         } else {
             fileInfo.classList.add('hidden');
-            uploadButton.disabled = true;
+        }
+        validateUploadForm();
+    });
+
+    uploadButton.addEventListener('click', async (e) => {
+        e.preventDefault();
+        successMessage.classList.add('hidden');
+        errorMessage.classList.add('hidden');
+
+        if (monthSelect.value === '') {
+            showError('Please select a month.');
+            return;
+        }
+        if (fileInput.files.length === 0) {
+            showError('Please select a PDF file.');
+            return;
+        }
+
+        uploadButton.disabled = true;
+        uploadButton.textContent = 'Uploading...';
+
+        const form = document.getElementById('invoiceUploadForm');
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            });
+            const data = await response.json();
+            if (data.success) {
+                showSuccess('Invoice uploaded successfully!');
+                form.reset();
+                fileInfo.classList.add('hidden');
+                uploadButton.disabled = true;
+                uploadButton.textContent = 'Submit Invoice';
+            } else {
+                showError(data.message || 'Error uploading invoice.');
+                uploadButton.disabled = false;
+                uploadButton.textContent = 'Submit Invoice';
+            }
+        } catch (error) {
+            showError('Network error. Please try again.');
+            uploadButton.disabled = false;
+            uploadButton.textContent = 'Submit Invoice';
         }
     });
 
-    // Function to format file size
     function formatFileSize(bytes) {
         if (bytes === 0) return '0 Bytes';
         const k = 1024;
@@ -260,7 +307,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const i = Math.floor(Math.log(bytes) / Math.log(k));
         return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
     }
-
 
     function showSuccess(message) {
         successMessage.querySelector('h3').textContent = message || "Invoice uploaded successfully!";
