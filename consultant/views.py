@@ -849,7 +849,10 @@ def consultant_invoice(request):
         logger.info(f"Received month: {month_str}, invoice_file present: {invoice_file is not None}")
 
         if not month_str or not invoice_file:
-            messages.error(request, 'Month and invoice file are required.')
+            if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+                return JsonResponse({'success': False, 'message': 'Month and invoice file are required.'})
+            else:
+                messages.error(request, 'Month and invoice file are required.')
         else:
             # Parse month string to date object (assume format is month name)
             try:
@@ -859,7 +862,10 @@ def consultant_invoice(request):
                     raise ValueError("Invalid month format")
             except Exception as e:
                 logger.error(f"Invalid month format error: {str(e)}")
-                messages.error(request, 'Invalid month format. Please select a valid month.')
+                if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+                    return JsonResponse({'success': False, 'message': 'Invalid month format. Please select a valid month.'})
+                else:
+                    messages.error(request, 'Invalid month format. Please select a valid month.')
                 month_date = None
 
             if month_date:
@@ -874,7 +880,10 @@ def consultant_invoice(request):
                         existing_invoice.name = invoice_file.name
                         existing_invoice.status = 'awaiting_review'
                         existing_invoice.save()
-                        messages.success(request, 'Existing invoice replaced successfully and awaiting review.')
+                        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+                            return JsonResponse({'success': True, 'message': 'Existing invoice replaced successfully and awaiting review.'})
+                        else:
+                            messages.success(request, 'Existing invoice replaced successfully and awaiting review.')
                         logger.info(f"Invoice replaced successfully for user {user.id}")
 
                         # Create ActivityLog entry for invoice replacement
@@ -894,7 +903,10 @@ def consultant_invoice(request):
                             name=invoice_file.name,
                             status='awaiting_review'
                         )
-                        messages.success(request, 'Invoice uploaded successfully and awaiting review.')
+                        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+                            return JsonResponse({'success': True, 'message': 'Invoice uploaded successfully and awaiting review.'})
+                        else:
+                            messages.success(request, 'Invoice uploaded successfully and awaiting review.')
                         logger.info(f"Invoice saved successfully for user {user.id}")
 
                         # Create ActivityLog entry for new invoice upload
@@ -907,7 +919,10 @@ def consultant_invoice(request):
                         )
                 except Exception as e:
                     logger.error(f"Error saving invoice: {str(e)}")
-                    messages.error(request, f'Error saving invoice: {str(e)}')
+                    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+                        return JsonResponse({'success': False, 'message': f'Error saving invoice: {str(e)}'})
+                    else:
+                        messages.error(request, f'Error saving invoice: {str(e)}')
 
     # Fetch invoices for the logged-in consultant
     invoices = Invoice.objects.filter(consultant=user).order_by('-month')

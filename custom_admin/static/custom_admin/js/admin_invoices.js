@@ -54,7 +54,7 @@ function deleteInvoice(invoiceId) {
         return;
     }
 
-    fetch(`/consultant/invoice/delete/${invoiceId}/`, {
+    fetch(`/auth/invoice/delete/${invoiceId}/`, {
         method: 'POST',
         headers: {
             'X-CSRFToken': getCookie('csrftoken'),
