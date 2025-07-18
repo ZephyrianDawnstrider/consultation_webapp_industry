@@ -1373,6 +1373,8 @@ def edit_invoice(request, invoice_id):
         'file_url': invoice.file.url,
     })
 
+from django.http import JsonResponse, HttpResponseForbidden
+
 @login_required
 @csrf_exempt
 @require_POST
@@ -1380,6 +1382,9 @@ def delete_invoice(request, invoice_id):
     """
     Delete an invoice
     """
+    if not (request.user.is_staff or getattr(request.user, 'role', None) == 'admin'):
+        return JsonResponse({'success': False, 'message': 'Access denied.'}, status=403)
+
     try:
         invoice = Invoice.objects.get(id=invoice_id)
     except Invoice.DoesNotExist:
