@@ -104,3 +104,18 @@ Consultant Linkedin: {prospective_consultant.linkedin if hasattr(prospective_con
     else:
         messages.error(request, "There was an error with your submission. Please correct the errors and try again.")
         return redirect('general:landingpage')
+
+def landing_page(request):
+    from custom_admin.models import Skill
+    from consultant.models import ConsultantProfile, Invoice
+    skills = Skill.objects.filter(is_active=True).order_by('name')
+    happy_clients = ConsultantProfile.objects.count()
+    completed_projects = Invoice.objects.filter(status='approved').count()
+    success_stories = completed_projects
+    context = {
+        'skills': skills,
+        'happy_clients': happy_clients,
+        'completed_projects': completed_projects,
+        'success_stories': success_stories,
+    }
+    return render(request, 'landingpage.html', context)

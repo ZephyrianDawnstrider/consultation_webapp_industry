@@ -97,13 +97,13 @@
                     <p class="text-red-600 text-sm mt-1">{{ form.bank_name.errors.0 }}</p>
                 {% endif %}
             </div>
-            <div>
+            {% comment %} <div>
                 <label for="id_cost_per_hour" class="block font-medium text-gray-700">Cost per Hour <span class="text-red-600 font-bold">*</span></label>
                 <input type="number" step="0.01" id="id_cost_per_hour" name="cost_per_hour" value="{{ consultant.consultant_profile.cost_per_hour }}" class="mt-1 w-full border border-black-300 rounded px-3 py-2 text-black {% if form.cost_per_hour.errors %}border-red-600 shadow-md{% endif %}" />
                 {% if form.cost_per_hour.errors %}
                     <p class="text-red-600 text-sm mt-1">{{ form.cost_per_hour.errors.0 }}</p>
                 {% endif %}
-            </div>
+            </div> {% endcomment %}
             <div>
                 <label for="id_status" class="block font-medium text-black">Status</label>
                 {{ form.status }}

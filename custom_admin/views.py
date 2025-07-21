@@ -392,11 +392,11 @@ class ConsultantRegistrationForm(forms.Form):
     bank_name = forms.CharField(max_length=255, label="Bank Name")
     
     # Professional Information
-    cost_per_hour = forms.DecimalField(
-        max_digits=10, 
-        decimal_places=2, 
-        label="Cost Per Hour"
-    )
+    # cost_per_hour = forms.DecimalField(
+    #     max_digits=10, 
+    #     decimal_places=2, 
+    #     label="Cost Per Hour"
+    # )
     skills = forms.ModelMultipleChoiceField(
         queryset=None, 
         widget=forms.CheckboxSelectMultiple,
@@ -727,7 +727,7 @@ def add_consultant(request):
             profile.name = name
             profile.mobile = mobile
             profile.status = consultant_status
-            profile.cost_per_hour = 0  # Set default cost_per_hour to avoid NOT NULL constraint error
+            # profile.cost_per_hour = 0  # Set default cost_per_hour to avoid NOT NULL constraint error
             if agreement:
                 profile.agreement_document = agreement
             profile.save()
@@ -765,7 +765,9 @@ def add_consultant(request):
             return JsonResponse({'success': False, 'message': 'An unexpected error occurred.'})
     
     # GET request - show add consultant form
-    return render(request, 'add_consultant.html', {'current_page': 'Add Consultant'})
+    from .models import Skill
+    skills = Skill.objects.filter(is_active=True).order_by('name')
+    return render(request, 'add_consultant.html', {'current_page': 'Add Consultant', 'skills': skills})
 
 
 from .models import ConsultantStatus
@@ -867,6 +869,8 @@ def consultant_profile(request, consultant_id):
 
     # Prepare form for editing consultant profile
     form = ConsultantEditForm(instance=profile)
+    from .models import Skill
+    form.fields['skills'].queryset = Skill.objects.filter(is_active=True).order_by('name')
 
     # Decrypt password for display in template
     decrypted_password = ''
@@ -1218,7 +1222,7 @@ def consultant_registration(request, user_id):
             profile.bank_ifsc = data['bank_ifsc']
             profile.bank_branch_name = data['bank_branch_name']
             profile.bank_name = data['bank_name']
-            profile.cost_per_hour = data['cost_per_hour']
+            # profile.cost_per_hour = data['cost_per_hour']
             profile.status = consultant_status
             profile.save()
             
@@ -1635,6 +1639,7 @@ def admin_profile(request, admin_id):
 @require_http_methods(["GET", "POST"])
 def new_consultant_details(request):
     from custom_admin.models import ActivityLog
+    from custom_admin.models import Skill
     if request.method == "POST":
         form = ProspectiveConsultantForm(request.POST)
         if form.is_valid():
@@ -1650,12 +1655,9 @@ def new_consultant_details(request):
                 f"Name: {prospective_consultant.name}\n"
                 f"Email: {prospective_consultant.email}\n"
                 f"Phone: {prospective_consultant.phone}\n"
-                f"Consultant Field: {prospective_consultant.consultant_field}\n"
+                f"Consultant Field: {prospective_consultant.skills}\n"
                 f"LinkedIn Profile: {prospective_consultant.linkedin}\n"
             )
-            if prospective_consultant.consultant_field == 'Other' and prospective_consultant.other_consultant_field:
-                message += f"Other Consultant Field: {prospective_consultant.other_consultant_field}\n"
-
             # Original email used for credentials (assuming settings.DEFAULT_FROM_EMAIL)
             from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', None)
             recipient_list = []
@@ -1694,6 +1696,7 @@ def new_consultant_details(request):
             messages.error(request, "Please correct the errors below.")
     else:
         form = ProspectiveConsultantForm()
+        form.fields['skills'].queryset = Skill.objects.filter(is_active=True).order_by('name')
     return render(request, 'new_consultant_details.html', {'form': form, 'user': request.user if request.user.is_authenticated else None})
 
 @login_required
