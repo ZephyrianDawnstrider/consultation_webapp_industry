@@ -6,6 +6,7 @@
 <head>
     <!-- Other CSS files and meta tags... -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.bootstrap5.min.css" rel="stylesheet">
     <!-- Other CSS files and meta tags... -->
 </head>
 <div class="flex flex-col flex-grow max-w-full px-3 py-2">
@@ -21,7 +22,6 @@
     </h1>
 </div>
 <div class="container mt-2">
-    {% comment %} <h2 class="mb-4">Consultant Profile</h2> {% endcomment %}
     <div class="card shadow-sm p-2">
         <div class="row mb-2">
             <h2 class="h3 bold">Profile Information</h3>
@@ -69,388 +69,372 @@
                     <label for="confirmPassword" class="form-label">Confirm New Password</label>
                     <input type="password" id="confirmPassword" class="form-control" required>
                 </div>
-                <button type="submit" class="btn btn-success, solid-btn">Save New Password</button>
-                <button type="button" class="btn btn-secondary ms-2, solid-btn" id="cancelChangePasswordBtn">Cancel</button>
+                <button type="submit" class="btn btn-success solid-btn">Save New Password</button>
+                <button type="button" class="btn btn-secondary ms-2 solid-btn" id="cancelChangePasswordBtn">Cancel</button>
             </form>
             <div id="changePasswordMessage" class="mt-2"></div>
         </div>
         <hr>
         <h3 class="h3 bold">Edit Profile</h3>
-    <form method="post" enctype="multipart/form-data" novalidate>
+    <form method="post" enctype="multipart/form-data" novalidate id="consultantProfileForm">
     {% csrf_token %}
         <div class="row">
-        {% comment %} <p>Status debug: {{ form.instance.status|stringformat:"s" }}</p> {% endcomment %}
         {% for field in form %}
-            {% if field.name != 'status' and field.name != 'agreement_document' %}
-            <div class="col-md-6 mb-3">
-                <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
-                {% if field.name == 'skills' %}
-                    <div class="d-flex flex-wrap" style="gap: 10px;">
-                        {% for checkbox in field %}
-                            <div style="width: 18%;">
-                                {{ checkbox.tag }} {{ checkbox.choice_label }}
-                            </div>
+            {% if field.name != 'status' and field.name != 'name' and field.name != 'profile_picture' %}
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                        {{ field }}
+                        {% if field.help_text %}
+                            <div class="form-text">{{ field.help_text }}</div>
+                        {% endif %}
+                        {% for error in field.errors %}
+                            <div class="text-danger">{{ error }}</div>
                         {% endfor %}
                     </div>
-                {% elif field.name == 'cost_per_hour' and is_approved_status %}
-                    <input type="number" class="form-control shadow-sm" placeholder="e.g. 50.00" value="{{ field.value }}" disabled>
-                    <input type="hidden" name="{{ field.name }}" value="{{ field.value }}">
-                {% else %}
-                    {{ field }}
-                {% endif %}
-                {% if field.help_text %}
-                    <div class="form-text">{{ field.help_text }}</div>
-                {% endif %}
-                {% for error in field.errors %}
-                    <div class="text-danger">{{ error }}</div>
-                {% endfor %}
-            </div>
+                </div>
             {% endif %}
         {% endfor %}
-        <div class="col-md-6 mb-3">
-            <label class="form-label">Status</label>
-            <div>
-            {% if form.instance.status and form.instance.status|stringformat:"s"|lower == 'to_be_reviewed' %}
-                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800 shadow-sm">To Be Reviewed</span>
-            {% elif form.instance.status and form.instance.status|stringformat:"s"|lower == 'rejected' %}
-                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800 shadow-sm">Rejected</span>
-            {% elif form.instance.status and form.instance.status|stringformat:"s"|lower == 'approved' %}
-                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 shadow-sm">Approved</span>
-            {% else %}
-                <span>{{ form.instance.status }}</span>
-            {% endif %}
-            </div>
         </div>
-        <div class="col-md-6 mb-3">
-            <label class="form-label" for="id_agreement_document">Agreement Document</label>
-            {% if form.instance.agreement_document %}
-                <div class="d-flex align-items-center" id="agreementDocumentSection">
-                    <a href="{{ form.instance.agreement_document.url }}" target="_blank" class="me-3 text-indigo-600 text-bold">View Agreement</a>
-                    <button type="button" class="btn btn-sm btn-danger solid-btn" id="removeAgreementBtn" style="background-color: #dc3545 !important; color: white !important; border-color: #dc3545 !important;">Remove</button>
-                </div>
-            {% else %}
-                {{ form.agreement_document }}
-            {% endif %}
-            {% if form.agreement_document.help_text %}
-                <div class="form-text">{{ form.agreement_document.help_text }}</div>
-            {% endif %}
-            {% for error in form.agreement_document.errors %}
-                <div class="text-danger">{{ error }}</div>
+
+        <div class="form-group mb-3">
+          <label for="skills">Skills:</label>
+          <select id="skills" name="skills" multiple placeholder="Select skills...">
+            {% for skill in skills %}
+              <option value="{{ skill.id }}">{{ skill.name }}</option>
             {% endfor %}
+          </select>
         </div>
-    </div>
-    <button type="submit" class="btn btn-primary solid-btn" style="background-color: #0d6efd !important; color: white !important; border-color: #0d6efd !important;">Save Profile</button>
-</form>
 
-<script>
-function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-            // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-    return cookieValue;
-}
+        <div id="skill-experience-container" class="mb-3">
+          <!-- Skill experience inputs will be dynamically added here -->
+        </div>
 
-document.addEventListener('DOMContentLoaded', function() {
-    const removeAgreementBtn = document.getElementById('removeAgreementBtn');
-    if (removeAgreementBtn) {
-        removeAgreementBtn.addEventListener('click', function() {
-            if (!confirm('Are you sure you want to remove the agreement document?')) {
-                return;
-            }
-            fetch("{% url 'consultant:consultant_profile' form.instance.user.id %}", {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': getCookie('csrftoken'),
-                },
-                body: JSON.stringify({ scrap_agreement: true }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    const agreementSection = document.getElementById('agreementDocumentSection');
-                    if (agreementSection) {
-                        agreementSection.remove();
-                    }
-                    alert('Agreement document removed successfully.');
-                } else {
-                    alert('Failed to remove agreement document.');
-                }
-            })
-            .catch(error => {
-                alert('Error removing agreement document.');
-                console.error('Error:', error);
-            });
-        });
-    }
-});
-</script>
-    </div>
+        <input type="hidden" id="skills_data" name="skills_data" value='{{ form.initial_skill_experiences|default:"[]"|safe }}'>
+
+        <div class="form-group mb-3">
+          <label for="cost_type">Cost Type:</label>
+          <select id="cost_type" name="cost_type" class="form-control">
+            <option value="hourly" {% if form.instance.cost_type == 'hourly' %}selected{% endif %}>Cost per Hour</option>
+            <option value="monthly" {% if form.instance.cost_type == 'monthly' %}selected{% endif %}>Monthly Cost</option>
+          </select>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="cost" id="cost_label">Cost per Hour:</label>
+          <input type="number" step="0.01" id="cost" name="cost" class="form-control" placeholder="Enter cost per hour" value="{{ form.instance.cost }}">
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="weekly_commitment">Weekly Commitment (hours):</label>
+          <input type="number" step="0.01" id="weekly_commitment" name="weekly_commitment" class="form-control" placeholder="Enter weekly commitment" value="{{ form.instance.weekly_commitment }}">
+        </div>
+
+        <div class="form-group mb-3">
+          <label>Availability:</label>
+          <div id="availability-container" class="border rounded p-3">
+            <div class="day-availability mb-2" data-day="Monday">
+              <label><input type="checkbox" class="day-checkbox" data-day="Monday"> Monday</label>
+              <div class="time-range d-flex align-items-center mt-1" style="display:none;">
+                <input type="time" class="form-control me-2 start-time" placeholder="Start time">
+                <span class="me-2">to</span>
+                <input type="time" class="form-control end-time" placeholder="End time">
+                <button type="button" class="btn btn-danger btn-sm ms-2 remove-time-range">Remove</button>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm mt-1 add-time-range" style="display:none;">Add Time Range</button>
+              <div class="time-ranges-container"></div>
+            </div>
+            <div class="day-availability mb-2" data-day="Tuesday">
+              <label><input type="checkbox" class="day-checkbox" data-day="Tuesday"> Tuesday</label>
+              <div class="time-range d-flex align-items-center mt-1" style="display:none;">
+                <input type="time" class="form-control me-2 start-time" placeholder="Start time">
+                <span class="me-2">to</span>
+                <input type="time" class="form-control end-time" placeholder="End time">
+                <button type="button" class="btn btn-danger btn-sm ms-2 remove-time-range">Remove</button>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm mt-1 add-time-range" style="display:none;">Add Time Range</button>
+              <div class="time-ranges-container"></div>
+            </div>
+            <div class="day-availability mb-2" data-day="Wednesday">
+              <label><input type="checkbox" class="day-checkbox" data-day="Wednesday"> Wednesday</label>
+              <div class="time-range d-flex align-items-center mt-1" style="display:none;">
+                <input type="time" class="form-control me-2 start-time" placeholder="Start time">
+                <span class="me-2">to</span>
+                <input type="time" class="form-control end-time" placeholder="End time">
+                <button type="button" class="btn btn-danger btn-sm ms-2 remove-time-range">Remove</button>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm mt-1 add-time-range" style="display:none;">Add Time Range</button>
+              <div class="time-ranges-container"></div>
+            </div>
+            <div class="day-availability mb-2" data-day="Thursday">
+              <label><input type="checkbox" class="day-checkbox" data-day="Thursday"> Thursday</label>
+              <div class="time-range d-flex align-items-center mt-1" style="display:none;">
+                <input type="time" class="form-control me-2 start-time" placeholder="Start time">
+                <span class="me-2">to</span>
+                <input type="time" class="form-control end-time" placeholder="End time">
+                <button type="button" class="btn btn-danger btn-sm ms-2 remove-time-range">Remove</button>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm mt-1 add-time-range" style="display:none;">Add Time Range</button>
+              <div class="time-ranges-container"></div>
+            </div>
+            <div class="day-availability mb-2" data-day="Friday">
+              <label><input type="checkbox" class="day-checkbox" data-day="Friday"> Friday</label>
+              <div class="time-range d-flex align-items-center mt-1" style="display:none;">
+                <input type="time" class="form-control me-2 start-time" placeholder="Start time">
+                <span class="me-2">to</span>
+                <input type="time" class="form-control end-time" placeholder="End time">
+                <button type="button" class="btn btn-danger btn-sm ms-2 remove-time-range">Remove</button>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm mt-1 add-time-range" style="display:none;">Add Time Range</button>
+              <div class="time-ranges-container"></div>
+            </div>
+            <div class="day-availability mb-2" data-day="Saturday">
+              <label><input type="checkbox" class="day-checkbox" data-day="Saturday"> Saturday</label>
+              <div class="time-range d-flex align-items-center mt-1" style="display:none;">
+                <input type="time" class="form-control me-2 start-time" placeholder="Start time">
+                <span class="me-2">to</span>
+                <input type="time" class="form-control end-time" placeholder="End time">
+                <button type="button" class="btn btn-danger btn-sm ms-2 remove-time-range">Remove</button>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm mt-1 add-time-range" style="display:none;">Add Time Range</button>
+              <div class="time-ranges-container"></div>
+            </div>
+            <div class="day-availability mb-2" data-day="Sunday">
+              <label><input type="checkbox" class="day-checkbox" data-day="Sunday"> Sunday</label>
+              <div class="time-range d-flex align-items-center mt-1" style="display:none;">
+                <input type="time" class="form-control me-2 start-time" placeholder="Start time">
+                <span class="me-2">to</span>
+                <input type="time" class="form-control end-time" placeholder="End time">
+                <button type="button" class="btn btn-danger btn-sm ms-2 remove-time-range">Remove</button>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm mt-1 add-time-range" style="display:none;">Add Time Range</button>
+              <div class="time-ranges-container"></div>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const togglePasswordBtn = document.getElementById('togglePasswordBtn');
-    const passwordField = document.getElementById('passwordField');
-    const togglePasswordIcon = document.getElementById('togglePasswordIcon');
-    const editPasswordBtn = document.getElementById('editPasswordBtn');
-    const otpSection = document.getElementById('otpSection');
-    const otpInput = document.getElementById('otpInput');
-    const verifyOtpBtn = document.getElementById('verifyOtpBtn');
-    const otpMessage = document.getElementById('otpMessage');
-    const changePasswordSection = document.getElementById('changePasswordSection');
-    const changePasswordForm = document.getElementById('changePasswordForm');
-    const newPassword = document.getElementById('newPassword');
-    const confirmPassword = document.getElementById('confirmPassword');
-    const changePasswordMessage = document.getElementById('changePasswordMessage');
-    const cancelChangePasswordBtn = document.getElementById('cancelChangePasswordBtn');
-
-let passwordVisible = false;
-let otpVerified = false;
-
-togglePasswordBtn.addEventListener('click', function() {
-    console.log('Toggle password button clicked');
-    if (!passwordVisible) {
-        console.log('Password currently hidden, fetching decrypted password');
-        // Fetch decrypted password via AJAX
-        fetch("{% url 'consultant:consultant_profile' consultant.id %}", {
-            method: 'GET',
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest'
-            },
-            credentials: 'include'
-        })
-        .then(response => {
-            console.log('Received response for decrypted password fetch');
-            return response.json();
-        })
-        .then(data => {
-            console.log('Decrypted password data:', data);
-            if (data.decrypted_password) {
-                passwordField.type = 'text';
-                passwordField.value = data.decrypted_password;
-                togglePasswordIcon.classList.remove('bi-eye');
-                togglePasswordIcon.classList.add('bi-eye-slash');
-                passwordVisible = true;
-            } else {
-                console.warn('No decrypted_password in response data');
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching decrypted password:', error);
-        });
-    } else {
-        console.log('Password currently visible, hiding password');
-        passwordField.type = 'password';
-        passwordField.value = '********';
-        togglePasswordIcon.classList.remove('bi-eye-slash');
-        togglePasswordIcon.classList.add('bi-eye');
-        passwordVisible = false;
-    }
-});
-
-    editPasswordBtn.addEventListener('click', function() {
-        otpMessage.textContent = '';
-        otpInput.value = '';
-        otpVerified = false;
-
-        // Call send_otp endpoint to send OTP email
-        fetch("{% url 'consultant:send_otp' %}", {
-            method: 'POST',
-            headers: {
-                'X-CSRFToken': getCookie('csrftoken'),
-            },
-            credentials: 'include'
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                otpSection.style.display = 'block';
-                changePasswordSection.style.display = 'none';
-                otpMessage.textContent = data.message || 'OTP sent successfully.';
-                otpMessage.classList.remove('text-danger');
-                otpMessage.classList.add('text-success');
-            } else {
-                otpMessage.textContent = data.message || 'Failed to send OTP.';
-                otpMessage.classList.remove('text-success');
-                otpMessage.classList.add('text-danger');
-                otpSection.style.display = 'none';
-                changePasswordSection.style.display = 'none';
-            }
-        })
-        .catch(error => {
-            otpMessage.textContent = 'Error sending OTP.';
-            otpMessage.classList.remove('text-success');
-            otpMessage.classList.add('text-danger');
-            otpSection.style.display = 'none';
-            changePasswordSection.style.display = 'none';
-            console.error('Error:', error);
-        });
+  $(document).ready(function() {
+    // Initialize TomSelect for skills multi-select
+    var skillsSelect = new TomSelect('#skills', {
+      plugins: ['remove_button'],
+      maxItems: null,
+      valueField: 'value',
+      labelField: 'text',
+      searchField: ['text'],
+      options: [
+        {% for skill in skills %}
+          {value: '{{ skill.id }}', text: '{{ skill.name }}'},
+        {% endfor %}
+      ],
+      items: [
+        {% for se in form.initial_skill_experiences %}
+          '{{ se.skill_id }}',
+        {% endfor %}
+      ],
+      onChange: function(values) {
+        updateSkillExperienceInputs(values);
+      }
     });
 
-verifyOtpBtn.addEventListener('click', function() {
-    const otp = otpInput.value.trim();
-    if (!otp) {
-        otpMessage.textContent = 'Please enter the OTP.';
-        otpMessage.classList.remove('text-success');
-        otpMessage.classList.add('text-danger');
-        return;
+    // Function to update skill experience inputs based on selected skills
+    function updateSkillExperienceInputs(selectedSkillIds) {
+      var container = $('#skill-experience-container');
+      container.empty();
+
+      var existingData = getSkillsData();
+
+      selectedSkillIds.forEach(function(skillId) {
+        var skillName = skillsSelect.options[skillId].text;
+        var experience = null;
+        var existingEntry = existingData.find(function(item) {
+          return item.skill_id == skillId;
+        });
+        if (existingEntry) {
+          experience = existingEntry.experience_years;
+        }
+
+        var skillDiv = $('<div class="d-flex align-items-center mb-2 skill-experience-entry"></div>');
+        var skillInput = $('<input type="text" class="form-control me-2" readonly>').val(skillName);
+        var experienceInput = $('<input type="number" min="0" step="0.1" class="form-control me-2" placeholder="Experience (years)">').val(experience).attr('name', 'experience_' + skillId);
+
+        var removeBtn = $('<button type="button" class="btn btn-danger btn-sm">Remove</button>');
+        removeBtn.on('click', function() {
+          skillsSelect.removeItem(skillId);
+          skillDiv.remove();
+          updateSkillsData();
+        });
+
+        skillDiv.append(skillInput, experienceInput, removeBtn);
+        container.append(skillDiv);
+      });
+
+      updateSkillsData();
     }
-    otpMessage.textContent = '';
-        fetch("{% url 'consultant:verify_otp' %}", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': getCookie('csrftoken'),
-            },
-            body: JSON.stringify({ otp: otp }),
-            credentials: 'include'
-        })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            otpSection.style.display = 'none';
-            changePasswordSection.style.display = 'block';
-            otpVerified = true;
-            otpMessage.textContent = 'OTP verified successfully.';
-            otpMessage.classList.remove('text-danger');
-            otpMessage.classList.add('text-success');
+
+    // Function to get skills data from hidden input
+    function getSkillsData() {
+      var dataStr = $('#skills_data').val();
+      try {
+        return JSON.parse(dataStr);
+      } catch (e) {
+        return [];
+      }
+    }
+
+    // Function to update hidden skills_data input based on current inputs
+    function updateSkillsData() {
+      var data = [];
+      $('#skill-experience-container .skill-experience-entry').each(function() {
+        var skillName = $(this).find('input[type="text"]').val();
+        var experience = parseFloat($(this).find('input[type="number"]').val());
+        var skillId = $(this).find('input[type="number"]').attr('name').replace('experience_', '');
+        if (!isNaN(experience)) {
+          data.push({
+            skill_id: skillId,
+            experience_years: experience
+          });
         } else {
-            otpMessage.textContent = data.message || 'Invalid OTP.';
-            otpMessage.classList.remove('text-success');
-            otpMessage.classList.add('text-danger');
+          data.push({
+            skill_id: skillId,
+            experience_years: null
+          });
         }
-    })
-    .catch(error => {
-        otpMessage.textContent = 'Error verifying OTP.';
-        otpMessage.classList.remove('text-success');
-        otpMessage.classList.add('text-danger');
-        console.error('Error:', error);
-    });
-});
-
-    verifyOtpBtn.addEventListener('click', function() {
-        const otp = otpInput.value.trim();
-        if (!otp) {
-            otpMessage.textContent = 'Please enter the OTP.';
-            otpMessage.classList.remove('text-success');
-            otpMessage.classList.add('text-danger');
-            return;
-        }
-        otpMessage.textContent = '';
-        fetch("{% url 'consultant:verify_otp' %}", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': getCookie('csrftoken'),
-            },
-            body: JSON.stringify({ otp: otp }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                otpSection.style.display = 'none';
-                changePasswordSection.style.display = 'block';
-                otpVerified = true;
-                otpMessage.textContent = 'OTP verified successfully.';
-                otpMessage.classList.remove('text-danger');
-                otpMessage.classList.add('text-success');
-            } else {
-                otpMessage.textContent = data.message || 'Invalid OTP.';
-                otpMessage.classList.remove('text-success');
-                otpMessage.classList.add('text-danger');
-            }
-        })
-        .catch(error => {
-            otpMessage.textContent = 'Error verifying OTP.';
-            otpMessage.classList.remove('text-success');
-            otpMessage.classList.add('text-danger');
-            console.error('Error:', error);
-        });
-    });
-
-    changePasswordForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        if (!otpVerified) {
-            changePasswordMessage.textContent = 'Please verify OTP first.';
-            return;
-        }
-        if (newPassword.value !== confirmPassword.value) {
-            changePasswordMessage.textContent = 'Passwords do not match.';
-            return;
-        }
-changePasswordMessage.textContent = '';
-        fetch("{% url 'consultant:change_password' %}", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': getCookie('csrftoken'),
-            },
-            body: JSON.stringify({ new_password: newPassword.value }),
-            credentials: 'include'
-        })
-.then(response => response.json())
-.then(data => {
-    if (data.success) {
-        changePasswordMessage.classList.remove('text-danger');
-        changePasswordMessage.classList.add('text-success');
-        changePasswordMessage.textContent = data.message || 'Password changed successfully.';
-        // Reset form and hide change password section
-        changePasswordForm.reset();
-        changePasswordSection.style.display = 'none';
-        otpVerified = false;
-        // Reset password field to masked
-        passwordField.type = 'password';
-        passwordField.value = '********';
-        togglePasswordIcon.classList.remove('bi-eye-slash');
-        togglePasswordIcon.classList.add('bi-eye');
-        passwordVisible = false;
-    } else {
-        changePasswordMessage.classList.remove('text-success');
-        changePasswordMessage.classList.add('text-danger');
-        changePasswordMessage.textContent = data.message || 'Failed to change password.';
+      });
+      $('#skills_data').val(JSON.stringify(data));
     }
-})
-.catch(error => {
-    changePasswordMessage.classList.remove('text-success');
-    changePasswordMessage.classList.add('text-danger');
-    changePasswordMessage.textContent = 'Error changing password.';
-    console.error('Error:', error);
-});
+
+    // Update skills_data on experience input change
+    $('#skill-experience-container').on('input', 'input[type="number"]', function() {
+      updateSkillsData();
     });
 
-    cancelChangePasswordBtn.addEventListener('click', function() {
-        changePasswordSection.style.display = 'none';
-        otpSection.style.display = 'none';
-        changePasswordMessage.textContent = '';
-        otpMessage.textContent = '';
-        otpInput.value = '';
-        changePasswordForm.reset();
-        otpVerified = false;
-    });
-});
-{% comment %} <style>
-/* Make buttons have solid background color by default */
-.solid-btn {
-    background-color: #0d6efd !important; /* Bootstrap primary blue */
-    color: white !important;
-    border-color: #0d6efd !important;
-}
+    // Initialize skill experience inputs on page load
+    updateSkillExperienceInputs(skillsSelect.getValue());
 
-.solid-btn:hover, .solid-btn:focus {
-    background-color: #0b5ed7 !important; /* Darker blue on hover */
-    border-color: #0a58ca !important;
-    color: white !important;
-}
-</style> {% endcomment %}
+    // Cost type change handler
+    function updateCostLabel() {
+      var costType = $('#cost_type').val();
+      var label = costType === 'hourly' ? 'Cost per Hour:' : 'Monthly Cost:';
+      var placeholder = costType === 'hourly' ? 'Enter cost per hour' : 'Enter monthly cost';
+      $('#cost_label').text(label);
+      $('#cost').attr('placeholder', placeholder);
+    }
+    $('#cost_type').on('change', updateCostLabel);
+    updateCostLabel();
+
+    // Availability UI handlers
+    function serializeAvailability() {
+      var availability = {};
+      $('#availability-container .day-availability').each(function() {
+        var day = $(this).data('day');
+        var dayCheckbox = $(this).find('.day-checkbox');
+        if (dayCheckbox.is(':checked')) {
+          var timeRanges = [];
+          $(this).find('.time-ranges-container .time-range').each(function() {
+            var startTime = $(this).find('.start-time').val();
+            var endTime = $(this).find('.end-time').val();
+            if (startTime && endTime) {
+              timeRanges.push(startTime + '-' + endTime);
+            }
+          });
+          if (timeRanges.length > 0) {
+            availability[day] = timeRanges;
+          }
+        }
+      });
+      return availability;
+    }
+
+    function populateAvailability(availabilityData) {
+      if (!availabilityData) return;
+      $('#availability-container .day-availability').each(function() {
+        var day = $(this).data('day');
+        var dayCheckbox = $(this).find('.day-checkbox');
+        var addTimeRangeBtn = $(this).find('.add-time-range');
+        var timeRangesContainer = $(this).find('.time-ranges-container');
+        timeRangesContainer.empty();
+
+        if (availabilityData[day]) {
+          dayCheckbox.prop('checked', true);
+          addTimeRangeBtn.show();
+          availabilityData[day].forEach(function(range) {
+            var times = range.split('-');
+            if (times.length === 2) {
+              var timeRangeDiv = $('<div class="time-range d-flex align-items-center mt-1"></div>');
+              var startInput = $('<input type="time" class="form-control me-2 start-time">').val(times[0]);
+              var toSpan = $('<span class="me-2">to</span>');
+              var endInput = $('<input type="time" class="form-control end-time">').val(times[1]);
+              var removeBtn = $('<button type="button" class="btn btn-danger btn-sm ms-2 remove-time-range">Remove</button>');
+              removeBtn.on('click', function() {
+                timeRangeDiv.remove();
+              });
+              timeRangeDiv.append(startInput, toSpan, endInput, removeBtn);
+              timeRangesContainer.append(timeRangeDiv);
+            }
+          });
+        } else {
+          dayCheckbox.prop('checked', false);
+          addTimeRangeBtn.hide();
+        }
+      });
+    }
+
+    // Show/hide time range inputs based on day checkbox
+    $('#availability-container').on('change', '.day-checkbox', function() {
+      var dayAvailability = $(this).closest('.day-availability');
+      var checked = $(this).is(':checked');
+      var addTimeRangeBtn = dayAvailability.find('.add-time-range');
+      var timeRangesContainer = dayAvailability.find('.time-ranges-container');
+      if (checked) {
+        addTimeRangeBtn.show();
+        if (timeRangesContainer.children().length === 0) {
+          // Add one time range by default
+          addTimeRangeBtn.click();
+        }
+      } else {
+        addTimeRangeBtn.hide();
+        timeRangesContainer.empty();
+      }
+    });
+
+    // Add new time range input
+    $('#availability-container').on('click', '.add-time-range', function() {
+      var timeRangesContainer = $(this).siblings('.time-ranges-container');
+      var timeRangeDiv = $('<div class="time-range d-flex align-items-center mt-1"></div>');
+      var startInput = $('<input type="time" class="form-control me-2 start-time">');
+      var toSpan = $('<span class="me-2">to</span>');
+      var endInput = $('<input type="time" class="form-control end-time">');
+      var removeBtn = $('<button type="button" class="btn btn-danger btn-sm ms-2 remove-time-range">Remove</button>');
+      removeBtn.on('click', function() {
+        timeRangeDiv.remove();
+      });
+      timeRangeDiv.append(startInput, toSpan, endInput, removeBtn);
+      timeRangesContainer.append(timeRangeDiv);
+    });
+
+    // On form submit, serialize skills and availability data
+    $('#consultantProfileForm').on('submit', function(e) {
+      updateSkillsData();
+
+      var availability = serializeAvailability();
+      $('#availability').val(JSON.stringify(availability));
+    });
+
+    // Populate availability on page load from initial form data
+</script>
+{{ form.instance.availability|default:"{}"|json_script:"initialAvailability" }}
+<script>
+  $(document).ready(function() {
+    var initialAvailability = JSON.parse(document.getElementById('initialAvailability').textContent);
+    populateAvailability(initialAvailability);
+  });
 </script>
 {% endblock %}

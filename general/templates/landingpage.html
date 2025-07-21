@@ -92,6 +92,38 @@
             z-index: 1;
         }
     </style>
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
+    <style>
+        /* Custom styles for Tom Select to match dark theme */
+        .ts-control, .ts-control input {
+            background-color: #1a1a1a !important;
+            border-color: #4b5563 !important; /* Tailwind gray-600 */
+            color: white !important;
+            border-radius: 0.375rem !important; /* rounded-md */
+        }
+        .ts-dropdown, .ts-option {
+            background-color: #2f2f2f !important;
+            border-color: #4b5563 !important;
+            color: white !important;
+        }
+        .ts-option.active, .ts-option:hover {
+            background-color: #f37021 !important;
+            color: white !important;
+        }
+        .ts-item {
+            background-color: #F37021;
+            color: white;
+            border-radius: 0.25rem;
+            margin: 2px;
+        }
+        .ts-control > .ts-item > .remove-button {
+            color: white !important;
+            opacity: 0.7;
+        }
+        .ts-control > .ts-item > .remove-button:hover {
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -155,7 +187,7 @@
                             <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-10 h-10 rounded-full border-2 border-black" alt="Client" />
                         </div>
                         <div class="ml-4">
-                            <p class="text-sm font-medium text-gray-400">Trusted by 5,000+ professionals</p>
+                            <p class="text-sm font-medium text-gray-400">Trusted by {{ happy_clients }}+ professionals</p>
                             <div class="flex">
                                 <i class="fas fa-star text-yellow-400"></i>
                                 <i class="fas fa-star text-yellow-400"></i>
@@ -220,7 +252,7 @@
                     <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-lock text-orange-600 text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-white">End-to-End Encryption</h3>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Completed Projects: {{ completed_projects }}</h3>
                     <p class="text-gray-400">
                         All communications are secured with military-grade encryption to ensure complete confidentiality.
                     </p>
@@ -231,7 +263,7 @@
                     <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-user-shield text-orange-600 text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-white">Verified Professionals</h3>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Success Stories: {{ success_stories }}</h3>
                     <p class="text-gray-400">
                         Every consultant undergoes rigorous verification and background checks.
                     </p>
@@ -553,16 +585,12 @@
                         <input type="tel" id="phone" name="phone" required class="form-input w-full px-4 py-2 rounded-md bg-[#1a1a1a] text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500" />
                     </div>
                     <div class="mb-6">
-                        <label for="consultant-field" class="block text-sm font-medium text-white mb-1">Consultant Field</label>
-                        <select id="consultant-field" name="consultant_field" required class="form-input w-full px-4 py-2 rounded-md bg-[#1a1a1a] text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500">
-                            <option value="" disabled selected>Select a field</option>
-                            <option value="Business Strategy">Business Strategy</option>
-                            <option value="Financial Planning">Financial Planning</option>
-                            <option value="Legal Advice">Legal Advice</option>
-                            <option value="Career Counseling">Career Counseling</option>
-                            <option value="Health & Wellness">Health & Wellness</option>
-                            <option value="Technology">Technology</option>
-                            <option value="Other">Other</option>
+                        <label for="countries_multiple" class="block mb-2 text-sm font-medium text-white">Select skills </label>
+                        <select multiple id="countries_multiple" name="skills" placeholder="Select one or more skills...">
+                            <option value="" disabled>Select one or more fields</option>
+                            {% for skill in skills %}
+                            <option value="{{ skill.id }}">{{ skill.name }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                     <div class="mb-6">
@@ -619,23 +647,35 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
     <script>
         // Mobile menu toggle
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        
+
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-        
-// New Consultant modal functions
-function openNewConsultantModal() {
-    const modal = document.getElementById('new-consultant-modal');
-    if (modal) {
-        modal.classList.remove('invisible', 'opacity-0');
-        document.body.style.overflow = 'hidden';
-    }
-}
+
+        // New Consultant modal functions
+        let tomSelectInstance = null;
+
+        function openNewConsultantModal() {
+            const modal = document.getElementById('new-consultant-modal');
+            if (modal) {
+                modal.classList.remove('invisible', 'opacity-0');
+                document.body.style.overflow = 'hidden';
+
+                // Initialize Tom-select only when the modal is opened, and only if it hasn't been initialized yet.
+                if (!tomSelectInstance) {
+                    tomSelectInstance = new TomSelect('#countries_multiple', {
+                        plugins: ['remove_button'],
+                        maxItems: null,
+                        // The placeholder is now set on the <select> element itself.
+                    });
+                }
+            }
+        }
 
 function closeNewConsultantModal() {
     const modal = document.getElementById('new-consultant-modal');
@@ -644,7 +684,7 @@ function closeNewConsultantModal() {
         document.body.style.overflow = 'auto';
     }
 }
-        
+
         // Login modal functions
         function openLoginModal() {
             const modal = document.getElementById('login-modal');
@@ -653,7 +693,7 @@ function closeNewConsultantModal() {
                 document.body.style.overflow = 'hidden';
             }
         }
-        
+
         function closeLoginModal() {
             const modal = document.getElementById('login-modal');
             if (modal) {
@@ -661,7 +701,7 @@ function closeNewConsultantModal() {
                 document.body.style.overflow = 'auto';
             }
         }
-        
+
         // Close modals when clicking outside
         window.addEventListener('click', (e) => {
             const bookingModal = document.getElementById('booking-modal');
@@ -673,20 +713,6 @@ function closeNewConsultantModal() {
                 closeLoginModal();
             }
         });
-
-        // Toggle visibility of "Other" consultant field input
-        const consultantField = document.getElementById('consultant-field');
-        const otherconsultantFieldContainer = document.getElementById('otherconsultantFieldContainer');
-
-        function toggleOtherconsultantField() {
-            if (consultantField.value === 'Other') {
-                otherconsultantFieldContainer.classList.remove('hidden');
-            } else {
-                otherconsultantFieldContainer.classList.add('hidden');
-            }
-        }
-
-        consultantField.addEventListener('change', toggleOtherconsultantField);
 
         // Initialize visibility on page load
         document.addEventListener('DOMContentLoaded', () => {

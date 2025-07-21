@@ -7245,3 +7245,1711 @@ ValueError: The view custom_admin.views.admin_dashboard didn't return an HttpRes
 [2025-07-18 12:53:25,273] INFO django.server "GET /static/custom_admin/js/admin_invoices.js HTTP/1.1" 200 2814
 [2025-07-18 12:53:26,317] WARNING django.request Not Found: /favicon.ico
 [2025-07-18 12:53:26,318] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-18 13:37:38,738] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-18 13:37:43,346] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-18 13:44:29,733] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-18 13:44:32,464] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-18 17:36:55,743] INFO django.server "GET /auth/consultant_list/ HTTP/1.1" 200 35419
+[2025-07-18 17:36:55,842] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-18 17:36:56,303] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-18 17:36:56,708] WARNING django.request Not Found: /favicon.ico
+[2025-07-18 17:36:56,709] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:04:34,290] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:04:52,198] INFO django.server "GET / HTTP/1.1" 200 40628
+[2025-07-21 11:04:52,358] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:04:53,691] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:04:53,692] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:05:00,879] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-21 11:05:01,120] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 27357
+[2025-07-21 11:05:01,161] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 11:05:01,260] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 11:05:07,314] INFO django.server "GET / HTTP/1.1" 200 40628
+[2025-07-21 11:12:34,910] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\general\views.py changed, reloading.
+[2025-07-21 11:12:37,894] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:12:46,035] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\general\views.py changed, reloading.
+[2025-07-21 11:12:49,354] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:13:11,022] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\general\views.py changed, reloading.
+[2025-07-21 11:13:13,932] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:13:31,449] INFO django.server "GET / HTTP/1.1" 200 40100
+[2025-07-21 11:13:31,589] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:13:33,303] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:13:33,305] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:13:49,830] INFO django.server "GET / HTTP/1.1" 200 40100
+[2025-07-21 11:13:49,886] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:13:50,763] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:13:50,764] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:14:46,201] INFO django.server "GET / HTTP/1.1" 200 40179
+[2025-07-21 11:14:46,264] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:14:47,089] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:14:47,090] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:17:20,157] INFO django.server "GET / HTTP/1.1" 200 40309
+[2025-07-21 11:17:20,197] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:17:21,270] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:17:21,271] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:18:09,697] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-21 11:18:09,700] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-21 11:26:01,901] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-21 11:26:08,367] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:26:18,976] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-21 11:26:24,569] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:26:55,247] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 22623
+[2025-07-21 11:26:56,904] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 22623
+[2025-07-21 11:26:57,098] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 11:26:57,146] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 11:26:57,155] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:26:58,460] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:26:58,461] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:29:36,562] INFO django.server "GET / HTTP/1.1" 200 40241
+[2025-07-21 11:29:36,666] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:29:36,717] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-21 11:29:36,719] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-21 11:29:38,812] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:29:38,814] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:31:00,421] INFO django.server "GET / HTTP/1.1" 200 40241
+[2025-07-21 11:31:00,555] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:31:02,684] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:31:02,685] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:32:58,986] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:33:56,194] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 22623
+[2025-07-21 11:33:56,356] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 11:33:56,374] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:33:56,723] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 11:33:58,334] INFO django.server "GET /auth/timesheet/ HTTP/1.1" 200 19012
+[2025-07-21 11:33:58,425] INFO django.server "GET /static/custom_admin/js/timesheet.js HTTP/1.1" 200 7231
+[2025-07-21 11:33:59,026] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:33:59,034] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:34:00,037] INFO django.server "GET /auth/timesheet/ HTTP/1.1" 200 19012
+[2025-07-21 11:34:00,109] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 11:34:00,109] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:34:00,219] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 11:34:00,239] INFO django.server "GET /static/custom_admin/js/timesheet.js HTTP/1.1" 200 7231
+[2025-07-21 11:34:03,022] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:34:03,025] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:34:05,566] INFO django.server "GET /auth/timesheet/?consultant_id=2&year=2025&month=07 HTTP/1.1" 200 26864
+[2025-07-21 11:34:17,231] INFO django.server "GET /auth/timesheet/?consultant_id=2&year=2025&month=07 HTTP/1.1" 200 26864
+[2025-07-21 11:34:17,797] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 11:34:17,803] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:34:18,276] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 11:34:18,280] INFO django.server "GET /static/custom_admin/js/timesheet.js HTTP/1.1" 200 7231
+[2025-07-21 11:34:19,549] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:34:19,551] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:34:23,186] INFO django.server "GET /auth/logout/ HTTP/1.1" 302 0
+[2025-07-21 11:34:23,215] INFO django.server "GET /auth/login/ HTTP/1.1" 200 40241
+[2025-07-21 11:34:32,891] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-21 11:34:33,169] INFO django.server "GET /consultant/consultant_dashboard/ HTTP/1.1" 200 17207
+[2025-07-21 11:34:36,394] INFO django.server "GET /consultant/consultant_timesheet/ HTTP/1.1" 200 48072
+[2025-07-21 11:35:01,013] INFO django.server "GET / HTTP/1.1" 200 40241
+[2025-07-21 11:35:08,882] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-21 11:35:09,196] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 27357
+[2025-07-21 11:35:27,712] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-21 11:35:27,718] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-21 11:35:32,501] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-21 11:35:32,502] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-21 11:35:36,653] INFO django.server "GET / HTTP/1.1" 200 40241
+[2025-07-21 11:35:36,740] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-21 11:35:36,741] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-21 11:35:36,797] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:35:38,911] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:35:38,914] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:39:39,149] INFO django.server "GET / HTTP/1.1" 200 40339
+[2025-07-21 11:39:39,224] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-21 11:39:39,226] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-21 11:39:39,244] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:39:40,832] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:39:40,833] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:41:18,872] INFO django.server "GET / HTTP/1.1" 200 40339
+[2025-07-21 11:41:18,933] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:41:20,951] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:41:20,952] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:41:22,070] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 22623
+[2025-07-21 11:41:23,468] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 22623
+[2025-07-21 11:41:23,688] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:41:23,688] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 11:41:23,781] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 11:41:24,297] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:41:24,298] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:42:09,066] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-21 11:42:15,246] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:42:22,900] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-21 11:42:27,802] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:42:35,450] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-21 11:42:39,621] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:42:48,654] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-21 11:42:52,269] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:43:20,928] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-21 11:43:25,362] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:44:25,605] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-21 11:44:32,409] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:44:38,910] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-21 11:44:42,696] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:45:18,752] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-21 11:45:23,547] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:45:58,838] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-21 11:46:07,470] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:46:16,404] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-21 11:46:21,413] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:46:32,797] INFO django.server "GET / HTTP/1.1" 200 40339
+[2025-07-21 11:46:32,923] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:46:35,687] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:46:35,690] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:46:36,184] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 22623
+[2025-07-21 11:46:36,295] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 11:46:36,296] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:46:36,391] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 11:46:37,524] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:46:37,526] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:46:53,472] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-21 11:47:00,741] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:47:08,798] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 23157
+[2025-07-21 11:47:09,028] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:47:09,066] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 11:47:09,175] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 11:47:09,924] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:47:09,925] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:47:21,278] INFO django.server "GET / HTTP/1.1" 200 40339
+[2025-07-21 11:47:21,388] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:47:22,355] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:47:22,356] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:49:04,789] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 23157
+[2025-07-21 11:49:04,874] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 11:49:04,874] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:49:04,962] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 11:49:05,618] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:49:05,619] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:50:11,653] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 22306
+[2025-07-21 11:50:11,726] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 11:50:11,726] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:50:11,921] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 11:50:12,584] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:50:12,585] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:50:51,462] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 22306
+[2025-07-21 11:50:51,539] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 11:50:51,540] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:50:51,680] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 11:50:52,285] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:50:52,287] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:50:55,857] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-21 11:50:55,859] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-21 11:51:37,453] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 24455
+[2025-07-21 11:51:37,528] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 11:51:37,528] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:51:37,655] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 11:51:38,638] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:51:38,640] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:52:32,591] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 24463
+[2025-07-21 11:52:32,654] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 11:52:32,655] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:52:32,806] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 11:52:33,565] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:52:33,567] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:52:46,694] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 24484
+[2025-07-21 11:52:46,794] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 11:52:46,794] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:52:46,881] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 11:52:47,424] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:52:47,425] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:53:12,355] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 24468
+[2025-07-21 11:53:12,446] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 11:53:12,447] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:53:12,565] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 11:53:13,133] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:53:13,135] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:54:19,289] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 23153
+[2025-07-21 11:54:19,456] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 11:54:19,457] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:54:19,568] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 11:54:20,382] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:54:20,384] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:55:57,259] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\general\models.py changed, reloading.
+[2025-07-21 11:56:01,816] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:56:10,391] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\general\models.py changed, reloading.
+[2025-07-21 11:56:13,397] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:56:22,960] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\general\models.py changed, reloading.
+[2025-07-21 11:56:28,238] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:56:29,853] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\general\models.py changed, reloading.
+[2025-07-21 11:56:34,190] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:56:41,460] INFO django.server "GET / HTTP/1.1" 200 40339
+[2025-07-21 11:56:41,583] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:56:43,462] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:56:43,464] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 11:57:06,025] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\general\forms.py changed, reloading.
+[2025-07-21 11:57:10,419] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:57:36,266] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-21 11:57:43,300] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:58:42,377] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 11:58:46,781] INFO django.server "GET / HTTP/1.1" 200 40339
+[2025-07-21 11:58:46,941] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 11:58:48,162] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 11:58:48,163] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:02:58,433] INFO django.server "GET / HTTP/1.1" 200 40353
+[2025-07-21 12:02:58,535] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:02:59,999] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:03:00,000] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:03:08,376] INFO django.server "GET / HTTP/1.1" 200 40353
+[2025-07-21 12:03:08,451] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:03:09,612] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:03:09,613] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:03:09,805] INFO django.server "GET / HTTP/1.1" 200 40353
+[2025-07-21 12:03:09,889] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:03:10,151] INFO django.server "GET / HTTP/1.1" 200 40353
+[2025-07-21 12:03:10,313] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:03:10,356] INFO django.server "GET / HTTP/1.1" 200 40353
+[2025-07-21 12:03:10,421] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:03:10,554] INFO django.server "GET / HTTP/1.1" 200 40353
+[2025-07-21 12:03:10,627] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:03:10,727] INFO django.server "GET / HTTP/1.1" 200 40353
+[2025-07-21 12:03:10,825] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:03:10,908] INFO django.server "GET / HTTP/1.1" 200 40353
+[2025-07-21 12:03:11,001] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:03:11,102] INFO django.server "GET / HTTP/1.1" 200 40353
+[2025-07-21 12:03:11,187] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:03:11,255] INFO django.server "GET / HTTP/1.1" 200 40353
+[2025-07-21 12:03:11,348] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:03:12,321] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:03:12,322] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:03:18,687] INFO django.server "GET / HTTP/1.1" 200 40353
+[2025-07-21 12:03:49,527] INFO django.server "GET / HTTP/1.1" 200 40324
+[2025-07-21 12:03:49,610] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:03:50,524] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:03:50,525] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:03:51,910] INFO django.server "GET / HTTP/1.1" 200 40324
+[2025-07-21 12:03:51,990] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:03:52,791] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:03:52,792] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:03:52,918] INFO django.server "GET / HTTP/1.1" 200 40324
+[2025-07-21 12:03:53,031] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:03:53,812] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:03:53,814] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:03:53,882] INFO django.server "GET / HTTP/1.1" 200 40324
+[2025-07-21 12:03:53,964] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:04:03,339] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-21 12:04:03,340] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-21 12:07:14,058] INFO django.server "GET / HTTP/1.1" 200 40318
+[2025-07-21 12:07:14,109] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-21 12:07:14,110] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-21 12:07:14,110] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:07:15,269] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:07:15,270] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:08:33,958] INFO django.server "GET / HTTP/1.1" 200 40380
+[2025-07-21 12:08:34,007] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-21 12:08:34,008] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-21 12:08:34,014] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:08:35,254] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:08:35,255] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:08:40,159] INFO django.server "GET / HTTP/1.1" 200 40380
+[2025-07-21 12:08:40,202] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:08:41,053] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:08:41,054] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:11:18,941] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant_webapp\views.py changed, reloading.
+[2025-07-21 12:11:21,120] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 12:11:32,682] INFO django.server "GET / HTTP/1.1" 200 41010
+[2025-07-21 12:11:32,775] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:11:33,677] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:11:33,678] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:14:42,117] INFO django.server "GET / HTTP/1.1" 200 41097
+[2025-07-21 12:14:42,164] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:14:43,028] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:14:43,031] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:14:47,157] INFO django.server "GET / HTTP/1.1" 200 41097
+[2025-07-21 12:14:47,189] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:14:47,873] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:14:47,874] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:14:54,686] INFO django.server "GET / HTTP/1.1" 200 41097
+[2025-07-21 12:14:54,716] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:14:55,338] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:14:55,339] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:15:17,688] INFO django.server "GET / HTTP/1.1" 200 42726
+[2025-07-21 12:15:17,722] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:15:18,559] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:15:18,560] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:15:20,051] INFO django.server "GET / HTTP/1.1" 200 42726
+[2025-07-21 12:15:20,086] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:15:20,762] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:15:20,763] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:16:05,025] INFO django.server "GET / HTTP/1.1" 200 42726
+[2025-07-21 12:16:05,056] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:16:08,249] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 23140
+[2025-07-21 12:16:08,291] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:16:08,291] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 12:16:08,368] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 12:16:12,051] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:16:12,052] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:16:14,487] INFO django.server "GET / HTTP/1.1" 200 42726
+[2025-07-21 12:16:14,520] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:16:15,191] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:16:15,192] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:18:48,074] INFO django.server "GET / HTTP/1.1" 200 45496
+[2025-07-21 12:18:48,125] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:18:48,915] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:18:48,915] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:21:17,630] INFO django.server "GET / HTTP/1.1" 200 45555
+[2025-07-21 12:21:17,685] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:21:18,520] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:21:18,521] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:22:59,059] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-21 12:22:59,060] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-21 12:23:27,031] INFO django.server "GET / HTTP/1.1" 200 45823
+[2025-07-21 12:23:27,092] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:23:28,188] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:23:28,189] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:23:42,780] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 12:23:46,995] INFO django.server "GET / HTTP/1.1" 200 45823
+[2025-07-21 12:25:53,671] INFO django.server "GET / HTTP/1.1" 200 46083
+[2025-07-21 12:25:53,762] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:25:54,518] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:25:54,518] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:25:54,978] INFO django.server "GET / HTTP/1.1" 200 46083
+[2025-07-21 12:25:55,032] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:25:55,732] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:25:55,733] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:25:56,187] INFO django.server "GET / HTTP/1.1" 200 46083
+[2025-07-21 12:25:56,226] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:25:56,876] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:25:56,877] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:38:11,590] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 12:38:18,625] INFO django.server "GET / HTTP/1.1" 200 46083
+[2025-07-21 12:38:19,989] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:38:19,990] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:42:20,762] INFO django.server "GET / HTTP/1.1" 200 46081
+[2025-07-21 12:42:20,866] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:42:21,912] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:42:21,912] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:45:50,850] INFO django.server "GET / HTTP/1.1" 200 45632
+[2025-07-21 12:45:50,898] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:45:51,493] INFO django.server "GET / HTTP/1.1" 200 45632
+[2025-07-21 12:45:51,573] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:45:52,401] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:45:52,403] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:47:56,478] INFO django.server "GET / HTTP/1.1" 200 45856
+[2025-07-21 12:47:56,537] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:47:57,745] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:47:57,745] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:48:32,826] INFO django.server "GET / HTTP/1.1" 200 45445
+[2025-07-21 12:48:32,867] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:48:33,657] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:48:33,659] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:48:34,325] INFO django.server "GET / HTTP/1.1" 200 45445
+[2025-07-21 12:48:34,365] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:48:34,995] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:48:34,995] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:49:52,916] ERROR django.request Internal Server Error: /auth/new_consultant_details/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py", line 1703, in new_consultant_details
+    return render(request, 'new_consultant_details.html', {'form': form, 'user': request.user if request.user.is_authenticated else None})
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: new_consultant_details.html
+[2025-07-21 12:49:52,964] ERROR django.server "POST /auth/new_consultant_details/ HTTP/1.1" 500 98845
+[2025-07-21 12:50:56,234] INFO django.server "GET / HTTP/1.1" 200 45445
+[2025-07-21 12:50:57,700] INFO django.server "GET / HTTP/1.1" 200 45445
+[2025-07-21 12:50:57,773] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:50:58,606] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:50:58,608] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:52:38,909] INFO django.server "GET / HTTP/1.1" 200 45445
+[2025-07-21 12:52:38,965] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:52:39,911] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:52:39,912] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:58:56,004] INFO django.server "GET / HTTP/1.1" 200 42359
+[2025-07-21 12:58:56,063] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 12:58:57,350] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 12:58:57,351] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 12:59:20,559] ERROR django.request Internal Server Error: /auth/new_consultant_details/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\views\decorators\http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py", line 1703, in new_consultant_details
+    return render(request, 'new_consultant_details.html', {'form': form, 'user': request.user if request.user.is_authenticated else None})
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: new_consultant_details.html
+[2025-07-21 12:59:20,596] ERROR django.server "POST /auth/new_consultant_details/ HTTP/1.1" 500 99108
+[2025-07-21 13:02:31,938] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-21 13:02:36,779] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 13:02:43,802] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-21 13:02:46,877] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 13:03:03,924] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-21 13:03:06,455] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 13:03:10,305] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-21 13:03:13,868] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 13:03:22,922] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-21 13:03:25,804] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 13:03:55,492] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\general\models.py changed, reloading.
+[2025-07-21 13:03:58,529] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 13:17:21,195] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 13:28:08,943] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 13:28:16,630] INFO django.server "GET / HTTP/1.1" 200 42359
+[2025-07-21 13:28:21,433] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 13:28:21,434] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 13:29:10,674] INFO django.server "GET / HTTP/1.1" 200 42359
+[2025-07-21 13:29:28,430] INFO django.server "POST /auth/new_consultant_details/ HTTP/1.1" 302 0
+[2025-07-21 13:29:28,504] INFO django.server "GET / HTTP/1.1" 200 42359
+[2025-07-21 13:29:36,051] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-21 13:29:36,419] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 27522
+[2025-07-21 13:29:45,150] INFO django.server "GET /auth/prospective_consultants_management/ HTTP/1.1" 200 23568
+[2025-07-21 13:36:52,942] INFO django.server "GET /auth/prospective_consultants_management/ HTTP/1.1" 200 23592
+[2025-07-21 13:36:53,068] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 13:36:53,071] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 13:36:53,089] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 13:36:54,127] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 13:36:54,127] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 13:38:37,743] INFO django.server "GET /auth/prospective_consultants_management/ HTTP/1.1" 200 22646
+[2025-07-21 13:38:37,790] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 13:38:37,791] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 13:38:37,893] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 13:38:38,411] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 13:38:38,412] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 13:39:48,117] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 23140
+[2025-07-21 13:39:50,898] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 23140
+[2025-07-21 13:39:50,941] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 13:39:50,941] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 13:39:51,054] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 13:39:51,523] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 13:39:51,524] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 13:41:25,116] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 22759
+[2025-07-21 13:41:25,160] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 13:41:25,160] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 13:41:25,247] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 13:41:25,950] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 13:41:25,951] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 13:42:43,193] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 23915
+[2025-07-21 13:42:43,239] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 13:42:43,240] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 13:42:43,359] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 13:42:44,022] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 13:42:44,023] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 13:43:50,972] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 23915
+[2025-07-21 13:43:51,025] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 13:43:51,025] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 13:43:51,141] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 13:43:51,809] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 13:43:51,810] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 13:47:26,915] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 24287
+[2025-07-21 13:47:26,960] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 13:47:26,961] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 13:47:27,083] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 13:47:27,589] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 13:47:27,590] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 13:53:42,334] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 26320
+[2025-07-21 13:53:42,378] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 13:53:42,378] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 13:53:42,494] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 13:53:43,425] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 13:53:43,426] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 14:47:07,385] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 4418
+[2025-07-21 14:47:07,745] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 14:47:07,746] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 14:47:20,554] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 26320
+[2025-07-21 14:47:20,596] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 14:47:20,597] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 14:47:20,740] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 14:47:21,409] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 14:47:21,410] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 15:02:21,353] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 24691
+[2025-07-21 15:02:21,392] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 15:02:21,392] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 15:02:21,469] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 15:02:22,327] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 15:02:22,328] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 15:04:13,397] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 24812
+[2025-07-21 15:04:13,434] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 15:04:13,434] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 15:04:13,532] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 15:04:13,958] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 15:04:13,959] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 15:05:44,704] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-21 15:05:44,705] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-21 15:07:10,639] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 24812
+[2025-07-21 15:07:10,687] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 15:07:10,687] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 15:07:10,761] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-21 15:07:10,762] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-21 15:07:10,858] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 15:07:11,816] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 15:07:11,817] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 15:07:24,879] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 24812
+[2025-07-21 15:07:24,927] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 15:07:24,928] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 15:07:25,005] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 15:07:25,707] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 15:07:25,708] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 15:07:37,603] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 24812
+[2025-07-21 15:07:37,636] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 15:07:37,637] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 15:07:37,722] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 15:07:38,103] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 15:07:38,104] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 15:08:00,720] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 24812
+[2025-07-21 15:08:00,751] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 15:08:00,752] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 15:08:00,809] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 15:08:01,314] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 15:08:01,314] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 15:08:09,994] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 24812
+[2025-07-21 15:08:10,038] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 15:08:10,038] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 15:08:10,097] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 15:08:10,536] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 15:08:10,537] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 15:08:13,229] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-21 15:08:13,229] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-21 15:09:27,262] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 24812
+[2025-07-21 15:09:27,364] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 15:09:27,368] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 15:09:27,482] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-21 15:09:27,483] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-21 15:09:27,534] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 15:09:28,705] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 15:09:28,706] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 15:09:32,265] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 24812
+[2025-07-21 15:09:32,301] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 15:09:32,301] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 15:09:32,387] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 15:09:33,132] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 15:09:33,133] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 15:09:40,906] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 24812
+[2025-07-21 15:09:40,939] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 15:09:40,940] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 15:09:41,026] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 15:09:41,438] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 15:09:41,439] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 15:09:52,682] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 24812
+[2025-07-21 15:09:52,731] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 15:09:52,732] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 15:09:52,853] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 15:09:53,235] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 15:09:53,236] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 15:10:30,117] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 24812
+[2025-07-21 15:10:30,159] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 15:10:30,159] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 15:10:30,254] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 15:10:30,708] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 15:10:30,709] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 15:11:01,749] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 24812
+[2025-07-21 15:11:01,790] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 15:11:01,790] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 15:11:01,898] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 15:11:02,362] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 15:11:02,363] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 15:11:06,463] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 24812
+[2025-07-21 15:11:06,494] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 15:11:06,495] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 15:11:06,576] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 15:11:06,998] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 15:11:06,998] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 15:22:28,170] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\models.py changed, reloading.
+[2025-07-21 15:22:33,391] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:25:23,836] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\models.py changed, reloading.
+[2025-07-21 15:25:26,815] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:26:05,500] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py changed, reloading.
+[2025-07-21 15:26:08,638] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:27:40,416] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py changed, reloading.
+[2025-07-21 15:27:44,218] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:31:14,098] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\models.py changed, reloading.
+[2025-07-21 15:31:16,705] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:32:20,736] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py changed, reloading.
+[2025-07-21 15:32:24,583] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:32:46,490] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py changed, reloading.
+[2025-07-21 15:32:50,274] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:32:56,860] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py changed, reloading.
+[2025-07-21 15:33:00,527] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:33:16,078] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py changed, reloading.
+[2025-07-21 15:33:18,885] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:33:25,574] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py changed, reloading.
+[2025-07-21 15:33:27,666] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:33:33,422] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py changed, reloading.
+[2025-07-21 15:33:35,396] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:33:39,927] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py changed, reloading.
+[2025-07-21 15:33:42,392] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:33:46,982] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py changed, reloading.
+[2025-07-21 15:33:49,162] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:34:12,186] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py changed, reloading.
+[2025-07-21 15:34:14,789] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:34:19,375] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py changed, reloading.
+[2025-07-21 15:34:21,486] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:35:07,700] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py changed, reloading.
+[2025-07-21 15:35:10,107] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:35:15,455] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py changed, reloading.
+[2025-07-21 15:35:17,906] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:35:22,352] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py changed, reloading.
+[2025-07-21 15:35:24,463] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:35:34,784] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py changed, reloading.
+[2025-07-21 15:35:37,141] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:35:44,455] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py changed, reloading.
+[2025-07-21 15:35:47,044] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:35:57,426] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py changed, reloading.
+[2025-07-21 15:36:00,345] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:40:36,000] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 24812
+[2025-07-21 15:40:36,135] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 15:40:36,136] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 15:40:36,205] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 15:40:37,126] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 15:40:37,127] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 15:40:41,076] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 33055
+[2025-07-21 15:40:41,543] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 154
+[2025-07-21 15:40:43,703] ERROR django.request Internal Server Error: /auth/consultant_list/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\mssql\base.py", line 677, in execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+pyodbc.ProgrammingError: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost_type'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'weekly_commitment'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'availability'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'total_experience'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py", line 1540, in consultant_list
+    return render(request, 'consultant_managment.html', context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 198, in render
+    len_values = len(values)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\mssql\base.py", line 677, in execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost_type'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'weekly_commitment'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'availability'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'total_experience'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+[2025-07-21 15:40:43,763] ERROR django.server "GET /auth/consultant_list/ HTTP/1.1" 500 244892
+[2025-07-21 15:40:47,493] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 35454
+[2025-07-21 15:40:47,523] INFO django.server "GET /static/custom_admin/js/admin_invoices.js HTTP/1.1" 200 2814
+[2025-07-21 15:40:50,707] ERROR django.request Internal Server Error: /auth/timesheet/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\mssql\base.py", line 677, in execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+pyodbc.ProgrammingError: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost_type'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'weekly_commitment'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'availability'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'total_experience'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py", line 241, in timesheet
+    return render(request, 'timesheet.html', context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 198, in render
+    len_values = len(values)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\mssql\base.py", line 677, in execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost_type'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'weekly_commitment'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'availability'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'total_experience'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+[2025-07-21 15:40:50,719] ERROR django.server "GET /auth/timesheet/ HTTP/1.1" 500 247422
+[2025-07-21 15:40:54,639] INFO django.server "GET /auth/prospective_consultants_management/ HTTP/1.1" 200 22646
+[2025-07-21 15:43:05,704] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\models.py changed, reloading.
+[2025-07-21 15:43:08,565] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:44:02,909] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:44:52,217] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\models.py changed, reloading.
+[2025-07-21 15:44:55,010] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:46:48,056] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py changed, reloading.
+[2025-07-21 15:46:50,681] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:47:01,887] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py changed, reloading.
+[2025-07-21 15:47:04,486] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 15:54:25,098] INFO django.server "GET / HTTP/1.1" 200 41685
+[2025-07-21 15:54:25,165] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 304 0
+[2025-07-21 15:54:26,789] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 15:54:26,790] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 15:54:30,337] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-21 15:54:30,749] INFO django.server "GET /consultant/consultant_dashboard/ HTTP/1.1" 200 17207
+[2025-07-21 15:54:31,243] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 304 0
+[2025-07-21 15:54:31,369] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 304 0
+[2025-07-21 15:54:34,431] ERROR django.request Internal Server Error: /consultant/consultant_profile/2/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\mssql\base.py", line 677, in execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+pyodbc.ProgrammingError: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost_type'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'weekly_commitment'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'availability'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'total_experience'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\views.py", line 638, in consultant_profile
+    profile = ConsultantProfile.objects.prefetch_related('skills').get(user=consultant)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\mssql\base.py", line 677, in execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost_type'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'weekly_commitment'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'availability'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'total_experience'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+[2025-07-21 15:54:34,442] ERROR django.server "GET /consultant/consultant_profile/2/ HTTP/1.1" 500 161468
+[2025-07-21 16:01:35,705] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\models.py changed, reloading.
+[2025-07-21 16:01:38,601] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 16:02:29,744] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 16:05:13,705] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\models.py changed, reloading.
+[2025-07-21 16:05:16,175] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 16:19:28,853] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 16:23:43,626] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 16:25:46,767] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 16:27:19,465] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 16:29:03,801] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 16:58:20,087] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 17:25:54,306] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\general\views.py changed, reloading.
+[2025-07-21 17:25:56,840] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 17:32:48,820] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\manage.py changed, reloading.
+[2025-07-21 17:32:50,523] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 18:10:26,417] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 18:11:14,941] INFO django.server "GET / HTTP/1.1" 200 41674
+[2025-07-21 18:11:16,236] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 18:11:16,240] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 18:11:35,076] INFO django.server "POST /auth/new_consultant_details/ HTTP/1.1" 302 0
+[2025-07-21 18:11:35,145] INFO django.server "GET / HTTP/1.1" 200 41674
+[2025-07-21 18:11:48,414] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-21 18:11:48,714] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 27545
+[2025-07-21 18:11:51,861] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 24812
+[2025-07-21 18:11:54,021] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 33055
+[2025-07-21 18:11:54,469] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 154
+[2025-07-21 18:11:56,255] ERROR django.request Internal Server Error: /auth/consultant_list/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\mssql\base.py", line 677, in execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+pyodbc.ProgrammingError: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost_type'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'weekly_commitment'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'availability'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'total_experience'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py", line 1540, in consultant_list
+    return render(request, 'consultant_managment.html', context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 198, in render
+    len_values = len(values)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\mssql\base.py", line 677, in execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost_type'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'weekly_commitment'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'availability'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'total_experience'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+[2025-07-21 18:11:56,292] ERROR django.server "GET /auth/consultant_list/ HTTP/1.1" 500 246719
+[2025-07-21 18:21:24,574] ERROR django.request Internal Server Error: /auth/consultant_list/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\mssql\base.py", line 677, in execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+pyodbc.ProgrammingError: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost_type'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'weekly_commitment'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'availability'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'total_experience'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py", line 1540, in consultant_list
+    return render(request, 'consultant_managment.html', context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 198, in render
+    len_values = len(values)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\mssql\base.py", line 677, in execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost_type'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'weekly_commitment'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'availability'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'total_experience'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+[2025-07-21 18:21:24,582] ERROR django.server "GET /auth/consultant_list/ HTTP/1.1" 500 246984
+[2025-07-21 18:21:25,611] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 18:21:25,612] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 21:06:52,240] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 21:09:44,921] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\models.py changed, reloading.
+[2025-07-21 21:09:48,856] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 21:11:17,128] INFO django.server "GET / HTTP/1.1" 200 41674
+[2025-07-21 21:11:18,644] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 21:11:18,645] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 21:11:28,761] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-21 21:11:29,206] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 27400
+[2025-07-21 21:11:50,442] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 24812
+[2025-07-21 21:11:51,572] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 33055
+[2025-07-21 21:11:52,019] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 154
+[2025-07-21 21:11:53,183] ERROR django.request Internal Server Error: /auth/consultant_list/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\mssql\base.py", line 677, in execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+pyodbc.ProgrammingError: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost_type'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'weekly_commitment'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'availability'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'total_experience'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py", line 1540, in consultant_list
+    return render(request, 'consultant_managment.html', context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 198, in render
+    len_values = len(values)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\mssql\base.py", line 677, in execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost_type'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'weekly_commitment'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'availability'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'total_experience'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+[2025-07-21 21:11:53,206] ERROR django.server "GET /auth/consultant_list/ HTTP/1.1" 500 246658
+[2025-07-21 21:21:32,239] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\migrations\0001_initial.py changed, reloading.
+[2025-07-21 21:21:34,446] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 21:22:15,750] ERROR django.request Internal Server Error: /auth/consultant_list/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\mssql\base.py", line 677, in execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+pyodbc.ProgrammingError: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost_type'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'weekly_commitment'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'availability'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'total_experience'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py", line 1540, in consultant_list
+    return render(request, 'consultant_managment.html', context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 198, in render
+    len_values = len(values)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\mssql\base.py", line 677, in execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost_type'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'weekly_commitment'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'availability'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'total_experience'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+[2025-07-21 21:22:15,757] ERROR django.server "GET /auth/consultant_list/ HTTP/1.1" 500 246923
+[2025-07-21 21:22:16,541] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 21:22:16,542] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 21:22:25,983] ERROR django.request Internal Server Error: /auth/consultant_list/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\mssql\base.py", line 677, in execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+pyodbc.ProgrammingError: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost_type'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'weekly_commitment'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'availability'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'total_experience'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py", line 1540, in consultant_list
+    return render(request, 'consultant_managment.html', context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 198, in render
+    len_values = len(values)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\mssql\base.py", line 677, in execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost_type'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'weekly_commitment'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'availability'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'total_experience'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+[2025-07-21 21:22:25,990] ERROR django.server "GET /auth/consultant_list/ HTTP/1.1" 500 246923
+[2025-07-21 21:22:26,573] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 21:22:26,574] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 21:36:19,452] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 33055
+[2025-07-21 21:36:19,658] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 21:36:19,664] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 21:36:19,773] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 21:36:20,588] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 21:36:20,588] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 21:36:20,598] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 154
+[2025-07-21 21:36:26,886] ERROR django.request Internal Server Error: /auth/consultant_list/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\mssql\base.py", line 677, in execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+pyodbc.ProgrammingError: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost_type'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'weekly_commitment'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'availability'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'total_experience'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py", line 1540, in consultant_list
+    return render(request, 'consultant_managment.html', context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 198, in render
+    len_values = len(values)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\mssql\base.py", line 677, in execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: ('42S22', "[42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost_type'. (207) (SQLExecDirectW); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'cost'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'weekly_commitment'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'availability'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid column name 'total_experience'. (207); [42S22] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")
+[2025-07-21 21:36:26,904] ERROR django.server "GET /auth/consultant_list/ HTTP/1.1" 500 246658
+[2025-07-21 21:48:41,315] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\admin.py changed, reloading.
+[2025-07-21 21:48:43,518] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 21:48:50,814] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\admin.py changed, reloading.
+[2025-07-21 21:48:52,977] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 21:49:52,629] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-21 21:49:56,372] INFO django.server "GET /auth/consultant_list/ HTTP/1.1" 302 0
+[2025-07-21 21:49:56,385] INFO django.server "GET /auth/login/?next=/auth/consultant_list/ HTTP/1.1" 200 41125
+[2025-07-21 21:49:56,494] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 21:49:57,926] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 21:49:57,927] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-21 21:50:07,321] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-21 21:50:07,656] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 22869
+[2025-07-21 21:50:10,994] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 24407
+[2025-07-21 21:50:13,445] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 33055
+[2025-07-21 21:50:13,859] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 2
+[2025-07-21 21:50:22,317] INFO django.server "POST /auth/skills/ HTTP/1.1" 201 24
+[2025-07-21 21:50:27,719] INFO django.server "POST /auth/skills/ HTTP/1.1" 201 22
+[2025-07-21 21:50:32,313] INFO django.server "POST /auth/skills/ HTTP/1.1" 201 26
+[2025-07-21 21:50:45,641] INFO django.server "POST /auth/skills/ HTTP/1.1" 201 20
+[2025-07-21 21:50:50,212] INFO django.server "POST /auth/skills/ HTTP/1.1" 201 29
+[2025-07-21 21:50:59,908] INFO django.server "POST /auth/skills/ HTTP/1.1" 201 24
+[2025-07-21 21:51:02,602] INFO django.server "GET /auth/consultant_list/ HTTP/1.1" 200 29446
+[2025-07-21 21:51:05,597] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 24810
+[2025-07-21 21:51:08,048] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 24433
+[2025-07-21 21:51:08,081] INFO django.server "GET /static/custom_admin/js/admin_invoices.js HTTP/1.1" 200 2814
+[2025-07-21 21:51:09,577] INFO django.server "GET /auth/timesheet/ HTTP/1.1" 200 18699
+[2025-07-21 21:51:09,648] INFO django.server "GET /static/custom_admin/js/timesheet.js HTTP/1.1" 200 7231
+[2025-07-21 21:51:11,700] INFO django.server "GET /auth/timesheet/ HTTP/1.1" 200 18699
+[2025-07-21 21:51:12,601] ERROR django.request Internal Server Error: /auth/prospective_consultants_management/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\mssql\base.py", line 677, in execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+pyodbc.ProgrammingError: ('42S02', "[42S02] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid object name 'general_prospectiveconsultant'. (208) (SQLExecDirectW)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py", line 1715, in prospective_consultants_management
+    prospective_consultants = paginator.page(page)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\paginator.py", line 89, in page
+    number = self.validate_number(number)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\paginator.py", line 110, in count
+    return c()
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\query.py", line 620, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 629, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\query.py", line 615, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\mssql\base.py", line 677, in execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: ('42S02', "[42S02] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid object name 'general_prospectiveconsultant'. (208) (SQLExecDirectW)")
+[2025-07-21 21:51:12,654] ERROR django.server "GET /auth/prospective_consultants_management/ HTTP/1.1" 500 166924
+[2025-07-21 21:56:11,177] INFO django.server "GET /auth/timesheet/ HTTP/1.1" 200 18699
+[2025-07-21 21:56:11,233] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-21 21:56:11,233] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-21 21:56:11,354] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-21 21:56:11,366] INFO django.server "GET /static/custom_admin/js/timesheet.js HTTP/1.1" 200 7231
+[2025-07-21 21:56:11,957] WARNING django.request Not Found: /favicon.ico
+[2025-07-21 21:56:11,959] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855

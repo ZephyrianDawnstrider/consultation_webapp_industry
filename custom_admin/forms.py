@@ -1,10 +1,9 @@
 from django import forms
 from .models import ConsultantStatus, Skill
 from consultant.models import ConsultantProfile
-from django import forms
 from django.contrib.auth import get_user_model
 
-User = get_user_model()
+User  = get_user_model()
 
 class ConsultantRegistrationForm(forms.Form):
     """Form for consultant registration with required fields: mobile, email, agreement"""
@@ -18,7 +17,7 @@ class ConsultantEditForm(forms.ModelForm):
     
     from .models import CONSULTANT_STATUS_CHOICES
     from django.forms import Select, PasswordInput
-    from .models import CONSULTANT_STATUS_CHOICES
+
     status = forms.ChoiceField(choices=CONSULTANT_STATUS_CHOICES, widget=Select(attrs={'class': 'form-control'}), required=False)
     password = forms.CharField(
         label="Password",
@@ -37,7 +36,9 @@ class ConsultantEditForm(forms.ModelForm):
             'bank_ifsc',
             'bank_branch_name',
             'bank_name',
-            'cost_per_hour',
+            'cost',  # Updated from cost_per_hour to cost
+            'weekly_commitment',  # Added
+            'availability',  # Added
             'skills',
             'agreement_document',
             'details',
@@ -82,11 +83,6 @@ class ConsultantEditForm(forms.ModelForm):
             instance.save()
             self.save_m2m()
         return instance
-
-from django import forms
-from django.contrib.auth import get_user_model
-
-User = get_user_model()
 
 class AdminProfileForm(forms.ModelForm):
     """Form for editing admin profile information"""
