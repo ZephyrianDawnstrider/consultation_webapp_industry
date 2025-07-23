@@ -22,12 +22,12 @@
     </h1>
 </div>
 <div class="container mt-2">
-    <div class="card shadow-sm p-2">
-        <div class="row mb-2">
-            <h2 class="h3 bold">Profile Information</h3>
+    <div class="card shadow-sm p-4 bg-white rounded-lg">
+        <div class="row mb-4">
+            <h2 class="h3 font-bold mb-3">Profile Information</h2>
             <div class="col-md-6 ">
-                <div class="mb-3">
-                    <label for="{{ form.name.id_for_label }}" class="form-label"><strong>Name:</strong></label>
+                <div class="mb-4">
+                    <label for="{{ form.name.id_for_label }}" class="form-label font-semibold">Name:</label>
                     {{ form.name }}
                     {% if form.name.help_text %}
                         <div class="form-text">{{ form.name.help_text }}</div>
@@ -39,7 +39,7 @@
                 <p><strong>Email:</strong> {{ consultant.email }}</p>
             </div>
             <div class="col-md-6">
-                <label for="{{ form.profile_picture.id_for_label }}" class="form-label"><strong>Password:</strong></label>
+                <label for="{{ form.profile_picture.id_for_label }}" class="form-label font-semibold">Password:</label>
                     <div class="input-group mb-3">
                         <input type="password" id="passwordField" class="form-control" value="{{ decrypted_password|default:'********' }}" readonly>
                         <button class="btn btn-outline-secondary " type="button" id="togglePasswordBtn" aria-label="Toggle password visibility">
@@ -47,7 +47,7 @@
                         </button>
                     </div>
                 <button class="btn btn-link p-0" id="editPasswordBtn">Edit Password</button>
-            </div>
+          </div>
         </div>
         <hr>
         <div id="otpSection" class="mb-4" style="display:none;">
@@ -75,145 +75,77 @@
             <div id="changePasswordMessage" class="mt-2"></div>
         </div>
         <hr>
-        <h3 class="h3 bold">Edit Profile</h3>
+        <h3 class="h3 font-bold mb-4">Edit Profile</h3>
     <form method="post" enctype="multipart/form-data" novalidate id="consultantProfileForm">
     {% csrf_token %}
-        <div class="row">
-        {% for field in form %}
-            {% if field.name != 'status' and field.name != 'name' and field.name != 'profile_picture' %}
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
-                        {{ field }}
-                        {% if field.help_text %}
-                            <div class="form-text">{{ field.help_text }}</div>
-                        {% endif %}
-                        {% for error in field.errors %}
-                            <div class="text-danger">{{ error }}</div>
-                        {% endfor %}
-                    </div>
-                </div>
+        <div class="row g-4">
+          <div class="col-md-6">
+              <label class="form-label">Total experience<span class="text-danger">*</span></label>
+              <input type="text" class="form-control" placeholder="e.g. 5.0" value="{{ form.instance.total_experience }}">
+              <div class="form-text">Total years of professional experience</div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Agreement document<span class="text-danger">*</span></label>
+            {% if form.instance.agreement_document %}
+              <a href="{{ form.instance.agreement_document.url }}" target="_blank" class="btn btn-link">View Document</a>
+              <button type="button" class="btn bg-danger btn-danger btn-sm ms-2" id="remove-agreement-btn">Remove</button>
+              <button type="button" class="btn bg-primary btn-primary btn-sm ms-2" id="edit-agreement-btn">Edit</button>
+              <input type="file" name="agreement_document" class="form-control d-none" id="agreement-file-input">
+            {% else %}
+              <input type="file" name="agreement_document" class="form-control">
             {% endif %}
-        {% endfor %}
-        </div>
-
-        <div class="form-group mb-3">
-          <label for="skills">Skills:</label>
-          <select id="skills" name="skills" multiple placeholder="Select skills...">
-            {% for skill in skills %}
-              <option value="{{ skill.id }}">{{ skill.name }}</option>
-            {% endfor %}
-          </select>
-        </div>
-
-        <div id="skill-experience-container" class="mb-3">
-          <!-- Skill experience inputs will be dynamically added here -->
-        </div>
-
-        <input type="hidden" id="skills_data" name="skills_data" value='{{ form.initial_skill_experiences|default:"[]"|safe }}'>
-
-        <div class="form-group mb-3">
-          <label for="cost_type">Cost Type:</label>
-          <select id="cost_type" name="cost_type" class="form-control">
-            <option value="hourly" {% if form.instance.cost_type == 'hourly' %}selected{% endif %}>Cost per Hour</option>
-            <option value="monthly" {% if form.instance.cost_type == 'monthly' %}selected{% endif %}>Monthly Cost</option>
-          </select>
-        </div>
-
-        <div class="form-group mb-3">
-          <label for="cost" id="cost_label">Cost per Hour:</label>
-          <input type="number" step="0.01" id="cost" name="cost" class="form-control" placeholder="Enter cost per hour" value="{{ form.instance.cost }}">
-        </div>
-
-        <div class="form-group mb-3">
-          <label for="weekly_commitment">Weekly Commitment (hours):</label>
-          <input type="number" step="0.01" id="weekly_commitment" name="weekly_commitment" class="form-control" placeholder="Enter weekly commitment" value="{{ form.instance.weekly_commitment }}">
-        </div>
-
-        <div class="form-group mb-3">
-          <label>Availability:</label>
-          <div id="availability-container" class="border rounded p-3">
-            <div class="day-availability mb-2" data-day="Monday">
-              <label><input type="checkbox" class="day-checkbox" data-day="Monday"> Monday</label>
-              <div class="time-range d-flex align-items-center mt-1" style="display:none;">
-                <input type="time" class="form-control me-2 start-time" placeholder="Start time">
-                <span class="me-2">to</span>
-                <input type="time" class="form-control end-time" placeholder="End time">
-                <button type="button" class="btn btn-danger btn-sm ms-2 remove-time-range">Remove</button>
+          </div>
+          <div class="col-md-6 mt-3">
+            <label class="form-label">Skills:</label>
+            <div id="skills-container" class="border rounded p-3 row">
+              {% for skill in skills %}
+              <div class="form-check col-6 d-flex align-items-center mb-2">
+                <input class="form-check-input me-2 skill-checkbox" type="checkbox" value="{{ skill.id }}" id="skill_{{ skill.id }}" name="skills" {% if skill.id|stringformat:"s" in form.initial_skill_experiences|json_script:"skill_ids" %}checked{% endif %}>
+                <label class="form-check-label me-3" for="skill_{{ skill.id }}">{{ skill.name }}</label>
               </div>
-              <button type="button" class="btn btn-primary btn-sm mt-1 add-time-range" style="display:none;">Add Time Range</button>
-              <div class="time-ranges-container"></div>
+              {% endfor %}
             </div>
-            <div class="day-availability mb-2" data-day="Tuesday">
-              <label><input type="checkbox" class="day-checkbox" data-day="Tuesday"> Tuesday</label>
-              <div class="time-range d-flex align-items-center mt-1" style="display:none;">
-                <input type="time" class="form-control me-2 start-time" placeholder="Start time">
-                <span class="me-2">to</span>
-                <input type="time" class="form-control end-time" placeholder="End time">
-                <button type="button" class="btn btn-danger btn-sm ms-2 remove-time-range">Remove</button>
-              </div>
-              <button type="button" class="btn btn-primary btn-sm mt-1 add-time-range" style="display:none;">Add Time Range</button>
-              <div class="time-ranges-container"></div>
-            </div>
-            <div class="day-availability mb-2" data-day="Wednesday">
-              <label><input type="checkbox" class="day-checkbox" data-day="Wednesday"> Wednesday</label>
-              <div class="time-range d-flex align-items-center mt-1" style="display:none;">
-                <input type="time" class="form-control me-2 start-time" placeholder="Start time">
-                <span class="me-2">to</span>
-                <input type="time" class="form-control end-time" placeholder="End time">
-                <button type="button" class="btn btn-danger btn-sm ms-2 remove-time-range">Remove</button>
-              </div>
-              <button type="button" class="btn btn-primary btn-sm mt-1 add-time-range" style="display:none;">Add Time Range</button>
-              <div class="time-ranges-container"></div>
-            </div>
-            <div class="day-availability mb-2" data-day="Thursday">
-              <label><input type="checkbox" class="day-checkbox" data-day="Thursday"> Thursday</label>
-              <div class="time-range d-flex align-items-center mt-1" style="display:none;">
-                <input type="time" class="form-control me-2 start-time" placeholder="Start time">
-                <span class="me-2">to</span>
-                <input type="time" class="form-control end-time" placeholder="End time">
-                <button type="button" class="btn btn-danger btn-sm ms-2 remove-time-range">Remove</button>
-              </div>
-              <button type="button" class="btn btn-primary btn-sm mt-1 add-time-range" style="display:none;">Add Time Range</button>
-              <div class="time-ranges-container"></div>
-            </div>
-            <div class="day-availability mb-2" data-day="Friday">
-              <label><input type="checkbox" class="day-checkbox" data-day="Friday"> Friday</label>
-              <div class="time-range d-flex align-items-center mt-1" style="display:none;">
-                <input type="time" class="form-control me-2 start-time" placeholder="Start time">
-                <span class="me-2">to</span>
-                <input type="time" class="form-control end-time" placeholder="End time">
-                <button type="button" class="btn btn-danger btn-sm ms-2 remove-time-range">Remove</button>
-              </div>
-              <button type="button" class="btn btn-primary btn-sm mt-1 add-time-range" style="display:none;">Add Time Range</button>
-              <div class="time-ranges-container"></div>
-            </div>
-            <div class="day-availability mb-2" data-day="Saturday">
-              <label><input type="checkbox" class="day-checkbox" data-day="Saturday"> Saturday</label>
-              <div class="time-range d-flex align-items-center mt-1" style="display:none;">
-                <input type="time" class="form-control me-2 start-time" placeholder="Start time">
-                <span class="me-2">to</span>
-                <input type="time" class="form-control end-time" placeholder="End time">
-                <button type="button" class="btn btn-danger btn-sm ms-2 remove-time-range">Remove</button>
-              </div>
-              <button type="button" class="btn btn-primary btn-sm mt-1 add-time-range" style="display:none;">Add Time Range</button>
-              <div class="time-ranges-container"></div>
-            </div>
-            <div class="day-availability mb-2" data-day="Sunday">
-              <label><input type="checkbox" class="day-checkbox" data-day="Sunday"> Sunday</label>
-              <div class="time-range d-flex align-items-center mt-1" style="display:none;">
-                <input type="time" class="form-control me-2 start-time" placeholder="Start time">
-                <span class="me-2">to</span>
-                <input type="time" class="form-control end-time" placeholder="End time">
-                <button type="button" class="btn btn-danger btn-sm ms-2 remove-time-range">Remove</button>
-              </div>
-              <button type="button" class="btn btn-primary btn-sm mt-1 add-time-range" style="display:none;">Add Time Range</button>
-              <div class="time-ranges-container"></div>
+            <div id="skill-experience-container" class="mt-3"></div>
+            <input type="hidden" id="skills_data" name="skills_data" value='{{ form.initial_skill_experiences|json_script:"skills_data" }}'>
+            <label for="availability" class="form-label mt-4">Availability:</label>
+            <div id="availability-container" class="border rounded p-3" style="max-height: none; overflow-y: visible; margin-top: -1rem;">
+              <button type="button" class="btn bg-secondary btn-secondary btn-solid mb-3" id="add-availability-btn">Add Availability</button>
+              <div id="availability-list"></div>
             </div>
           </div>
+          <div class="col-md-6">
+              <label for="mobile" class="form-label">Mobile:<span class="text-danger">*</span></label>
+              <input type="text" id="mobile" name="mobile" class="form-control" placeholder="Enter mobile number" value="{{ form.instance.mobile }}" required>
+              <label for="bank_account_name" class="form-label mt-3">Bank Account Name:<span class="text-danger">*</span></label>
+              <input type="text" id="bank_account_name" name="bank_account_name" class="form-control" placeholder="Enter bank account name" value="{{ form.instance.bank_account_name }}" required>
+              <label for="bank_account_number" class="form-label mt-3">Bank Account Number:<span class="text-danger">*</span></label>
+              <input type="text" id="bank_account_number" name="bank_account_number" class="form-control" placeholder="Enter bank account number" value="{{ form.instance.bank_account_number }}" required>
+              <label for="bank_ifsc" class="form-label mt-3">Bank IFSC:<span class="text-danger">*</span></label>
+              <input type="text" id="bank_ifsc" name="bank_ifsc" class="form-control" placeholder="Enter bank IFSC" value="{{ form.instance.bank_ifsc }}" required>
+              <label for="bank_branch_name" class="form-label mt-3">Bank Branch Name:<span class="text-danger">*</span></label>
+              <input type="text" id="bank_branch_name" name="bank_branch_name" class="form-control" placeholder="Enter bank branch name" value="{{ form.instance.bank_branch_name }}" required>
+              <label for="bank_name" class="form-label mt-3">Bank Name:<span class="text-danger">*</span></label>
+              <input type="text" id="bank_name" name="bank_name" class="form-control" placeholder="Enter bank name" value="{{ form.instance.bank_name }}" required>
+              <label for="status" class="form-label mt-3">Status:</label>
+              <input type="text" id="status" name="status" class="form-control" value="{{ form.instance.status|slugify|title }}" readonly style="font-weight: bold; color: #333;">
+              <label for="cost_type" class="form-label">Cost Type:<span class="text-danger">*</span></label>
+              <select id="cost_type" name="cost_type" class="form-select" required>
+                <option value="hourly" {% if form.instance.cost_type == 'hourly' %}selected{% endif %}>Cost per Hour</option>
+                <option value="monthly" {% if form.instance.cost_type == 'monthly' %}selected{% endif %}>Monthly Cost</option>
+              </select>
+              <div class="form-group mt-3">
+                <label for="cost" id="cost_label" class="form-label">Cost per Hour:<span class="text-danger">*</span></label>
+                <input type="number" step="0.01" id="cost" name="cost" class="form-control" placeholder="Enter cost per hour" value="{{ form.instance.cost }}" required>
+              </div>
+              <div class="form-group mt-3">
+                <label for="weekly_commitment" class="form-label">Weekly Commitment (hours):<span class="text-danger">*</span></label>
+                <input type="number" step="0.01" id="weekly_commitment" name="weekly_commitment" class="form-control" placeholder="Enter weekly commitment" value="{{ form.instance.weekly_commitment }}" required>
+                <div class="form-text">Hours per week willing to consult</div>
+              </div>
+          </div>
         </div>
-
-        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <input type="hidden" id="availability" name="availability" value="">
+        <button type="submit" class="btn bg-primary btn-primary btn--solid mb-4">Save Changes</button>
     </form>
 </div>
 
@@ -222,28 +154,6 @@
 
 <script>
   $(document).ready(function() {
-    // Initialize TomSelect for skills multi-select
-    var skillsSelect = new TomSelect('#skills', {
-      plugins: ['remove_button'],
-      maxItems: null,
-      valueField: 'value',
-      labelField: 'text',
-      searchField: ['text'],
-      options: [
-        {% for skill in skills %}
-          {value: '{{ skill.id }}', text: '{{ skill.name }}'},
-        {% endfor %}
-      ],
-      items: [
-        {% for se in form.initial_skill_experiences %}
-          '{{ se.skill_id }}',
-        {% endfor %}
-      ],
-      onChange: function(values) {
-        updateSkillExperienceInputs(values);
-      }
-    });
-
     // Function to update skill experience inputs based on selected skills
     function updateSkillExperienceInputs(selectedSkillIds) {
       var container = $('#skill-experience-container');
@@ -252,7 +162,12 @@
       var existingData = getSkillsData();
 
       selectedSkillIds.forEach(function(skillId) {
-        var skillName = skillsSelect.options[skillId].text;
+        var skillName = null;
+        {% for skill in skills %}
+          if (skillId == '{{ skill.id }}') {
+            skillName = '{{ skill.name }}';
+          }
+        {% endfor %}
         var experience = null;
         var existingEntry = existingData.find(function(item) {
           return item.skill_id == skillId;
@@ -261,13 +176,13 @@
           experience = existingEntry.experience_years;
         }
 
-        var skillDiv = $('<div class="d-flex align-items-center mb-2 skill-experience-entry"></div>');
+        var skillDiv = $('<div class="d-flex align-items-center mb-3 skill-experience-entry"></div>');
         var skillInput = $('<input type="text" class="form-control me-2" readonly>').val(skillName);
         var experienceInput = $('<input type="number" min="0" step="0.1" class="form-control me-2" placeholder="Experience (years)">').val(experience).attr('name', 'experience_' + skillId);
 
         var removeBtn = $('<button type="button" class="btn btn-danger btn-sm">Remove</button>');
         removeBtn.on('click', function() {
-          skillsSelect.removeItem(skillId);
+          $('#skill_' + skillId).prop('checked', false);
           skillDiv.remove();
           updateSkillsData();
         });
@@ -317,18 +232,122 @@
     });
 
     // Initialize skill experience inputs on page load
-    updateSkillExperienceInputs(skillsSelect.getValue());
+    updateSkillExperienceInputs(getCheckedSkills());
+
+    // Helper to get checked skill ids
+    function getCheckedSkills() {
+      var checked = [];
+      $('.skill-checkbox:checked').each(function() {
+        checked.push($(this).val());
+      });
+      return checked;
+    }
+
+    // Handle skill checkbox change
+    $('.skill-checkbox').on('change', function() {
+      var skillId = $(this).val();
+      if ($(this).is(':checked')) {
+        updateSkillExperienceInputs(getCheckedSkills());
+      } else {
+        // Remove the skill input if unchecked
+        $('#skill-experience-container .skill-experience-entry').each(function() {
+          var experienceInput = $(this).find('input[type="number"]');
+          var id = experienceInput.attr('name').replace('experience_', '');
+          if (id === skillId) {
+            $(this).remove();
+          }
+        });
+        updateSkillsData();
+      }
+    });
 
     // Cost type change handler
     function updateCostLabel() {
+      console.log("updateCostLabel called");
       var costType = $('#cost_type').val();
-      var label = costType === 'hourly' ? 'Cost per Hour:' : 'Monthly Cost:';
+      var label = costType === 'hourly' ? 'Cost per Hour:<span class="text-danger">*</span>' : 'Monthly Cost:<span class="text-danger">*</span>';
+      $('#cost_label').html(label);
       var placeholder = costType === 'hourly' ? 'Enter cost per hour' : 'Enter monthly cost';
-      $('#cost_label').text(label);
       $('#cost').attr('placeholder', placeholder);
+      // Also clear the cost input value when cost type changes
+      $('#cost').val('');
     }
     $('#cost_type').on('change', updateCostLabel);
     updateCostLabel();
+
+    // Add Availability button handler
+    $('#add-availability-btn').off('click').on('click', function() {
+      console.log("Add Availability button clicked");
+      var availabilityList = $('#availability-list');
+      var newAvailabilityId = 'availability_' + Date.now();
+
+      var availabilityDiv = $('<div>', { class: 'mb-3', id: newAvailabilityId });
+      var selectInput = $('<select multiple></select>', {
+        class: 'form-select',
+        name: 'availability[]',
+        placeholder: 'Select availability',
+        style: 'width: 100%;'
+      });
+
+      {% for day in days %}
+      selectInput.append($('<option>', { value: '{{ day }}', text: '{{ day }}' }));
+      {% endfor %}
+
+      availabilityDiv.append(selectInput);
+
+      // Add container for time ranges per selected day
+      var timeRangesContainer = $('<div id="availability-time-ranges-container" class="time-ranges-container mt-3"></div>');
+      availabilityDiv.append(timeRangesContainer);
+
+      availabilityList.append(availabilityDiv);
+
+      if (typeof TomSelect === 'undefined') {
+        console.error("TomSelect is not loaded");
+      } else {
+        var tomSelectInstance = new TomSelect(selectInput[0], {
+          plugins: ['remove_button'],
+          maxItems: null,
+          create: false,
+          backgroundColor: '#007bff',
+          placeholder: 'Select availability days',
+          onChange: function(values) {
+            console.log("TomSelect onChange fired with values:", values);
+            // Update time range inputs based on selected days
+            timeRangesContainer.empty();
+
+            // For each selected day, add time range inputs
+            values.forEach(function(day) {
+              var dayDiv = $('<div>', { class: 'day-time-range mb-3', 'data-day': day });
+              var dayLabel = $('<label>', { text: day, class: 'form-label fw-bold' });
+              var addTimeRangeBtn = $('<button>', { type: 'button', class: 'btn btn-sm btn-outline-primary ms-2 mb-2' }).text('Add Time Range');
+              var dayTimeRanges = $('<div>', { class: 'day-time-ranges' });
+
+              addTimeRangeBtn.on('click', function() {
+                var timeRangeDiv = $('<div>', { class: 'time-range d-flex align-items-center mb-2' });
+                var startInput = $('<input>', { type: 'time', class: 'form-control me-2 start-time', name: `start_time_${day}[]` });
+                var toSpan = $('<span>', { class: 'me-2' }).text('to');
+                var endInput = $('<input>', { type: 'time', class: 'form-control end-time', name: `end_time_${day}[]` });
+                var removeBtn = $('<button>', { type: 'button', class: 'btn bg-danger btn-danger btn-sm ms-2' }).text('Remove');
+
+                removeBtn.on('click', function() {
+                  timeRangeDiv.remove();
+                });
+
+                timeRangeDiv.append(startInput, toSpan, endInput, removeBtn);
+                dayTimeRanges.append(timeRangeDiv);
+              });
+
+              // Add one default time range input
+              addTimeRangeBtn.click();
+
+              dayDiv.append(dayLabel, addTimeRangeBtn, dayTimeRanges);
+              timeRangesContainer.append(dayDiv);
+            });
+          }
+        });
+      }
+    });
+
 
     // Availability UI handlers
     function serializeAvailability() {
@@ -429,12 +448,9 @@
     });
 
     // Populate availability on page load from initial form data
-</script>
-{{ form.instance.availability|default:"{}"|json_script:"initialAvailability" }}
-<script>
-  $(document).ready(function() {
     var initialAvailability = JSON.parse(document.getElementById('initialAvailability').textContent);
     populateAvailability(initialAvailability);
   });
 </script>
+{{ form.instance.availability|default:"{}"|json_script:"initialAvailability" }}
 {% endblock %}
