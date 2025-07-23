@@ -478,3 +478,24 @@
 [2025-07-21 21:50:05,715] INFO general.views Login attempt for email: admin_test@gmail.com
 [2025-07-21 21:50:05,818] INFO general.views User found: admin_test@gmail.com with role admin
 [2025-07-21 21:50:07,076] INFO general.views Admin user admin_test@gmail.com authenticated successfully.
+[2025-07-21 22:29:38,001] INFO general.views Login attempt for email: ayushchaturvedi405@gmail.com
+[2025-07-21 22:29:38,204] INFO general.views User found: ayushchaturvedi405@gmail.com with role consultant
+[2025-07-21 22:29:38,922] INFO general.views Consultant user ayushchaturvedi405@gmail.com logged in successfully.
+[2025-07-22 10:32:02,693] INFO general.views Login attempt for email: admin_test@gmail.com
+[2025-07-22 10:32:02,758] INFO general.views User found: admin_test@gmail.com with role admin
+[2025-07-22 10:32:03,423] WARNING general.views Admin user admin_test@gmail.com failed authentication.
+[2025-07-22 10:32:08,008] INFO general.views Login attempt for email: ayushchaturvedi405@gmail.com
+[2025-07-22 10:32:08,084] INFO general.views User found: ayushchaturvedi405@gmail.com with role consultant
+[2025-07-22 10:32:08,147] INFO general.views Consultant user ayushchaturvedi405@gmail.com logged in successfully.
+[2025-07-22 10:32:24,149] INFO general.views Login attempt for email: admin_test@gmail.com
+[2025-07-22 10:32:24,211] INFO general.views User found: admin_test@gmail.com with role admin
+[2025-07-22 10:32:24,550] INFO general.views Admin user admin_test@gmail.com authenticated successfully.
+[2025-07-23 10:17:56,931] INFO general.views Login attempt for email: ayushchaturvedi405@gmail.com
+[2025-07-23 10:17:57,063] INFO general.views User found: ayushchaturvedi405@gmail.com with role consultant
+[2025-07-23 10:17:57,216] INFO general.views Consultant user ayushchaturvedi405@gmail.com logged in successfully.
+[2025-07-23 10:18:13,460] INFO general.views Login attempt for email: admin_test@gmail.com
+[2025-07-23 10:18:13,532] INFO general.views User found: admin_test@gmail.com with role admin
+[2025-07-23 10:18:14,944] INFO general.views Admin user admin_test@gmail.com authenticated successfully.
+[2025-07-23 15:28:23,364] INFO general.views Login attempt for email: admin_test@gmail.com
+[2025-07-23 15:28:23,438] INFO general.views User found: admin_test@gmail.com with role admin
+[2025-07-23 15:28:24,071] INFO general.views Admin user admin_test@gmail.com authenticated successfully.

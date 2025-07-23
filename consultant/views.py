@@ -30,7 +30,7 @@ from django.utils.dateparse import parse_date
 from django.utils.timezone import now
 from django.views.decorators.http import require_POST
 
-from custom_admin.models import User, Invoice, SessionBooking
+from custom_admin.models import User, Invoice, SessionBooking, Skill
 from consultant.models import Timesheet, ConsultantProfile
 from .forms import ConsultantProfileForm
 
@@ -661,12 +661,21 @@ def consultant_profile(request, consultant_id):
     if profile.status and 'approved' in str(profile.status).lower():
         is_approved_status = True
 
+    excluded_fields = ['status', 'name', 'profile_picture', 'cost_type', 'cost', 'weekly_commitment', 'availability']
+
+    skills = Skill.objects.all()
+
+    days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
     context = {
         'consultant': consultant,
         'form': form,
         'current_page': 'Consultant Profile',
         'decrypted_password': decrypted_password,
         'is_approved_status': is_approved_status,
+        'excluded_fields': excluded_fields,
+        'skills': skills,
+        'days': days,
     }
     return render(request, 'consultant_profile.html', context)
 

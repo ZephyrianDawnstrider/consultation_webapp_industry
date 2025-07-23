@@ -869,7 +869,6 @@ def consultant_profile(request, consultant_id):
 
     # Prepare form for editing consultant profile
     form = ConsultantEditForm(instance=profile)
-    from .models import Skill
     form.fields['skills'].queryset = Skill.objects.filter(is_active=True).order_by('name')
 
     # Decrypt password for display in template

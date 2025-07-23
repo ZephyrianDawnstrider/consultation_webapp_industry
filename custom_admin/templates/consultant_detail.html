@@ -62,6 +62,15 @@
                     <p class="text-red-600 text-sm mt-1">{{ form.skills.errors.0 }}</p>
                 {% endif %}
             </div>
+            <div id="skill-experience-container" class="mt-3"></div>
+            <input type="hidden" id="skills_data" name="skills_data" value='{{ form.initial_skill_experiences|json_script:"skills_data" }}'>
+            <div>
+                <label for="availability" class="block font-medium text-gray-700 mt-4">Availability</label>
+                <div id="availability-container" class="border border-black-300 rounded p-3 mt-1">
+                    <button type="button" class="btn bg-secondary btn-secondary btn-sm mb-3" id="add-availability-btn">Add Availability</button>
+                    <div id="availability-list"></div>
+                </div>
+            </div>
             <div>
                 <label for="id_bank_account_name" class="block font-medium text-gray-700">Bank Account Name <span class="text-red-600 font-bold">*</span></label>
                 <input type="text" id="id_bank_account_name" name="bank_account_name" value="{{ consultant.consultant_profile.bank_account_name }}" class="mt-1 w-full border border-black-300 rounded px-3 py-2 text-black{% if form.bank_account_name.errors %}border-red-600 shadow-md{% endif %}" />
@@ -109,14 +118,28 @@
                 {{ form.status }}
             </div>
             <div>
-                <label for="id_agreement_document" class="block font-medium text-black">Agreement Document</label>
-                {% if consultant.consultant_profile.agreement_document %}
-                <a href="{{ consultant.consultant_profile.agreement_document.url }}" target="_blank" class="ml-3 text-indigo-600 test-bold">View Document</a>
-                <button type="button" class="btn btn-danger btn-sm ml-3 bg-red-600" id="scrap-agreement-btn">Remove</button>
-                {% else %}
-                <p>No agreement uploaded.</p>
+                <label for="id_cost_type" class="block font-medium text-gray-700 mt-4">Cost Type <span class="text-red-600 font-bold">*</span></label>
+                <select id="id_cost_type" name="cost_type" class="mt-1 w-full border border-black-300 rounded px-3 py-2 text-black {% if form.cost_type.errors %}border-red-600 shadow-md{% endif %}" required>
+                    <option value="hourly" {% if form.instance.cost_type == 'hourly' %}selected{% endif %}>Cost per Hour</option>
+                    <option value="monthly" {% if form.instance.cost_type == 'monthly' %}selected{% endif %}>Monthly Cost</option>
+                </select>
+                {% if form.cost_type.errors %}
+                    <p class="text-red-600 text-sm mt-1">{{ form.cost_type.errors.0 }}</p>
                 {% endif %}
-                <input type="file" id="id_agreement_document" name="agreement_document" class="mt-2" accept="application/pdf" />
+            </div>
+            <div>
+                <label for="id_cost" class="block font-medium text-gray-700 mt-4">Cost <span class="text-red-600 font-bold">*</span></label>
+                <input type="number" step="0.01" id="id_cost" name="cost" value="{{ form.instance.cost }}" class="mt-1 w-full border border-black-300 rounded px-3 py-2 text-black {% if form.cost.errors %}border-red-600 shadow-md{% endif %}" placeholder="Enter cost" required />
+                {% if form.cost.errors %}
+                    <p class="text-red-600 text-sm mt-1">{{ form.cost.errors.0 }}</p>
+                {% endif %}
+            </div>
+            <div>
+                <label for="id_weekly_commitment" class="block font-medium text-gray-700 mt-4">Weekly Commitment (hours) <span class="text-red-600 font-bold">*</span></label>
+                <input type="number" step="0.01" id="id_weekly_commitment" name="weekly_commitment" value="{{ form.instance.weekly_commitment }}" class="mt-1 w-full border border-black-300 rounded px-3 py-2 text-black {% if form.weekly_commitment.errors %}border-red-600 shadow-md{% endif %}" placeholder="Enter weekly commitment" required />
+                {% if form.weekly_commitment.errors %}
+                    <p class="text-red-600 text-sm mt-1">{{ form.weekly_commitment.errors.0 }}</p>
+                {% endif %}
             </div>
         </div>
         <button type="submit" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save Changes</button>
@@ -125,6 +148,7 @@
 <!-- Non-staff view unchanged -->
 {% endif %}
 </div>
+
 {% endblock %}
 
 {% block extra_head %}
@@ -150,4 +174,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 </script>
-{% endblock extra_js %}
+{% endblock %}
