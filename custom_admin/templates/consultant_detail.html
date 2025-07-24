@@ -79,13 +79,6 @@
                 {% endif %}
             </div>
             <div>
-                <label for="id_bank_account_number" class="block font-medium text-gray-700">Bank Account Number <span class="text-red-600 font-bold">*</span></label>
-                <input type="text" id="id_bank_account_number" name="bank_account_number" value="{{ consultant.consultant_profile.bank_account_number }}" class="mt-1 w-full border border-black-300 rounded px-3 py-2 text-black {% if form.bank_account_number.errors %}border-red-600 shadow-md{% endif %}" />
-                {% if form.bank_account_number.errors %}
-                    <p class="text-red-600 text-sm mt-1">{{ form.bank_account_number.errors.0 }}</p>
-                {% endif %}
-            </div>
-            <div>
                 <label for="id_bank_ifsc" class="block font-medium text-gray-700">Bank IFSC <span class="text-red-600 font-bold">*</span></label>
                 <input type="text" id="id_bank_ifsc" name="bank_ifsc" value="{{ consultant.consultant_profile.bank_ifsc }}" class="mt-1 w-full border border-black-300 rounded px-3 py-2 text-black {% if form.bank_ifsc.errors %}border-red-600 shadow-md{% endif %}" />
                 {% if form.bank_ifsc.errors %}
@@ -128,8 +121,8 @@
                 {% endif %}
             </div>
             <div>
-                <label for="id_cost" class="block font-medium text-gray-700 mt-4">Cost <span class="text-red-600 font-bold">*</span></label>
-                <input type="number" step="0.01" id="id_cost" name="cost" value="{{ form.instance.cost }}" class="mt-1 w-full border border-black-300 rounded px-3 py-2 text-black {% if form.cost.errors %}border-red-600 shadow-md{% endif %}" placeholder="Enter cost" required />
+            <label for="id_cost" id="cost_label" class="block font-medium text-gray-700 mt-4">Cost <span class="text-red-600 font-bold">*</span></label>
+            <input type="number" step="0.01" id="id_cost" name="cost" value="{{ form.instance.cost }}" class="mt-1 w-full border border-black-300 rounded px-3 py-2 text-black {% if form.cost.errors %}border-red-600 shadow-md{% endif %}" placeholder="Enter cost" required />
                 {% if form.cost.errors %}
                     <p class="text-red-600 text-sm mt-1">{{ form.cost.errors.0 }}</p>
                 {% endif %}
@@ -156,21 +149,31 @@
 {% endblock extra_head %}
 
 {% block extra_js %}
+
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  // Toggle password visibility JS - always runs regardless of timesheet presence
-  const togglePasswordBtn = document.getElementById('toggle-password-visibility');
-  const passwordInput = document.getElementById('id_password');
-  if (togglePasswordBtn && passwordInput) {
-    togglePasswordBtn.addEventListener('click', () => {
-      if (passwordInput.type === 'password') {
-        passwordInput.type = 'text';
-        togglePasswordBtn.innerHTML = '<i class="fas fa-eye-slash" aria-hidden="true"></i>';
-      } else {
-        passwordInput.type = 'password';
-        togglePasswordBtn.innerHTML = '<i class="fas fa-eye" aria-hidden="true"></i>';
-      }
-    });
+document.addEventListener('DOMContentLoaded', function() {
+  function updateCostLabel() {
+    var costTypeSelect = document.getElementById('id_cost_type');
+    var costLabel = document.getElementById('cost_label');
+    var costInput = document.getElementById('id_cost');
+    if (!costTypeSelect || !costLabel || !costInput) return;
+
+    var costType = costTypeSelect.value;
+    if (costType === 'hourly') {
+      costLabel.innerHTML = 'Cost per Hour <span class="text-red-600 font-bold">*</span>';
+      costInput.placeholder = 'Enter cost per hour';
+    } else if (costType === 'monthly') {
+      costLabel.innerHTML = 'Monthly Cost <span class="text-red-600 font-bold">*</span>';
+      costInput.placeholder = 'Enter monthly cost';
+    }
+    // Clear cost input value on cost type change
+    costInput.value = '';
+  }
+
+  var costTypeSelect = document.getElementById('id_cost_type');
+  if (costTypeSelect) {
+    costTypeSelect.addEventListener('change', updateCostLabel);
+    updateCostLabel(); // Initial call to set label on page load
   }
 });
 </script>

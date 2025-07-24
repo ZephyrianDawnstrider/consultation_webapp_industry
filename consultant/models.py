@@ -7,6 +7,7 @@ class ConsultantProfile(models.Model):
     name = models.CharField(max_length=255)
     mobile = models.CharField(max_length=15, blank=True, null=True)
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='consultant_profile')
+    linkedin_profile = models.URLField(max_length=500, blank=True, null=True)
     bank_account_name = models.CharField(max_length=255)
     bank_account_number = models.CharField(max_length=50)
     bank_ifsc = models.CharField(max_length=20)
@@ -20,7 +21,7 @@ class ConsultantProfile(models.Model):
     # Renamed from cost_per_hour to cost, and made blank/null true
     cost = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     weekly_commitment = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True, help_text="Hours per week willing to consult")
-    availability = models.JSONField(blank=True, null=True, help_text="Availability as JSON: days and time ranges")
+    availability = models.CharField(max_length=255, blank=True, null=True, help_text="Availability as text, e.g., Mon-Fri, 9 AM - 5 PM")
     status = models.ForeignKey(ConsultantStatus, on_delete=models.SET_NULL, null=True, blank=True, related_name='consultant_profiles')
     agreement_document = models.FileField(upload_to='agreements/', blank=True, null=True)
     details = models.TextField(blank=True, null=True)
