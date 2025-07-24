@@ -8,15 +8,15 @@
     <h2 class="text-orange-500 mb-2 text-center text-3xl font-bold">Add New Consultant</h2>
     <form id="consultantForm" action="{% url 'custom_admin:add_consultant' %}" method="POST" enctype="multipart/form-data" class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
         <div class="form-group mb-2">
-            <label for="name" class="block mb-2 font-semibold text-orange-400">Name:</label>
+            <label for="name" class="block mb-2 font-semibold text-orange-400">Name <span class="text-red-600 font-bold">*</span></label>
             <input type="text" id="name" name="name" required class="w-full p-3 rounded-md bg-gray-900 text-white border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-600" />
         </div>
         <div class="form-group mb-2">
-            <label for="mobile" class="block mb-2 font-semibold text-orange-400">Mobile:</label>
+            <label for="mobile" class="block mb-2 font-semibold text-orange-400">Mobile <span class="text-red-600 font-bold">*</span></label>
             <input type="tel" id="mobile" name="mobile" required pattern="^\d{10}$" title="Please enter a 10-digit mobile number" class="w-full p-3 rounded-md bg-gray-900 text-white border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-600" />
         </div>
         <div class="form-group mb-2">
-            <label for="email" class="block mb-2 font-semibold text-orange-400">Email:</label>
+            <label for="email" class="block mb-2 font-semibold text-orange-400">Email <span class="text-red-600 font-bold">*</span></label>
             <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address" class="w-full p-3 rounded-md bg-gray-900 text-white border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-600" />
         </div>
         <div class="form-group mb-2">
@@ -37,19 +37,29 @@
             <input type="number" id="total_experience" name="total_experience" min="0" step="0.1" class="w-full p-3 rounded-md bg-gray-900 text-white border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-600" />
         </div>
         <div class="form-group mb-2">
-            <label for="cost" class="block mb-2 font-semibold text-orange-400">Cost per hour:</label>
-            <input type="number" id="cost" name="cost" min="0" step="0.01" class="w-full p-3 rounded-md bg-gray-900 text-white border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-600" />
+            <label for="cost_type" class="block mb-2 font-semibold text-orange-400">Cost Type <span class="text-red-600 font-bold">*</span></label>
+            <select id="cost_type" name="cost_type" class="w-full p-3 rounded-md bg-gray-900 text-white border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-600">
+                <option value="hourly" selected>Cost per Hour</option>
+                <option value="monthly">Monthly Cost</option>
+            </select>
         </div>
         <div class="form-group mb-2">
-            <label for="weekly_commitment" class="block mb-2 font-semibold text-orange-400">Weekly Commitment (in hours):</label>
+            <label for="cost" id="cost_label" class="block mb-2 font-semibold text-orange-400">Cost per Hour <span class="text-red-600 font-bold">*</span></label>
+            <input type="number" id="cost" name="cost" min="0" step="0.01" placeholder="Enter cost per hour" class="w-full p-3 rounded-md bg-gray-900 text-white border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-600" />
+        </div>
+        <div class="form-group mb-2">
+            <label for="weekly_commitment" class="block mb-2 font-semibold text-orange-400">Weekly Commitment (in hours) <span class="text-red-600 font-bold">*</span></label>
             <input type="number" id="weekly_commitment" name="weekly_commitment" min="0" step="0.1" class="w-full p-3 rounded-md bg-gray-900 text-white border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-600" />
         </div>
         <div class="form-group mb-2">
-            <label for="availability" class="block mb-2 font-semibold text-orange-400">Availability:</label>
-            <input type="text" id="availability" name="availability" placeholder="e.g., Mon-Fri, 9 AM - 5 PM" class="w-full p-3 rounded-md bg-gray-900 text-white border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-600" />
+            <label for="availability" class="block font-medium text-orange-400">Availability:</label>
+            <div id="availability-container" class="border border-orange-500 rounded p-3 mt-1 bg-gray-900">
+                <button type="button" class="btn bg-secondary btn-secondary btn-sm mb-3 text-white bg-orange-600 hover:bg-orange-700 rounded px-3 py-1" id="add-availability-btn">Add Availability</button>
+                <div id="availability-list" class="text-white"></div>
+            </div>
         </div>
         <div class="form-group mb-2">
-            <label for="agreement" class="block mb-2 font-semibold text-orange-400">Agreement (PDF only):</label>
+            <label for="agreement" class="block mb-2 font-semibold text-orange-400">Agreement (PDF only) <span class="text-red-600 font-bold">*</span></label>
             <input type="file" id="agreement" name="agreement" accept=".pdf" required class="w-full p-3 rounded-md bg-gray-900 text-white border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-600" />
         </div>
         <div class="form-group md:col-span-2 flex justify-end">
@@ -123,57 +133,103 @@
 
 {% block extra_js %}
 <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     // Initialize Tom Select for the skills dropdown
-    document.addEventListener('DOMContentLoaded', function() {
+    $(document).ready(function() {
         new TomSelect('#countries_multiple',{
             plugins: ['remove_button'],
             maxItems: null
         });
-    });
-</script>
-<script>
-    document.getElementById('consultantForm').addEventListener('submit', async function(event) {
-        event.preventDefault(); // Prevent default form submission
 
-        const form = event.target;
-        const formData = new FormData(form);
-        const responseMessageDiv = document.getElementById('responseMessage');
-        const loaderDiv = document.getElementById('loaderModal');
+        // Add Availability button handler
+        $('#add-availability-btn').off('click').on('click', function() {
+            console.log("Add Availability button clicked");
+            var availabilityList = $('#availability-list');
+            var newAvailabilityId = 'availability_' + Date.now();
 
-        // Show loader and hide response message
-        loaderDiv.classList.remove('hidden');
-        responseMessageDiv.classList.add('hidden');
-
-        try {
-            const response = await fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                credentials: 'include'
+            var availabilityDiv = $('<div>', { class: 'mb-3', id: newAvailabilityId });
+            var selectInput = $('<select multiple></select>', {
+                class: 'form-select',
+                name: 'availability[]',
+                placeholder: 'Select availability',
+                style: 'width: 100%;'
             });
 
-            const result = await response.json(); // Assuming server responds with JSON
+            var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            days.forEach(function(day) {
+                selectInput.append($('<option>', { value: day, text: day }));
+            });
 
-            if (result.success) {
-                responseMessageDiv.classList.remove('error');
-                responseMessageDiv.classList.add('success');
-                responseMessageDiv.textContent = result.message;
-                form.reset(); // Clear the form
+            availabilityDiv.append(selectInput);
+
+            // Add container for time ranges per selected day
+            var timeRangesContainer = $('<div id="availability-time-ranges-container" class="time-ranges-container mt-3"></div>');
+            availabilityDiv.append(timeRangesContainer);
+
+            availabilityList.append(availabilityDiv);
+
+            if (typeof TomSelect === 'undefined') {
+                console.error("TomSelect is not loaded");
             } else {
-                responseMessageDiv.classList.remove('success');
-                responseMessageDiv.classList.add('error');
-                responseMessageDiv.textContent = result.message;
-            }
-        } catch (error) {
-            responseMessageDiv.classList.remove('success');
-            responseMessageDiv.classList.add('error');
-            responseMessageDiv.textContent = 'An error occurred. Please try again.';
-            console.error('Fetch error:', error);
-        }
+                var tomSelectInstance = new TomSelect(selectInput[0], {
+                    plugins: ['remove_button'],
+                    maxItems: null,
+                    create: false,
+                    backgroundColor: '#007bff',
+                    placeholder: 'Select availability days',
+                    onChange: function(values) {
+                        console.log("TomSelect onChange fired with values:", values);
+                        // Update time range inputs based on selected days
+                        timeRangesContainer.empty();
 
-        // Hide loader and show response message
-        loaderDiv.classList.add('hidden');
-        responseMessageDiv.classList.remove('hidden');
+                        // For each selected day, add time range inputs
+                        values.forEach(function(day) {
+                            var dayDiv = $('<div>', { class: 'day-time-range mb-3', 'data-day': day });
+                            var dayLabel = $('<label>', { text: day, class: 'form-label fw-bold' });
+                            var addTimeRangeBtn = $('<button>', { type: 'button', class: 'btn btn-sm btn-outline-primary ms-2 mb-2 add-time-range' }).text('Add Time Range');
+                            var dayTimeRanges = $('<div>', { class: 'day-time-ranges' });
+
+                            addTimeRangeBtn.on('click', function() {
+                                var timeRangeDiv = $('<div>', { class: 'time-range d-flex align-items-center mb-2' });
+                                var startInput = $('<input>', { type: 'time', class: 'form-control me-2 start-time', name: `start_time_${day}[]` });
+                                var toSpan = $('<span>', { class: 'me-2' }).text('to');
+                                var endInput = $('<input>', { type: 'time', class: 'form-control end-time', name: `end_time_${day}[]` });
+                                var removeBtn = $('<button>', { type: 'button', class: 'btn bg-danger btn-danger btn-sm ms-2' }).text('Remove');
+
+                                removeBtn.on('click', function() {
+                                    timeRangeDiv.remove();
+                                });
+
+                                timeRangeDiv.append(startInput, toSpan, endInput, removeBtn);
+                                dayTimeRanges.append(timeRangeDiv);
+                            });
+
+                            // Add one default time range input
+                            addTimeRangeBtn.click();
+
+                            dayDiv.append(dayLabel, addTimeRangeBtn, dayTimeRanges);
+                            timeRangesContainer.append(dayDiv);
+                        });
+                    }
+                });
+            }
+        });
+
+        // Cost type change handler
+        function updateCostLabel() {
+            console.log("updateCostLabel called");
+            var costType = $('#cost_type').val();
+            var label = costType === 'hourly' ? 'Cost per Hour:<span class="text-danger">*</span>' : 'Monthly Cost:<span class="text-danger">*</span>';
+            $('#cost_label').html(label);
+            var placeholder = costType === 'hourly' ? 'Enter cost per hour' : 'Enter monthly cost';
+            $('#cost').attr('placeholder', placeholder);
+            // Also clear the cost input value when cost type changes
+            $('#cost').val('');
+        }
+        $('#cost_type').on('change', updateCostLabel);
+        updateCostLabel();
     });
 </script>
+{{ form.instance.availability|default:"{}"|json_script:"initialAvailability" }}
 {% endblock %}

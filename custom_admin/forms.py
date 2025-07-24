@@ -31,6 +31,7 @@ class ConsultantEditForm(forms.ModelForm):
         fields = [
             'name',
             'mobile',
+            'linkedin_profile',
             'bank_account_name',
             'bank_account_number',
             'bank_ifsc',
@@ -39,6 +40,7 @@ class ConsultantEditForm(forms.ModelForm):
             'cost',  # Updated from cost_per_hour to cost
             'weekly_commitment',  # Added
             'availability',  # Added
+            'total_experience',
             'skills',
             'agreement_document',
             'details',

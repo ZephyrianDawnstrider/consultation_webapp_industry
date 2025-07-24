@@ -83,28 +83,3 @@
         </div>
         <button type="submit" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save Changes</button>
     </form>
-
-    {% comment %} <!-- Timesheet Upload Section -->
-    <div class="bg-white rounded-lg shadow p-6 mt-10">
-        <h2 class="text-xl font-semibold mb-4">Upload Timesheet</h2>
-        {% if upload_message %}
-        <p class="mb-4 text-green-600">{{ upload_message }}</p>
-        {% endif %}
-        <form id="timesheet-upload-form" method="post" enctype="multipart/form-data" action="{% url 'custom_admin:consultant_profile' consultant.id %}">
-            {% csrf_token %}
-            <label for="month" class="block font-medium text-gray-700 mb-2">Select Month</label>
-            <input type="month" id="month" name="month" required class="border border-gray-300 rounded px-3 py-2 mb-4" />
-            <label for="timesheet_file" class="block font-medium text-gray-700 mb-2">Select Excel File</label>
-            <input type="file" id="timesheet_file" name="timesheet_file" accept=".xlsx,.xls" required class="border border-gray-300 rounded px-3 py-2 mb-4" />
-            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Upload Timesheet</button>
-        </form>
-    </div> {% endcomment %}
-
-    {% comment %} <!-- Timesheet Calendar and Status Section -->
-    <div class="bg-white rounded-lg shadow p-6 mt-10">
-        <h2 class="text-xl font-semibold mb-4">Timesheet Calendar</h2>
-        <div id="timesheet-calendar" style="min-height: 600px;" {% if timesheets and timesheets.first %}data-timesheet-id="{{ timesheets.first.id }}"{% endif %}></div>
-        <script id="timesheet-entries" type="application/json">{{ timesheet_entries|safe }}</script>
-        {% if user.is_staff and timesheets and timesheets.first %}
-        <div class="mt-6">
-            <h3 class="text-lg font-semibold mb-2">Timesheet Status</h3> {% endcomment %}
