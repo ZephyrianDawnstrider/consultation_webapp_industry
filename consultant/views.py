@@ -31,7 +31,7 @@ from django.utils.timezone import now
 from django.views.decorators.http import require_POST
 
 from custom_admin.models import User, Invoice, SessionBooking, Skill
-from consultant.models import Timesheet, ConsultantProfile
+from consultant.models import Timesheet, ConsultantProfile, ConsultantSkillExperience
 from .forms import ConsultantProfileForm
 
 logger = logging.getLogger(__name__)
@@ -605,41 +605,8 @@ def consultant_profile(request, consultant_id):
     if request.method == 'POST':
         if 'scrap_agreement' in request.POST:
             return _handle_scrap_agreement(request, consultant)
-        
-        # Handle profile update including updating User's first_name and last_name
-        form = ConsultantProfileForm(request.POST, request.FILES, instance=consultant.consultant_profile if hasattr(consultant, 'consultant_profile') else None)
-        if form.is_valid():
-            # Save ConsultantProfile form
-            profile = form.save(commit=False)
-            profile.user = consultant
-            # Save cost_type explicitly from POST data
-            cost_type = request.POST.get('cost_type')
-            if cost_type in ['hourly', 'monthly']:
-                profile.cost_type = cost_type
-            profile.save()
-            form.save_m2m()
-
-            # Update User's first_name and last_name from form's 'name' field
-            full_name = form.cleaned_data.get('name', '').strip()
-            if full_name:
-                name_parts = full_name.split()
-                if len(name_parts) == 1:
-                    consultant.first_name = name_parts[0]
-                    consultant.last_name = ''
-                else:
-                    consultant.first_name = name_parts[0]
-                    consultant.last_name = ' '.join(name_parts[1:])
-                consultant.save()
-
-            return redirect('consultant:consultant_profile', consultant_id=consultant_id)
         else:
-            context = {
-                'consultant': consultant,
-                'form': form,
-                'current_page': 'Consultant Profile'
-            }
-            return render(request, 'consultant_profile.html', context)
-
+            return _handle_profile_update(request, consultant, consultant_id)
     elif request.method == 'GET':
         try:
             profile = ConsultantProfile.objects.prefetch_related('skills').get(user=consultant)
@@ -682,6 +649,23 @@ def consultant_profile(request, consultant_id):
         except Exception as e:
             logger.error(f"Error loading availability JSON for user {consultant.email}: {str(e)}")
 
+        # Serialize initial skills data as JSON
+        # Convert Decimal to float for JSON serialization
+        import decimal
+        def decimal_to_float(obj):
+            if isinstance(obj, decimal.Decimal):
+                return float(obj)
+            raise TypeError
+
+        converted_skills = []
+        for skill_exp in form.initial_skill_experiences:
+            converted_skill_exp = skill_exp.copy()
+            if 'experience_years' in converted_skill_exp and converted_skill_exp['experience_years'] is not None:
+                converted_skill_exp['experience_years'] = float(converted_skill_exp['experience_years'])
+            converted_skills.append(converted_skill_exp)
+
+        initial_skills_json = json.dumps(converted_skills)
+
         context = {
             'consultant': consultant,
             'form': form,
@@ -692,6 +676,7 @@ def consultant_profile(request, consultant_id):
             'skills': skills,
             'days': days,
             'initial_availability': initial_availability,
+            'initial_skills_json': initial_skills_json,
         }
         return render(request, 'consultant_profile.html', context)
     else:
@@ -726,26 +711,88 @@ def _handle_profile_update(request, consultant, consultant_id):
     except ConsultantProfile.DoesNotExist:
         profile = ConsultantProfile(user=consultant)
 
-    form = ConsultantProfileForm(request.POST, request.FILES, instance=profile)
+    logger.debug(f"POST data keys: {list(request.POST.keys())}")
+    logger.debug(f"POST data name field: {request.POST.get('name')}")
+    logger.debug(f"POST data skills_data: {request.POST.get('skills_data')}")
+
+    post_data = request.POST.copy()
+
+    # Handle name field properly - don't override with "None None"
+    name_value = post_data.get('name', '').strip()
+    if not name_value:
+        if hasattr(profile, 'name') and profile.name:
+            name_value = profile.name
+        else:
+            name_value = f"{consultant.first_name} {consultant.last_name}".strip()
+        post_data['name'] = name_value
+
+    # Update User's first_name and last_name from the name field
+    if name_value and name_value.lower() != 'none none':
+        name_parts = name_value.split(' ', 1)
+        consultant.first_name = name_parts[0]
+        consultant.last_name = name_parts[1] if len(name_parts) > 1 else ''
+        consultant.save()
+
+    form = ConsultantProfileForm(post_data, request.FILES, instance=profile)
     if form.is_valid():
         try:
-            form.save()
+            logger.debug(f"Form instance before save: {form.instance}")
+            instance = form.save(commit=False)
+            logger.debug(f"Instance returned by form.save(commit=False): {instance}")
+            if instance is None:
+                raise ValueError("form.save(commit=False) returned None")
+            instance.save()
             logger.info(f"Consultant profile updated successfully for user {consultant.email}")
+
+            # Process skills_data from POST
+            skills_data_json = request.POST.get('skills_data', '[]')
+            try:
+                skills_data = json.loads(skills_data_json)
+            except json.JSONDecodeError:
+                skills_data = []
+                logger.error(f"Invalid skills_data JSON for user {consultant.email}: {skills_data_json}")
+
+            # Current skill ids submitted
+            submitted_skill_ids = set()
+            for skill_entry in skills_data:
+                skill_id = skill_entry.get('skill_id')
+                experience_years = skill_entry.get('experience_years')
+                if skill_id is None:
+                    continue
+                submitted_skill_ids.add(int(skill_id))
+                # Update or create ConsultantSkillExperience
+                try:
+                    skill_obj = Skill.objects.get(id=skill_id)
+                    cse, created = ConsultantSkillExperience.objects.update_or_create(
+                        consultant_profile=instance,
+                        skill=skill_obj,
+                        defaults={'experience_years': experience_years}
+                    )
+                except Skill.DoesNotExist:
+                    logger.error(f"Skill with id {skill_id} does not exist for user {consultant.email}")
+
+            # Remove ConsultantSkillExperience not in submitted skills
+            ConsultantSkillExperience.objects.filter(
+                consultant_profile=instance
+            ).exclude(
+                skill_id__in=submitted_skill_ids
+            ).delete()
+
+            messages.success(request, "Profile updated successfully!")
             return redirect('consultant:consultant_profile', consultant_id=consultant_id)
         except Exception as e:
             logger.error(f"Error saving consultant profile for user {consultant.email}: {str(e)}")
             form.add_error(None, "An error occurred while saving the profile. Please try again.")
     else:
         logger.error(f"Form validation errors for consultant {consultant.email}: {form.errors}")
-    
+
     context = {
         'consultant': consultant,
         'form': form,
         'current_page': 'Consultant Profile'
     }
     return render(request, 'consultant_profile.html', context)
-
-# OTP storage for demo purposes (in-memory dictionary)
+        # OTP storage for demo purposes (in-memory dictionary)
 otp_storage = {}
 
 @login_required

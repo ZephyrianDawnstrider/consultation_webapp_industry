@@ -68,6 +68,18 @@ class ConsultantEditForm(forms.ModelForm):
         else:
             self.fields['status'].initial = 'to_be_reviewed'
 
+        # Populate initial skills and their experiences for the template
+        self.initial_skill_experiences = []
+        if self.instance and self.instance.pk:
+            # Set initial selected skills for the skills field
+            self.fields['skills'].initial = self.instance.skills.all().values_list('id', flat=True)
+            for se in self.instance.skill_experiences.all():
+                self.initial_skill_experiences.append({
+                    'skill_id': se.skill.id,
+                    'skill_name': se.skill.name,
+                    'experience_years': se.experience_years
+                })
+
     def save(self, commit=True):
         instance = super().save(commit=False)
         from .models import ConsultantStatus

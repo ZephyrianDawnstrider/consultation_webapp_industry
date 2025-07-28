@@ -14,6 +14,7 @@ import logging
 import random
 import string
 import re
+import logging
 from datetime import datetime
 from django.utils import timezone
 
@@ -807,127 +808,150 @@ def consultant_profile(request, consultant_id):
     Also handle CSV timesheet upload and processing
     """
     from custom_admin.utils import decrypt_password
+    from django.http import HttpResponseServerError
 
-    consultant = get_object_or_404(User, id=consultant_id, role='consultant')
-    
-    # Log encrypted_password for debugging
-    logger.info(f"Encrypted password for user {consultant.email}: {consultant.encrypted_password}")
-
-    # Get consultant profile with skills
     try:
-        profile = ConsultantProfile.objects.prefetch_related(
-            Prefetch('skills', queryset=Skill.objects.filter(is_active=True))
-        ).get(user=consultant)
-        logger.info(f"ConsultantProfile found for user {consultant.email} with {profile.skills.count()} skills")
-    except ConsultantProfile.DoesNotExist:
-        profile = None
-        logger.warning(f"ConsultantProfile does not exist for user {consultant.email}")
-    
-    # Handle CSV upload POST
-    upload_message = None
-    if request.method == 'POST' and 'timesheet_file' in request.FILES:
-        csv_file = request.FILES.get('timesheet_file')
-        month_str = request.POST.get('month')
-        if not month_str:
-            upload_message = 'Month is required for timesheet upload.'
-        else:
+        consultant = get_object_or_404(User, id=consultant_id, role='consultant')
+        
+        # Log encrypted_password for debugging
+        logger.info(f"Encrypted password for user {consultant.email}: {consultant.encrypted_password}")
+
+        # Get consultant profile with skills
+        try:
+            profile = ConsultantProfile.objects.prefetch_related(
+                Prefetch('skills', queryset=Skill.objects.filter(is_active=True))
+            ).get(user=consultant)
+            logger.info(f"ConsultantProfile found for user {consultant.email} with {profile.skills.count()} skills")
+        except ConsultantProfile.DoesNotExist:
+            profile = None
+            logger.warning(f"ConsultantProfile does not exist for user {consultant.email}")
+        
+        # Handle CSV upload POST
+        upload_message = None
+        if request.method == 'POST' and 'timesheet_file' in request.FILES:
+            csv_file = request.FILES.get('timesheet_file')
+            month_str = request.POST.get('month')
+            if not month_str:
+                upload_message = 'Month is required for timesheet upload.'
+            else:
+                try:
+                    month = datetime.strptime(month_str, '%Y-%m')
+                    # Create Timesheet record
+                    timesheet = Timesheet.objects.create(
+                        consultant=consultant,
+                        month=month,
+                        file=csv_file,
+                        status='awaiting_review'
+                    )
+                    # No longer create TimesheetEntry records, just save CSV file
+                    upload_message = 'Timesheet uploaded successfully and awaiting review.'
+                except Exception as e:
+                    upload_message = f'Error processing timesheet: {str(e)}'
+                    logger.error(upload_message)
+
+        # Get related data
+        invoices = Invoice.objects.filter(consultant=consultant).order_by('-month')
+        timesheets = Timesheet.objects.filter(consultant=consultant).order_by('-month')
+        all_skills = Skill.objects.filter(is_active=True).order_by('name')
+
+        # Determine selected timesheet for editing entries
+        selected_timesheet_id = request.GET.get('timesheet_id')
+        if selected_timesheet_id:
             try:
-                month = datetime.strptime(month_str, '%Y-%m')
-                # Create Timesheet record
-                timesheet = Timesheet.objects.create(
-                    consultant=consultant,
-                    month=month,
-                    file=csv_file,
-                    status='awaiting_review'
-                )
-                # No longer create TimesheetEntry records, just save CSV file
-                upload_message = 'Timesheet uploaded successfully and awaiting review.'
-            except Exception as e:
-                upload_message = f'Error processing timesheet: {str(e)}'
-                logger.error(upload_message)
-
-    # Get related data
-    invoices = Invoice.objects.filter(consultant=consultant).order_by('-month')
-    timesheets = Timesheet.objects.filter(consultant=consultant).order_by('-month')
-    all_skills = Skill.objects.filter(is_active=True).order_by('name')
-
-    # Determine selected timesheet for editing entries
-    selected_timesheet_id = request.GET.get('timesheet_id')
-    if selected_timesheet_id:
-        try:
-            selected_timesheet = timesheets.get(id=selected_timesheet_id)
-        except Timesheet.DoesNotExist:
-            selected_timesheet = timesheets.first()
-    else:
-        selected_timesheet = timesheets.first()
-
-    # Read timesheet entries from CSV file for selected timesheet
-    timesheet_entries = []
-    if selected_timesheet:
-        try:
-            csv_file = selected_timesheet.file.open('r')
-            csv_data = csv_file.read()
-            csv_file.close()
-            f = StringIO(csv_data)
-            reader = csv.DictReader(f)
-            for row in reader:
-                # Normalize keys to lowercase and strip spaces for flexible matching
-                normalized_row = {k.strip().lower(): v for k, v in row.items()}
-                # Possible keys for task name
-                task_name_keys = ['task name', 'task_name', 'task', 'name']
-                task_name_value = ''
-                for key in task_name_keys:
-                    if key in normalized_row:
-                        task_name_value = normalized_row[key]
-                        break
-                entry = {
-                    'date': normalized_row.get('date') or normalized_row.get('date'),
-                    'start_time': normalized_row.get('start time') or normalized_row.get('start_time'),
-                    'end_time': normalized_row.get('end time') or normalized_row.get('end_time'),
-                    'task_name': task_name_value,
-                    'description': normalized_row.get('description'),
-                }
-                timesheet_entries.append(entry)
-        except Exception as e:
-            logger.error(f"Error reading timesheet CSV file: {str(e)}")
-
-    # Editing timesheet entries is no longer supported
-    upload_message_edit = None
-    if request.method == 'POST' and 'edit_timesheet_entries' in request.POST:
-        upload_message_edit = 'Editing timesheet entries is no longer supported.'
-
-    # Prepare form for editing consultant profile
-    form = ConsultantEditForm(instance=profile)
-    form.fields['skills'].queryset = Skill.objects.filter(is_active=True).order_by('name')
-
-    # Decrypt password for display in template
-    decrypted_password = ''
-    try:
-        if consultant.encrypted_password:
-            decrypted_password = decrypt_password(consultant.encrypted_password)
-            logger.info(f"Decrypted password for user {consultant.email}: {decrypted_password}")
+                selected_timesheet = timesheets.get(id=selected_timesheet_id)
+            except Timesheet.DoesNotExist:
+                selected_timesheet = timesheets.first()
         else:
-            logger.warning(f"No encrypted_password set for user {consultant.email}")
-            decrypted_password = '[Password not set]'
-    except Exception as e:
-        logger.error(f"Error decrypting password for user {consultant.email}: {str(e)}")
-        decrypted_password = '[Error decrypting password]'
-    logger.debug(f"Final decrypted_password value for user {consultant.email}: {decrypted_password}")
+            selected_timesheet = timesheets.first()
 
-    context = {
-        'consultant': consultant,
-        'profile': profile,
-        'invoices': invoices,
-        'timesheets': timesheets,
-        'all_skills': all_skills,
-        'form': form,
-        'timesheet_entries': timesheet_entries,
-        'selected_timesheet': selected_timesheet,
-        'upload_message': upload_message,
-        'upload_message_edit': upload_message_edit,
-        'decrypted_password': decrypted_password,
-    }
-    return render(request, 'consultant_detail.html', context)
+        # Read timesheet entries from CSV file for selected timesheet
+        timesheet_entries = []
+        if selected_timesheet:
+            try:
+                csv_file = selected_timesheet.file.open('r')
+                csv_data = csv_file.read()
+                csv_file.close()
+                f = StringIO(csv_data)
+                reader = csv.DictReader(f)
+                for row in reader:
+                    # Normalize keys to lowercase and strip spaces for flexible matching
+                    normalized_row = {k.strip().lower(): v for k, v in row.items()}
+                    # Possible keys for task name
+                    task_name_keys = ['task name', 'task_name', 'task', 'name']
+                    task_name_value = ''
+                    for key in task_name_keys:
+                        if key in normalized_row:
+                            task_name_value = normalized_row[key]
+                            break
+                    entry = {
+                        'date': normalized_row.get('date') or normalized_row.get('date'),
+                        'start_time': normalized_row.get('start time') or normalized_row.get('start_time'),
+                        'end_time': normalized_row.get('end time') or normalized_row.get('end_time'),
+                        'task_name': task_name_value,
+                        'description': normalized_row.get('description'),
+                    }
+                    timesheet_entries.append(entry)
+            except Exception as e:
+                logger.error(f"Error reading timesheet CSV file: {str(e)}")
+
+        # Editing timesheet entries is no longer supported
+        upload_message_edit = None
+        if request.method == 'POST' and 'edit_timesheet_entries' in request.POST:
+            upload_message_edit = 'Editing timesheet entries is no longer supported.'
+
+        # Prepare form for editing consultant profile
+        form = ConsultantEditForm(instance=profile, initial={'skills': profile.skills.all()})
+        form.fields['skills'].queryset = Skill.objects.filter(is_active=True).order_by('name')
+
+        # Populate initial_skill_experiences for the form
+        from consultant.models import ConsultantSkillExperience
+        skill_experiences = ConsultantSkillExperience.objects.filter(consultant_profile=profile)
+        initial_skill_experiences = []
+        for se in skill_experiences:
+            initial_skill_experiences.append({
+                'skill_id': se.skill.id,
+                'experience_years': float(se.experience_years) if se.experience_years else None,
+            })
+        form.initial_skill_experiences = initial_skill_experiences
+
+        # Debug logging to verify data consistency
+        logger.info(f"ConsultantProfile ID: {profile.id} for user {profile.user.email}")
+        logger.info(f"Skill experiences count: {len(initial_skill_experiences)}")
+        for se in initial_skill_experiences:
+            logger.info(f"Skill ID: {se['skill_id']}, Experience: {se['experience_years']}")
+
+        # Decrypt password for display in template
+        decrypted_password = ''
+        try:
+            if consultant.encrypted_password:
+                decrypted_password = decrypt_password(consultant.encrypted_password)
+                logger.info(f"Decrypted password for user {consultant.email}: {decrypted_password}")
+            else:
+                logger.warning(f"No encrypted_password set for user {consultant.email}")
+                decrypted_password = '[Password not set]'
+        except Exception as e:
+            logger.error(f"Error decrypting password for user {consultant.email}: {str(e)}")
+            decrypted_password = '[Error decrypting password]'
+        logger.debug(f"Final decrypted_password value for user {consultant.email}: {decrypted_password}")
+
+        context = {
+            'consultant': consultant,
+            'profile': profile,
+            'invoices': invoices,
+            'timesheets': timesheets,
+            'all_skills': all_skills,
+            'form': form,
+            'timesheet_entries': timesheet_entries,
+            'selected_timesheet': selected_timesheet,
+            'upload_message': upload_message,
+            'upload_message_edit': upload_message_edit,
+            'decrypted_password': decrypted_password,
+            'skill_experiences': json.dumps(initial_skill_experiences),
+        }
+        return render(request, 'consultant_detail.html', context)
+    except Exception as e:
+        logger.error(f"Exception in consultant_profile view: {str(e)}", exc_info=True)
+        return HttpResponseServerError("Internal Server Error")
 
 
 @login_required
@@ -962,6 +986,44 @@ def edit_consultant(request, consultant_id):
                     instance.cost_type = cost_type
                 instance.save()
                 form.save_m2m()
+
+                # Process skills_data from POST
+                skills_data_json = request.POST.get('skills_data', '[]')
+                import json
+                try:
+                    skills_data = json.loads(skills_data_json)
+                except json.JSONDecodeError:
+                    skills_data = []
+                    logger.error(f"Invalid skills_data JSON for user {user.email}: {skills_data_json}")
+
+                # Current skill ids submitted
+                submitted_skill_ids = set()
+                for skill_entry in skills_data:
+                    skill_id = skill_entry.get('skill_id')
+                    experience_years = skill_entry.get('experience_years')
+                    if skill_id is None:
+                        continue
+                    submitted_skill_ids.add(int(skill_id))
+                    # Update or create ConsultantSkillExperience
+                    try:
+                        from consultant.models import ConsultantSkillExperience
+                        from custom_admin.models import Skill
+                        skill_obj = Skill.objects.get(id=skill_id)
+                        cse, created = ConsultantSkillExperience.objects.update_or_create(
+                            consultant_profile=instance,
+                            skill=skill_obj,
+                            defaults={'experience_years': experience_years}
+                        )
+                    except Skill.DoesNotExist:
+                        logger.error(f"Skill with id {skill_id} does not exist for user {user.email}")
+
+                # Remove ConsultantSkillExperience not in submitted skills
+                from consultant.models import ConsultantSkillExperience
+                ConsultantSkillExperience.objects.filter(
+                    consultant_profile=instance
+                ).exclude(
+                    skill_id__in=submitted_skill_ids
+                ).delete()
 
                 new_password = form.cleaned_data.get('password')
                 logger.info(f"Password field value: {new_password}")

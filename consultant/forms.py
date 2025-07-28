@@ -1,3 +1,4 @@
+
 from django import forms
 from consultant.models import ConsultantProfile, ConsultantSkillExperience
 from custom_admin.models import Skill
@@ -17,15 +18,6 @@ class ConsultantProfileForm(forms.ModelForm):
     weekly_commitment = forms.DecimalField(max_digits=5, decimal_places=2, required=False, widget=forms.NumberInput(attrs={'class': 'form-control shadow-sm', 'placeholder': 'e.g. 10.00'}), help_text="Hours per week willing to consult")
     availability = forms.JSONField(required=False, widget=forms.Textarea(attrs={'class': 'form-control shadow-sm', 'placeholder': 'e.g. {"Monday": "9:00-17:00"}'}), help_text="Availability as JSON: days and time ranges")
 
-    # Skills field will be handled dynamically in the template with JavaScript
-    # We will pass the selected skills and their experiences via a hidden field or directly in the request.POST
-    # For now, we remove it from the Meta.fields and handle it in save()
-    # skills = forms.ModelMultipleChoiceField(
-    #     queryset=Skill.objects.all(),
-    #     widget=forms.CheckboxSelectMultiple,
-    #     required=False
-    # )
-
     class Meta:
         model = ConsultantProfile
         fields = [
@@ -36,11 +28,11 @@ class ConsultantProfileForm(forms.ModelForm):
             'bank_ifsc',
             'bank_branch_name',
             'bank_name',
-            'cost_type', # Added
-            'cost',      # Added (renamed from cost_per_hour)
-            'weekly_commitment', # Added
-            'availability', # Added
-            'total_experience', # Added
+            'cost_type', 
+            'cost',      
+            'weekly_commitment', 
+            'availability',
+            'total_experience',
             'status',
             'agreement_document',
         ]
@@ -56,7 +48,7 @@ class ConsultantProfileForm(forms.ModelForm):
             'bank_ifsc': forms.TextInput(attrs={'placeholder': 'e.g. ABCD0123456', 'class': 'form-control shadow-sm'}),
             'bank_branch_name': forms.TextInput(attrs={'placeholder': 'e.g. Main Branch', 'class': 'form-control shadow-sm'}),
             'bank_name': forms.TextInput(attrs={'placeholder': 'e.g. Bank of Example', 'class': 'form-control shadow-sm'}),
-            'total_experience': forms.NumberInput(attrs={'class': 'form-control shadow-sm', 'placeholder': 'e.g. 5.0'}), # Added
+            'total_experience': forms.NumberInput(attrs={'class': 'form-control shadow-sm', 'placeholder': 'e.g. 5.0'}), 
         }
 
     def __init__(self, *args, **kwargs):
@@ -65,6 +57,13 @@ class ConsultantProfileForm(forms.ModelForm):
         if self.instance and self.instance.pk:
             self.fields['cost'].initial = self.instance.cost
             self.fields['total_experience'].initial = self.instance.total_experience
+            # Priority: instance.name > user's full name > empty
+            if self.instance.name:
+                self.fields['name'].initial = self.instance.name
+            elif hasattr(self.instance, 'user') and self.instance.user:
+                full_name = f"{self.instance.user.first_name} {self.instance.user.last_name}".strip()
+                if full_name and full_name != " ":
+                    self.fields['name'].initial = full_name
             # Populate initial skills and their experiences for the template
             self.initial_skill_experiences = []
             for se in self.instance.skill_experiences.all():
@@ -75,7 +74,19 @@ class ConsultantProfileForm(forms.ModelForm):
                 })
         else:
             self.initial_skill_experiences = []
+                
 
+    def clean_name(self):
+        name = self.cleaned_data.get('name', '').strip()
+        if not name:
+            if self.instance and self.instance.name:
+                return self.instance.name
+            elif self.instance and hasattr(self.instance, 'user') and self.instance.user:
+                full_name = f"{self.instance.user.first_name} {self.instance.user.last_name}".strip()
+                if full_name and full_name != " ":
+                    return full_name
+            raise forms.ValidationError("Name is required.")
+        return name
 
     def clean_agreement_document(self):
         agreement = self.cleaned_data.get('agreement_document')
@@ -101,37 +112,7 @@ class ConsultantProfileForm(forms.ModelForm):
         return availability
 
     def save(self, commit=True):
-        instance = super().save(commit=False)
-        
-        # Handle skills and experiences
-        # Get skills data from the request (will be sent via a hidden input or similar)
-        skills_data_json = self.data.get('skills_data')
-        
-        if commit:
-            instance.save() # Save the profile first to get an ID if it's new
-
-            # Clear existing skill experiences for this profile
-            instance.skill_experiences.all().delete()
-
-            if skills_data_json:
-                try:
-                    skills_data = json.loads(skills_data_json)
-                    for item in skills_data:
-                        skill_id = item.get('skill_id')
-                        experience = item.get('experience_years')
-                        if skill_id:
-                            try:
-                                skill = Skill.objects.get(id=skill_id)
-                                ConsultantSkillExperience.objects.create(
-                                    consultant_profile=instance,
-                                    skill=skill,
-                                    experience_years=experience if experience else None
-                                )
-                            except Skill.DoesNotExist:
-                                # Log or handle case where skill_id is invalid
-                                pass
-                except json.JSONDecodeError:
-                    # Log or handle invalid JSON
-                    pass
+        instance = super().save(commit=commit)
+        # Skills handling is now done in the view
         return instance
 
