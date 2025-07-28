@@ -594,6 +594,8 @@ def delete_timesheet(request, timesheet_id):
 @login_required
 def consultant_profile(request, consultant_id):
     """View and edit consultant profile."""
+    from django.http import HttpResponseNotAllowed
+
     try:
         consultant = User.objects.get(id=consultant_id, role='consultant')
     except User.DoesNotExist:
@@ -610,6 +612,10 @@ def consultant_profile(request, consultant_id):
             # Save ConsultantProfile form
             profile = form.save(commit=False)
             profile.user = consultant
+            # Save cost_type explicitly from POST data
+            cost_type = request.POST.get('cost_type')
+            if cost_type in ['hourly', 'monthly']:
+                profile.cost_type = cost_type
             profile.save()
             form.save_m2m()
 
@@ -634,51 +640,63 @@ def consultant_profile(request, consultant_id):
             }
             return render(request, 'consultant_profile.html', context)
 
-    try:
-        profile = ConsultantProfile.objects.prefetch_related('skills').get(user=consultant)
-    except ConsultantProfile.DoesNotExist:
-        profile = ConsultantProfile(user=consultant)
-    
-    # Reload profile from DB to get latest status before rendering form
-    profile.refresh_from_db()
-    
-    form = ConsultantProfileForm(instance=profile)
-    logger.info(f"Rendering consultant profile page for user {consultant.email}")
-
-    # Decrypt password if exists
-    decrypted_password = None
-    if hasattr(consultant, 'encrypted_password') and consultant.encrypted_password:
+    elif request.method == 'GET':
         try:
-            decrypted_password = decrypt_password(consultant.encrypted_password)
+            profile = ConsultantProfile.objects.prefetch_related('skills').get(user=consultant)
+        except ConsultantProfile.DoesNotExist:
+            profile = ConsultantProfile(user=consultant)
+        
+        # Reload profile from DB to get latest status before rendering form
+        profile.refresh_from_db()
+        
+        form = ConsultantProfileForm(instance=profile)
+        logger.info(f"Rendering consultant profile page for user {consultant.email}")
+
+        # Decrypt password if exists
+        decrypted_password = None
+        if hasattr(consultant, 'encrypted_password') and consultant.encrypted_password:
+            try:
+                decrypted_password = decrypt_password(consultant.encrypted_password)
+            except Exception as e:
+                logger.error(f"Error decrypting password for user {consultant.email}: {str(e)}")
+
+        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+            # Return JSON response with decrypted password for AJAX requests
+            return JsonResponse({'decrypted_password': decrypted_password})
+
+        is_approved_status = False
+        if profile.status and 'approved' in str(profile.status).lower():
+            is_approved_status = True
+
+        excluded_fields = ['status', 'name', 'profile_picture', 'cost_type', 'cost', 'weekly_commitment', 'availability']
+
+        skills = Skill.objects.all()
+
+        days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+        import json
+        initial_availability = {}
+        try:
+            if profile.availability:
+                initial_availability = json.loads(profile.availability)
         except Exception as e:
-            logger.error(f"Error decrypting password for user {consultant.email}: {str(e)}")
+            logger.error(f"Error loading availability JSON for user {consultant.email}: {str(e)}")
 
-    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-        # Return JSON response with decrypted password for AJAX requests
-        return JsonResponse({'decrypted_password': decrypted_password})
-
-    is_approved_status = False
-    if profile.status and 'approved' in str(profile.status).lower():
-        is_approved_status = True
-
-    excluded_fields = ['status', 'name', 'profile_picture', 'cost_type', 'cost', 'weekly_commitment', 'availability']
-
-    skills = Skill.objects.all()
-
-    days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-
-    context = {
-        'consultant': consultant,
-        'form': form,
-        'current_page': 'Consultant Profile',
-        'decrypted_password': decrypted_password,
-        'is_approved_status': is_approved_status,
-        'excluded_fields': excluded_fields,
-        'skills': skills,
-        'days': days,
-    }
-    return render(request, 'consultant_profile.html', context)
-
+        context = {
+            'consultant': consultant,
+            'form': form,
+            'current_page': 'Consultant Profile',
+            'decrypted_password': decrypted_password,
+            'is_approved_status': is_approved_status,
+            'excluded_fields': excluded_fields,
+            'skills': skills,
+            'days': days,
+            'initial_availability': initial_availability,
+        }
+        return render(request, 'consultant_profile.html', context)
+    else:
+        return HttpResponseNotAllowed(['GET', 'POST'])
+                    
 
 def _handle_scrap_agreement(request, consultant):
     """Handle scrapping agreement document."""

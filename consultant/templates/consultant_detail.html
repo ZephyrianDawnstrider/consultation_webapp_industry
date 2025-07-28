@@ -7,13 +7,26 @@
     <h1 class="text-3xl font-bold mb-6">Consultant Detail</h1>
 
     {% if user.is_staff %}
-    <form id="consultant-edit-form" method="post" action="{% url 'custom_admin:edit_consultant' consultant.id %}" enctype="multipart/form-data" class="bg-white rounded-lg shadow p-6 mb-8">
+    <form id="consultant-
+    -form" method="post" action="{% url 'custom_admin:edit_consultant' consultant.id %}" enctype="multipart/form-data" class="bg-white rounded-lg shadow p-6 mb-8">
         {% csrf_token %}
         <h2 class="text-xl font-semibold mb-4">Basic Information</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
                 <label for="id_name" class="block font-medium text-gray-700">Name</label>
                 <input type="text" id="id_name" name="name" value="{{ profile.name }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" />
+            </div>
+            <div>
+                <label for="id_password" class="block font-medium text-gray-700">Password</label>
+                <div class="relative">
+                    <input type="password" id="id_password" name="password" value="{{ decrypted_password }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2 pr-10" autocomplete="new-password" />
+                    <button type="button" id="togglePasswordBtn" class="absolute inset-y-0 right-0 px-3 flex items-center text-gray-600" tabindex="-1" aria-label="Toggle password visibility">
+                        <svg id="togglePasswordIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                    </button>
+                </div>
             </div>
             <div>
                 <label for="id_email" class="block font-medium text-gray-700">Email</label>
@@ -42,6 +55,36 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Added availability field -->
+            <div>
+                <label for="availability" class="block font-medium text-gray-700 mt-4">Availability</label>
+                <div id="availability-container" class="border border-gray-300 rounded p-3 mt-1">
+                    <button type="button" class="btn btn-secondary btn-sm mb-3" id="add-availability-btn">Add Availability</button>
+                    <div id="availability-list"></div>
+                </div>
+            </div>
+
+            <!-- Added cost type and cost fields -->
+            <div>
+                <label for="cost_type" class="block font-medium text-gray-700 mt-4">Cost Type<span class="text-danger">*</span></label>
+                <select id="cost_type" name="cost_type" class="form-select" required>
+                    <option value="hourly" {% if form.instance.cost_type == 'hourly' %}selected{% endif %}>Cost per Hour</option>
+                    <option value="monthly" {% if form.instance.cost_type == 'monthly' %}selected{% endif %}>Monthly Cost</option>
+                </select>
+            </div>
+            <div class="form-group mt-3">
+                <label for="cost" id="cost_label" class="form-label">Cost<span class="text-danger">*</span></label>
+                <input type="number" step="0.01" id="cost" name="cost" class="form-control" placeholder="Enter cost" value="{{ form.instance.cost }}" required>
+            </div>
+
+            <!-- Added weekly commitment field -->
+            <div class="form-group mt-3">
+                <label for="weekly_commitment" class="form-label">Weekly Commitment (hours)<span class="text-danger">*</span></label>
+                <input type="number" step="0.01" id="weekly_commitment" name="weekly_commitment" class="form-control" placeholder="Enter weekly commitment" value="{{ form.instance.weekly_commitment }}" required>
+                <div class="form-text">Hours per week willing to consult</div>
+            </div>
+
             <div>
                 <label for="id_bank_account_name" class="block font-medium text-gray-700">Bank Account Name</label>
                 <input type="text" id="id_bank_account_name" name="bank_account_name" value="{{ consultant.consultant_profile.bank_account_name }}" class="mt-1 w-full border border-gray-300 rounded px-3 py-2" />
@@ -83,3 +126,29 @@
         </div>
         <button type="submit" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save Changes</button>
     </form>
+
+<script>
+(function() {
+    const togglePasswordBtn = document.getElementById('togglePasswordBtn');
+    const passwordInput = document.getElementById('id_password');
+    const togglePasswordIcon = document.getElementById('togglePasswordIcon');
+
+    if (!togglePasswordBtn || !passwordInput || !togglePasswordIcon) {
+        console.error('Toggle password elements not found in DOM');
+        return;
+    }
+
+    togglePasswordBtn.addEventListener('click', function() {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+
+        // Toggle icon
+        if (type === 'text') {
+            togglePasswordIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.477 0-8.268-2.943-9.542-7a9.956 9.956 0 012.223-3.434m1.766-1.766A9.956 9.956 0 0112 5c4.477 0 8.268 2.943 9.542 7a10.05 10.05 0 01-1.727 3.108M15 12a3 3 0 11-6 0 3 3 0 016 0z" />';
+        } else {
+            togglePasswordIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />';
+        }
+    });
+})();
+</script>
+{% endblock %}
