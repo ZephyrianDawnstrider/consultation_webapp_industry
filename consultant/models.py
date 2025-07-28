@@ -21,7 +21,7 @@ class ConsultantProfile(models.Model):
     # Renamed from cost_per_hour to cost, and made blank/null true
     cost = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     weekly_commitment = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True, help_text="Hours per week willing to consult")
-    availability = models.CharField(max_length=255, blank=True, null=True, help_text="Availability as text, e.g., Mon-Fri, 9 AM - 5 PM")
+    availability = models.JSONField(blank=True, null=True, help_text="Availability as JSON: days and time ranges")
     status = models.ForeignKey(ConsultantStatus, on_delete=models.SET_NULL, null=True, blank=True, related_name='consultant_profiles')
     agreement_document = models.FileField(upload_to='agreements/', blank=True, null=True)
     details = models.TextField(blank=True, null=True)
@@ -66,4 +66,3 @@ class Invoice(models.Model):
 
     def __str__(self):
         return f"Invoice {self.name} for {self.consultant.email} - {self.month.strftime('%B %Y')}"
-

@@ -7,6 +7,7 @@
 <div class="container bg-gray-800 text-white p-6 rounded-lg shadow-lg max-w-9xl mx-auto">
     <h2 class="text-orange-500 mb-2 text-center text-3xl font-bold">Add New Consultant</h2>
     <form id="consultantForm" action="{% url 'custom_admin:add_consultant' %}" method="POST" enctype="multipart/form-data" class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+        {% csrf_token %}
         <div class="form-group mb-2">
             <label for="name" class="block mb-2 font-semibold text-orange-400">Name <span class="text-red-600 font-bold">*</span></label>
             <input type="text" id="name" name="name" required class="w-full p-3 rounded-md bg-gray-900 text-white border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-600" />
@@ -17,11 +18,11 @@
         </div>
         <div class="form-group mb-2">
             <label for="email" class="block mb-2 font-semibold text-orange-400">Email <span class="text-red-600 font-bold">*</span></label>
-            <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address" class="w-full p-3 rounded-md bg-gray-900 text-white border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-600" />
+            <input type="email" id="email" name="email" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Please enter a valid email address" class="w-full p-3 rounded-md bg-gray-900 text-white border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-600" />
         </div>
         <div class="form-group mb-2">
             <label for="countries_multiple" class="block mb-2 font-semibold text-orange-400">Select skills</label>
-            <select multiple id="countries_multiple" name="skills" placeholder="Select one or more skills..." class="w-full p-3 rounded-md bg-gray-900 text-white border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-600">
+            <select multiple id="countries_multiple" name="skills[]" placeholder="Select one or more skills..." class="w-full p-3 rounded-md bg-gray-900 text-white border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-600">
                 <option value="" disabled>Select one or more fields</option>
                 {% for skill in skills %}
                 <option value="{{ skill.id }}">{{ skill.name }}</option>
@@ -30,7 +31,7 @@
         </div>
         <div class="form-group mb-2">
             <label for="linkedin" class="block mb-2 font-semibold text-orange-400">LinkedIn Profile:</label>
-            <input type="url" id="linkedin" name="linkedin" placeholder="https://www.linkedin.com/in/your-profile" class="w-full p-3 rounded-md bg-gray-900 text-white border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-600" />
+            <input type="url" id="linkedin" name="linkedin_profile" placeholder="https://www.linkedin.com/in/your-profile" class="w-full p-3 rounded-md bg-gray-900 text-white border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-600" />
         </div>
         <div class="form-group mb-2">
             <label for="total_experience" class="block mb-2 font-semibold text-orange-400">Total Experience (in years):</label>
@@ -58,6 +59,7 @@
                 <div id="availability-list" class="text-white"></div>
             </div>
         </div>
+        <input type="hidden" id="availability" name="availability" value="" />
         <div class="form-group mb-2">
             <label for="agreement" class="block mb-2 font-semibold text-orange-400">Agreement (PDF only) <span class="text-red-600 font-bold">*</span></label>
             <input type="file" id="agreement" name="agreement" accept=".pdf" required class="w-full p-3 rounded-md bg-gray-900 text-white border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-600" />
@@ -137,7 +139,7 @@
 <script>
     // Initialize Tom Select for the skills dropdown
     $(document).ready(function() {
-        new TomSelect('#countries_multiple',{
+        window.countriesSelect = new TomSelect('#countries_multiple',{
             plugins: ['remove_button'],
             maxItems: null
         });
@@ -229,7 +231,67 @@
         }
         $('#cost_type').on('change', updateCostLabel);
         updateCostLabel();
+
+        // Handle form submission with AJAX
+        $('#consultantForm').on('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loader
+            $('#loaderModal').removeClass('hidden');
+            $('#responseMessage').addClass('hidden');
+            
+            // Create FormData object
+            var formData = new FormData(this);
+            
+            // Get CSRF token
+            var csrfToken = $('[name=csrfmiddlewaretoken]').val();
+            if (!csrfToken) {
+                csrfToken = document.querySelector('[name=csrfmiddlewaretoken]')?.value || '';
+            }
+            
+            // Send AJAX request
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                headers: {
+                    'X-CSRFToken': csrfToken
+                },
+                success: function(response) {
+                    $('#loaderModal').addClass('hidden');
+                    if (response.success) {
+                        $('#responseMessage')
+                            .removeClass('hidden error')
+                            .addClass('success')
+                            .text(response.message);
+                        // Reset form
+                        $('#consultantForm')[0].reset();
+                        // Reset TomSelect
+                        if (window.countriesSelect) {
+                            window.countriesSelect.clear();
+                        }
+                    } else {
+                        $('#responseMessage')
+                            .removeClass('hidden success')
+                            .addClass('error')
+                            .text(response.message || 'An error occurred');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    $('#loaderModal').addClass('hidden');
+                    var errorMessage = 'An error occurred';
+                    if (xhr.responseJSON && xhr.responseJSON.message) {
+                        errorMessage = xhr.responseJSON.message;
+                    }
+                    $('#responseMessage')
+                        .removeClass('hidden success')
+                        .addClass('error')
+                        .text(errorMessage);
+                }
+            });
+        });
     });
 </script>
-{{ form.instance.availability|default:"{}"|json_script:"initialAvailability" }}
 {% endblock %}
