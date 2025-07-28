@@ -21,13 +21,13 @@
                 {% endif %}
             </div>
             <div class="flex flex-col">
-                <label for="id_password" class="block font-medium text-black">Password</label>
-                <div class="relative">
-                    <input type="password" id="id_password" name="password" value="{{ decrypted_password }}" class="mt-1 w-full border border-black-300 rounded px-3 py-2 text-black"/>
-                    <button type="button" id="toggle-password-visibility" class="absolute top-2 right-2 text-black hover:text-black focus:outline-none" aria-label="Toggle password visibility">
-                        <i class="fas fa-eye" aria-hidden="true"></i>
-                    </button>
-                </div>
+              <label for="{{ form.profile_picture.id_for_label }}" class="block font-medium text-black">Password:</label>
+              <div class="input-group mb-3">
+                  <input type="password" id="passwordField" class="mt-1 w-full border border-black-300 rounded px-3 py-2 text-black" value="{{ decrypted_password|default:'********' }}">
+                  <button class="btn btn-outline-secondary " type="button" id="togglePasswordBtn" aria-label="Toggle password visibility">
+                      <i class="fas fa-eye" id="togglePasswordIcon"></i>
+                  </button>
+              </div>
             </div>
             <div>
                 <label for="id_email" class="block font-medium text-black">Email</label>
@@ -82,7 +82,7 @@
                 {% endif %}
             </div>
             <div id="skill-experience-container" class="mt-3"></div>
-            <input type="hidden" id="skills_data" name="skills_data" value='{{ form.initial_skill_experiences|json_script:"skills_data" }}'>
+            <input type="hidden" id="skills_data" name="skills_data" value='{{ skill_experiences|default:"[]"|safe }}'>
             <div>
                 <label for="availability" class="block font-medium text-gray-700 mt-4">Availability</label>
                 <div id="availability-container" class="border border-black-300 rounded p-3 mt-1">
@@ -95,6 +95,13 @@
                 <input type="text" id="id_bank_account_name" name="bank_account_name" value="{{ consultant.consultant_profile.bank_account_name }}" class="mt-1 w-full border border-black-300 rounded px-3 py-2 text-black{% if form.bank_account_name.errors %}border-red-600 shadow-md{% endif %}" />
                 {% if form.bank_account_name.errors %}
                     <p class="text-red-600 text-sm mt-1">{{ form.bank_account_name.errors.0 }}</p>
+                {% endif %}
+            </div>
+            <div class="flex flex-col">
+                <label for="id_bank_account_number" class="block font-medium text-gray-700">Bank Account number <span class="text-red-600 font-bold">*</span></label>
+                <input type="text" id="id_bank_account_number" name="bank_account_number" value="{{ consultant.consultant_profile.bank_account_number }}" class="mt-1 w-full border border-black-300 rounded px-3 py-2 text-black{% if form.bank_account_number.errors %}border-red-600 shadow-md{% endif %}" />
+                {% if form.bank_account_number.errors %}
+                    <p class="text-red-600 text-sm mt-1">{{ form.bank_account_number.errors.0 }}</p>
                 {% endif %}
             </div>
             <div class="flex flex-col">
@@ -184,7 +191,136 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
 
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+  $(document).ready(function() {
+    // Function to update skill experience inputs based on selected skills
+    function updateSkillExperienceInputs(selectedSkillIds) {
+      var container = $('#skill-experience-container');
+      var existingData = getSkillsData();
+
+
+      // Clear container and rebuild only for selected skills
+      container.empty();
+
+      selectedSkillIds.forEach(function(skillId) {
+        var skillName = null;
+        {% for skill in all_skills %}
+          if (skillId == '{{ skill.id }}') {
+            skillName = '{{ skill.name }}';
+          }
+        {% endfor %}
+        
+        var experience = null;
+        var existingEntry = existingData.find(function(item) {
+          return item.skill_id == skillId;
+        });
+        if (existingEntry) {
+          experience = existingEntry.experience_years;
+        }
+
+        var skillDiv = $('<div class="d-flex align-items-center mb-3 skill-experience-entry"></div>');
+        var skillInput = $('<input type="text" class="form-control me-2" readonly>').val(skillName);
+        var experienceInput = $('<input type="number" min="0" step="0.1" class="form-control me-2" placeholder="Experience (years)">').val(experience || '').attr('data-skill-id', skillId);
+
+        var removeBtn = $('<button type="button" class="btn btn-danger btn-sm bg-danger">Remove</button>');
+        removeBtn.on('click', function() {
+          $('input[value="' + skillId + '"]').prop('checked', false);
+          skillDiv.remove();
+          updateSkillsData();
+        });
+
+        skillDiv.append(skillInput, experienceInput, removeBtn);
+        container.append(skillDiv);
+      });
+
+      updateSkillsData();
+    }
+
+    // Function to get skills data from hidden input
+    function getSkillsData() {
+      var dataStr = $('#skills_data').val();
+      try {
+        return JSON.parse(dataStr);
+      } catch (e) {
+        return [];
+      }
+    }
+
+    // Function to update hidden skills_data input based on current inputs
+    function updateSkillsData() {
+      var data = [];
+      $('#skill-experience-container .skill-experience-entry').each(function() {
+        var skillName = $(this).find('input[type="text"]').val();
+        var experience = parseFloat($(this).find('input[type="number"]').val());
+        var skillId = $(this).find('input[type="number"]').attr('data-skill-id');
+        if (!isNaN(experience)) {
+          data.push({
+            skill_id: skillId,
+            experience_years: experience
+          });
+        } else {
+          data.push({
+            skill_id: skillId,
+            experience_years: null
+          });
+        }
+      });
+      $('#skills_data').val(JSON.stringify(data));
+    }
+
+    // Update skills_data on experience input change
+    $('#skill-experience-container').on('input', 'input[type="number"]', function() {
+      updateSkillsData();
+    });
+
+    // Initialize skill experience inputs on page load
+    updateSkillExperienceInputs(getCheckedSkills());
+
+    // Helper to get checked skill ids
+    function getCheckedSkills() {
+      var checked = [];
+      $('input[name="skills"]:checked').each(function() {
+        checked.push($(this).val());
+      });
+      return checked;
+    }
+
+    // Handle skill checkbox change
+    $('input[name="skills"]').on('change', function() {
+      var skillId = $(this).val();
+      if ($(this).is(':checked')) {
+        updateSkillExperienceInputs(getCheckedSkills());
+      } else {
+        // Remove the skill input if unchecked
+        $('#skill-experience-container .skill-experience-entry').each(function() {
+          var experienceInput = $(this).find('input[type="number"]');
+          var id = experienceInput.attr('data-skill-id');
+          if (id === skillId) {
+            $(this).remove();
+          }
+        });
+        updateSkillsData();
+      }
+    });
+  });
+</script>
+
+<script>
+  // Password visibility toggle
+  $('#togglePasswordBtn').on('click', function() {
+    var passwordField = $('#passwordField');
+    var passwordIcon = $('#togglePasswordIcon');
+    if (passwordField.attr('type') === 'password') {
+      passwordField.attr('type', 'text');
+      passwordIcon.removeClass('bi-eye').addClass('bi-eye-slash');
+    } else {
+      passwordField.attr('type', 'password');
+      passwordIcon.removeClass('bi-eye-slash').addClass('bi-eye');
+    }
+  });
+
 document.addEventListener('DOMContentLoaded', function() {
   function updateCostLabel() {
     var costTypeSelect = document.getElementById('id_cost_type');

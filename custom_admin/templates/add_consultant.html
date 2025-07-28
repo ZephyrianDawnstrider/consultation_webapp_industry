@@ -20,7 +20,7 @@
             <label for="email" class="block mb-2 font-semibold text-orange-400">Email <span class="text-red-600 font-bold">*</span></label>
             <input type="email" id="email" name="email" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" title="Please enter a valid email address" class="w-full p-3 rounded-md bg-gray-900 text-white border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-600" />
         </div>
-        <div class="form-group mb-2">
+        {% comment %} <div class="form-group mb-2">
             <label for="countries_multiple" class="block mb-2 font-semibold text-orange-400">Select skills</label>
             <select multiple id="countries_multiple" name="skills[]" placeholder="Select one or more skills..." class="w-full p-3 rounded-md bg-gray-900 text-white border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-600">
                 <option value="" disabled>Select one or more fields</option>
@@ -28,7 +28,7 @@
                 <option value="{{ skill.id }}">{{ skill.name }}</option>
                 {% endfor %}
             </select>
-        </div>
+        </div> {% endcomment %}
         <div class="form-group mb-2">
             <label for="linkedin" class="block mb-2 font-semibold text-orange-400">LinkedIn Profile:</label>
             <input type="url" id="linkedin" name="linkedin_profile" placeholder="https://www.linkedin.com/in/your-profile" class="w-full p-3 rounded-md bg-gray-900 text-white border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-600" />
@@ -52,14 +52,14 @@
             <label for="weekly_commitment" class="block mb-2 font-semibold text-orange-400">Weekly Commitment (in hours) <span class="text-red-600 font-bold">*</span></label>
             <input type="number" id="weekly_commitment" name="weekly_commitment" min="0" step="0.1" class="w-full p-3 rounded-md bg-gray-900 text-white border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-600" />
         </div>
-        <div class="form-group mb-2">
+        {% comment %} <div class="form-group mb-2">
             <label for="availability" class="block font-medium text-orange-400">Availability:</label>
             <div id="availability-container" class="border border-orange-500 rounded p-3 mt-1 bg-gray-900">
                 <button type="button" class="btn bg-secondary btn-secondary btn-sm mb-3 text-white bg-orange-600 hover:bg-orange-700 rounded px-3 py-1" id="add-availability-btn">Add Availability</button>
                 <div id="availability-list" class="text-white"></div>
             </div>
         </div>
-        <input type="hidden" id="availability" name="availability" value="" />
+        <input type="hidden" id="availability" name="availability" value="" /> {% endcomment %}
         <div class="form-group mb-2">
             <label for="agreement" class="block mb-2 font-semibold text-orange-400">Agreement (PDF only) <span class="text-red-600 font-bold">*</span></label>
             <input type="file" id="agreement" name="agreement" accept=".pdf" required class="w-full p-3 rounded-md bg-gray-900 text-white border border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-600" />
