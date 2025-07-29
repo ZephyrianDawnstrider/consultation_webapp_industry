@@ -103,14 +103,30 @@ class ConsultantProfileForm(forms.ModelForm):
 
     def clean_availability(self):
         availability = self.cleaned_data.get('availability')
-        if availability:
+        if availability is not None:
+            if not isinstance(availability, dict):
+                raise forms.ValidationError("Availability must be a valid JSON object.")
             try:
-                # Attempt to parse JSON to validate format
-                json.loads(availability)
-            except json.JSONDecodeError:
-                raise forms.ValidationError("Availability must be a valid JSON string.")
+                # Validate it can be serialized to JSON
+                json.dumps(availability)
+            except (TypeError, ValueError) as e:
+                raise forms.ValidationError(f"Availability must be serializable to JSON: {str(e)}")
+            
+            # Additional validation: check time ranges format
+            for day, ranges in availability.items():
+                if not isinstance(ranges, list):
+                    raise forms.ValidationError(f"Availability for {day} must be a list of time ranges.")
+                for time_range in ranges:
+                    if not isinstance(time_range, str) or '-' not in time_range:
+                        raise forms.ValidationError(f"Invalid time range format '{time_range}' for {day}. Expected format 'HH:MM-HH:MM'.")
+                    start, end = time_range.split('-', 1)
+                    # Basic time format check HH:MM
+                    import re
+                    time_pattern = re.compile(r'^\d{2}:\d{2}$')
+                    if not time_pattern.match(start) or not time_pattern.match(end):
+                        raise forms.ValidationError(f"Invalid time format in range '{time_range}' for {day}. Expected 'HH:MM-HH:MM'.")
         return availability
-
+            
     def save(self, commit=True):
         instance = super().save(commit=commit)
         # Skills handling is now done in the view

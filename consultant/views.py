@@ -643,12 +643,21 @@ def consultant_profile(request, consultant_id):
 
         import json
         initial_availability = {}
+        logger.info(f"🎯 DEBUG: Profile availability for template: {profile.availability}")
+        logger.info(f"🎯 DEBUG: Availability type: {type(profile.availability)}")
+        
         try:
             if profile.availability:
-                initial_availability = json.loads(profile.availability)
+                if isinstance(profile.availability, str):
+                    initial_availability = json.loads(profile.availability)
+                elif isinstance(profile.availability, dict):
+                    initial_availability = profile.availability
+                else:
+                    initial_availability = {}
+                logger.info(f"🎯 DEBUG: Parsed initial availability: {initial_availability}")
         except Exception as e:
             logger.error(f"Error loading availability JSON for user {consultant.email}: {str(e)}")
-
+                
         # Serialize initial skills data as JSON
         # Convert Decimal to float for JSON serialization
         import decimal
@@ -675,7 +684,7 @@ def consultant_profile(request, consultant_id):
             'excluded_fields': excluded_fields,
             'skills': skills,
             'days': days,
-            'initial_availability': initial_availability,
+            'initial_availability': json.dumps(initial_availability),
             'initial_skills_json': initial_skills_json,
         }
         return render(request, 'consultant_profile.html', context)
@@ -706,6 +715,16 @@ def _handle_scrap_agreement(request, consultant):
 
 def _handle_profile_update(request, consultant, consultant_id):
     """Handle profile form submission."""
+    logger.info(f"🔥 ===== CONSULTANT PROFILE FORM SUBMISSION DEBUG =====")
+    logger.info(f"📥 POST data keys: {list(request.POST.keys())}")
+    logger.info(f"📥 POST data: {dict(request.POST)}")
+    
+    # Handle availability data specifically
+    availability_data = request.POST.get('availability')
+    logger.info(f"🎯 Availability data received: '{availability_data}'")
+    logger.info(f"🎯 Availability data type: {type(availability_data)}")
+    logger.info(f"🎯 Availability data length: {len(availability_data) if availability_data else 0}")
+    
     try:
         profile = consultant.consultant_profile
     except ConsultantProfile.DoesNotExist:
@@ -744,7 +763,43 @@ def _handle_profile_update(request, consultant, consultant_id):
             instance.save()
             logger.info(f"Consultant profile updated successfully for user {consultant.email}")
 
-            # Process skills_data from POST
+            # Process availability data from POST
+            logger.info(f"💾 Processing availability data...")
+            if availability_data:
+                try:
+                    import json
+                    # Validate JSON format
+                    parsed_availability = json.loads(availability_data)
+                    logger.info(f"✅ JSON validation successful: {parsed_availability}")
+                    
+                    # Check current availability before saving
+                    logger.info(f"📄 Profile availability before save: {instance.availability}")
+                    
+                    # Instead of saving as string, save as parsed JSON object
+                    instance.availability = parsed_availability
+                    instance.save()
+                    
+                    # Verify save was successful
+                    instance.refresh_from_db()
+                    logger.info(f"📄 Profile availability after save: {instance.availability}")
+                    logger.info(f"✅ Availability data successfully saved to database!")
+                except json.JSONDecodeError as e:
+                    logger.error(f"❌ Invalid availability JSON: {e}")
+                except Exception as e:
+                    logger.error(f"❌ Error saving availability: {e}")
+                    # Try to save as empty object if there's an error
+                    try:
+                        instance.availability = {}
+                        instance.save()
+                        logger.info("Saved empty availability object as fallback")
+                    except Exception as e2:
+                        logger.error(f"❌ Even fallback failed: {e2}")
+            else:
+                logger.warning("⚠️  No availability data received in POST request")
+
+            # Additional debug log for saved availability
+            logger.info(f"🔍 Final saved availability in DB: {instance.availability}")
+                # Process skills_data from POST
             skills_data_json = request.POST.get('skills_data', '[]')
             try:
                 skills_data = json.loads(skills_data_json)
