@@ -23,7 +23,7 @@
             <div class="flex flex-col">
               <label for="{{ form.profile_picture.id_for_label }}" class="block font-medium text-black">Password:</label>
               <div class="input-group mb-3">
-                  <input type="password" id="passwordField" class="mt-1 w-full border border-black-300 rounded px-3 py-2 text-black" value="{{ decrypted_password|default:'********' }}">
+                  <input type="password" id="passwordField" class="form-control border border-black-300 rounded px-3 py-2 text-black" value="{{ decrypted_password|default:'********' }}">
                   <button class="btn btn-outline-secondary " type="button" id="togglePasswordBtn" aria-label="Toggle password visibility">
                       <i class="fas fa-eye" id="togglePasswordIcon"></i>
                   </button>
@@ -57,38 +57,6 @@
                 {% if form.total_experience.errors %}
                     <p class="text-red-600 text-sm mt-1">{{ form.total_experience.errors.0 }}</p>
                 {% endif %}
-            </div>
-
-            <div>
-                <label class="block font-medium text-gray-700">Skills</label>
-                <div class="mt-1 w-full border border-black-300 rounded px-3 py-2 text-black {% if form.skills.errors %}border-red-600 shadow-md{% endif %}">
-                    <div class="row">
-                        {% for checkbox in form.skills %}
-                        <div class="col-3">
-                            <div class="form-check">
-                                {{ checkbox.tag }}
-                                <label class="form-check-label" for="{{ checkbox.id_for_label }}">
-                                    {{ checkbox.choice_label }}
-                                </label>
-                            </div>
-                        </div>
-                        {% empty %}
-                        <p>No skills available.</p>
-                        {% endfor %}
-                    </div>
-                </div>
-                {% if form.skills.errors %}
-                    <p class="text-red-600 text-sm mt-1">{{ form.skills.errors.0 }}</p>
-                {% endif %}
-            </div>
-            <div id="skill-experience-container" class="mt-3"></div>
-            <input type="hidden" id="skills_data" name="skills_data" value='{{ skill_experiences|default:"[]"|safe }}'>
-            <div>
-                <label for="availability" class="block font-medium text-gray-700 mt-4">Availability</label>
-                <div id="availability-container" class="border border-black-300 rounded p-3 mt-1">
-                    <button type="button" class="btn bg-secondary btn-secondary btn-sm mb-3" id="add-availability-btn">Add Availability</button>
-                    <div id="availability-list"></div>
-                </div>
             </div>
             <div class="flex flex-col">
                 <label for="id_bank_account_name" class="block font-medium text-gray-700">Bank Account Name <span class="text-red-600 font-bold">*</span></label>
@@ -125,13 +93,6 @@
                     <p class="text-red-600 text-sm mt-1">{{ form.bank_name.errors.0 }}</p>
                 {% endif %}
             </div>
-            {% comment %} <div>
-                <label for="id_cost_per_hour" class="block font-medium text-gray-700">Cost per Hour <span class="text-red-600 font-bold">*</span></label>
-                <input type="number" step="0.01" id="id_cost_per_hour" name="cost_per_hour" value="{{ consultant.consultant_profile.cost_per_hour }}" class="mt-1 w-full border border-black-300 rounded px-3 py-2 text-black {% if form.cost_per_hour.errors %}border-red-600 shadow-md{% endif %}" />
-                {% if form.cost_per_hour.errors %}
-                    <p class="text-red-600 text-sm mt-1">{{ form.cost_per_hour.errors.0 }}</p>
-                {% endif %}
-            </div> {% endcomment %}
             <div>
                 <label for="id_status" class="block font-medium text-black">Status</label>
                 {{ form.status }}
@@ -171,6 +132,38 @@
               <input type="file" name="agreement_document" class="form-control">
             {% endif %}
           </div>
+          <div>
+            <label class="block font-medium text-gray-700">Skills</label>
+            <div class="mt-1 w-full border border-black-300 rounded px-3 py-2 text-black {% if form.skills.errors %}border-red-600 shadow-md{% endif %}">
+                <div class="row">
+                    {% for checkbox in form.skills %}
+                    <div class="col-3">
+                        <div class="form-check">
+                            {{ checkbox.tag }}
+                            <label class="form-check-label" for="{{ checkbox.id_for_label }}">
+                                {{ checkbox.choice_label }}
+                            </label>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p>No skills available.</p>
+                    {% endfor %}
+                </div>
+            </div>
+            {% if form.skills.errors %}
+                <p class="text-red-600 text-sm mt-1">{{ form.skills.errors.0 }}</p>
+            {% endif %}
+        </div>
+        <div id="skill-experience-container" class="mt-3"></div>
+        <input type="hidden" id="skills_data" name="skills_data" value='{{ skill_experiences|default:"[]"|safe }}'>
+        <div>
+            <label for="availability" class="block font-medium text-gray-700 mt-4">Availability</label>
+            <div id="availability-container" class="border border-black-300 rounded p-3 mt-1">
+                <button type="button" class="btn bg-secondary btn-secondary btn-sm mb-3" id="add-availability-btn">Add Availability</button>
+                <div id="availability-list"></div>
+            </div>
+            {{ form.availability }}
+        </div>
         </div>
         <button type="submit" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save Changes</button>
     </form>
@@ -346,6 +339,90 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCostLabel(); // Initial call to set label on page load
   }
 
+  // Function to safely parse JSON with error handling
+  function safeJSONParse(jsonString, fallback) {
+    try {
+      if (!jsonString || jsonString === '{}' || jsonString === '') {
+        return fallback || {};
+      }
+      return JSON.parse(jsonString);
+    } catch (e) {
+      console.error('Error parsing JSON:', e, 'Input:', jsonString);
+      return fallback || {};
+    }
+  }
+
+  // Function to load existing availability data
+  function loadExistingAvailability() {
+    console.log('🔄 Loading existing availability data...');
+    // Get availability data from Django context - properly escaped
+    {% if profile.availability %}
+      var availabilityString = {{ profile.availability|safe }};
+    {% else %}
+      var availabilityString = {};
+    {% endif %}
+    
+    console.log('📄 Raw availability data:', availabilityString);
+    console.log('📄 Type of availability data:', typeof availabilityString);
+    
+    var existingAvailability = {};
+    if (typeof availabilityString === 'object' && availabilityString !== null) {
+      existingAvailability = availabilityString;
+    } else if (typeof availabilityString === 'string') {
+      existingAvailability = safeJSONParse(availabilityString, {});
+    }
+    
+    console.log('Parsed availability:', existingAvailability);
+    
+    if (existingAvailability && Object.keys(existingAvailability).length > 0) {
+      $('#add-availability-btn').click(); // Add the availability section
+      
+      // Wait for TomSelect to initialize, then set the values
+      setTimeout(function() {
+        var availabilitySelect = $('#availability-list select').last();
+        var timeRangesContainer = availabilitySelect.siblings('.time-ranges-container');
+        
+        // Get the TomSelect instance
+        var tomSelectInstance = availabilitySelect[0].tomselect;
+        if (tomSelectInstance) {
+          // Set selected days
+          var daysToSelect = Object.keys(existingAvailability);
+          tomSelectInstance.setValue(daysToSelect);
+          
+          // Add time ranges for each day
+          setTimeout(function() {
+            Object.keys(existingAvailability).forEach(function(day) {
+              var dayDiv = timeRangesContainer.find('.day-time-range[data-day="' + day + '"]');
+              var dayTimeRanges = dayDiv.find('.day-time-ranges');
+              
+              // Clear existing time ranges
+              dayTimeRanges.empty();
+              
+              // Add time ranges for this day
+              existingAvailability[day].forEach(function(timeRange) {
+                var times = timeRange.split('-');
+                if (times.length === 2) {
+                  var timeRangeDiv = $('<div>', { class: 'time-range d-flex align-items-center mb-2' });
+                  var startInput = $('<input>', { type: 'time', class: 'form-control me-2 start-time', name: `start_time_${day}[]` }).val(times[0]);
+                  var toSpan = $('<span>', { class: 'me-2' }).text('to');
+                  var endInput = $('<input>', { type: 'time', class: 'form-control end-time', name: `end_time_${day}[]` }).val(times[1]);
+                  var removeBtn = $('<button>', { type: 'button', class: 'btn bg-danger btn-danger btn-sm ms-2' }).text('Remove');
+
+                  removeBtn.on('click', function() {
+                    timeRangeDiv.remove();
+                  });
+
+                  timeRangeDiv.append(startInput, toSpan, endInput, removeBtn);
+                  dayTimeRanges.append(timeRangeDiv);
+                }
+              });
+            });
+          }, 100);
+        }
+      }, 500);
+    }
+  }
+
   // Add Availability button handler
   $('#add-availability-btn').off('click').on('click', function() {
     console.log("Add Availability button clicked");
@@ -421,34 +498,75 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Serialize availability data on form submit if applicable
+  console.log('🔧 Setting up form submission handler...');
   $('#consultant-edit-form').on('submit', function(e) {
+    console.log('📝 Form submission handler triggered!');
+    console.log('🔍 Form element found:', $('#consultant-edit-form').length);
+    console.log('🔍 Availability list found:', $('#availability-list').length);
+    console.log('🔍 Availability select elements:', $('#availability-list select').length);
+    
     var availability = {};
-    $('#availability-list select').each(function() {
+    $('#availability-list select').each(function(index) {
+      console.log('🔄 Processing select element', index);
       var selectedDays = $(this).val();
+      console.log('📅 Selected days:', selectedDays);
       var container = $(this).siblings('.time-ranges-container');
+      console.log('📦 Container found:', container.length);
+      
       if (selectedDays && selectedDays.length > 0) {
         selectedDays.forEach(function(day) {
+          console.log('⏰ Processing day:', day);
           var timeRanges = [];
-          container.find('.day-time-range[data-day="' + day + '"] .time-range').each(function() {
+          var dayRanges = container.find('.day-time-range[data-day="' + day + '"] .time-range');
+          console.log('🕐 Time ranges found for', day, ':', dayRanges.length);
+          
+          dayRanges.each(function() {
             var start = $(this).find('.start-time').val();
             var end = $(this).find('.end-time').val();
+            console.log('⏰ Time range:', start, 'to', end);
             if (start && end) {
               timeRanges.push(start + '-' + end);
             }
           });
+          
           if (timeRanges.length > 0) {
             availability[day] = timeRanges;
+            console.log('✅ Added availability for', day, ':', timeRanges);
           }
         });
       }
     });
-    $('<input>').attr({
-      type: 'hidden',
-      id: 'availability_data',
-      name: 'availability_data',
-      value: JSON.stringify(availability)
-    }).appendTo('#consultant-edit-form');
+    
+    console.log('📊 Final availability object:', availability);
+    
+    // Set the availability data in the form's hidden availability field
+    var availabilityField = $('input[name="availability"]');
+    console.log('🔍 Availability field found:', availabilityField.length);
+    
+    if (availabilityField.length > 0) {
+      availabilityField.val(JSON.stringify(availability));
+      console.log('✅ Set availability field value to:', availabilityField.val());
+    } else {
+      // Fallback: add hidden field if it doesn't exist
+      console.log('⚠️ Availability field not found, creating new one');
+      $('<input>').attr({
+        type: 'hidden',
+        name: 'availability',
+        value: JSON.stringify(availability)
+      }).appendTo('#consultant-edit-form');
+    }
+    
+    console.log("📋 ALL FORM DATA:");
+    $('#consultant-edit-form').serializeArray().forEach(function(field) {
+      if (field.name === 'availability') {
+        console.log('🎯 AVAILABILITY FIELD:', field.name, '=', field.value);
+      }
+    });
   });
+  
+  // Load existing availability data on page load
+  console.log('🚀 Page ready, loading existing availability...');
+  loadExistingAvailability();
 });
 </script>
-{% endblock %}
+{% endblock %}  

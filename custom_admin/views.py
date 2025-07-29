@@ -429,14 +429,55 @@ def edit_consultant(request, consultant_id):
         profile = ConsultantProfile(user=user)
 
     if request.method == 'POST':
-        logger.info(f"Received POST data: {request.POST}")
+        logger.info(f"🔥 ===== FORM SUBMISSION DEBUG =====")
+        logger.info(f"📥 POST data keys: {list(request.POST.keys())}")
+        logger.info(f"📥 POST data: {dict(request.POST)}")
+        
+        # Handle availability data specifically
+        availability_data = request.POST.get('availability')
+        logger.info(f"🎯 Availability data received: '{availability_data}'")
+        logger.info(f"🎯 Availability data type: {type(availability_data)}")
+        logger.info(f"🎯 Availability data length: {len(availability_data) if availability_data else 0}")
+        
         form = ImportedConsultantEditForm(request.POST, request.FILES, instance=profile)
-        logger.info(f"Form fields: {form.fields.keys()}")
+        logger.info(f"📝 Form fields: {list(form.fields.keys())}")
+        logger.info(f"📝 Form has availability field: {'availability' in form.fields}")
+        
         if form.is_valid():
             logger.info("Form is valid")
             try:
                 # Save profile fields
-                form.save()
+                saved_profile = form.save()
+                
+                # Manually handle availability data if it's not being processed by the form
+                logger.info(f"💾 Attempting to save availability data...")
+                if availability_data:
+                    try:
+                        import json
+                        import ast
+                        # Validate JSON format
+                        try:
+                            parsed_availability = json.loads(availability_data)
+                        except json.JSONDecodeError:
+                            # Fallback to parse Python literal string
+                            parsed_availability = ast.literal_eval(availability_data)
+                        logger.info(f"✅ Parsed availability data: {parsed_availability}")
+                        
+                        # Check current availability before saving
+                        logger.info(f"📄 Profile availability before save: {saved_profile.availability}")
+                        
+                        saved_profile.availability = parsed_availability
+                        saved_profile.save()
+                        
+                        # Verify save was successful
+                        saved_profile.refresh_from_db()
+                        logger.info(f"📄 Profile availability after save: {saved_profile.availability}")
+                        logger.info(f"✅ Availability data successfully saved to database!")
+                    except Exception as e:
+                        logger.error(f"❌ Error parsing or saving availability: {e}")
+                else:
+                    logger.warning("⚠️  No availability data received in POST request")
+                
                 profile.save()
 
                 # Handle password change if password field is filled
@@ -500,6 +541,10 @@ def edit_consultant(request, consultant_id):
                     return redirect('custom_admin:consultant_profile', consultant_id=consultant_id)
         else:
             logger.error(f"Form validation errors: {form.errors}")
+            logger.error(f"Form cleaned_data: {form.cleaned_data if hasattr(form, 'cleaned_data') else 'No cleaned_data'}")
+            # Check specifically for availability field issues
+            if 'availability' in form.errors:
+                logger.error(f"Availability field error: {form.errors['availability']}")
             if request.headers.get('x-requested-with') == 'XMLHttpRequest':
                 errors = form.errors.as_json()
                 return JsonResponse({'success': False, 'errors': errors}, status=400)
@@ -510,7 +555,7 @@ def edit_consultant(request, consultant_id):
         # Redirect GET requests to consultant_detail page
         logger.info(f"Redirecting GET request to consultant_profile for user {user.email}")
         return redirect('custom_admin:consultant_profile', consultant_id=consultant_id)
-
+    
 # =============================================================================
 # AUTHENTICATION VIEWS
 # =============================================================================
@@ -934,6 +979,10 @@ def consultant_profile(request, consultant_id):
             decrypted_password = '[Error decrypting password]'
         logger.debug(f"Final decrypted_password value for user {consultant.email}: {decrypted_password}")
 
+        # Debug availability data for template
+        logger.info(f"🎯 DEBUG: Profile availability for template: {profile.availability}")
+        logger.info(f"🎯 DEBUG: Availability type: {type(profile.availability)}")
+        
         context = {
             'consultant': consultant,
             'profile': profile,

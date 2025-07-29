@@ -46,6 +46,9 @@ class ConsultantEditForm(forms.ModelForm):
             'details',
             # 'status',  # Exclude status from fields to avoid direct assignment error
         ]
+        widgets = {
+            'availability': forms.HiddenInput(),  # Handle availability as hidden input since it's built by JavaScript
+        }
     
     skills = forms.ModelMultipleChoiceField(
         queryset=Skill.objects.all(),

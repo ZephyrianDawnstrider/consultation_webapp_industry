@@ -3357,3 +3357,951 @@ ValueError: The view custom_admin.views.consultant_profile didn't return an Http
 [2025-07-28 16:22:04,024] INFO django.server "GET /consultant/consultant_invoice/ HTTP/1.1" 200 24775
 [2025-07-28 16:22:09,425] INFO django.server "GET /consultant/consultant_timesheet/ HTTP/1.1" 200 41077
 [2025-07-28 16:22:11,469] INFO django.server "GET /consultant/consultant_dashboard/ HTTP/1.1" 200 16594
+[2025-07-28 16:26:11,624] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43251
+[2025-07-28 16:26:39,396] INFO django.server "POST /consultant/consultant_profile/13/ HTTP/1.1" 302 0
+[2025-07-28 16:26:39,763] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43357
+[2025-07-28 16:27:40,765] INFO django.server "POST /consultant/consultant_profile/13/ HTTP/1.1" 302 0
+[2025-07-28 16:27:41,088] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43357
+[2025-07-28 16:32:07,232] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 16:32:59,626] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43251
+[2025-07-28 16:32:59,652] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 16:32:59,652] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 16:32:59,886] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 16:33:27,497] INFO django.server "POST /consultant/consultant_profile/13/ HTTP/1.1" 302 0
+[2025-07-28 16:33:27,802] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43357
+[2025-07-28 16:35:35,866] INFO django.server "GET /consultant/consultant_invoice/ HTTP/1.1" 200 24775
+[2025-07-28 16:35:40,151] INFO django.server "GET /consultant/consultant_timesheet/ HTTP/1.1" 200 41077
+[2025-07-28 16:35:47,277] INFO django.server "GET /consultant/consultant_invoice/ HTTP/1.1" 200 24775
+[2025-07-28 16:35:48,605] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43251
+[2025-07-28 16:35:49,344] INFO django.server "GET /consultant/consultant_timesheet/ HTTP/1.1" 200 41077
+[2025-07-28 16:36:22,996] INFO django.server "GET /consultant/consultant_timesheet/ HTTP/1.1" 200 40931
+[2025-07-28 16:36:23,020] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 16:36:23,020] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 16:36:23,026] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 16:37:50,059] INFO django.server "GET /consultant/consultant_timesheet/ HTTP/1.1" 200 40909
+[2025-07-28 16:37:50,086] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 16:37:50,086] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 16:37:50,093] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 16:37:54,982] INFO django.server "GET /consultant/consultant_timesheet/ HTTP/1.1" 200 41077
+[2025-07-28 16:37:55,006] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 16:37:55,007] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 16:37:55,015] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 16:37:57,096] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 16:37:57,097] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 16:38:25,770] INFO django.server "GET /consultant/consultant_invoice/ HTTP/1.1" 200 24775
+[2025-07-28 16:38:25,838] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 16:38:25,839] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 16:38:26,521] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43251
+[2025-07-28 16:38:26,850] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 16:38:26,851] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 16:38:43,110] INFO django.server "POST /consultant/consultant_profile/13/ HTTP/1.1" 302 0
+[2025-07-28 16:38:43,422] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43357
+[2025-07-28 16:39:33,621] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 16:39:36,198] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 16:40:21,698] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 16:40:24,191] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 16:40:33,907] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\forms.py changed, reloading.
+[2025-07-28 16:40:36,131] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 16:41:13,128] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 16:46:06,946] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43251
+[2025-07-28 16:46:07,030] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 16:46:07,031] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 16:46:07,171] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 16:46:31,013] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43251
+[2025-07-28 16:46:31,036] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 16:46:31,036] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 16:46:31,073] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 16:46:40,890] INFO django.server "POST /consultant/consultant_profile/13/ HTTP/1.1" 302 0
+[2025-07-28 16:46:41,199] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43357
+[2025-07-28 16:50:26,486] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 16:50:26,487] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 16:50:28,047] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43251
+[2025-07-28 16:50:28,082] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 16:50:28,084] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 16:50:28,089] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 16:50:28,091] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 16:50:28,130] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 16:50:31,049] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43251
+[2025-07-28 16:50:31,083] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 16:50:31,084] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 16:50:31,084] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 16:50:31,084] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 16:50:31,120] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 16:50:54,815] INFO django.server "POST /consultant/consultant_profile/13/ HTTP/1.1" 302 0
+[2025-07-28 16:50:55,110] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43357
+[2025-07-28 16:50:55,147] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 16:50:55,149] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 16:51:34,588] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 16:51:37,381] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 16:51:50,081] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43251
+[2025-07-28 16:51:50,111] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 16:51:50,112] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 16:51:50,194] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 16:51:50,201] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 16:51:50,202] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 16:52:04,901] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43251
+[2025-07-28 16:52:05,185] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43251
+[2025-07-28 16:52:05,212] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 16:52:05,215] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 16:52:05,215] INFO django.server - Broken pipe from ('127.0.0.1', 62277)
+[2025-07-28 16:52:05,217] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 16:52:05,217] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 16:52:05,295] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 16:52:05,526] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43251
+[2025-07-28 16:52:05,547] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 16:52:05,548] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 16:52:05,554] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 16:52:05,554] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 16:52:05,584] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 16:52:06,028] INFO django.server - Broken pipe from ('127.0.0.1', 62454)
+[2025-07-28 16:52:06,326] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43251
+[2025-07-28 16:52:06,349] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 16:52:06,350] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 16:52:06,357] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 16:52:06,357] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 16:52:06,392] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 16:52:08,438] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43251
+[2025-07-28 16:52:08,467] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 16:52:08,468] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 16:52:09,543] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43251
+[2025-07-28 16:52:09,576] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 16:52:09,578] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 16:52:10,184] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43251
+[2025-07-28 16:52:10,209] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 16:52:10,210] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 16:52:51,258] INFO django.server "POST /consultant/consultant_profile/13/ HTTP/1.1" 302 0
+[2025-07-28 16:52:51,532] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43357
+[2025-07-28 16:52:51,565] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 16:52:51,567] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 16:54:44,951] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43251
+[2025-07-28 16:54:44,984] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 16:54:44,987] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 16:54:44,990] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 16:54:44,991] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 16:54:45,033] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 16:54:58,225] INFO django.server "POST /consultant/consultant_profile/13/ HTTP/1.1" 302 0
+[2025-07-28 16:54:58,499] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43357
+[2025-07-28 16:54:58,533] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 16:54:58,534] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 16:57:03,096] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 16:57:05,735] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 16:57:16,878] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 16:57:19,628] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 16:57:29,814] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 16:57:32,739] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 16:59:58,844] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43251
+[2025-07-28 16:59:58,947] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 16:59:58,947] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 16:59:58,989] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 17:00:00,930] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 17:00:00,931] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 17:00:29,675] INFO django.server "POST /consultant/consultant_profile/13/ HTTP/1.1" 302 0
+[2025-07-28 17:00:30,033] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43357
+[2025-07-28 17:00:30,079] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 17:00:30,080] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 17:02:19,523] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\views.py changed, reloading.
+[2025-07-28 17:02:22,907] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 17:02:42,537] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\views.py changed, reloading.
+[2025-07-28 17:02:45,010] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 17:02:53,794] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\views.py changed, reloading.
+[2025-07-28 17:02:56,420] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 17:04:02,742] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 17:04:09,213] INFO django.server "GET / HTTP/1.1" 200 41672
+[2025-07-28 17:04:17,517] INFO django.server "GET /auth/consultant_list/ HTTP/1.1" 200 35454
+[2025-07-28 17:04:17,596] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-28 17:04:17,865] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-28 17:04:19,880] INFO django.server "GET /auth/consultant_profile/13/ HTTP/1.1" 200 42730
+[2025-07-28 17:04:24,257] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-28 17:04:24,476] INFO django.server "GET /consultant/consultant_dashboard/ HTTP/1.1" 200 16594
+[2025-07-28 17:04:26,388] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43251
+[2025-07-28 17:04:27,830] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 17:04:27,831] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 17:04:51,644] INFO django.server "POST /consultant/consultant_profile/13/ HTTP/1.1" 200 40205
+[2025-07-28 17:04:51,688] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 17:04:51,689] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 17:06:44,821] INFO django.server "POST /consultant/consultant_profile/13/ HTTP/1.1" 200 40205
+[2025-07-28 17:06:44,853] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 17:06:44,855] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 17:06:44,941] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 17:06:44,985] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 17:06:45,046] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 17:06:49,689] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43251
+[2025-07-28 17:06:49,738] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 17:06:49,739] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 17:06:51,509] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43251
+[2025-07-28 17:06:51,570] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 17:06:51,570] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 17:06:51,571] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 17:06:51,572] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 17:06:51,608] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 17:07:06,225] INFO django.server "POST /consultant/consultant_profile/13/ HTTP/1.1" 200 40205
+[2025-07-28 17:07:06,325] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 17:07:06,327] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 17:07:52,801] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\views.py changed, reloading.
+[2025-07-28 17:07:55,498] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 17:10:11,649] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 17:10:16,861] INFO django.server "GET / HTTP/1.1" 200 41672
+[2025-07-28 17:10:16,977] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 17:10:24,124] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-28 17:10:24,452] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 26509
+[2025-07-28 17:10:28,165] INFO django.server "GET /auth/consultant_list/ HTTP/1.1" 200 35454
+[2025-07-28 17:10:28,211] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-28 17:10:28,306] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-28 17:10:31,902] INFO django.server "GET /auth/logout/ HTTP/1.1" 302 0
+[2025-07-28 17:10:31,915] INFO django.server "GET /auth/login/ HTTP/1.1" 200 41125
+[2025-07-28 17:10:41,544] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-28 17:10:41,780] INFO django.server "GET /consultant/consultant_dashboard/ HTTP/1.1" 200 16594
+[2025-07-28 17:10:43,890] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43251
+[2025-07-28 17:10:47,228] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 17:10:47,230] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 17:11:04,756] INFO django.server "POST /consultant/consultant_profile/13/ HTTP/1.1" 302 0
+[2025-07-28 17:11:05,097] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43357
+[2025-07-28 17:11:05,159] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 17:11:05,160] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 17:15:25,684] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 45584
+[2025-07-28 17:15:25,713] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 17:15:25,713] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 17:15:25,726] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 17:15:25,727] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 17:15:25,867] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 17:16:02,610] ERROR django.request Internal Server Error: /consultant/consultant_profile/13/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\views.py", line 609, in consultant_profile
+    return _handle_profile_update(request, consultant, consultant_id)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\views.py", line 751, in _handle_profile_update
+    if form.is_valid():
+       ~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 327, in full_clean
+    self._clean_fields()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\forms\forms.py", line 342, in _clean_fields
+    value = getattr(self, "clean_%s" % name)()
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py", line 109, in clean_availability
+    json.loads(availability)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 339, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+                    f'not {s.__class__.__name__}')
+TypeError: the JSON object must be str, bytes or bytearray, not dict
+[2025-07-28 17:16:02,635] ERROR django.server "POST /consultant/consultant_profile/13/ HTTP/1.1" 500 115549
+[2025-07-28 17:16:02,712] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 17:16:02,713] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 17:16:49,647] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py changed, reloading.
+[2025-07-28 17:16:53,163] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 17:29:48,055] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 17:32:58,207] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py changed, reloading.
+[2025-07-28 17:33:00,394] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 17:33:46,356] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 45584
+[2025-07-28 17:33:46,443] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 17:33:46,444] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 17:33:46,534] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 17:33:58,408] INFO django.server "POST /consultant/consultant_profile/13/ HTTP/1.1" 302 0
+[2025-07-28 17:33:58,744] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 45690
+[2025-07-28 17:35:01,977] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\views.py changed, reloading.
+[2025-07-28 17:35:04,057] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 17:35:27,768] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 45609
+[2025-07-28 17:35:27,864] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 17:35:27,867] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 17:35:28,110] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 17:35:39,327] INFO django.server "POST /consultant/consultant_profile/13/ HTTP/1.1" 302 0
+[2025-07-28 17:35:40,432] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 45715
+[2025-07-28 17:35:47,099] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 45609
+[2025-07-28 17:35:47,148] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 17:35:47,149] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 17:35:47,239] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 17:37:32,651] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\views.py changed, reloading.
+[2025-07-28 17:37:34,494] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 17:38:07,771] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\views.py changed, reloading.
+[2025-07-28 17:38:09,836] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 17:38:12,267] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\views.py changed, reloading.
+[2025-07-28 17:38:14,120] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 17:38:21,370] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 45609
+[2025-07-28 17:38:21,486] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 17:38:21,486] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 17:38:21,640] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 17:38:34,136] INFO django.server "POST /consultant/consultant_profile/13/ HTTP/1.1" 302 0
+[2025-07-28 17:38:34,602] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 45715
+[2025-07-28 17:39:27,440] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 17:39:27,441] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 17:42:20,007] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 46853
+[2025-07-28 17:42:20,027] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 17:42:20,028] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 17:42:20,035] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 17:42:20,036] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 17:42:20,290] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 17:42:56,556] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 17:42:56,557] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 17:54:38,633] INFO django.server "GET / HTTP/1.1" 200 41672
+[2025-07-28 17:54:45,360] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-28 17:54:45,564] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 26509
+[2025-07-28 17:54:49,597] INFO django.server "GET /auth/consultant_list/ HTTP/1.1" 200 35454
+[2025-07-28 17:54:49,653] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-28 17:54:49,749] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-28 17:54:52,708] INFO django.server "GET /auth/consultant_profile/13/ HTTP/1.1" 200 42825
+[2025-07-28 17:55:47,832] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 17:55:47,832] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 18:10:31,982] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:11:20,978] INFO django.server "GET /auth/consultant_profile/13/ HTTP/1.1" 200 42825
+[2025-07-28 18:11:21,042] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 18:11:21,043] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 18:11:21,137] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 18:11:21,138] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 18:11:21,153] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 18:11:22,269] WARNING django.request Not Found: /favicon.ico
+[2025-07-28 18:11:22,270] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-28 18:12:37,730] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\views.py changed, reloading.
+[2025-07-28 18:12:40,213] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:12:43,203] WARNING django.request Not Found: /favicon.ico
+[2025-07-28 18:12:43,206] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-28 18:12:43,211] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 18:12:43,211] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 18:12:43,247] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 18:12:43,248] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 18:14:14,780] INFO django.server "GET /auth/consultant_profile/13/ HTTP/1.1" 200 42825
+[2025-07-28 18:14:14,826] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 18:14:14,827] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 18:14:14,935] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 18:14:14,936] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 18:14:14,971] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 18:14:15,846] WARNING django.request Not Found: /favicon.ico
+[2025-07-28 18:14:15,847] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-28 18:18:40,036] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\views.py changed, reloading.
+[2025-07-28 18:18:41,915] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:19:14,527] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\views.py changed, reloading.
+[2025-07-28 18:19:16,659] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:20:19,980] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 18:20:22,037] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:20:25,970] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 18:20:28,258] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:20:56,434] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 18:20:58,415] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:21:03,115] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 18:21:05,072] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:22:40,505] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:23:03,016] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 18:23:05,328] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:23:14,576] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:23:20,359] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 18:23:22,654] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:23:27,434] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 18:23:29,587] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:23:34,400] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 18:23:36,810] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:23:40,671] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 18:23:43,085] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:23:46,912] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 18:23:49,139] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:23:53,419] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 18:23:55,654] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:23:58,134] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 18:24:00,225] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:24:14,994] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 18:24:17,267] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:24:23,032] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 18:24:25,074] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:24:28,676] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 18:24:30,855] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:24:36,573] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 18:24:38,768] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:24:41,472] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 18:24:43,560] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:24:53,917] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 18:24:55,910] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:25:00,435] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 18:25:02,860] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:25:25,565] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:31:58,449] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-28 18:32:05,133] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-28 18:32:15,341] INFO django.server "GET /auth/consultant_profile/13/ HTTP/1.1" 200 42825
+[2025-07-28 18:32:15,415] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-28 18:32:15,416] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-28 18:32:15,545] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-28 18:32:15,553] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-28 18:32:15,629] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-28 18:32:16,946] WARNING django.request Not Found: /favicon.ico
+[2025-07-28 18:32:16,947] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-29 08:50:52,640] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-29 08:51:04,045] INFO django.server "GET / HTTP/1.1" 200 41672
+[2025-07-29 08:51:04,218] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 08:51:05,342] WARNING django.request Not Found: /favicon.ico
+[2025-07-29 08:51:05,343] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-29 08:51:42,225] INFO django.server "GET / HTTP/1.1" 200 41672
+[2025-07-29 08:51:42,453] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 08:52:05,849] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-29 08:52:06,187] INFO django.server "GET /auth/admin_dashboard/ HTTP/1.1" 200 26509
+[2025-07-29 08:52:06,262] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 08:52:06,315] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 08:52:14,707] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 29918
+[2025-07-29 08:52:15,729] INFO django.server "GET /auth/admin_skills/ HTTP/1.1" 200 33055
+[2025-07-29 08:52:16,193] INFO django.server "GET /auth/skills/ HTTP/1.1" 200 152
+[2025-07-29 08:52:18,025] INFO django.server "GET /auth/consultant_list/ HTTP/1.1" 200 35454
+[2025-07-29 08:52:18,091] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-29 08:52:18,233] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-29 08:52:18,630] INFO django.server "GET /auth/add_consultant/ HTTP/1.1" 200 29918
+[2025-07-29 08:52:20,647] INFO django.server "GET /auth/consultant_list/ HTTP/1.1" 200 35454
+[2025-07-29 08:52:20,716] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-29 08:52:20,828] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-29 08:52:22,695] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 30407
+[2025-07-29 08:52:22,756] INFO django.server "GET /static/custom_admin/js/admin_invoices.js HTTP/1.1" 200 2814
+[2025-07-29 08:52:23,551] INFO django.server "GET /auth/timesheet/ HTTP/1.1" 200 19013
+[2025-07-29 08:52:23,603] INFO django.server "GET /static/custom_admin/js/timesheet.js HTTP/1.1" 200 7231
+[2025-07-29 08:52:24,846] INFO django.server "GET /auth/prospective_consultants_management/ HTTP/1.1" 200 25952
+[2025-07-29 08:52:28,142] INFO django.server "GET /auth/consultant_list/ HTTP/1.1" 200 35454
+[2025-07-29 08:52:28,219] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-29 08:52:28,394] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-29 08:52:31,415] ERROR django.request Internal Server Error: /auth/consultant_profile/13/
+[2025-07-29 08:52:31,423] ERROR django.server "GET /auth/consultant_profile/13/ HTTP/1.1" 500 21
+[2025-07-29 08:52:43,517] ERROR django.request Internal Server Error: /auth/consultant_profile/13/
+[2025-07-29 08:52:43,519] ERROR django.server "GET /auth/consultant_profile/13/ HTTP/1.1" 500 21
+[2025-07-29 08:52:45,106] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 08:52:45,109] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 08:54:59,561] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-29 08:58:12,660] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 08:58:12,662] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 08:58:12,717] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 08:58:12,718] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 08:58:14,196] INFO django.server "GET /auth/consultant_list/ HTTP/1.1" 200 35454
+[2025-07-29 08:58:14,228] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 08:58:14,230] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 08:58:14,256] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-29 08:58:14,386] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 08:58:14,390] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 08:58:14,403] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 08:58:14,588] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
+[2025-07-29 08:58:15,193] WARNING django.request Not Found: /favicon.ico
+[2025-07-29 08:58:15,194] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-29 08:58:20,115] ERROR django.request Internal Server Error: /auth/consultant_profile/13/
+[2025-07-29 08:58:20,116] ERROR django.server "GET /auth/consultant_profile/13/ HTTP/1.1" 500 21
+[2025-07-29 08:58:20,213] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 08:58:20,214] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 09:42:18,840] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-29 09:42:42,430] INFO django.server "GET /auth/consultant_profile/13/ HTTP/1.1" 200 43304
+[2025-07-29 09:42:42,512] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 09:42:42,513] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 09:42:46,072] WARNING django.request Not Found: /favicon.ico
+[2025-07-29 09:42:46,074] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-29 09:57:19,052] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 09:57:19,053] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 10:01:18,972] ERROR django.request Internal Server Error: /auth/consultant_profile/13/
+[2025-07-29 10:01:18,973] ERROR django.server "GET /auth/consultant_profile/13/ HTTP/1.1" 500 21
+[2025-07-29 10:01:19,057] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 10:01:19,059] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 10:01:19,459] WARNING django.request Not Found: /favicon.ico
+[2025-07-29 10:01:19,460] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-29 10:04:59,899] INFO django.server "GET /auth/consultant_profile/13/ HTTP/1.1" 200 43304
+[2025-07-29 10:04:59,931] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 10:04:59,932] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 10:05:00,059] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 10:05:00,059] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 10:05:00,136] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 10:05:01,158] WARNING django.request Not Found: /favicon.ico
+[2025-07-29 10:05:01,159] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-29 10:06:54,504] INFO django.server "GET /auth/consultant_profile/13/ HTTP/1.1" 200 43013
+[2025-07-29 10:06:54,545] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 10:06:54,545] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 10:06:54,704] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 10:06:55,420] WARNING django.request Not Found: /favicon.ico
+[2025-07-29 10:06:55,421] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-29 10:09:07,851] INFO django.server "GET /auth/consultant_profile/13/ HTTP/1.1" 200 43104
+[2025-07-29 10:09:07,910] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 10:09:07,911] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 10:09:07,970] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 10:09:08,526] WARNING django.request Not Found: /favicon.ico
+[2025-07-29 10:09:08,528] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-29 10:10:17,641] INFO django.server "GET /auth/consultant_profile/13/ HTTP/1.1" 200 42961
+[2025-07-29 10:10:17,692] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 10:10:17,693] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 10:10:17,786] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 10:10:18,528] WARNING django.request Not Found: /favicon.ico
+[2025-07-29 10:10:18,529] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-29 10:10:37,126] INFO django.server "GET /auth/consultant_profile/13/ HTTP/1.1" 200 42985
+[2025-07-29 10:10:37,177] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 10:10:37,178] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 10:10:37,257] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 10:10:37,817] WARNING django.request Not Found: /favicon.ico
+[2025-07-29 10:10:37,818] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-29 10:10:51,493] INFO django.server "GET /auth/consultant_profile/13/ HTTP/1.1" 200 43014
+[2025-07-29 10:10:51,544] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 10:10:51,544] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 10:10:51,635] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 10:10:52,116] WARNING django.request Not Found: /favicon.ico
+[2025-07-29 10:10:52,117] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-29 10:11:23,203] INFO django.server "GET /auth/consultant_profile/13/ HTTP/1.1" 200 43014
+[2025-07-29 10:11:23,249] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 10:11:23,250] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 10:11:23,355] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 10:11:23,989] WARNING django.request Not Found: /favicon.ico
+[2025-07-29 10:11:23,989] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-29 10:12:57,858] INFO django.server "GET /auth/consultant_profile/13/ HTTP/1.1" 200 43105
+[2025-07-29 10:12:57,892] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 10:12:57,892] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 10:12:58,055] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 10:12:58,823] WARNING django.request Not Found: /favicon.ico
+[2025-07-29 10:12:58,824] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-29 10:13:24,907] INFO django.server "GET /auth/consultant_profile/13/ HTTP/1.1" 200 43050
+[2025-07-29 10:13:24,955] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 10:13:24,955] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 10:13:25,016] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 10:13:25,492] WARNING django.request Not Found: /favicon.ico
+[2025-07-29 10:13:25,493] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-29 10:13:37,010] INFO django.server "GET /auth/consultant_profile/13/ HTTP/1.1" 200 43041
+[2025-07-29 10:13:37,065] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 10:13:37,065] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 10:13:37,140] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 10:13:37,621] WARNING django.request Not Found: /favicon.ico
+[2025-07-29 10:13:37,622] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-29 10:14:20,868] INFO django.server "GET /auth/consultant_profile/13/ HTTP/1.1" 200 43014
+[2025-07-29 10:14:20,910] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 10:14:20,910] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 10:14:21,044] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 10:14:21,550] WARNING django.request Not Found: /favicon.ico
+[2025-07-29 10:14:21,551] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-29 10:15:03,623] INFO django.server "GET /auth/consultant_profile/13/ HTTP/1.1" 200 43014
+[2025-07-29 10:15:03,657] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 10:15:03,657] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 10:15:03,940] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 10:15:04,794] WARNING django.request Not Found: /favicon.ico
+[2025-07-29 10:15:04,794] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-29 10:15:21,762] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-29 10:15:22,035] INFO django.server "GET /consultant/consultant_dashboard/ HTTP/1.1" 200 16594
+[2025-07-29 10:15:22,069] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 10:15:22,072] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 10:15:24,294] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 45885
+[2025-07-29 10:15:27,835] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 45885
+[2025-07-29 10:15:27,856] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 10:15:27,856] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 10:15:27,954] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 10:16:30,198] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 10:16:30,201] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 10:16:35,716] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 45885
+[2025-07-29 10:16:35,783] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 10:16:35,788] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 10:16:35,807] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 10:16:35,808] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 10:16:35,908] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 10:19:26,420] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 45930
+[2025-07-29 10:19:26,457] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 10:19:26,458] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 10:19:26,465] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 10:19:26,466] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 10:19:26,787] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 10:22:55,753] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 45868
+[2025-07-29 10:22:55,776] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 10:22:55,776] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 10:22:55,997] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 10:25:50,731] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 10:25:50,732] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 10:33:37,872] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 45877
+[2025-07-29 10:33:37,893] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 10:33:37,894] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 10:33:38,240] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 10:39:49,003] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 45868
+[2025-07-29 10:39:49,023] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 10:39:49,024] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 10:39:49,319] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 10:39:52,525] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 10:39:52,525] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 10:48:06,205] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-29 10:48:09,943] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-29 10:51:10,617] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\custom_admin\views.py changed, reloading.
+[2025-07-29 10:51:12,816] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-29 10:56:23,549] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 45982
+[2025-07-29 10:56:23,660] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 10:56:23,661] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 10:56:23,840] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 11:18:27,318] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 46054
+[2025-07-29 11:18:27,342] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 11:18:27,342] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 11:18:27,611] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 11:18:56,408] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-29 11:18:59,789] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 46054
+[2025-07-29 11:18:59,875] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 11:18:59,877] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 11:18:59,940] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 11:19:00,735] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 11:19:00,736] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 11:21:39,976] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 46232
+[2025-07-29 11:21:40,008] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 11:21:40,009] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 11:21:40,011] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 11:21:40,012] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 11:21:40,278] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 11:38:56,827] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 46470
+[2025-07-29 11:38:56,889] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 11:38:56,890] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 11:38:56,903] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 11:38:56,904] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 11:38:57,153] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 11:39:29,608] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-29 11:39:32,048] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 46470
+[2025-07-29 11:39:32,073] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 11:39:32,074] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 11:39:32,149] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 11:39:32,150] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 11:39:32,185] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 11:45:42,686] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 46549
+[2025-07-29 11:45:42,714] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 11:45:42,715] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 11:45:42,719] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 11:45:42,719] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 11:45:43,026] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 11:48:03,595] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 46695
+[2025-07-29 11:48:03,622] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 11:48:03,622] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 11:48:03,623] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 11:48:03,625] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 11:48:03,937] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 11:49:54,680] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 46776
+[2025-07-29 11:49:54,707] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 11:49:54,708] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 11:49:54,718] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 11:49:54,719] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 11:49:55,005] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 12:07:03,942] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-29 12:08:07,685] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 46766
+[2025-07-29 12:08:07,732] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 12:08:07,733] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 12:08:07,785] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 12:08:07,785] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 12:08:08,283] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 12:08:51,642] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 46987
+[2025-07-29 12:08:51,679] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 12:08:51,680] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 12:08:51,686] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 12:08:51,686] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 12:08:51,882] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 12:09:18,564] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py changed, reloading.
+[2025-07-29 12:09:20,308] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-29 12:09:37,518] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\forms.py changed, reloading.
+[2025-07-29 12:09:39,780] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-29 12:10:02,449] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 46987
+[2025-07-29 12:10:02,483] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 12:10:02,485] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 12:10:02,559] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 12:10:02,579] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 12:10:02,998] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 12:13:15,849] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 46987
+[2025-07-29 12:13:15,890] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 12:13:15,891] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 12:13:15,891] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 12:13:15,893] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 12:13:16,156] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 12:16:03,402] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 46987
+[2025-07-29 12:16:03,445] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 12:16:03,447] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 12:16:03,447] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 12:16:03,447] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 12:16:03,675] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 12:40:43,426] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 46987
+[2025-07-29 12:40:43,513] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 12:40:43,516] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 12:40:43,518] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 12:40:43,519] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 12:40:43,745] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 12:41:06,426] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 46987
+[2025-07-29 12:41:06,467] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 12:41:06,471] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 12:41:06,472] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 12:41:06,472] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 12:41:06,542] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 12:44:05,101] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 49372
+[2025-07-29 12:44:05,160] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 12:44:05,165] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 12:44:05,166] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 12:44:05,167] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 12:44:05,350] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 12:44:06,195] WARNING django.request Not Found: /favicon.ico
+[2025-07-29 12:44:06,195] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-29 12:44:16,802] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 49372
+[2025-07-29 12:44:16,842] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 12:44:16,842] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 12:44:16,845] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 12:44:16,848] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 12:44:16,917] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 12:45:50,958] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 49521
+[2025-07-29 12:45:50,995] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 12:45:50,995] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 12:45:51,005] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 12:45:51,006] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 12:45:51,349] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 12:45:59,428] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 49521
+[2025-07-29 12:45:59,459] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 12:45:59,462] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 12:45:59,464] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 12:45:59,464] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 12:45:59,567] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 12:48:34,466] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 49556
+[2025-07-29 12:48:34,488] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 12:48:34,488] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 12:48:34,495] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 12:48:34,496] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 12:48:34,618] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 12:48:45,687] INFO django.server - Broken pipe from ('127.0.0.1', 54962)
+[2025-07-29 12:48:46,128] INFO django.server - Broken pipe from ('127.0.0.1', 54975)
+[2025-07-29 12:48:46,143] INFO django.server - Broken pipe from ('127.0.0.1', 54974)
+[2025-07-29 12:48:46,239] INFO django.server - Broken pipe from ('127.0.0.1', 61071)
+[2025-07-29 12:48:46,449] INFO django.server - Broken pipe from ('127.0.0.1', 61076)
+[2025-07-29 12:48:47,070] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 49556
+[2025-07-29 12:48:47,095] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 12:48:47,096] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 12:48:47,110] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 12:48:47,110] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 12:48:47,184] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 12:48:54,180] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-07-29 12:48:58,404] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 49556
+[2025-07-29 12:48:58,433] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 12:48:58,434] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 12:48:58,512] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 12:48:58,512] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 12:48:58,549] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 13:06:43,659] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 49556
+[2025-07-29 13:06:43,704] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 13:06:43,706] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 13:06:43,707] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 13:06:43,708] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 13:06:43,951] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 13:08:40,140] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 49655
+[2025-07-29 13:08:40,165] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 13:08:40,166] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 13:08:40,169] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 13:08:40,170] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 13:08:40,383] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 13:38:06,225] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 49655
+[2025-07-29 13:38:06,254] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 13:38:06,256] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 13:38:06,256] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 13:38:06,257] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 13:38:06,390] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 13:50:15,621] INFO django.server "GET / HTTP/1.1" 200 41672
+[2025-07-29 13:50:29,394] INFO django.server "POST /auth/login/ HTTP/1.1" 302 0
+[2025-07-29 13:50:29,675] INFO django.server "GET /consultant/consultant_dashboard/ HTTP/1.1" 200 16594
+[2025-07-29 13:51:37,521] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 49655
+[2025-07-29 14:21:12,556] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 14:21:12,557] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 14:26:14,030] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 49722
+[2025-07-29 14:26:14,067] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 14:26:14,068] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 14:26:14,078] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 14:26:14,079] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 14:26:14,225] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 14:29:28,151] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 49722
+[2025-07-29 14:29:28,178] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 14:29:28,179] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 14:29:28,183] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 14:29:28,184] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 14:29:28,415] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 14:35:34,820] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 49634
+[2025-07-29 14:35:34,844] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 14:35:34,845] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 14:35:34,856] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 14:35:34,856] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 14:35:34,933] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 14:39:00,640] ERROR django.request Internal Server Error: /consultant/consultant_profile/13/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\views.py", line 690, in consultant_profile
+    return render(request, 'consultant_profile.html', context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 861, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 861, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 1490, in do_with
+    extra_context = token_kwargs(remaining_bits, parser, support_legacy=True)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1111, in token_kwargs
+    kwargs[key] = parser.compile_filter(value)
+                  ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 597, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 693, in __init__
+    filter_func = parser.find_filter(filter_name)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 603, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'split'
+[2025-07-29 14:39:00,662] ERROR django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 500 386253
+[2025-07-29 14:39:00,708] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 14:39:00,709] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 14:39:29,766] ERROR django.request Internal Server Error: /consultant/consultant_profile/13/
+Traceback (most recent call last):
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\views.py", line 690, in consultant_profile
+    return render(request, 'consultant_profile.html', context)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ~~~~~~~~~~~~^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 861, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 861, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\defaulttags.py", line 1490, in do_with
+    extra_context = token_kwargs(remaining_bits, parser, support_legacy=True)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 1111, in token_kwargs
+    kwargs[key] = parser.compile_filter(value)
+                  ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 597, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 693, in __init__
+    filter_func = parser.find_filter(filter_name)
+  File "C:\Users\Ayush\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 603, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'split'
+[2025-07-29 14:39:29,771] ERROR django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 500 385993
+[2025-07-29 14:39:29,808] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 14:39:29,808] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 14:40:02,473] INFO django.server "GET /consultant/consultant_dashboard/ HTTP/1.1" 200 16594
+[2025-07-29 14:40:02,493] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 14:40:02,493] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 14:40:02,543] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 14:40:04,137] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 49722
+[2025-07-29 14:47:50,395] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43468
+[2025-07-29 14:47:50,419] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 14:47:50,419] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 14:47:50,675] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 14:56:55,229] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43468
+[2025-07-29 14:56:55,253] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 14:56:55,254] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 14:56:55,512] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 14:58:26,115] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43623
+[2025-07-29 14:58:26,135] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 14:58:26,136] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 14:58:26,419] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
