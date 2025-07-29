@@ -125,6 +125,11 @@
                   <button type="button" class="btn bg-secondary btn-secondary btn-sm mb-3" id="add-availability-btn">Add Availability</button>
                   <div id="availability-list"></div>
               </div>
+              <style>
+                textarea[name="availability"] {
+                  display: none !important;
+                }
+              </style>
               {{ form.availability }}
           </div>
           </div>
@@ -305,76 +310,72 @@
       }
     });
 
-// Function to load existing availability data
-function loadExistingAvailability() {
-  console.log('🔄 Loading existing availability data...');
-  // Get availability data from Django context - properly escaped
-  {% if profile.availability %}
-    var availabilityString = {{ profile.availability|safe }};
-  {% else %}
-    var availabilityString = {};
-  {% endif %}
-  
-  console.log('📄 Raw availability data:', availabilityString);
-  console.log('📄 Type of availability data:', typeof availabilityString);
-  
-  var existingAvailability = {};
-  if (typeof availabilityString === 'object' && availabilityString !== null) {
-    existingAvailability = availabilityString;
-  } else if (typeof availabilityString === 'string') {
-    existingAvailability = safeJSONParse(availabilityString, {});
-  }
-  
-  console.log('Parsed availability:', existingAvailability);
-  
-  if (existingAvailability && Object.keys(existingAvailability).length > 0) {
-    $('#add-availability-btn').click(); // Add the availability section
+  // Function to load existing availability data
+  function loadExistingAvailability() {
+    console.log('🔄 Loading existing availability data...');
+    // Get availability data from Django context - properly escaped
+    var availabilityString = JSON.parse(document.getElementById('initialAvailability').textContent);
     
-    // Wait for TomSelect to initialize, then set the values
-    setTimeout(function() {
-      var availabilitySelect = $('#availability-list select').last();
-      var timeRangesContainer = availabilitySelect.siblings('.time-ranges-container');
+    console.log('📄 Raw availability data:', availabilityString);
+    console.log('📄 Type of availability data:', typeof availabilityString);
+    
+    var existingAvailability = {};
+    if (typeof availabilityString === 'object' && availabilityString !== null) {
+      existingAvailability = availabilityString;
+    } else if (typeof availabilityString === 'string') {
+      existingAvailability = JSON.parse(availabilityString);
+    }
+    
+    console.log('Parsed availability:', existingAvailability);
+    
+    if (existingAvailability && Object.keys(existingAvailability).length > 0) {
+      $('#add-availability-btn').click(); // Add the availability section
       
-      // Get the TomSelect instance
-      var tomSelectInstance = availabilitySelect[0].tomselect;
-      if (tomSelectInstance) {
-        // Set selected days
-        var daysToSelect = Object.keys(existingAvailability);
-        tomSelectInstance.setValue(daysToSelect);
+      // Wait for TomSelect to initialize, then set the values
+      setTimeout(function() {
+        var availabilitySelect = $('#availability-list select').last();
+        var timeRangesContainer = availabilitySelect.siblings('.time-ranges-container');
         
-        // Add time ranges for each day
-        setTimeout(function() {
-          Object.keys(existingAvailability).forEach(function(day) {
-            var dayDiv = timeRangesContainer.find('.day-time-range[data-day="' + day + '"]');
-            var dayTimeRanges = dayDiv.find('.day-time-ranges');
-            
-            // Clear existing time ranges
-            dayTimeRanges.empty();
-            
-            // Add time ranges for this day
-            existingAvailability[day].forEach(function(timeRange) {
-              var times = timeRange.split('-');
-              if (times.length === 2) {
-                var timeRangeDiv = $('<div>', { class: 'time-range d-flex align-items-center mb-2' });
-                var startInput = $('<input>', { type: 'time', class: 'form-control me-2 start-time', name: `start_time_${day}[]` }).val(times[0]);
-                var toSpan = $('<span>', { class: 'me-2' }).text('to');
-                var endInput = $('<input>', { type: 'time', class: 'form-control end-time', name: `end_time_${day}[]` }).val(times[1]);
-                var removeBtn = $('<button>', { type: 'button', class: 'btn bg-danger btn-danger btn-sm ms-2' }).text('Remove');
+        // Get the TomSelect instance
+        var tomSelectInstance = availabilitySelect[0].tomselect;
+        if (tomSelectInstance) {
+          // Set selected days
+          var daysToSelect = Object.keys(existingAvailability);
+          tomSelectInstance.setValue(daysToSelect);
+          
+          // Add time ranges for each day
+          setTimeout(function() {
+            Object.keys(existingAvailability).forEach(function(day) {
+              var dayDiv = timeRangesContainer.find('.day-time-range[data-day="' + day + '"]');
+              var dayTimeRanges = dayDiv.find('.day-time-ranges');
+              
+              // Clear existing time ranges
+              dayTimeRanges.empty();
+              
+              // Add time ranges for this day
+              existingAvailability[day].forEach(function(timeRange) {
+                var times = timeRange.split('-');
+                if (times.length === 2) {
+                  var timeRangeDiv = $('<div>', { class: 'time-range d-flex align-items-center mb-2' });
+                  var startInput = $('<input>', { type: 'time', class: 'form-control me-2 start-time', name: `start_time_${day}[]` }).val(times[0]);
+                  var toSpan = $('<span>', { class: 'me-2' }).text('to');
+                  var endInput = $('<input>', { type: 'time', class: 'form-control end-time', name: `end_time_${day}[]` }).val(times[1]);
+                  var removeBtn = $('<button>', { type: 'button', class: 'btn bg-danger btn-danger btn-sm ms-2' }).text('Remove');
 
-                removeBtn.on('click', function() {
-                  timeRangeDiv.remove();
-                });
+                  removeBtn.on('click', function() {
+                    timeRangeDiv.remove();
+                  });
 
-                timeRangeDiv.append(startInput, toSpan, endInput, removeBtn);
-                dayTimeRanges.append(timeRangeDiv);
-              }
+                  timeRangeDiv.append(startInput, toSpan, endInput, removeBtn);
+                  dayTimeRanges.append(timeRangeDiv);
+                }
+              });
             });
-          });
-        }, 100);
-      }
-    }, 500);
+          }, 100);
+        }
+      }, 500);
+    }
   }
-}
 
 // Add Availability button handler
 $('#add-availability-btn').off('click').on('click', function() {

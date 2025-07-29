@@ -4305,3 +4305,31 @@ django.template.exceptions.TemplateSyntaxError: Invalid filter: 'split'
 [2025-07-29 14:58:26,135] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
 [2025-07-29 14:58:26,136] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
 [2025-07-29 14:58:26,419] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 15:06:23,286] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43623
+[2025-07-29 15:06:23,312] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 15:06:23,312] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 15:06:23,424] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 15:07:16,075] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43623
+[2025-07-29 15:07:16,092] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 15:07:16,092] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 15:07:16,214] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 15:07:30,552] INFO django.server "GET /auth/consultant_profile/13/ HTTP/1.1" 200 43014
+[2025-07-29 15:07:30,617] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 15:07:30,617] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 15:07:30,750] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 15:07:31,778] WARNING django.request Not Found: /favicon.ico
+[2025-07-29 15:07:31,779] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-07-29 15:09:45,456] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 15:09:45,457] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 15:16:18,233] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43811
+[2025-07-29 15:16:18,262] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 15:16:18,263] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 15:16:18,280] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 15:16:18,281] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 15:16:18,449] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-07-29 15:17:55,774] INFO django.server "GET /consultant/consultant_profile/13/ HTTP/1.1" 200 43804
+[2025-07-29 15:17:55,795] WARNING django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[2025-07-29 15:17:55,796] WARNING django.server "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 2966
+[2025-07-29 15:17:55,804] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-07-29 15:17:55,805] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-07-29 15:17:55,917] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
