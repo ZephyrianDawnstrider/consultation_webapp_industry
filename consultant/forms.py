@@ -72,9 +72,12 @@ class ConsultantProfileForm(forms.ModelForm):
                     'skill_name': se.skill.name,
                     'experience_years': se.experience_years
                 })
+            # Set status field widget to disabled (readonly)
+            self.fields['status'].widget.attrs['disabled'] = 'disabled'
         else:
             self.initial_skill_experiences = []
                 
+                    
 
     def clean_name(self):
         name = self.cleaned_data.get('name', '').strip()
