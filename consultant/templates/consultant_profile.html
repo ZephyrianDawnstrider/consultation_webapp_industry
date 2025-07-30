@@ -42,6 +42,8 @@
                     {% endfor %}
                 </div>
                 <p><strong>Email:</strong> {{ consultant.email }}</p>
+                <label for="{{ form.linkedin_profile.id_for_label }}" class="form-label font-semibold">LinkedIn Profile:</label>
+                {{ form.linkedin_profile }}
             </div>
             <div class="col-md-6">
                 <label for="{{ form.profile_picture.id_for_label }}" class="form-label font-semibold">Password:</label>
@@ -150,7 +152,7 @@
               {{ form.status }}
               <label for="{{ form.cost_type.id_for_label }}" class="form-label">Cost Type:<span class="text-danger">*</span></label>
               {{ form.cost_type }}
-              <div class="form-group mt-3">
+              <div class="form-group">
               <label for="{{ form.cost.id_for_label }}" id="cost_label" class="form-label"></label>
               {{ form.cost }}
               </div>

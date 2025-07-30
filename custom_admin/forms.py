@@ -59,6 +59,12 @@ class ConsultantEditForm(forms.ModelForm):
     agreement_document = forms.FileField(required=False)
     details = forms.CharField(widget=forms.Textarea, required=False)
 
+    def clean_linkedin_profile(self):
+        linkedin_url = self.cleaned_data.get('linkedin_profile')
+        if linkedin_url and not linkedin_url.startswith(('http://', 'https://')):
+            linkedin_url = 'https://' + linkedin_url
+        return linkedin_url
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         # Set initial status value as string from ConsultantStatus instance
