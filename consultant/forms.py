@@ -1,4 +1,3 @@
-
 from django import forms
 from consultant.models import ConsultantProfile, ConsultantSkillExperience
 from custom_admin.models import Skill
@@ -7,6 +6,21 @@ import json
 class ConsultantProfileForm(forms.ModelForm):
     name = forms.CharField(max_length=255, required=True, widget=forms.TextInput(attrs={'class': 'form-control shadow-sm', 'placeholder': 'Enter full name'}))
     mobile = forms.CharField(max_length=15, required=False, widget=forms.TextInput(attrs={'class': 'form-control shadow-sm', 'placeholder': 'Enter mobile number'}))
+    linkedin_profile = forms.CharField(required=False, widget=forms.TextInput(attrs={'class': 'form-control shadow-sm', 'placeholder': 'Enter LinkedIn profile URL'}))
+
+    def clean_linkedin_profile(self):
+        data = self.cleaned_data.get('linkedin_profile', '').strip()
+        if data:
+            # Accept URLs with or without scheme
+            import re
+            url_pattern = re.compile(
+                r'^(https?://)?'  # optional scheme
+                r'([\w.-]+)'      # domain
+                r'(/[\w./-]*)?$'  # optional path
+            )
+            if not url_pattern.match(data):
+                raise forms.ValidationError("Enter a valid LinkedIn profile URL.")
+        return data
     
     # New fields for cost type, cost, weekly commitment, and availability
     COST_TYPE_CHOICES = [
@@ -23,6 +37,7 @@ class ConsultantProfileForm(forms.ModelForm):
         fields = [
             'name',
             'mobile',
+            'linkedin_profile',
             'bank_account_name',
             'bank_account_number',
             'bank_ifsc',
@@ -111,6 +126,7 @@ class ConsultantProfileForm(forms.ModelForm):
                 raise forms.ValidationError("Availability must be a valid JSON object.")
             try:
                 # Validate it can be serialized to JSON
+                import json
                 json.dumps(availability)
             except (TypeError, ValueError) as e:
                 raise forms.ValidationError(f"Availability must be serializable to JSON: {str(e)}")
@@ -134,4 +150,3 @@ class ConsultantProfileForm(forms.ModelForm):
         instance = super().save(commit=commit)
         # Skills handling is now done in the view
         return instance
-

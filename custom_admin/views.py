@@ -208,6 +208,8 @@ def timesheet(request):
                 ]
         except Exception as e:
             logger.error(f"Error reading timesheet CSV file: {str(e)}")
+            timesheet_entries = []
+            upload_error_message = "Timesheet CSV file is missing or could not be read."
         except User.DoesNotExist:
             selected_consultant = None
 
@@ -1471,26 +1473,48 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 @login_required
 def admin_invoices(request):
     """
-    Display invoice management interface with list of invoices with pagination
+    Display invoice management interface with list of invoices with pagination and filtering by month and consultant name
     """
+    from django.db.models import Q
     invoices_list = Invoice.objects.select_related('consultant').order_by('-month')
-    
+
+    # Get filter parameters from GET request
+    filter_month = request.GET.get('month', '').strip()
+    filter_name = request.GET.get('name', '').strip()
+
+    # Filter by month if provided (expecting format 'YYYY-MM')
+    if filter_month:
+        try:
+            year, month = map(int, filter_month.split('-'))
+            invoices_list = invoices_list.filter(month__year=year, month__month=month)
+        except ValueError:
+            pass  # Ignore invalid month format
+
+    # Filter by consultant name or email if provided
+    if filter_name:
+        invoices_list = invoices_list.filter(
+            Q(consultant__consultant_profile__name__icontains=filter_name) |
+            Q(consultant__email__icontains=filter_name)
+        )
+
     # Pagination
     page = request.GET.get('page', 1)
     paginator = Paginator(invoices_list, 10)  # Show 10 invoices per page
-    
+
     try:
         invoices = paginator.page(page)
     except PageNotAnInteger:
         invoices = paginator.page(1)
     except EmptyPage:
         invoices = paginator.page(paginator.num_pages)
-    
+
     return render(request, 'admin_invoices.html', {
         'current_page': 'Invoice Management',
         'invoices': invoices,
         'status_choices': INVOICE_STATUS_CHOICES,
         'paginator': paginator,
+        'filter_month': filter_month,
+        'filter_name': filter_name,
     })
 
 @login_required
