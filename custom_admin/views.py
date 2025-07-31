@@ -1573,23 +1573,55 @@ def delete_invoice(request, invoice_id):
 def update_invoice_status(request, invoice_id):
     """
     View to update the status of an invoice via AJAX POST request.
+    Sends email notification to consultant on status change.
     """
     from django.http import JsonResponse
     from .models import Invoice
+    from django.core.mail import send_mail
+    from django.conf import settings
+    import logging
+
+    logger = logging.getLogger(__name__)
 
     try:
         invoice = Invoice.objects.get(id=invoice_id)
     except Invoice.DoesNotExist:
         return JsonResponse({'success': False, 'message': 'Invoice not found.'}, status=404)
 
+    from custom_admin.constants import INVOICE_STATUS_CHOICES
+
     new_status = request.POST.get('status')
-    valid_statuses = ['approved', 'pending', 'rejected', 'awaiting_review']
+    valid_statuses = [choice[0] for choice in INVOICE_STATUS_CHOICES]
 
     if new_status not in valid_statuses:
         return JsonResponse({'success': False, 'message': 'Invalid status value.'}, status=400)
 
     invoice.status = new_status
     invoice.save()
+
+    # Send email notification to consultant
+    try:
+        logger.info(f"Preparing to send invoice status update email to {invoice.consultant.email} for invoice {invoice.id}")
+        subject = f"Invoice Status Updated: {invoice.name}"
+        message = (
+            f"Dear {invoice.consultant.consultant_profile.name or invoice.consultant.email},\n\n"
+            f"The status of your invoice '{invoice.name}' for {invoice.month.strftime('%B %Y')} has been updated to '{new_status}'.\n\n"
+            f"Please log in to your account to view more details.\n\n"
+            f"Regards,\n"
+            f"Consultant Team"
+        )
+        recipient_list = [invoice.consultant.email]
+        logger.info(f"Email details - Subject: {subject}, Recipients: {recipient_list}, Message: {message}")
+        send_mail(
+            subject=subject,
+            message=message,
+            from_email=getattr(settings, 'DEFAULT_FROM_EMAIL', 'no-reply@example.com'),
+            recipient_list=recipient_list,
+            fail_silently=False,
+        )
+        logger.info(f"Invoice status update email sent to {invoice.consultant.email} for invoice {invoice.id}")
+    except Exception as e:
+        logger.error(f"Failed to send invoice status update email for invoice {invoice.id}: {str(e)}")
 
     return JsonResponse({'success': True, 'message': 'Invoice status updated successfully.'})
     
