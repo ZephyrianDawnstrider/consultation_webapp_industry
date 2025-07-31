@@ -292,6 +292,12 @@
                 const invoiceId = this.getAttribute('data-invoice-id');
                 const newStatus = this.value;
 
+                // Show loading overlay
+                const loadingOverlay = document.getElementById('loading-overlay');
+                if (loadingOverlay) {
+                    loadingOverlay.classList.remove('hidden');
+                }
+
                 // Prepare CSRF token for POST request
                 function getCookie(name) {
                     let cookieValue = null;
@@ -322,6 +328,10 @@
                 })
                 .then(response => response.json())
                 .then(data => {
+                    // Hide loading overlay
+                    if (loadingOverlay) {
+                        loadingOverlay.classList.add('hidden');
+                    }
                     if (data.success) {
                         alert('Invoice status updated successfully.');
                     } else {
@@ -329,6 +339,10 @@
                     }
                 })
                 .catch(error => {
+                    // Hide loading overlay
+                    if (loadingOverlay) {
+                        loadingOverlay.classList.add('hidden');
+                    }
                     alert('Error updating status: ' + error);
                 });
             });
