@@ -767,7 +767,6 @@ def _handle_profile_update(request, consultant, consultant_id):
             logger.info(f"💾 Processing availability data...")
             if availability_data:
                 try:
-                    import json
                     # Validate JSON format
                     parsed_availability = json.loads(availability_data)
                     logger.info(f"✅ JSON validation successful: {parsed_availability}")
@@ -783,6 +782,7 @@ def _handle_profile_update(request, consultant, consultant_id):
                     instance.refresh_from_db()
                     logger.info(f"📄 Profile availability after save: {instance.availability}")
                     logger.info(f"✅ Availability data successfully saved to database!")
+
                 except json.JSONDecodeError as e:
                     logger.error(f"❌ Invalid availability JSON: {e}")
                 except Exception as e:
