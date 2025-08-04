@@ -581,10 +581,53 @@ def admin_dashboard(request):
     Admin dashboard with key metrics and statistics
     """
     try:
+        from django.db.models.functions import TruncMonth
+        from django.db.models import Count
+        from general.models import ProspectiveConsultant
+
         # Calculate dashboard metrics
         total_consultants = User.objects.filter(role='consultant').count()
-        pending_invoices = Invoice.objects.filter(status='pending').count()
-        approved_sessions = SessionBooking.objects.count()
+
+        # Calculate pending invoices count and monthly counts for last 6 months
+        pending_invoices = Invoice.objects.filter(status='awaiting_review').count()
+
+        # Monthly counts for pending invoices for last 6 months
+        from datetime import datetime, timedelta
+        today = datetime.today()
+        six_months_ago = today - timedelta(days=180)
+
+        monthly_pending_invoices_qs = Invoice.objects.filter(
+            status='awaiting_review',
+            month__gte=six_months_ago
+        ).annotate(month_only=TruncMonth('month')).values('month_only').annotate(count=Count('id')).order_by('month_only')
+
+        monthly_pending_invoices = {entry['month_only'].strftime('%Y-%m'): entry['count'] for entry in monthly_pending_invoices_qs}
+
+        # Calculate approved invoices count and monthly counts for last 6 months
+        approved_invoices = ProspectiveConsultant.objects.count()
+
+        monthly_approved_invoices_qs = ProspectiveConsultant.objects.filter(
+            created_at__gte=six_months_ago
+        ).annotate(month_only=TruncMonth('created_at')).values('month_only').annotate(count=Count('id')).order_by('month_only')
+
+        monthly_approved_invoices = {entry['month_only'].strftime('%Y-%m'): entry['count'] for entry in monthly_approved_invoices_qs}
+
+        # Calculate percentage changes for pending invoices and approved invoices (month over month)
+        def calculate_percentage_change(data_dict):
+            sorted_months = sorted(data_dict.keys())
+            percentage_changes = {}
+            for i in range(1, len(sorted_months)):
+                prev = data_dict[sorted_months[i-1]]
+                curr = data_dict[sorted_months[i]]
+                if prev == 0:
+                    change = 100.0 if curr > 0 else 0.0
+                else:
+                    change = ((curr - prev) / prev) * 100
+                percentage_changes[sorted_months[i]] = round(change, 2)
+            return percentage_changes
+
+        pending_invoices_pct_change = calculate_percentage_change(monthly_pending_invoices)
+        approved_invoices_pct_change = calculate_percentage_change(monthly_approved_invoices)
 
         # Fetch recent activities from ActivityLog (last 5) without filtering by user role (for debugging)
         recent_activities = ActivityLog.objects.order_by('-timestamp')[:5]
@@ -616,7 +659,11 @@ def admin_dashboard(request):
         context = {
             'total_consultants': total_consultants,
             'pending_invoices': pending_invoices,
-            'approved_sessions': approved_sessions,
+            'approved_invoices': approved_invoices,
+            'monthly_pending_invoices': monthly_pending_invoices,
+            'monthly_approved_invoices': monthly_approved_invoices,
+            'pending_invoices_pct_change': pending_invoices_pct_change,
+            'approved_invoices_pct_change': approved_invoices_pct_change,
             'current_page': 'Dashboard',
             'recent_activities': activities_data,
         }
@@ -1882,13 +1929,15 @@ def new_consultant_details(request):
 
             from django.urls import reverse
             # Create ActivityLog entry for prospective consultant submission
-            ActivityLog.objects.create(
-                user=request.user if request.user.is_authenticated else None,
-                action_type='prospective_consultant',
-                description=f"New prospective consultant submitted: {prospective_consultant.name} ({prospective_consultant.email})",
-                content_object=prospective_consultant,
-                url=reverse('custom_admin:prospective_consultant_detail', args=[prospective_consultant.id])
-            )
+            # Only create ActivityLog if user is authenticated
+            if request.user.is_authenticated:
+                ActivityLog.objects.create(
+                    user=request.user,
+                    action_type='prospective_consultant',
+                    description=f"New prospective consultant submitted: {prospective_consultant.name} ({prospective_consultant.email})",
+                    content_object=prospective_consultant,
+                    url=reverse('custom_admin:prospective_consultant_detail', args=[prospective_consultant.id])
+                )
 
             messages.success(request, "Your prospective consultant request has been submitted successfully.")
             return redirect('landing_page')
