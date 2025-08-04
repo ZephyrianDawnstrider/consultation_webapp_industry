@@ -455,9 +455,9 @@ $('#add-availability-btn').off('click').on('click', function() {
 
 // Serialize availability data on form submit if applicable
 console.log('🔧 Setting up form submission handler...');
-$('#consultant-edit-form').on('submit', function(e) {
+$('#consultantProfileForm').on('submit', function(e) {
   console.log('📝 Form submission handler triggered!');
-  console.log('🔍 Form element found:', $('#consultant-edit-form').length);
+  console.log('🔍 Form element found:', $('#consultantProfileForm').length);
   console.log('🔍 Availability list found:', $('#availability-list').length);
   console.log('🔍 Availability select elements:', $('#availability-list select').length);
   
@@ -509,11 +509,11 @@ $('#consultant-edit-form').on('submit', function(e) {
       type: 'hidden',
       name: 'availability',
       value: JSON.stringify(availability)
-    }).appendTo('#consultant-edit-form');
+    }).appendTo('#consultantProfileForm');
   }
   
   console.log("📋 ALL FORM DATA:");
-  $('#consultant-edit-form').serializeArray().forEach(function(field) {
+  $('#consultantProfileForm').serializeArray().forEach(function(field) {
     if (field.name === 'availability') {
       console.log('🎯 AVAILABILITY FIELD:', field.name, '=', field.value);
     }

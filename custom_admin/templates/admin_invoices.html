@@ -8,11 +8,11 @@
     <h1 class="text-3xl font-bold mb-6 text-black">Invoice Management</h1>
     <div class="bg-white shadow rounded-lg p-6 text-gray">
         <form method="get" class="mb-4 flex flex-wrap gap-4 items-center">
-            <label for="month" class="text-sm font-medium text-gray-700">Month:</label>
+            <label for="month" class="text-black font-medium text-black">Month:</label>
             <input type="month" id="month" name="month" value="{{ filter_month }}" class="border border-gray-300 rounded px-2 py-1 text-sm" />
             <label for="name" class="text-sm font-medium text-gray-700">Consultant Name:</label>
             <input type="text" id="name" name="name" value="{{ filter_name }}" placeholder="Enter name or email" class="border border-gray-300 rounded px-2 py-1 text-sm" />
-            <button type="submit" class="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700 text-sm">Search</button>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700 text-black">Search</button>
             <a href="{% url 'custom_admin:admin_invoices' %}" class="ml-2 text-gray-600 hover:text-gray-900 text-sm">Clear</a>
         </form>
         {% if invoices %}
