@@ -6,6 +6,7 @@
 - [x] Improved curl commands with `-fsSL` flags for better error handling
 - [x] Added production environment variables (DEBUG=False, SECRET_KEY, ALLOWED_HOSTS)
 - [x] Ensured collectstatic runs with proper environment settings
+- [x] Fixed apt sources.list to include signed-by keyring reference for proper GPG verification
 
 ## Current Dockerfile Status
 The Dockerfile now properly:
