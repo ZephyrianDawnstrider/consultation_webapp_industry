@@ -401,3 +401,24 @@ django.db.utils.IntegrityError: ('23000', "[23000] [Microsoft][ODBC Driver 17 fo
 [2025-09-15 17:29:49,162] WARNING django.server "GET /static/default_profile.png HTTP/1.1" 404 1816
 [2025-09-15 17:29:50,627] INFO django.server "GET /auth/admin_invoices/ HTTP/1.1" 200 37172
 [2025-09-15 17:29:52,158] INFO django.server "GET /auth/prospective_consultants_management/ HTTP/1.1" 200 23313
+[2025-09-15 17:37:52,532] INFO django.server "GET /auth/prospective_consultant_detail/20/ HTTP/1.1" 200 15769
+[2025-09-15 17:37:52,786] WARNING django.request Not Found: /favicon.ico
+[2025-09-15 17:37:52,787] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-09-15 17:38:02,570] INFO django.server "GET /auth/prospective_consultant_detail/20/ HTTP/1.1" 200 15769
+[2025-09-15 17:38:02,613] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-09-15 17:38:02,614] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-09-15 17:38:02,837] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-09-15 17:38:04,148] WARNING django.request Not Found: /favicon.ico
+[2025-09-15 17:38:04,149] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-09-15 17:38:43,107] INFO django.server "GET /auth/prospective_consultant_detail/20/ HTTP/1.1" 200 15802
+[2025-09-15 17:38:43,126] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-09-15 17:38:43,126] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-09-15 17:38:43,225] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-09-15 17:38:54,481] INFO django.server "GET /auth/prospective_consultant_detail/20/ HTTP/1.1" 200 15802
+[2025-09-15 17:38:54,512] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-09-15 17:38:54,513] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-09-15 17:38:54,599] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-09-15 17:39:04,357] INFO django.server "GET /auth/prospective_consultant_detail/20/ HTTP/1.1" 200 15800
+[2025-09-15 17:39:04,376] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-09-15 17:39:04,377] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-09-15 17:39:04,480] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
