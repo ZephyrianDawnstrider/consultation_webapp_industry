@@ -16,13 +16,13 @@
         <th class="px-4 py-2 border-b border-gray-300 text-left text-white">Phone Number</th>
         <th class="px-4 py-2 border-b border-gray-300 text-left text-white">Skills</th>
         <th class="px-4 py-2 border-b border-gray-300 text-left text-white">LinkedIn</th>
-        <th class="px-4 py-2 border-b border-gray-300 text-left text-white">Date Submitted</th>
-        <th class="px-4 py-2 border-b border-gray-300 text-left text-white">Actions</th>
+        <th class="px-4 py-2 border-b border-gray-300 text-left text-gray-600">Date Submitted</th>
+        <th class="px-4 py-2 border-b border-gyay-300 text-left text-red-900">Actions</th>
       </tr>
     </thead>
     <tbody>
       {% for prospective_consultant in prospective_consultants %}
-      <tr class="hover:bg-gray-50">
+      <tr class="hover:bg-orange-600">
         <td class="px-4 py-2 border-b border-gray-300">{{ prospective_consultant.name }}</td>
         <td class="px-4 py-2 border-b border-gray-300">{{ prospective_consultant.email }}</td>
         <td class="px-4 py-2 border-b border-gray-300">{{ prospective_consultant.phone }}</td>
@@ -35,7 +35,7 @@
           {% endif %}
         </td>
         <td class="px-4 py-2 border-b border-gray-300">
-          <span class="local-time" data-utc="{{ prospective_consultant.created_at|date:'c' }}"></span>
+          <span class="local-time text-gray-600" data-utc="{{ prospective_consultant.created_at|date:'c' }}"></span>
         </td>
         <td class="px-4 py-2 border-b border-gray-300">
           <button type="button" onclick="deleteProspectiveConsultant(event, {{ prospective_consultant.id }})" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-1 px-3 rounded">
@@ -56,8 +56,8 @@
     background-color: transparent !important;
   }
   thead.bg-transparent th {
-    color: white !important;
-    border-bottom: 1px solid #ccc !important;
+    {% comment %} color: white !important; {% endcomment %}
+    {% comment %} border-bottom: 1px solid #ccc !important; {% endcomment %}
   }
 </style>
 

@@ -616,3 +616,21 @@
 [2025-08-04 10:09:38,872] INFO general.views Login attempt for email: ayushchaturvedi405@gmail.com
 [2025-08-04 10:09:38,923] INFO general.views User found: ayushchaturvedi405@gmail.com with role consultant
 [2025-08-04 10:09:39,031] INFO general.views Consultant user ayushchaturvedi405@gmail.com logged in successfully.
+[2025-08-18 12:47:15,287] INFO general.views Login attempt for email: admin_test@gmail.com
+[2025-08-18 12:47:15,339] INFO general.views User found: admin_test@gmail.com with role admin
+[2025-08-18 12:47:15,947] INFO general.views Admin user admin_test@gmail.com authenticated successfully.
+[2025-08-18 14:03:48,610] INFO general.views Login attempt for email: ayushchaturvedi405@gmail.com
+[2025-08-18 14:03:48,740] INFO general.views User found: ayushchaturvedi405@gmail.com with role consultant
+[2025-08-18 14:03:48,769] WARNING general.views Consultant user ayushchaturvedi405@gmail.com failed password check.
+[2025-08-18 14:03:57,733] INFO general.views Login attempt for email: ayushchaturvedi405@gmail.com
+[2025-08-18 14:03:57,787] INFO general.views User found: ayushchaturvedi405@gmail.com with role consultant
+[2025-08-18 14:03:57,880] INFO general.views Consultant user ayushchaturvedi405@gmail.com logged in successfully.
+[2025-08-18 14:05:23,030] INFO general.views Login attempt for email: admin_test@gmail.com
+[2025-08-18 14:05:23,089] INFO general.views User found: admin_test@gmail.com with role admin
+[2025-08-18 14:05:23,748] INFO general.views Admin user admin_test@gmail.com authenticated successfully.
+[2025-08-21 10:11:49,600] INFO general.views Login attempt for email: admin_test@gmail.com
+[2025-08-21 10:11:49,685] INFO general.views User found: admin_test@gmail.com with role admin
+[2025-08-21 10:11:51,082] INFO general.views Admin user admin_test@gmail.com authenticated successfully.
+[2025-09-15 16:36:16,301] INFO general.views Login attempt for email: admin_test@gmail.com
+[2025-09-15 16:36:16,355] INFO general.views User found: admin_test@gmail.com with role admin
+[2025-09-15 16:36:16,754] INFO general.views Admin user admin_test@gmail.com authenticated successfully.
