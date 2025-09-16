@@ -9,7 +9,7 @@
     <form method="get" id="timesheet-select-form" class="mb-6">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-                <label for="consultantSelect" class="block font-medium text-black">Consultant</label>
+                <label for="consultantSelect" class="block font-medium text-white">Consultant</label>
                 <select id="consultantSelect" name="consultant_id" class="mt-1 w-full border border-black-300 rounded px-3 py-2 text-black" required>
                     <option value="">Select Consultant</option>
                     {% for consultant in consultants %}
@@ -20,7 +20,7 @@
                 </select>
             </div>
             <div>
-                <label for="yearSelect" class="block font-medium text-black">Year</label>
+                <label for="yearSelect" class="block font-medium text-white">Year</label>
                 <select id="yearSelect" name="year" class="mt-1 w-full border border-black-300 rounded px-3 py-2 text-black" required>
                     {% for year in year_options %}
                     <option value="{{ year }}" {% if year == selected_year %}selected{% endif %}>{{ year }}</option>
