@@ -88,3 +88,16 @@
 [2025-09-16 14:03:07,348] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
 [2025-09-16 14:03:08,070] WARNING django.request Not Found: /favicon.ico
 [2025-09-16 14:03:08,071] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-09-16 14:08:48,723] INFO django.utils.autoreload C:\Users\Ayush\OneDrive - Crystal Hues Ltd\Desktop\consultation_webapp_industry\consultant\views.py changed, reloading.
+[2025-09-16 14:08:50,277] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-09-16 14:09:21,938] INFO django.server "GET /consultant/consultant_timesheet/?year=2025&month=09&mode=upload HTTP/1.1" 200 48267
+[2025-09-16 14:09:22,081] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-09-16 14:09:22,084] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-09-16 14:09:22,114] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-09-16 14:09:22,645] WARNING django.request Not Found: /favicon.ico
+[2025-09-16 14:09:22,646] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 2855
+[2025-09-16 14:11:50,057] INFO django.server "GET /auth/timesheet/?consultant_id=13&year=2025&month=09 HTTP/1.1" 200 27027
+[2025-09-16 14:11:50,084] INFO django.server "GET /static/custom_admin/css/branding.css HTTP/1.1" 200 99
+[2025-09-16 14:11:50,085] INFO django.server "GET /media/logo/logo.png HTTP/1.1" 200 12256
+[2025-09-16 14:11:50,237] INFO django.server "GET /static/custom_admin/js/branding.js HTTP/1.1" 200 104
+[2025-09-16 14:11:50,242] INFO django.server "GET /static/custom_admin/js/timesheet.js HTTP/1.1" 200 7231

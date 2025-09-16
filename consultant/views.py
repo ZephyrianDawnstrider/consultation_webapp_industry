@@ -175,8 +175,9 @@ def consultant_timesheet(request):
                     from datetime import datetime as dt
                     fmt_24 = '%H:%M'
                     fmt_12 = '%I:%M %p'
+                    fmt_24_sec = '%H:%M:%S'
                     def parse_time(t):
-                        for fmt in (fmt_24, fmt_12):
+                        for fmt in (fmt_24_sec, fmt_24, fmt_12):
                             try:
                                 return dt.strptime(t, fmt)
                             except Exception:
