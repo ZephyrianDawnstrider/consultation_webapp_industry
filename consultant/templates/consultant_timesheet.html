@@ -294,7 +294,7 @@
     <div class="mt-4 flex space-x-4">
       {% if mode == 'manual' %}
       <button id="add-row-button" type="button" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">Add Row</button>
-      <button id="save-entries-button" type="button" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">Save Timesheet Entries</button>
+      <button id="save-entries-button" type="button" data-timesheet-id="{{ selected_timesheet.id|default:'' }}" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">Save Timesheet Entries</button>
       {% endif %}
     </div>
     <div id="save-feedback" class="mt-2 text-sm"></div>
@@ -775,7 +775,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'X-CSRFToken': getCookie('csrftoken'),
           },
           body: JSON.stringify({
-            timesheet_id: null,
+            timesheet_id: saveBtn.getAttribute('data-timesheet-id') || null,
             entries: entries,
             selected_year: document.getElementById('year-select').value,
             selected_month: monthSelect.value,

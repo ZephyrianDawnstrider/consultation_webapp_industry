@@ -117,8 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
           date: inputs[0].value,
           start_time: inputs[1].value,
           end_time: inputs[2].value,
-          project_name: inputs[4].value,
-          task_name: inputs[3].value
+          project_name: inputs[3].value,
+          task_name: inputs[4].value
         };
       });
 

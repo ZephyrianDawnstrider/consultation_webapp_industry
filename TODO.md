@@ -1,29 +1,17 @@
-# Dockerfile Fixes and Improvements
+# TODO: Fix CSV Update Issue
 
-## Completed Tasks
-- [x] Fixed deprecated `apt-key add` command by replacing with `gpg --dearmor`
-- [x] Added proper GPG key handling for Microsoft SQL Server ODBC driver
-- [x] Improved curl commands with `-fsSL` flags for better error handling
-- [x] Added production environment variables (DEBUG=False, SECRET_KEY, ALLOWED_HOSTS)
-- [x] Ensured collectstatic runs with proper environment settings
-- [x] Fixed apt sources.list to include signed-by keyring reference for proper GPG verification
+## Tasks
+- [x] Edit `save_timesheet_entries` function in `consultant/views.py` to overwrite existing CSV file instead of creating new one with timestamp.
+- [x] Fixed file path inconsistency: Use existing file path for editing instead of generating new filename.
+- [x] Changed `os.path.join` to f-string for consistent forward slashes.
 
-## Current Dockerfile Status
-The Dockerfile now properly:
-- Installs Microsoft ODBC Driver 17 for SQL Server using modern GPG key methods
-- Sets production-appropriate environment variables
-- Collects static files correctly
-- Runs with gunicorn for production deployment
+## Details
+- Added data-timesheet-id attribute to the save button in the template to pass the selected timesheet ID.
+- Modified the save function to delete the existing file first and save with the same filename.
+- Updated the JS to send the timesheet_id from the button attribute instead of hardcoded null.
+- Fixed file path inconsistency: Changed `os.path.join('timesheets', file_name)` to `f"timesheets/{file_name}"` to use forward slashes consistently, preventing different paths on Windows vs. other systems.
+- This ensures updates are made to the existing timesheet record and file is overwritten.
 
-## Future Improvements
-- [ ] Consider using multi-stage build to reduce final image size
-- [ ] Add health check endpoint for container orchestration
-- [ ] Optimize Python dependencies installation (use requirements.txt caching)
-- [ ] Add proper SECRET_KEY management (use environment variables or secrets)
-- [ ] Consider adding database migration step in Dockerfile
-- [ ] Add proper user permissions for security (non-root user)
-
-## Testing
-- [ ] Test Docker build locally (requires Docker Desktop running)
-- [ ] Test deployment on Render platform
-- [ ] Verify database connectivity in containerized environment
+## Followup
+- Test the timesheet update functionality to confirm it overwrites the existing CSV file.
+- Verify that the file path and content remain consistent.

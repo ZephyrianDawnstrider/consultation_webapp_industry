@@ -141,58 +141,72 @@ def consultant_timesheet(request):
 
     logger.info(f"Selected timesheet: {selected_timesheet}")
 
-    if selected_timesheet:
+    if selected_timesheet and selected_timesheet.file and selected_timesheet.file.name:
         try:
-            with default_storage.open(selected_timesheet.file.name, 'r') as csv_file:
-                csv_data = csv_file.read()
+            with default_storage.open(selected_timesheet.file.name, 'rb') as f:
+                csv_data_bytes = f.read()
+            try:
+                csv_data = csv_data_bytes.decode('utf-8')
+            except UnicodeDecodeError:
+                csv_data = csv_data_bytes.decode('latin-1')
             f = StringIO(csv_data)
             reader = csv.DictReader(f)
             for row in reader:
-                normalized_row = {k.strip().lower(): v for k, v in row.items()}
-                task_name_keys = ['task name', 'task_name', 'task', 'name']
-                task_name_value = ''
-                for key in task_name_keys:
-                    if key in normalized_row:
-                        task_name_value = normalized_row[key]
-                        break
-                raw_hours = normalized_row.get('hours worked')
-                start_time_str = normalized_row.get('start time')
-                end_time_str = normalized_row.get('end time')
+                normalized_row = {k.strip().lower(): v.strip() if v else v for k, v in row.items()}
+                # Dynamically find keys
+                date_key = next((k for k in normalized_row if 'date' in k), None)
+                start_time_key = next((k for k in normalized_row if 'start' in k and 'time' in k), None)
+                end_time_key = next((k for k in normalized_row if 'end' in k and 'time' in k), None)
+                project_name_key = next((k for k in normalized_row if 'project' in k and 'name' in k), None)
+                task_name_key = next((k for k in normalized_row if 'task' in k and 'name' in k), None)
+                hours_worked_key = next((k for k in normalized_row if 'hours' in k and 'worked' in k), None)
+                description_key = next((k for k in normalized_row if 'description' in k), None)
+
+                raw_hours = normalized_row.get(hours_worked_key, '').strip() if hours_worked_key else ''
+                start_time_str = normalized_row.get(start_time_key, '').strip() if start_time_key else ''
+                end_time_str = normalized_row.get(end_time_key, '').strip() if end_time_key else ''
+                project_name = normalized_row.get(project_name_key, '').strip() if project_name_key else ''
+                task_name = normalized_row.get(task_name_key, '').strip() if task_name_key else ''
+                description = normalized_row.get(description_key, '').strip() if description_key else ''
+                date = normalized_row.get(date_key, '').strip() if date_key else ''
+
                 hours_worked = 0.0
                 try:
-                    if raw_hours not in (None, ''):
-                        hours_worked = float(raw_hours)
-                    else:
-                        # Calculate hours worked from start and end time if possible
-                        from datetime import datetime as dt
-                        fmt_24 = '%H:%M'
-                        fmt_12 = '%I:%M %p'
-                        def parse_time(t):
-                            for fmt in (fmt_24, fmt_12):
-                                try:
-                                    return dt.strptime(t, fmt)
-                                except Exception:
-                                    continue
-                            return None
-                        start_dt = parse_time(start_time_str) if start_time_str else None
-                        end_dt = parse_time(end_time_str) if end_time_str else None
-                        if start_dt and end_dt:
-                            delta = end_dt - start_dt
-                            hours_worked = delta.total_seconds() / 3600
-                            if hours_worked < 0:
-                                # If negative, assume end time is on next day
-                                hours_worked += 24
+                    from datetime import datetime as dt
+                    fmt_24 = '%H:%M'
+                    fmt_12 = '%I:%M %p'
+                    def parse_time(t):
+                        for fmt in (fmt_24, fmt_12):
+                            try:
+                                return dt.strptime(t, fmt)
+                            except Exception:
+                                continue
+                        return None
+                    start_dt = parse_time(start_time_str) if start_time_str else None
+                    end_dt = parse_time(end_time_str) if end_time_str else None
+                    if start_dt and end_dt:
+                        delta = end_dt - start_dt
+                        hours_worked = delta.total_seconds() / 3600
+                        if hours_worked < 0:
+                            # If negative, assume end time is on next day
+                            hours_worked += 24
+                    # If not calculated or 0, try raw_hours
+                    if hours_worked == 0.0 and raw_hours not in (None, ''):
+                        try:
+                            hours_worked = float(raw_hours)
+                        except:
+                            pass
                 except (ValueError, TypeError):
                     logger.warning(f"Invalid hours_worked value '{raw_hours}' in timesheet CSV, defaulting to 0")
                     hours_worked = 0.0
                 entry = {
-                    'date': normalized_row.get('date'),
+                    'date': date,
                     'start_time': start_time_str,
                     'end_time': end_time_str,
-                    'project_name': normalized_row.get('project name') or normalized_row.get('project_name') or '',
+                    'project_name': project_name,
                     'hours_worked': hours_worked,
-                    'task_name': task_name_value,
-                    'description': normalized_row.get('description'),
+                    'task_name': task_name,
+                    'description': description,
                 }
                 timesheet_entries.append(entry)
             # Sort timesheet entries by date ascending
@@ -206,15 +220,17 @@ def consultant_timesheet(request):
     for entry in timesheet_entries:
         project = entry.get('project_name') or ''
         try:
-            # If hours_worked is a string with comma or other formatting, clean it
             raw_hours = entry.get('hours_worked')
+            logger.info(f"Processing entry for summary: project='{project}', raw_hours='{raw_hours}' (type: {type(raw_hours)})")
             if isinstance(raw_hours, str):
                 raw_hours = raw_hours.replace(',', '').strip()
             hours = float(raw_hours) if raw_hours not in (None, '') else 0
+            logger.info(f"Calculated hours for summary: {hours}")
         except (ValueError, TypeError):
             logger.warning(f"Invalid hours_worked value '{entry.get('hours_worked')}' for project '{project}', defaulting to 0")
             hours = 0
         project_hours_summary[project] = project_hours_summary.get(project, 0) + hours
+        logger.info(f"Current summary for '{project}': {project_hours_summary[project]}")
 
     # Convert to list of dicts for template
     project_hours_list = [{'project_name': k, 'total_hours': v} for k, v in project_hours_summary.items() if k]
@@ -237,151 +253,91 @@ def consultant_timesheet(request):
 @login_required
 @require_POST
 def save_timesheet_entries(request):
-    import json
+    """Save or update timesheet entries from an editable table."""
     import csv
     from io import StringIO
-    from django.http import JsonResponse
     from django.core.files.base import ContentFile
-
-    def has_duplicate_time_entries(entries):
-        seen = set()
-        for entry in entries:
-            date = entry.get('date')
-            start_time = entry.get('start_time')
-            end_time = entry.get('end_time')
-            if not date or not start_time or not end_time:
-                continue
-            key = (date, start_time, end_time)
-            if key in seen:
-                return True
-            seen.add(key)
-        return False
-
+    
     user = request.user
+    if not user.is_authenticated or not hasattr(user, 'consultantprofile'):
+        return JsonResponse({'success': False, 'message': 'User is not authenticated or not a consultant.'})
+
     try:
         data = json.loads(request.body)
-        logger.info(f"save_timesheet_entries received data: {data}")
+        entries = data.get('entries', [])
         timesheet_id = data.get('timesheet_id')
-        entries = data.get('entries')
         selected_year_str = data.get('selected_year')
         selected_month_str = data.get('selected_month')
 
-        if entries is None:
-            logger.error("Missing entries in request data")
-            return JsonResponse({'success': False, 'message': 'Missing entries.'})
-
-        # Check for duplicate time entries for the same day
-        if has_duplicate_time_entries(entries):
-            logger.error("Duplicate time duration entries found for the same day")
-            return JsonResponse({'success': False, 'message': 'Duplicate time duration entries for the same day are not allowed.'})
-
-        # New validation: For same task name on same date, start time of second entry should be > end time of previous entry
-        from datetime import datetime as dt
-
-        def validate_task_time_entries(entries):
-            # Group entries by date and task name
-            grouped = {}
-            for entry in entries:
-                date = entry.get('date')
-                task_name = entry.get('task_name')
-                start_time = entry.get('start_time')
-                end_time = entry.get('end_time')
-                if not date or not task_name or not start_time or not end_time:
-                    continue
-                key = (date, task_name)
-                if key not in grouped:
-                    grouped[key] = []
-                grouped[key].append((start_time, end_time))
-
-            # For each group, sort by start time and check start > previous end
-            for key, times in grouped.items():
-                # Convert times to datetime.time for comparison
-                def parse_time(t):
-                    try:
-                        return dt.strptime(t, '%I:%M %p').time()
-                    except ValueError:
-                        try:
-                            return dt.strptime(t, '%H:%M').time()
-                        except ValueError:
-                            return None
-
-                parsed_times = []
-                for st, et in times:
-                    pst = parse_time(st)
-                    pet = parse_time(et)
-                    if pst is None or pet is None:
-                        continue
-                    parsed_times.append((pst, pet))
-
-                # Sort by start time
-                parsed_times.sort(key=lambda x: x[0])
-
-                for i in range(1, len(parsed_times)):
-                    if parsed_times[i][0] <= parsed_times[i-1][1]:
-                        return False, f"Start time {parsed_times[i][0]} is not after end time {parsed_times[i-1][1]} for task '{key[1]}' on date {key[0]}"
-            return True, ""
-
-        valid, error_msg = validate_task_time_entries(entries)
-        if not valid:
-            logger.error(f"Time validation error: {error_msg}")
-            return JsonResponse({'success': False, 'message': error_msg})
-
-        if timesheet_id:
-            timesheet = Timesheet.objects.get(id=timesheet_id, consultant=user)
-        else:
-            if not selected_year_str or not selected_month_str:
-                return JsonResponse({'success': False, 'message': 'Missing selected_year or selected_month for new timesheet.'})
-            try:
-                selected_month = datetime.strptime(f"{selected_year_str}-{selected_month_str}", '%Y-%m').date()
-            except ValueError:
-                return JsonResponse({'success': False, 'message': 'Invalid selected_year or selected_month format.'})
-
-            file_name = f"{user.id}_{selected_month.strftime('%Y_%m')}.csv"
-            file_path = os.path.join('timesheets', file_name)
-
-            # Check if a timesheet already exists for this user and month to avoid duplicates
-            existing_timesheet = Timesheet.objects.filter(consultant=user, month=selected_month).first()
-            if existing_timesheet:
-                timesheet = existing_timesheet
-                timesheet.file.name = file_path
-            else:
-                timesheet = Timesheet.objects.create(
-                    consultant=user,
-                    month=selected_month,
-                    status='awaiting_review',
-                )
-                timesheet.file.name = file_path
-
+        # Generate CSV content
         output = StringIO()
-        fieldnames = ['Date', 'Start Time', 'End Time', 'Project name', 'Hours Worked', 'Task Name', 'Description']
-        writer = csv.DictWriter(output, fieldnames=fieldnames)
-        writer.writeheader()
-
+        fieldnames = ['Date', 'Task Description', 'Hours Worked']
+        writer = csv.writer(output)
+        writer.writerow(fieldnames)
+        
+        total_hours = 0
         for entry in entries:
-            writer.writerow({
-                'Date': entry.get('date', ''),
-                'Start Time': entry.get('start_time', ''),
-                'End Time': entry.get('end_time', ''),
-                'Project name': entry.get('project_name', ''),
-                'Hours Worked': entry.get('hours_worked', ''),
-                'Task Name': entry.get('task_name', ''),
-                'Description': entry.get('description', ''),
-            })
+            hours = float(entry.get('hours', 0))
+            writer.writerow([
+                entry.get('date', ''),
+                entry.get('task', ''),
+                hours
+            ])
+            total_hours += hours
 
         csv_content = output.getvalue()
         output.close()
 
-        timesheet.file.save(timesheet.file.name, content=ContentFile(csv_content.encode('utf-8')))
-        timesheet.save()
+        # Create a ContentFile for saving
+        file_content = ContentFile(csv_content.encode('utf-8'))
 
-        logger.info("Timesheet entries saved successfully")
-        return JsonResponse({'success': True, 'message': 'Timesheet entries saved successfully.', 'timesheet_id': timesheet.id})
+        if timesheet_id:
+            # Update existing timesheet
+            timesheet = get_object_or_404(Timesheet, id=timesheet_id, consultant=user)
+            file_name = None
+            if timesheet.file and timesheet.file.name:
+                file_name = os.path.basename(timesheet.file.name)
+            
+            if not file_name:
+                file_name = f"{user.id}_{timesheet.month.strftime('%Y_%m')}.csv"
+            
+            timesheet.file.save(file_name, file_content, save=True)
+            
+        else:
+            # Create new timesheet
+            if not selected_year_str or not selected_month_str:
+                return JsonResponse({'success': False, 'message': 'Missing selected_year or selected_month for new timesheet.'})
+            
+            try:
+                selected_month_date = datetime.strptime(f"{selected_year_str}-{selected_month_str}-01", '%Y-%m-%d').date()
+            except ValueError:
+                return JsonResponse({'success': False, 'message': 'Invalid year or month.'})
+
+            file_name = f"{user.id}_{selected_month_date.strftime('%Y_%m')}.csv"
+            
+            # Use get_or_create to handle existing timesheet for the month
+            timesheet, created = Timesheet.objects.get_or_create(
+                consultant=user,
+                month=selected_month_date,
+                defaults={'status': 'pending'}
+            )
+            
+            # Save the file to the timesheet instance
+            timesheet.file.save(file_name, file_content, save=True)
+
+        logger.info("Timesheet entries saved successfully for timesheet_id: %s", timesheet.id)
+        return JsonResponse({
+            'success': True,
+            'message': 'Timesheet entries saved successfully.',
+            'timesheet_id': timesheet.id
+        })
+
     except Timesheet.DoesNotExist:
-        logger.error("Timesheet not found or access denied")
+        logger.error("Timesheet not found or access denied for timesheet_id: %s", timesheet_id)
         return JsonResponse({'success': False, 'message': 'Timesheet not found or access denied.'})
     except Exception as e:
-        logger.error(f"Error saving timesheet entries: {str(e)}")
-        return JsonResponse({'success': False, 'message': f'Error saving timesheet entries: {str(e)}'})
+        logger.error("Error saving timesheet entries: %s", str(e), exc_info=True)
+        return JsonResponse({'success': False, 'message': f'An unexpected error occurred: {str(e)}'})
 
 
 

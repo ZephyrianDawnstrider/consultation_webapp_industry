@@ -30,6 +30,9 @@ from django.core.mail import send_mail
 from django.db import transaction
 from django.db.models import Count, Prefetch, Q
 from django.http import JsonResponse, HttpResponseBadRequest
+from django.core.files.storage import default_storage
+from django.core.files.storage import default_storage
+from django.core.files.storage import default_storage
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import ConsultantStatus
 
@@ -126,14 +129,24 @@ def timesheet(request):
             timesheet_entries = []
             for row in reader:
                 rows_found = True
-                normalized_row = {k.strip().lower(): v for k, v in row.items()}
-                task_name_keys = ['task name', 'task_name', 'task', 'name']
-                task_name_value = ''
-                for key in task_name_keys:
-                    if key in normalized_row:
-                        task_name_value = normalized_row[key]
-                        break
-                raw_date = normalized_row.get('date')
+                normalized_row = {k.strip().lower(): v.strip() if v else v for k, v in row.items()}
+                # Dynamically find keys
+                date_key = next((k for k in normalized_row if 'date' in k), None)
+                start_time_key = next((k for k in normalized_row if 'start' in k and 'time' in k), None)
+                end_time_key = next((k for k in normalized_row if 'end' in k and 'time' in k), None)
+                project_name_key = next((k for k in normalized_row if 'project' in k and 'name' in k), None)
+                task_name_key = next((k for k in normalized_row if 'task' in k and 'name' in k), None)
+                hours_worked_key = next((k for k in normalized_row if 'hours' in k and 'worked' in k), None)
+                description_key = next((k for k in normalized_row if 'description' in k), None)
+
+                raw_hours = normalized_row.get(hours_worked_key, '').strip() if hours_worked_key else ''
+                start_time_str = normalized_row.get(start_time_key, '').strip() if start_time_key else ''
+                end_time_str = normalized_row.get(end_time_key, '').strip() if end_time_key else ''
+                project_name = normalized_row.get(project_name_key, '').strip() if project_name_key else ''
+                task_name = normalized_row.get(task_name_key, '').strip() if task_name_key else ''
+                description = normalized_row.get(description_key, '').strip() if description_key else ''
+                raw_date = normalized_row.get(date_key, '').strip() if date_key else ''
+
                 iso_date = ''
                 if raw_date:
                     try:
@@ -150,31 +163,41 @@ def timesheet(request):
                             iso_date = raw_date
                     except Exception:
                         iso_date = raw_date
-                raw_hours = normalized_row.get('hours worked')
-                start_time_str = normalized_row.get('start time') or normalized_row.get('start_time')
-                end_time_str = normalized_row.get('end time') or normalized_row.get('end_time')
+
                 hours_worked = 0.0
                 try:
-                    if raw_hours not in (None, ''):
-                        hours_worked = float(raw_hours)
-                    else:
-                        from datetime import datetime as dt
-                        fmt_24 = '%H:%M'
-                        fmt_12 = '%I:%M %p'
-                        def parse_time(t):
-                            for fmt in (fmt_24, fmt_12):
-                                try:
-                                    return dt.strptime(t, fmt)
-                                except Exception:
-                                    continue
-                            return None
-                        start_dt = parse_time(start_time_str) if start_time_str else None
-                        end_dt = parse_time(end_time_str) if end_time_str else None
-                        if start_dt and end_dt:
-                            delta = end_dt - start_dt
-                            hours_worked = delta.total_seconds() / 3600
-                            if hours_worked < 0:
-                                hours_worked += 24
+                    from datetime import datetime as dt
+                    fmt_24 = '%H:%M'
+                    fmt_12 = '%I:%M %p'
+                    def parse_time(t):
+                        t = t.strip()
+                        formats = [
+                            '%H:%M:%S',
+                            '%H:%M',
+                            '%I:%M:%S %p',
+                            '%I:%M %p',
+                        ]
+                        for fmt in formats:
+                            try:
+                                return dt.strptime(t, fmt)
+                            except ValueError:
+                                continue
+                        return None
+                    start_dt = parse_time(start_time_str) if start_time_str else None
+                    end_dt = parse_time(end_time_str) if end_time_str else None
+                    if start_dt and end_dt:
+                        start_minutes = start_dt.hour * 60 + start_dt.minute
+                        end_minutes = end_dt.hour * 60 + end_dt.minute
+                        delta_minutes = end_minutes - start_minutes
+                        if delta_minutes < 0:
+                            delta_minutes += 24 * 60
+                        hours_worked = delta_minutes / 60.0
+                    # If not calculated or 0, try raw_hours
+                    if hours_worked == 0.0 and raw_hours not in (None, ''):
+                        try:
+                            hours_worked = float(raw_hours)
+                        except:
+                            pass
                 except (ValueError, TypeError):
                     logger.warning(f"Invalid hours_worked value '{raw_hours}' in timesheet CSV, defaulting to 0")
                     hours_worked = 0.0
@@ -182,10 +205,10 @@ def timesheet(request):
                     'date': iso_date,
                     'start_time': start_time_str,
                     'end_time': end_time_str,
-                    'project_name': normalized_row.get('project name') or normalized_row.get('project_name') or '',
+                    'project_name': project_name,
                     'hours_worked': hours_worked,
-                    'task_name': task_name_value,
-                    'description': normalized_row.get('description'),
+                    'task_name': task_name,
+                    'description': description,
                 }
                 timesheet_entries.append(entry)
             if not rows_found:
@@ -195,6 +218,7 @@ def timesheet(request):
                         'date': datetime.today().date().isoformat(),
                         'start_time': '09:00',
                         'end_time': '17:00',
+                        'project_name': 'Sample Project 1',
                         'task_name': 'Sample Task 1',
                         'description': 'Sample description 1',
                     },
@@ -202,6 +226,7 @@ def timesheet(request):
                         'date': datetime.today().date().isoformat(),
                         'start_time': '10:00',
                         'end_time': '18:00',
+                        'project_name': 'Sample Project 2',
                         'task_name': 'Sample Task 2',
                         'description': 'Sample description 2',
                     },
@@ -267,61 +292,35 @@ def update_timesheet_status(request, timesheetId):
 
     return JsonResponse({'success': True, 'message': 'Timesheet status updated successfully.'})
 
-@login_required
-@csrf_exempt
 @require_POST
+@login_required
 def save_timesheet_entries(request):
     """
     Save edited timesheet entries from JSON POST data, overwrite CSV file.
-    Includes server-side validation of entries.
     Deletes the timesheet file and record if entries are empty.
     """
     user = request.user
     try:
         data = json.loads(request.body)
-        timesheet_id = data.get('timesheet_id')
         entries = data.get('entries')
+        timesheet_id = data.get('timesheet_id')
+
         if not timesheet_id or entries is None:
             return JsonResponse({'success': False, 'message': 'Missing timesheet_id or entries.'})
 
-        # Fetch the timesheet instance
-        timesheet = Timesheet.objects.get(id=timesheet_id)
+        timesheet = get_object_or_404(Timesheet, id=timesheet_id)
 
-        # Check if user has permission (staff or owner)
         if not (user.is_staff or timesheet.consultant == user):
             return JsonResponse({'success': False, 'message': 'Permission denied.'})
 
-        # If entries list is empty, delete the file and timesheet record
-        if len(entries) == 0:
-            # Delete the file from storage
-            timesheet.file.delete(save=False)
-            # Delete the timesheet record
+        if not entries:
+            if timesheet.file and timesheet.file.name:
+                timesheet.file.delete(save=False)
             timesheet.delete()
             return JsonResponse({'success': True, 'message': 'Timesheet deleted as it was empty.'})
 
-        # Server-side validation function
-        def validate_entry(entry):
-            if not entry.get('date'):
-                return 'Date is required.'
-            if not entry.get('start_time'):
-                return 'Start Time is required.'
-            if not entry.get('end_time'):
-                return 'End Time is required.'
-            if entry.get('start_time') >= entry.get('end_time'):
-                return 'Start Time must be before End Time.'
-            if not entry.get('task_name') or entry.get('task_name').strip() == '':
-                return 'Task Name is required.'
-            return None
-
-        # Validate all entries
-        for i, entry in enumerate(entries):
-            error = validate_entry(entry)
-            if error:
-                return JsonResponse({'success': False, 'message': f'Error in entry {i + 1}: {error}'})
-
-        # Prepare CSV output
         output = StringIO()
-        fieldnames = ['Date', 'Start Time', 'End Time', 'Task Name', 'Description']
+        fieldnames = ['Date', 'Start Time', 'End Time', 'Project name', 'Hours Worked', 'Task Name', 'Description']
         writer = csv.DictWriter(output, fieldnames=fieldnames)
         writer.writeheader()
 
@@ -330,6 +329,8 @@ def save_timesheet_entries(request):
                 'Date': entry.get('date', ''),
                 'Start Time': entry.get('start_time', ''),
                 'End Time': entry.get('end_time', ''),
+                'Project name': entry.get('project_name', ''),
+                'Hours Worked': entry.get('hours_worked', ''),
                 'Task Name': entry.get('task_name', ''),
                 'Description': entry.get('description', ''),
             })
@@ -337,14 +338,21 @@ def save_timesheet_entries(request):
         csv_content = output.getvalue()
         output.close()
 
-        # Save CSV content to the file field
-        timesheet.file.save(timesheet.file.name, content=ContentFile(csv_content.encode('utf-8')))
-        timesheet.save()
+        file_name = timesheet.file.name
+        if not file_name:
+            consultant = timesheet.consultant
+            file_name = f"timesheets/{consultant.id}_{timesheet.month.strftime('%Y_%m')}.csv"
+
+        if timesheet.file and timesheet.file.name and default_storage.exists(timesheet.file.name):
+            timesheet.file.delete(save=False)
+
+        timesheet.file.save(file_name, ContentFile(csv_content.encode('utf-8')), save=True)
 
         return JsonResponse({'success': True, 'message': 'Timesheet entries saved successfully.'})
     except Timesheet.DoesNotExist:
         return JsonResponse({'success': False, 'message': 'Timesheet not found.'})
     except Exception as e:
+        logger.error(f"Error saving timesheet entries: {str(e)}", exc_info=True)
         return JsonResponse({'success': False, 'message': f'Error saving timesheet entries: {str(e)}'})
     
 from django import forms
