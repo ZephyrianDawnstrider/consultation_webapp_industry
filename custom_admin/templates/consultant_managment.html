@@ -196,7 +196,7 @@
         <div class="flex space-x-4">
             <div class="relative">
                 <form id="searchForm" method="get" action="{% url 'custom_admin:consultant_management' %}">
-<input type="text" name="search" placeholder="Search consultants..." value="{{ search_query }}" style="color: black;" class="pl-10 pr-4 py-2 border text-black-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" onfocus="this.style.color='black';" onblur="this.style.color='gray';" />
+                <input type="text" name="search" placeholder="Search consultants..." value="{{ search_query }}" style="color: black;" class="pl-10 pr-4 py-2 border text-black-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" onfocus="this.style.color='black';" onblur="this.style.color='gray';" />
                     <button type="submit" class="absolute right-0 top-0 mt-2 mr-2 text-black-700">
                         <i class="fas fa-search text-black"></i>
                     </button>
@@ -226,22 +226,22 @@
                 <tr class="hover:bg-black-50 transition-colors">
                     <td class="px-6 py-4 whitespace-nowrap">
                         <div class="flex items-center">
-                            <div class="flex-shrink-0 h-10 w-10">
+                            {% comment %} <div class="flex-shrink-0 h-10 w-10">
                                 {% if consultant.consultant_profile and consultant.consultant_profile.profile_image %}
                                 <img class="h-10 w-10 rounded-full text-black" src="{{ consultant.consultant_profile.profile_image.url }}" alt="{{ consultant.get_full_name }}">
                                 {% else %}
                                 <img class="h-10 w-10 rounded-full text-black" src="{% static 'default_profile.png' %}" alt="{{ consultant.get_full_name }}">
                                 {% endif %}
-                            </div>
+                            </div> {% endcomment %}
                             <div class="ml-4">
                                 <div class="text-sm font-medium text-black">{{ consultant.consultant_profile.name }}</div>
-                                <div class="text-sm text-black">
+                                {% comment %} <div class="text-sm text-black">
                                     {% if consultant.consultant_profile and consultant.consultant_profile.specialization %}
                                         {{ consultant.consultant_profile.specialization }}
                                     {% else %}
                                         N/A
                                     {% endif %}
-                                </div>
+                                </div> {% endcomment %}
                             </div>
                         </div>
                     </td>
