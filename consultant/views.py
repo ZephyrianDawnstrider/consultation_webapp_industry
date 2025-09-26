@@ -260,7 +260,7 @@ def save_timesheet_entries(request):
     from django.core.files.base import ContentFile
     
     user = request.user
-    if not user.is_authenticated or not hasattr(user, 'consultantprofile'):
+    if not user.is_authenticated or not hasattr(user, 'consultant_profile'):
         return JsonResponse({'success': False, 'message': 'User is not authenticated or not a consultant.'})
 
     try:
@@ -272,19 +272,20 @@ def save_timesheet_entries(request):
 
         # Generate CSV content
         output = StringIO()
-        fieldnames = ['Date', 'Task Description', 'Hours Worked']
-        writer = csv.writer(output)
-        writer.writerow(fieldnames)
-        
-        total_hours = 0
+        fieldnames = ['Date', 'Start Time', 'End Time', 'Project name', 'Hours Worked', 'Task Name', 'Description']
+        writer = csv.DictWriter(output, fieldnames=fieldnames)
+        writer.writeheader()
+
         for entry in entries:
-            hours = float(entry.get('hours', 0))
-            writer.writerow([
-                entry.get('date', ''),
-                entry.get('task', ''),
-                hours
-            ])
-            total_hours += hours
+            writer.writerow({
+                'Date': entry.get('date', ''),
+                'Start Time': entry.get('start_time', ''),
+                'End Time': entry.get('end_time', ''),
+                'Project name': entry.get('project_name', ''),
+                'Hours Worked': entry.get('hours_worked', ''),
+                'Task Name': entry.get('task_name', ''),
+                'Description': entry.get('description', ''),
+            })
 
         csv_content = output.getvalue()
         output.close()
@@ -301,6 +302,9 @@ def save_timesheet_entries(request):
             
             if not file_name:
                 file_name = f"{user.id}_{timesheet.month.strftime('%Y_%m')}.csv"
+
+            if timesheet.file and timesheet.file.name and default_storage.exists(timesheet.file.name):
+                timesheet.file.delete(save=False)
             
             timesheet.file.save(file_name, file_content, save=True)
             
