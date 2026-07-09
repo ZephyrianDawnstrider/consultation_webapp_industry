@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(=4utn9oke4(8mn&$2jpaz#x=$#g^%bj^%!v=qw_b%8$1g*0)r'
+SECRET_KEY = SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -85,11 +85,11 @@ import os
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
-        'NAME': os.getenv('MSSQL_DB_NAME', 'softechconsultant'),
-        'USER': os.getenv('MSSQL_DB_USER', 'sofcunsuser'),
-        'PASSWORD': os.getenv('MSSQL_DB_PASSWORD', 'REDACTED'),
-        'HOST': os.getenv('MSSQL_DB_HOST', 'REDACTED'),
-        'PORT': os.getenv('MSSQL_DB_PORT', ''),
+        'NAME': os.getenv('MSSQL_DB_NAME'),
+        'USER': os.getenv('MSSQL_DB_USER'),
+        'PASSWORD': os.getenv('MSSQL_DB_PASSWORD'),
+        'HOST': os.getenv('MSSQL_DB_HOST'),
+        'PORT': os.getenv('MSSQL_DB_PORT'),
         'OPTIONS': {
             'driver': 'ODBC Driver 17 for SQL Server',
         },
@@ -128,8 +128,7 @@ USE_I18N = True
 USE_TZ = True
 
 # Fernet key for consultant password encryption
-FERNET_KEY = b'REDACTED'
-
+FERNET_KEY = os.getenv('FERNET_KEY').encode()
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
@@ -209,12 +208,13 @@ else:
     MEDIA_ROOT = BASE_DIR / 'media'
 
 # Email backend configuration for SMTP
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_BACKEND = _your_email_
+EMAIL_HOST = _your_email_host_
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'chaturvedi1ayush@gmail.com'  
-EMAIL_HOST_PASSWORD = 'REDACTED'
+EMAIL_HOST_
+USER = os.getenv('EMAIL_HOST_USER')\
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
